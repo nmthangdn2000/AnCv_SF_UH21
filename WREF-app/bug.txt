@@ -1,0 +1,1 @@
+RecyclerView muốn hoạt đông được trong HorizontalScrollView thì phải đặt RecyclerView bên trong một RelativeLayout
