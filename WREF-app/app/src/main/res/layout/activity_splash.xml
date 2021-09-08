@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashScreen.SplashActivity"
+    android:orientation="vertical">
+       <RelativeLayout
+           android:layout_weight="1"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <ImageView
+               android:layout_alignParentBottom="true"
+               android:layout_centerHorizontal="true"
+               android:id="@+id/logoImg"
+               android:transitionName="logo_img"
+               android:layout_width="250dp"
+               android:layout_height="250dp"
+               android:src="@drawable/logo"/>
+       </RelativeLayout>
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:id="@+id/logoName"
+            android:transitionName="logo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee_regular"
+            android:includeFontPadding="false"
+            android:text="WREF"
+            android:textColor="@color/black"
+            android:textSize="80sp"/>
+        <TextView
+            android:layout_below="@+id/logoName"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="80dp"
+            android:transitionName="logo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bungee_regular"
+            android:includeFontPadding="false"
+            android:text="Vì cuộc sống an toàn - thịnh vượng"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+</LinearLayout>

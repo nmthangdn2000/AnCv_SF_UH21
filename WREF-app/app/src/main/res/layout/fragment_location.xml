@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainScreen.Map.LocationFragment"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rltToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#189CFA">
+        <ImageView
+            android:id="@+id/iconSearchBar"
+            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_baseline_search_24"
+            app:tint="@color/white" />
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_toRightOf="@+id/iconSearchBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:queryHint="Nhập tên vị trí ..."
+            android:iconifiedByDefault="false"
+            android:theme="@style/text"
+            android:queryBackground="@null"
+            android:searchIcon="@null"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvLocation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+</LinearLayout>
