@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/lnlPP"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@drawable/border_card"
+    android:paddingHorizontal="50dp"
+    android:paddingVertical="15dp"
+    android:layout_marginVertical="5dp"
+    android:orientation="horizontal">
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="Thời gian"/>
+        <TextView
+            android:id="@+id/txtAboutTime"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Tháng 4 - 7"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/txtAmount"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:text="40.5 Tạ/ha"/>
+        <TextView
+            android:id="@+id/txtRate"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:drawableLeft="@drawable/ic_mdi_arrow_top_right"
+            android:drawablePadding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="130%" />
+    </RelativeLayout>
+</LinearLayout>
