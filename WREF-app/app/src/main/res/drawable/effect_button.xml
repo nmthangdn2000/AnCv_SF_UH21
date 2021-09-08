@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/icon_color_lens">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/mtrl_textinput_default_box_stroke_color"/>
+            <corners android:radius="1000dp"/>
+            <gradient
+                android:angle="45"
+                android:startColor="#2285E0"
+                android:endColor="@color/mtrl_textinput_default_box_stroke_color"/>
+        </shape>
+    </item>
+</ripple>

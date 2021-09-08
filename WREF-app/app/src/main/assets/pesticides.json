@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Greenim",
+    "quality": "Rất tốt",
+    "price": "230.000 VNĐ",
+    "weight": "1l",
+    "label": "greenim_pesticides"
+  }, {
+    "name": "Saffron",
+    "quality": "Rất tốt",
+    "price": "220.000 VNĐ",
+    "weight": "700ml",
+    "label": "systemic_insecticides"
+  }, {
+    "name": "NiTOX",
+    "quality": "Hiệu quả cao",
+    "price": "150.000 VNĐ",
+    "weight": "600ml",
+    "label": "nitox"
+  }, {
+    "name": "SETOP",
+    "quality": "Hiệu quả",
+    "price": "120.000 VNĐ",
+    "weight": "700ml",
+    "label": "setop_pesticide"
+  }, {
+    "name": "GROW ON",
+    "quality": "Tốt",
+    "price": "165.000 VNĐ",
+    "weight": "700ml",
+    "label": "grow_on"
+  }
+]
