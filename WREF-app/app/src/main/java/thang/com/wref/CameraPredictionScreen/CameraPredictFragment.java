@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import thang.com.wref.Components.AI.AIServices;
+import thang.com.wref.Components.AI.DiseasesDetection;
 import thang.com.wref.MainScreen.Adapters.DiseaseAdapter;
 import thang.com.wref.CameraPredictionScreen.Prediction.DiseaseDetail;
 import thang.com.wref.util.MyCamera.CameraUtilities;
@@ -70,7 +70,7 @@ public class CameraPredictFragment extends Fragment implements View.OnClickListe
     private SharedPreferencesManagement sharedPreferencesManagement;
     private String realPathfile="";
     private CameraUtilities camUtils;
-    private AIServices AI;
+    private DiseasesDetection AI;
 
     private DiseaseAdapter diseaseAdapter;
 
@@ -124,7 +124,7 @@ public class CameraPredictFragment extends Fragment implements View.OnClickListe
 
         mappingView();
         this.camUtils = new CameraUtilities(this.getActivity());
-        this.AI = new AIServices(this.getActivity());
+        this.AI = new DiseasesDetection(this.getActivity());
 
         if (savedInstanceState != null) {
             String imageUriString = savedInstanceState.getString("imgUri");

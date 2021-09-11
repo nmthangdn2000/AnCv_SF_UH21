@@ -22,7 +22,7 @@ class MinMaxScaler(
         )
 
         public fun loadScaler(app: Context, jsonPath: String): MinMaxScaler {
-            Log.d(FloodPrediction.TAG, "Load Scaler");
+            Log.d(TAG, "Load Scaler");
 
             val scalerData: ScalerJson = Klaxon()
                 .parse<ScalerJson>(app.assets.open(jsonPath))!!

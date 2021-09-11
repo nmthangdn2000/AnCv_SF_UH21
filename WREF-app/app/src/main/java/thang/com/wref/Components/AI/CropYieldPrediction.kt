@@ -15,7 +15,7 @@ class CropYieldPrediction (
     private lateinit var scalerY: MinMaxScaler;
 
     companion object {
-        val TAG: String = FloodPrediction::class.java.simpleName;
+        val TAG: String = CropYieldPrediction::class.java.simpleName;
         private val SCALER_X1: String = "Scalers/CropYieldPrediction/scalerX.json";
         private val SCALER_Y: String = "Scalers/CropYieldPrediction/scalerY.json";
         private val MODEL_NAME: String = "crop_yield_prediction.tflite";
