@@ -18,27 +18,41 @@
     <string name="demo_text_2"><![CDATA[EMOTION Driver5- UNCERTAINTY/VARIETY (Surprise, Diversity, Challenge,<font color="yellow">Không phát hiện </font>bệnh cây, Wild]]></string>
 
     <string-array name="district">
-        <item>Quận Hải Châu</item>
-        <item>Quận Cẩm Lệ</item>
-        <item>Quận Thanh Khê</item>
-        <item>Quận Liên Chiểu</item>
-        <item>Quận Ngũ Hành Sơn</item>
-        <item>Quận Sơn Trà</item>
-        <item>Huyện Hòa Vang</item>
+        <item>Bắc Trà My</item>
+        <item>Duy Xuyên</item>
+        <item>Đại Lộc</item>
+        <item>Đông Giang</item>
+        <item>Điện Bàn</item>
+        <item>Ngũ Hành Sơn</item>
+        <item>Hiệp Đức</item>
+        <item>Nam Trà My</item>
+        <item>Phú Ninh</item>
+        <item>Núi Thành</item>
+        <item>Phước Sơn</item>
+        <item>Quế Sơn</item>
+        <item>Tây Giang</item>
+        <item>Tiền Phước</item>
+        <item>Thăng Bình</item>
+        <item>Hội An</item>
+        <item>Tam Kỳ</item>
     </string-array>
 
     <string-array name="tree">
-        <item>Cây lúa</item>
-        <item>Cây đậu</item>
-        <item>Cây mè</item>
-        <item>Cây ngô</item>
-        <item>Cây cà chua</item>
-        <item>Cây dưa leo</item>
+        <item>Cây Bắp</item>
+        <item>Cây Lúa</item>
+        <item>Cây Đậu</item>
     </string-array>
 
     <string-array name="soil">
-        <item>Đát cát</item>
+        <item>Đất đá vôi</item>
         <item>Đát sét</item>
-        <item>Đát thịt</item>
+        <item>Đất sét khô</item>
+        <item>Đất cát</item>
+        <item>Đất phù sa</item>
+    </string-array>
+
+    <string-array name="season">
+        <item>Đông Xuân</item>
+        <item>Hạ Thu</item>
     </string-array>
 </resources>

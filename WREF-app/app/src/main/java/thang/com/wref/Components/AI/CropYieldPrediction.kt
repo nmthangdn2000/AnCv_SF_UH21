@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.ArrayMap
 import android.util.Log
 import org.tensorflow.lite.Interpreter
+import thang.com.wref.R
 import kotlin.collections.HashMap
 
 class CropYieldPrediction (
@@ -16,9 +17,9 @@ class CropYieldPrediction (
 
     companion object {
         val TAG: String = CropYieldPrediction::class.java.simpleName;
-        private val SCALER_X1: String = "Scalers/CropYieldPrediction/scalerX.json";
+        private val SCALER_X1: String = "Scalers/CropYieldPrediction/scalerX1.json";
         private val SCALER_Y: String = "Scalers/CropYieldPrediction/scalerY.json";
-        private val MODEL_NAME: String = "crop_yield_prediction.tflite";
+        private val MODEL_NAME: String = "crop_yield_prediction_model.tflite";
 
         val districts: ArrayMap<String, Int> = ArrayMap<String, Int>();
         val soilTypes: ArrayMap<String, Int> = ArrayMap<String, Int>();
@@ -27,36 +28,21 @@ class CropYieldPrediction (
     }
 
     init {
-        districts["Bắc Trà My"] = 0;
-        districts["Duy Xuyên"] = 1;
-        districts["Đại Lộc"] = 2;
-        districts["Đông Giang"] = 3;
-        districts["Điện Bàn"] = 4; // 2 Dien ban
-        districts["Hiệp Đức"] = 6;
-        districts["Nam Giang"] = 7;
-        districts["Nam Trà My"] = 8;
-        districts["Phú Ninh"] = 9;
-        districts["Núi Thành"] = 10;
-        districts["Phước Sơn"] = 11;
-        districts["Quế Sơn"] = 12;
-        districts["Tây Giang"] = 13;
-        districts["Tiền Phước"] = 14
-        districts["Thăng Bình"] = 15;
-        districts["Hội An"] = 16;
-        districts["Tam Kỳ"] = 17;
+        app.resources.getStringArray(R.array.district).mapIndexed() { index, district ->
+            districts[district] = index;
+        }
 
-        soilTypes["Đất đá vôi"] = 0;
-        soilTypes["Đất sét"] = 1;
-        soilTypes["Đất sét khô"] = 2;
-        soilTypes["Đất cát"] = 3;
-        soilTypes["Đất phù sa"] = 4;
+        app.resources.getStringArray(R.array.soil).mapIndexed() { index, soil ->
+            soilTypes[soil] = index;
+        }
 
-        crops["Bắp"] = 0;
-        crops["Lúa"] = 1;
-        crops["Dâu"] = 2;
+        app.resources.getStringArray(R.array.tree).mapIndexed() { index, crop ->
+            crops[crop] = index;
+        }
 
-        seasons["Đông Xuân"] = 0;
-        seasons["Hạ Thu"] = 1
+        app.resources.getStringArray(R.array.season).mapIndexed() { index, season ->
+            seasons[season] = index;
+        }
     }
 
     private fun loadModelAndMinMaxScaler() {

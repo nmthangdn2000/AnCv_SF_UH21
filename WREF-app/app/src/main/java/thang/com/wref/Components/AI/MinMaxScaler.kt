@@ -27,6 +27,14 @@ class MinMaxScaler(
             val scalerData: ScalerJson = Klaxon()
                 .parse<ScalerJson>(app.assets.open(jsonPath))!!
 
+//            val dataMinFloat: FloatArray = scalerData.dataMin.map {
+//                it.toFloat()
+//            }.toFloatArray();
+//
+//            val dataMaxFloat: FloatArray = scalerData.dataMax.map {
+//                it.toFloat()
+//            }.toFloatArray();
+
             return MinMaxScaler(
                 scalerData.dataMin.toFloatArray(), scalerData.dataMax.toFloatArray(),
                 scalerData.min, scalerData.max
