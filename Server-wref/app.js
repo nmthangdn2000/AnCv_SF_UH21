@@ -25,6 +25,8 @@ const apiWeather = require('./router/api/weather.api');
 const apiInforAgri = require('./router/api/inforAgri.api');
 const apiHarvesthelper = require('./router/api/harvesthelper.api');
 const apiShop = require('./router/api/shop.api');
+const apiProduct = require('./router/api/product.api');
+const apiCategory = require('./router/api/category.api');
 
 // router api passport.authenticate('jwt', { session: false })
 app.use('/api', apiLogin);
@@ -37,6 +39,8 @@ app.use('/api', passport.authenticate('jwt', { session: false }), apiStories);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiWeather);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiHarvesthelper);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiShop);
+app.use('/api', passport.authenticate('jwt', { session: false }), apiProduct);
+app.use('/api', passport.authenticate('jwt', { session: false }), apiCategory);
 app.use('/', (req, res) => {
   res.render('index.ejs');
 });
