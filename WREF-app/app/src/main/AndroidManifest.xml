@@ -39,6 +39,7 @@
         <activity android:name=".MainScreen.Havest.ItemThemeAgriActivity" />
         <activity android:name=".MainScreen.Havest.ProductAgriActivity" />
         <activity android:name=".MainScreen.Havest.ThemeAgriActivity" />
+        <activity android:name=".MainScreen.Disaster.Flood.FloodDisasterActivity" />
         <activity android:name=".MainScreen.SearchActivity" />
         <activity android:name=".SplashScreen.SplashActivity">
             <intent-filter>

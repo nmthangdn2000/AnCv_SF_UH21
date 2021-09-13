@@ -66,16 +66,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <RelativeLayout
                     android:id="@+id/rltWeather"
                     android:layout_width="match_parent"
-                    android:layout_weight="2"
                     android:layout_height="50dp"
                     android:layout_marginRight="10dp"
-                    android:paddingHorizontal="30dp"
-                    android:foreground="?android:attr/selectableItemBackground"
+                    android:layout_weight="2"
                     android:background="@drawable/circle_transparent"
-                    android:backgroundTint="#2062AEFB">
+                    android:backgroundTint="#2062AEFB"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:paddingHorizontal="30dp">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -91,12 +93,13 @@
                             android:text="15℃"
                             android:textColor="#2285E0"
                             android:textSize="12sp" />
+
                         <View
                             android:layout_width="1dp"
-                            android:layout_marginVertical="6dp"
-                            android:layout_centerHorizontal="true"
                             android:layout_height="match_parent"
-                            android:background="#502285E0"/>
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginVertical="6dp"
+                            android:background="#502285E0" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -113,12 +116,15 @@
                     </RelativeLayout>
 
                 </RelativeLayout>
+
                 <RelativeLayout
+                    android:id="@+id/rtlDisaster"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="3"
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/circle_transparent"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:backgroundTint="#20E04422">
 
                     <TextView

@@ -37,6 +37,7 @@ import java.util.List;
 
 import thang.com.wref.LoginScreen.LoginActivity;
 import thang.com.wref.LoginScreen.SharedPreferencesManagement;
+import thang.com.wref.MainScreen.Disaster.Flood.FloodDisasterActivity;
 import thang.com.wref.MainScreen.Havest.AllHavestHelperActivity;
 import thang.com.wref.MainScreen.Havest.CropYieldActivity;
 import thang.com.wref.MainScreen.Havest.HarvesthelperActivity;
@@ -54,7 +55,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, View.O
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private GoogleMap map;
     private View view, gradientMap;
-    private RelativeLayout rltWeather, rlvLogOut;
+    private RelativeLayout rltWeather, rlvLogOut, rltDisaster;
     private TextView btnShownAllHarvestHelper;
     private LinearLayout lnlTrackProgress, lnlTrackProgress2, lnlCaChuaHavestHelper, lnlDuaLeoHavestHelper;
     private Task<Location> task;
@@ -110,6 +111,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, View.O
     private void mappingView(){
         gradientMap = (View) view.findViewById(R.id.gradientMap);
         rltWeather = (RelativeLayout) view.findViewById(R.id.rltWeather);
+        rltDisaster = (RelativeLayout) view.findViewById(R.id.rtlDisaster);
         lnlTrackProgress = (LinearLayout) view.findViewById(R.id.lnlTrackProgress);
         lnlTrackProgress2 = (LinearLayout) view.findViewById(R.id.lnlTrackProgress2);
         lnlCaChuaHavestHelper = (LinearLayout) view.findViewById(R.id.lnlCaChuaHavestHelper);
@@ -118,6 +120,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, View.O
         rlvLogOut = (RelativeLayout) view.findViewById(R.id.rlvLogOut);
 
         rltWeather.setOnClickListener(this);
+        rltDisaster.setOnClickListener(this);
         gradientMap.setOnClickListener(this);
         lnlTrackProgress.setOnClickListener(this);
         lnlTrackProgress2.setOnClickListener(this);
@@ -128,6 +131,9 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, View.O
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.rtlDisaster:
+                clickDisaster();
+                break;
             case R.id.gradientMap:
                 clickMapView();
                 break;
@@ -159,6 +165,12 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, View.O
                 break;
         }
     }
+
+    private void clickDisaster() {
+        Intent intent = new Intent(getContext(), FloodDisasterActivity.class);
+        getActivity().startActivity(intent);
+    }
+
     private void clickShownAllHavestHelper(){
         Intent intent = new Intent(getContext(), AllHavestHelperActivity.class);
         getActivity().startActivity(intent);

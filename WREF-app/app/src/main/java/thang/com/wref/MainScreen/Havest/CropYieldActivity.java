@@ -329,7 +329,7 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
 
                     inputs.put("Temp", (float) detailWeatherModel.getCurrent().getTemp() - 273); // convert to degree
                     inputs.put("Humd", (float) detailWeatherModel.getCurrent().getHumidity());
-                    inputs.put("Precipitation", (float) 130); // TODO Need to fix it
+                    inputs.put("Precipitation", (float) 60); // TODO Need to fix it
 
                     // Predicting
                     float prediction = predict();

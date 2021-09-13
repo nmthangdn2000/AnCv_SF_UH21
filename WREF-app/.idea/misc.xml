@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Study/IT/Project/AnCv/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_crop_yield.xml" value="0.14427083333333332" />
-        <entry key="..\:/Study/IT/Project/AnCv/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/dropdown_item_district.xml" value="0.14375" />
+        <entry key="..\:/Study/IT/Project/AnCv/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable-xxxhdpi/border_card_circle.xml" value="0.1" />
+        <entry key="..\:/Study/IT/Project/AnCv/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/flood_disaster_activity.xml" value="0.11005434782608696" />
+        <entry key="..\:/Study/IT/Project/AnCv/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Study/IT/Project/WithHuy/WREF-app/app/src/main/res/layout/activity_disease_detail.xml" value="0.1337386018237082" />
         <entry key="..\:/Study/IT/Project/WithHuy/WREF-app/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
         <entry key="..\:/Study/IT/Project/WithHuy/WREF-app/app/src/main/res/layout/activity_splash.xml" value="0.14010416666666667" />

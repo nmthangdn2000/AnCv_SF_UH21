@@ -291,180 +291,205 @@
                             android:padding="50dp"
                             android:clipToPadding="false"/>
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_below="@+id/linearChart"
-                        android:layout_marginTop="10dp"
                         android:id="@+id/linearDetail0"
-                        android:paddingBottom="10dp"
-                        android:paddingTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:elevation="15dp"
+                        android:layout_below="@+id/linearChart"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/shadow_layout_weather"
+                        android:backgroundTint="#758bb2"
+                        android:elevation="15dp"
                         android:orientation="vertical"
-                        android:backgroundTint="#758bb2">
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
+
                         <RelativeLayout
-                            android:padding="10dp"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp">
+                            android:layout_height="50dp"
+                            android:padding="10dp">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/colorWeather"
+                                android:layout_alignParentLeft="true"
                                 android:text="Chi tiết"
-                                android:textSize="18sp"
-                                android:layout_alignParentLeft="true"/>
+                                android:textColor="@color/colorWeather"
+                                android:textSize="18sp" />
                         </RelativeLayout>
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.1dp"
-                            android:background="@color/colorWeather"/>
+                            android:background="@color/colorWeather" />
+
                         <LinearLayout
-                            android:paddingStart="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:paddingStart="10dp">
+
                             <RelativeLayout
-                                android:padding="5dp"
-                                android:layout_weight="1"
                                 android:layout_width="match_parent"
-                                android:layout_height="60dp">
+                                android:layout_height="60dp"
+                                android:layout_weight="1"
+                                android:padding="5dp">
+
                                 <TextView
                                     android:id="@+id/txtGio"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Gió"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/colorCircle" />
+                                    android:textColor="@color/colorCircle"
+                                    android:textSize="16sp" />
+
                                 <ImageView
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_toLeftOf="@+id/txtDetailGio"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_toLeftOf="@+id/txtDetailGio"
                                     android:src="@drawable/ic_wind"
-                                    app:tint="@color/white"/>
+                                    app:tint="@color/white" />
+
                                 <TextView
                                     android:id="@+id/txtDetailGio"
-                                    android:layout_below="@+id/txtGio"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="16sp"
+                                    android:layout_below="@+id/txtGio"
+                                    android:layout_centerVertical="true"
                                     android:text="2.3km/h"
                                     android:textColor="@color/colorWeather"
-                                    android:layout_centerVertical="true"/>
+                                    android:textSize="16sp" />
                             </RelativeLayout>
+
                             <View
                                 android:layout_width="0.1dp"
                                 android:layout_height="match_parent"
-                                android:background="@color/colorWeather"/>
+                                android:background="@color/colorWeather" />
+
                             <RelativeLayout
-                                android:padding="5dp"
-                                android:layout_weight="1"
                                 android:layout_width="match_parent"
-                                android:layout_height="60dp">
+                                android:layout_height="60dp"
+                                android:layout_weight="1"
+                                android:padding="5dp">
+
                                 <TextView
                                     android:id="@+id/txtchitietNhietdo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Cảm thấy như "
-                                    android:textSize="16sp"
-                                    android:textColor="@color/colorCircle" />
+                                    android:textColor="@color/colorCircle"
+                                    android:textSize="16sp" />
+
                                 <ImageView
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_toLeftOf="@+id/txtDetailNhietdo"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_toLeftOf="@+id/txtDetailNhietdo"
                                     android:src="@drawable/ic_hot"
-                                    app:tint="@color/white"/>
+                                    app:tint="@color/white" />
+
                                 <TextView
                                     android:id="@+id/txtDetailNhietdo"
-                                    android:layout_below="@+id/txtchitietNhietdo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="16sp"
+                                    android:layout_below="@+id/txtchitietNhietdo"
+                                    android:layout_centerVertical="true"
                                     android:text="26.7°C"
                                     android:textColor="@color/colorWeather"
-                                    android:layout_centerVertical="true"/>
+                                    android:textSize="16sp" />
                             </RelativeLayout>
                         </LinearLayout>
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.1dp"
-                            android:background="@color/colorWeather"/>
+                            android:background="@color/colorWeather" />
+
                         <LinearLayout
-                            android:paddingStart="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:paddingStart="10dp">
+
                             <RelativeLayout
-                                android:padding="5dp"
-                                android:layout_weight="1"
                                 android:layout_width="match_parent"
-                                android:layout_height="60dp">
+                                android:layout_height="60dp"
+                                android:layout_weight="1"
+                                android:padding="5dp">
+
                                 <TextView
                                     android:id="@+id/txtUV"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Chỉ số UV"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/colorCircle" />
+                                    android:textColor="@color/colorCircle"
+                                    android:textSize="16sp" />
+
                                 <ImageView
-                                    android:layout_marginRight="10dp"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_toLeftOf="@+id/txtDetailUVo"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_toLeftOf="@+id/txtDetailUVo"
                                     android:src="@drawable/ic_sun_uv"
-                                    app:tint="@color/white"/>
+                                    app:tint="@color/white" />
+
                                 <TextView
                                     android:id="@+id/txtDetailUVo"
-                                    android:layout_below="@+id/txtUV"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="16sp"
+                                    android:layout_below="@+id/txtUV"
+                                    android:layout_centerVertical="true"
                                     android:text="0"
                                     android:textColor="@color/colorWeather"
-                                    android:layout_centerVertical="true"/>
+                                    android:textSize="16sp" />
                             </RelativeLayout>
+
                             <View
                                 android:layout_width="0.1dp"
                                 android:layout_height="match_parent"
-                                android:background="@color/colorWeather"/>
+                                android:background="@color/colorWeather" />
+
                             <RelativeLayout
-                                android:padding="5dp"
-                                android:layout_weight="1"
                                 android:layout_width="match_parent"
-                                android:layout_height="60dp">
+                                android:layout_height="60dp"
+                                android:layout_weight="1"
+                                android:padding="5dp">
+
                                 <TextView
                                     android:id="@+id/txtApsuat"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Áp suất"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/colorCircle" />
+                                    android:textColor="@color/colorCircle"
+                                    android:textSize="16sp" />
+
                                 <ImageView
-                                    android:layout_marginRight="10dp"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_toLeftOf="@+id/txtDetailApsuat"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_toLeftOf="@+id/txtDetailApsuat"
                                     android:src="@drawable/ic_barometer"
-                                    app:tint="@color/white"/>
+                                    app:tint="@color/white" />
+
                                 <TextView
                                     android:id="@+id/txtDetailApsuat"
-                                    android:layout_below="@+id/txtApsuat"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="16sp"
+                                    android:layout_below="@+id/txtApsuat"
+                                    android:layout_centerVertical="true"
                                     android:text="1015 mb"
                                     android:textColor="@color/colorWeather"
-                                    android:layout_centerVertical="true"/>
+                                    android:textSize="16sp" />
                             </RelativeLayout>
                         </LinearLayout>
                     </LinearLayout>
