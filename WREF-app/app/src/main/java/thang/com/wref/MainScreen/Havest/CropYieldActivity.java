@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.ChartAnimator;
 import com.github.mikephil.charting.charts.BarChart;
@@ -32,12 +33,23 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import thang.com.wref.Components.AI.CropYieldPrediction;
+import thang.com.wref.Components.Retrofits.WeatherRetrofit;
+import thang.com.wref.LoginScreen.SharedPreferencesManagement;
 import thang.com.wref.MainScreen.Adapters.CropYieldAdapter;
 import thang.com.wref.MainScreen.Adapters.PPAdapter;
 import thang.com.wref.MainScreen.Models.CropYieldModel;
+import thang.com.wref.MainScreen.Models.DetailWeatherModel;
 import thang.com.wref.MainScreen.Models.PPModel;
+import thang.com.wref.MainScreen.Weather.DetailWeatherFragment;
 import thang.com.wref.R;
+import thang.com.wref.util.NetworkUtil;
 
 public class CropYieldActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "CropYieldActivity";
@@ -47,15 +59,25 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
     private RecyclerView rcvProcess, rcvProductivityPrediction;
     private BarChart myBarChart;
     private ImageView imgTitle;
-    private AutoCompleteTextView dropdownDistrict, dropdownSoil, dropdownTree;
+    private AutoCompleteTextView dropdownDistrict, dropdownSoil, dropdownTree, dropdownSeason;
     private TextInputEditText inputLandArea;
     private Button btnGuess;
+    private MaterialAlertDialogBuilder dialog;
 
     private ArrayList<CropYieldModel> cropYieldModelsArr;
     private CropYieldAdapter cropYieldAdapter;
 
     private ArrayList<PPModel> ppModelsArr;
     private PPAdapter ppAdapter;
+
+    private NetworkUtil networkUtil;
+    private Retrofit retrofit;
+    private WeatherRetrofit weatherRetrofit;
+    private SharedPreferencesManagement sharedPreferencesManagement;
+    private DetailWeatherModel detailWeatherModel;
+
+    private HashMap<String, Object> inputs = new HashMap<String, Object>();
+    private CropYieldPrediction model;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +88,13 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
         setUpDropdown();
         addDataPP();
         addBarChart();
+        dialog = new MaterialAlertDialogBuilder(this);
+
+        // Set up Services
+        networkUtil = new NetworkUtil();
+        retrofit = networkUtil.getRetrofit();
+        weatherRetrofit = retrofit.create(WeatherRetrofit.class);
+        sharedPreferencesManagement = new SharedPreferencesManagement(getApplicationContext());
     }
 
     private void setUpToolBar() {
@@ -113,6 +142,7 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
         dropdownDistrict = (AutoCompleteTextView) findViewById(R.id.dropdownDistrict);
         dropdownTree = (AutoCompleteTextView) findViewById(R.id.dropdownTree);
         dropdownSoil = (AutoCompleteTextView) findViewById(R.id.dropdownSoil);
+        dropdownSeason = (AutoCompleteTextView) findViewById(R.id.dropdownSeason);
         inputLandArea = (TextInputEditText) findViewById(R.id.inputLandArea);
         btnGuess = (Button) findViewById(R.id.btnGuess);
 
@@ -187,7 +217,7 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
                 ));
         ppModelsArr.add(
                 new PPModel(
-                        "40.5 Tạ/ha", "Tháng 11 - 2(năm sau)", R.drawable.ic_mdi_arrow_bottom_right, "85%", "#E04422"
+                        "30.7 Tạ/ha", "Tháng 11 - 2(năm sau)", R.drawable.ic_mdi_arrow_bottom_right, "85%", "#E04422"
                 ));
 
         ppAdapter = new PPAdapter(ppModelsArr, this);
@@ -265,7 +295,7 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void setUpDropdown() {
-        // assign data to the dropdowns (location, type of tree, type of soil) to conduct yield prediction
+        // gán dữ liệu cho các dropdown ( vị trí, loại cây, loại đất ) để tiến hành dự đoán năng suất
         String[] district = getResources().getStringArray(R.array.district);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter(getApplicationContext(), R.layout.dropdown_item_district, district);
         dropdownDistrict.setAdapter(arrayAdapter);
@@ -277,21 +307,89 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
         String[] soil = getResources().getStringArray(R.array.soil);
         ArrayAdapter<String> arrayAdapterSoil = new ArrayAdapter(getApplicationContext(), R.layout.dropdown_item_district, soil);
         dropdownSoil.setAdapter(arrayAdapterSoil);
+
+        String[] season = getResources().getStringArray(R.array.season);
+        ArrayAdapter<String> arrayAdapterSeason = new ArrayAdapter(getApplicationContext(), R.layout.dropdown_item_district, season);
+        dropdownSeason.setAdapter(arrayAdapterSeason);
+    }
+
+    private void getWeatherData(){
+        // get data from api
+        // require params : token, longitude, latitude
+        Call<DetailWeatherModel> detailWeatherModelCall = weatherRetrofit.getWeather(sharedPreferencesManagement.getTOKEN(), sharedPreferencesManagement.getLAT(), sharedPreferencesManagement.getLONG());
+        detailWeatherModelCall.enqueue(new Callback<DetailWeatherModel>() {
+            @Override
+            public void onResponse(Call<DetailWeatherModel> call, Response<DetailWeatherModel> response) {
+                if(!response.isSuccessful()){
+                    Log.d(TAG, "Lỗi mạng");
+                    throw new Error("Lỗi mạng");
+                }else{
+                    detailWeatherModel = response.body();
+                    Log.d(TAG, "onResponse: " + detailWeatherModel.getCurrent());
+
+                    inputs.put("Temp", (float) detailWeatherModel.getCurrent().getTemp() - 273); // convert to degree
+                    inputs.put("Humd", (float) detailWeatherModel.getCurrent().getHumidity());
+                    inputs.put("Precipitation", (float) 130); // TODO Need to fix it
+
+                    // Predicting
+                    float prediction = predict();
+                    dialog.setTitle("Kết quả dự đoán")
+                            .setMessage(String.format("Năng suất dự kiến: %.3f tạ/năm", prediction))
+                            .setPositiveButton("OK", null)
+                            .show();
+                }
+                call.cancel();
+            }
+
+            @Override
+            public void onFailure(Call<DetailWeatherModel> call, Throwable t) {
+                Log.d(TAG, "onFailure: "+t.getMessage());
+                call.cancel();
+                throw new Error(t.getMessage());
+            }
+        });
+    }
+
+    private void getUserInputs() {
+        try {
+            inputs.put("District", dropdownDistrict.getText().toString());
+            inputs.put("Tree", dropdownTree.getText().toString());
+            inputs.put("Soil", dropdownSoil.getText().toString());
+            inputs.put("Season", dropdownSoil.getText().toString());
+            inputs.put("Area", Float.parseFloat(inputLandArea.getText().toString()));
+        } catch (Exception e) {
+            throw new Error("Hãy nhập đầy đủ các ô trống!");
+        }
+    }
+
+    private float predict() {
+        model = new CropYieldPrediction(this);
+        return model.predict(
+                (Float) inputs.get("Area"), (Float) inputs.get("Temp"),
+                (Float) inputs.get("Humd"), (Float) inputs.get("Precipitation"),
+                (String) inputs.get("District"), (String) inputs.get("Soil"),
+                (String) inputs.get("Tree"), (String) inputs.get("Season")
+        );
     }
 
     private void showDialog() {
-        // show results after prediction
-        String district, tree, soil, andArea;
-        district = dropdownDistrict.getText().toString();
-        tree = dropdownTree.getText().toString();
-        soil = dropdownSoil.getText().toString();
-        andArea = inputLandArea.getText().toString();
-        Log.d(TAG, "showDialog: "+ district + " "+ tree + " "+ soil + " "+ andArea + " ");
-        new MaterialAlertDialogBuilder(this)
-                .setTitle("Kết quả dự đoán")
-                .setMessage("10000 tấn")
-                .setPositiveButton("Ok", null)
-                .show();
+        // hiển thị kết quả sau khi dự đoán
+        String district, tree, soil, season;
+        float area, temperature, humidity, precipitation;
+
+        try {
+            // Get user data
+            getUserInputs();
+
+            // Get data from Openweather API
+            getWeatherData();
+        } catch (Error e) {
+            dialog.setTitle("Lỗi")
+                    .setMessage(e.getMessage())
+                    .setPositiveButton("OK", null)
+                    .show();
+            return;
+        }
 
     }
 }

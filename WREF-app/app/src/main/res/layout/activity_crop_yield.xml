@@ -47,7 +47,7 @@
             android:paddingHorizontal="20dp"
             android:orientation="vertical">
             <LinearLayout
-                android:layout_marginVertical="5dp"
+                android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -59,15 +59,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Quy trình trồng trọt"
-                        android:fontFamily="@font/roboto_medium"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
+                        android:fontFamily="@font/lato_medium"
+                        android:textColor="@color/cs_dark"
+                        android:textSize="24sp"/>
                     <View
-                        android:layout_marginVertical="5dp"
+                        android:layout_marginVertical="8dp"
                         android:layout_width="50dp"
                         android:layout_height="2dp"
-                        android:background="@color/black"/>
+                        android:background="@color/cs_dark"/>
                 </LinearLayout>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcvProcess"
@@ -75,7 +74,7 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_marginVertical="5dp"
+                android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -86,16 +85,15 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dự đoán năng suất"
-                        android:fontFamily="@font/roboto_medium"
-                        android:textColor="#2285E0"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
+                        android:text="Năng suất trung bình"
+                        android:fontFamily="@font/lato_medium"
+                        android:textColor="@color/cs_dark"
+                        android:textSize="24sp"/>
                     <View
-                        android:layout_marginVertical="5dp"
+                        android:layout_marginVertical="8dp"
                         android:layout_width="50dp"
                         android:layout_height="2dp"
-                        android:background="#2285E0"/>
+                        android:background="@color/cs_dark"/>
                 </LinearLayout>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcvProductivityPrediction"
@@ -121,9 +119,9 @@
                     android:layout_height="wrap_content"
                     android:text="Công cụ dự đoán năng suất"
                     android:textAlignment="center"
-                    android:textSize="22dp"
+                    android:textSize="24sp"
                     android:textColor="@color/blue"
-                    android:textStyle="bold"/>
+                    android:fontFamily="@font/lato_semibold"/>
                 <LinearLayout
                     android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
@@ -145,7 +143,7 @@
                             android:layout_weight="1"
                             android:inputType="none"
                             android:text="Chọn Quận/Huyện"
-                            android:dropDownHeight="200dp"/>
+                            android:maxLines="6" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -168,30 +166,8 @@
                             android:layout_weight="1"
                             android:inputType="none"
                             android:text="Chọn loại cây"
-                            android:dropDownHeight="200dp"
+                            android:maxLines="6"
                             android:background="@drawable/shadow_linearlayout"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Diện tích đất (m2):"
-                        android:layout_marginTop="20dp"/>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/inputLandArea"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            />
-
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -214,9 +190,57 @@
                             android:layout_weight="1"
                             android:inputType="none"
                             android:text="Chọn loại đất"
+                            android:maxLines="6"
                             android:background="@drawable/shadow_linearlayout"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mùa vụ:"/>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <AutoCompleteTextView
+                            android:id="@+id/dropdownSeason"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:inputType="none"
+                            android:text="Chọn mùa vụ"
+                            android:maxLines="6"
+                            android:background="@drawable/shadow_linearlayout"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Diện tích đất (m2):"
+                        android:layout_marginTop="20dp"/>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/inputLandArea"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

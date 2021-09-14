@@ -27,7 +27,7 @@ public interface UserRetrofit {
     );
 
     @GET("api/checklogin")
-    Call<UsersModel> checkLogin(
+    Call<ResponseModel<UsersModel>> checkLogin(
             @Header("Authorization") String auth
     );
 }

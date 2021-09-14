@@ -14,7 +14,7 @@ import org.tensorflow.lite.task.vision.classifier.ImageClassifier.ImageClassifie
 import java.nio.MappedByteBuffer
 import kotlin.math.*
 
-class AIServices(
+class DiseasesDetection(
         private val app: Context
 ) {
 
@@ -23,7 +23,7 @@ class AIServices(
     private val MODEL_NAME: String = "lite-model_disease-classification.tflite";
 
     companion object {
-        val TAG: String = AIServices::class.java.simpleName;
+        val TAG: String = DiseasesDetection::class.java.simpleName;
         val translateMap = HashMap<String, String>();
 
         init {
