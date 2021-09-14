@@ -6,6 +6,6 @@ router.get('/rain', controller.getData);
 
 router.get('/rain/5-day/:day', controller.getData5Day);
 
-router.get('/rain/10-day/:day', controller.getData10Day);
+router.get('/flow/10-day/:day', controller.getData10Day);
 
 module.exports = router;
