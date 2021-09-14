@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 var path = require('path');
+const cors = require('cors');
 
 // require("./service/crawlData");
 app.set('views', path.join(__dirname, 'views'));
@@ -11,6 +12,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 // passport
 const passport = require('passport');
 const passportConfig = require('./middlewares/passport');
@@ -28,6 +30,7 @@ const apiShop = require('./router/api/shop.api');
 const apiProduct = require('./router/api/product.api');
 const apiCategory = require('./router/api/category.api');
 const apiOrder = require('./router/api/order.api');
+const apiRain = require('./router/api/rain.api');
 
 // router api passport.authenticate('jwt', { session: false })
 app.use('/api', apiLogin);
@@ -43,7 +46,9 @@ app.use('/api', passport.authenticate('jwt', { session: false }), apiShop);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiProduct);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiCategory);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiOrder);
+app.use('/api', passport.authenticate('jwt', { session: false }), apiRain);
 app.use('/', (req, res) => {
   res.render('index.ejs');
 });
+
 module.exports = app;
