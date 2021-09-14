@@ -265,7 +265,7 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void setUpDropdown() {
-        // gán dữ liệu cho các dropdown ( vị trí, loại cây, loại đất ) để tiến hành dự đoán năng suất
+        // assign data to the dropdowns (location, type of tree, type of soil) to conduct yield prediction
         String[] district = getResources().getStringArray(R.array.district);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter(getApplicationContext(), R.layout.dropdown_item_district, district);
         dropdownDistrict.setAdapter(arrayAdapter);
@@ -280,7 +280,7 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void showDialog() {
-        // hiển thị kết quả sau khi dự đoán
+        // show results after prediction
         String district, tree, soil, andArea;
         district = dropdownDistrict.getText().toString();
         tree = dropdownTree.getText().toString();

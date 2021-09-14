@@ -7,12 +7,13 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import thang.com.wref.LoginScreen.Models.ErrModel;
+import thang.com.wref.MainScreen.Models.ResponseModel;
 import thang.com.wref.StoriesScreen.Models.UsersModel;
 
 public interface UserRetrofit {
     @POST("api/signin")
     @FormUrlEncoded
-    Call<UsersModel> postSigin(
+    Call<ResponseModel<UsersModel>> postSigin(
             @Field("email") String email,
             @Field("password") String password
     );
