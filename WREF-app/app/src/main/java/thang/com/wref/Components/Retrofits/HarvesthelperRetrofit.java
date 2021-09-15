@@ -7,6 +7,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Path;
 import thang.com.wref.MainScreen.Models.HarvesthelperModel;
+import thang.com.wref.MainScreen.Models.ResponseModel;
 
 public interface HarvesthelperRetrofit {
     @GET("api/harvesthelper/all")

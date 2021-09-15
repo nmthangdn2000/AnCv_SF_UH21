@@ -130,6 +130,9 @@ class FloodDisasterActivity : AppCompatActivity() {
                         prediction["flowLevel"]!! as Int, prediction["flow"]!! as Float,
                         prediction["rain"]!! as Float
                     );
+
+                    // Show video about flood
+                    floodVideo(prediction["flowLevel"]!! as Int);
                 }
 
                 3 -> {
@@ -349,9 +352,6 @@ class FloodDisasterActivity : AppCompatActivity() {
         if (floodLevel > 0) {
             binding.title.text = "Lũ cấp $floodLevel";
             binding.tvPrediction.text = "Rất có thể xảy ra lũ cấp ${floodLevel} trong những ngày tới. Hãy chuẩn bị ứng phó với lũ ngay bây giờ!";
-
-            // Show video about flood
-            floodVideo(floodLevel);
         } else {
             binding.title.text = "Không có lũ";
             binding.tvPrediction.text = "Trong thời gian tới sẽ không xảy ra lũ. Nhưng trên đây chỉ là dự đoán, thực tế có thể khác so với dự đoán một chút."

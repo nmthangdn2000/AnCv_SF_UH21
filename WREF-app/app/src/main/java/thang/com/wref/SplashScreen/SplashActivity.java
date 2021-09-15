@@ -23,6 +23,7 @@ import retrofit2.Retrofit;
 import thang.com.wref.LoginScreen.LoginActivity;
 import thang.com.wref.LoginScreen.SharedPreferencesManagement;
 import thang.com.wref.MainScreen.MainActivity;
+import thang.com.wref.MainScreen.Models.ResponseModel;
 import thang.com.wref.StoriesScreen.Models.UsersModel;
 import thang.com.wref.util.NetworkUtil;
 import thang.com.wref.R;
@@ -30,7 +31,7 @@ import thang.com.wref.Components.Retrofits.UserRetrofit;
 
 public class SplashActivity extends AppCompatActivity {
     private static final String TAG = "SplashActivity";
-    private static final int SPLASH_SCREEN = 3000;
+    private static final int SPLASH_SCREEN = 2000;
     private Handler handler;;
 
     private ImageView logoImg;
@@ -82,15 +83,17 @@ public class SplashActivity extends AppCompatActivity {
         // if true move to Home Activity
         // else false move to Login Activity
         userRetrofit = retrofit.create(UserRetrofit.class);
-        Call<UsersModel> usersModelCall = userRetrofit.checkLogin(sharedPreferencesManagement.getTOKEN());
-        usersModelCall.enqueue(new Callback<UsersModel>() {
+        Call<ResponseModel<UsersModel>> usersModelCall = userRetrofit.checkLogin(sharedPreferencesManagement.getTOKEN());
+        usersModelCall.enqueue(new Callback<ResponseModel<UsersModel>>() {
             @Override
-            public void onResponse(Call<UsersModel> call, Response<UsersModel> response) {
+            public void onResponse(Call<ResponseModel<UsersModel>> call, Response<ResponseModel<UsersModel>> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(SplashActivity.this, "không có mạng", Toast.LENGTH_SHORT).show();
                     activitiLogin();
                 }else{
-                    UsersModel usersModel = response.body();
+                    ResponseModel<UsersModel> responseModel = response.body();
+                    UsersModel usersModel = responseModel.getData();
+                    Log.d(TAG, "onResponse: "+ usersModel);
                     String[] strings = sharedPreferencesManagement.getTOKEN().split(" ");
                     usersModel.setToken(strings[1]);
                     Log.d(TAG, "onResponse: "+ usersModel);
@@ -104,7 +107,7 @@ public class SplashActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<UsersModel> call, Throwable t) {
+            public void onFailure(Call<ResponseModel<UsersModel>> call, Throwable t) {
                 Log.d(TAG, "onFailure: "+ t.getMessage());
                 call.cancel();
                 activitiLogin();

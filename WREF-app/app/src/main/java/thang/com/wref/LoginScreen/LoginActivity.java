@@ -20,6 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import thang.com.wref.MainScreen.MainActivity;
+import thang.com.wref.MainScreen.Models.ResponseModel;
 import thang.com.wref.StoriesScreen.Models.UsersModel;
 import thang.com.wref.util.NetworkUtil;
 import thang.com.wref.R;
@@ -31,7 +32,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView btnSignUpPage;
     private ImageView logoImg;
     private TextView logoName, logoPage;
-    private TextInputLayout edit_email, edit_password;
+    private TextInputLayout edit_phone, edit_password;
     private AppCompatButton btnLogin;
 
     private Retrofit retrofit;
@@ -49,12 +50,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mappingView();
     }
     private Boolean ValidateUserName(){
-        String val = edit_email.getEditText().getText().toString();
+        String val = edit_phone.getEditText().getText().toString();
         if(val.isEmpty()){
-            edit_email.setError("Tên đăng nhập không được trống");
+            edit_phone.setError("Tên đăng nhập không được trống");
             return false;
         }else{
-            edit_email.setError(null);
+            edit_phone.setError(null);
             return true;
         }
     }
@@ -73,15 +74,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         else{
             userRetrofit = retrofit.create(UserRetrofit.class);
-            Call<UsersModel> errModelCall = userRetrofit.postSigin(edit_email.getEditText().getText().toString(), edit_password.getEditText().getText().toString());
-            errModelCall.enqueue(new Callback<UsersModel>() {
+            Call<ResponseModel<UsersModel>> errModelCall = userRetrofit.postSigin(edit_phone.getEditText().getText().toString(), edit_password.getEditText().getText().toString());
+            errModelCall.enqueue(new Callback<ResponseModel<UsersModel>>() {
                 @Override
-                public void onResponse(Call<UsersModel> call, Response<UsersModel> response) {
+                public void onResponse(Call<ResponseModel<UsersModel>> call, Response<ResponseModel<UsersModel>> response) {
                     if(!response.isSuccessful()){
                         Toast.makeText(LoginActivity.this, "lỗi mạng", Toast.LENGTH_SHORT).show();
                         return;
                     }else{
-                        UsersModel usersModels = response.body();
+                        ResponseModel<UsersModel> responseModel = response.body();
+                        UsersModel usersModels = responseModel.getData();
+                        Log.d(TAG, "onResponse: " + response.body());
                         sharedPreferencesManagement.saveData(usersModels);
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
@@ -91,7 +94,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
 
                 @Override
-                public void onFailure(Call<UsersModel> call, Throwable t) {
+                public void onFailure(Call<ResponseModel<UsersModel>> call, Throwable t) {
                     Log.d(TAG, "lỗi "+ t.getMessage());
                     call.cancel();
                 }
@@ -104,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         logoImg = (ImageView) findViewById(R.id.logoImg);
         logoName = (TextView) findViewById(R.id.logoName);
         logoPage = (TextView) findViewById(R.id.logoPage);
-        edit_email = (TextInputLayout) findViewById(R.id.edit_email);
+        edit_phone = (TextInputLayout) findViewById(R.id.edit_phone);
         edit_password = (TextInputLayout) findViewById(R.id.edit_password);
         btnLogin = (AppCompatButton) findViewById(R.id.btnLogin);
 
@@ -121,7 +124,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 pairs[0] = new Pair<View, String>(logoName, "logo_text");
                 pairs[1] = new Pair<View, String>(logoPage, "logo_textPage");
-                pairs[2] = new Pair<View, String>(edit_email, "edit_email");
+                pairs[2] = new Pair<View, String>(edit_phone, "edit_phone");
                 pairs[3] = new Pair<View, String>(edit_password, "edit_password");
                 pairs[4] = new Pair<View, String>(btnLogin, "btnLogin");
                 pairs[5] = new Pair<View, String>(btnSignUpPage, "btn_text_tran");

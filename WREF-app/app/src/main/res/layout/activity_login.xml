@@ -49,45 +49,45 @@
                 android:textStyle="bold"
                 android:textSize="26sp"/>
         </LinearLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/loginWithGoogle"
-                android:layout_centerHorizontal="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="30dp"
-                android:paddingVertical="13dp"
-                android:text="Đăng nhập bằng Google"
-                android:textColor="#2285E0"
-                android:drawableTint="#2285E0"
-                android:drawableLeft="@drawable/googleg_disabled_color_18"
-                android:drawablePadding="20px"
-                android:background="@drawable/circle"/>
-            <TextView
-                android:layout_below="@+id/loginWithGoogle"
-                android:layout_marginVertical="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="hoặc"
-                android:textSize="12dp"
-                android:textColor="#ADADAC"/>
-        </RelativeLayout>
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <TextView-->
+<!--                android:id="@+id/loginWithGoogle"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingHorizontal="30dp"-->
+<!--                android:paddingVertical="13dp"-->
+<!--                android:text="Đăng nhập bằng Google"-->
+<!--                android:textColor="#2285E0"-->
+<!--                android:drawableTint="#2285E0"-->
+<!--                android:drawableLeft="@drawable/googleg_disabled_color_18"-->
+<!--                android:drawablePadding="20px"-->
+<!--                android:background="@drawable/circle"/>-->
+<!--            <TextView-->
+<!--                android:layout_below="@+id/loginWithGoogle"-->
+<!--                android:layout_marginVertical="10dp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:text="hoặc"-->
+<!--                android:textSize="12dp"-->
+<!--                android:textColor="#ADADAC"/>-->
+<!--        </RelativeLayout>-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:clipToPadding="false">
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/edit_email"
-                android:transitionName="edit_email"
+                android:id="@+id/edit_phone"
+                android:transitionName="edit_phone"
                 android:layout_marginBottom="15dp"
-                app:startIconDrawable="@drawable/ic_baseline_email_24"
+                app:startIconDrawable="@drawable/ic_baseline_smartphone_24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:hint="Số điện thoại"
                 app:startIconTint="@color/mtrl_textinput_default_box_stroke_color"
                 style="@style/TextInputLayoutStyle">
                 <com.google.android.material.textfield.TextInputEditText
@@ -146,17 +146,18 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
-                    android:transitionName="btn_text_tran"
                     android:id="@+id/btnSignUpPage"
-                    android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:background="#00000000"
                     android:elevation="0dp"
-                    android:textSize="14sp"
+                    android:text="Bạn chưa có tài khoản? Đăng ký"
                     android:textColor="@color/time"
-                    android:text="Bạn chưa có tài khoảng? Đăng ký"/>
+                    android:textSize="14sp"
+                    android:transitionName="btn_text_tran" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

@@ -127,6 +127,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, View.O
         lnlCaChuaHavestHelper.setOnClickListener(this);
         lnlDuaLeoHavestHelper.setOnClickListener(this);
         btnShownAllHarvestHelper.setOnClickListener(this);
+        rlvLogOut.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {

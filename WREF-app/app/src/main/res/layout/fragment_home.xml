@@ -19,21 +19,22 @@
             android:orientation="vertical"
             android:background="#F5F7F8">
             <RelativeLayout
-                android:id="@+id/rlvLogOut"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
+
                 <RelativeLayout
+                    android:id="@+id/rlvLogOut"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:padding="10dp"
                     android:background="@drawable/circle"
-                    android:backgroundTint="#10000000">
+                    android:backgroundTint="#10000000"
+                    android:padding="10dp">
+
                     <ImageView
-                        android:layout_centerInParent="true"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:src="@drawable/ic_logout"
-                        android:layout_centerVertical="true"/>
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_logout" />
                 </RelativeLayout>
 
                 <TextView
