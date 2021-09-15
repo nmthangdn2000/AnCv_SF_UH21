@@ -256,6 +256,43 @@
                         style="?attr/materialButtonOutlinedStyle"
                         />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnlResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="32dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tvResult"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="00.00"
+                        android:fontFamily="@font/lato_semibold"
+                        android:textColor="@color/blue"
+                        android:textSize="32sp"
+                        android:textAlignment="center"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:src="@drawable/quang_nam_havest"
+                        android:scaleType="fitCenter"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Năng suất của các đại phương, Quảng Nam"
+                        android:fontFamily="@font/lato_regular"
+                        android:textColor="@color/cs_gray"
+                        android:layout_marginTop="8dp"
+                        android:textAlignment="center"/>
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

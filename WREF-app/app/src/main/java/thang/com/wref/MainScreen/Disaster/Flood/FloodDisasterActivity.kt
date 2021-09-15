@@ -1,10 +1,14 @@
 package thang.com.wref.MainScreen.Disaster.Flood
 
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.MediaController
+import android.widget.Toast
 import com.github.mikephil.charting.charts.CombinedChart
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
@@ -27,6 +31,7 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
+import thang.com.wref.Components.AI.RainPrediction
 import thang.com.wref.Components.Chart.FloodPredictionXAxisFormatter
 
 
@@ -47,6 +52,9 @@ class FloodDisasterActivity : AppCompatActivity() {
 
     private val calendar: Calendar = Calendar.getInstance();
     private val floodLevelColor: HashMap<Int, Int> = HashMap();
+
+    private lateinit var waterFlowPrediction: WaterFlowPrediction;
+    private lateinit var rainPrediction: RainPrediction;
 
     private val inputWaterFlow: HashMap<String, Float> = HashMap<String, Float>();
     private val inputTemp: FloatArray = FloatArray(5);
@@ -88,6 +96,10 @@ class FloodDisasterActivity : AppCompatActivity() {
 
         showUIStep1();
 
+        // Load model
+        waterFlowPrediction = WaterFlowPrediction(this);
+        rainPrediction = RainPrediction(this);
+
         // handle Back button
         binding.rltBack.setOnClickListener {
             finish();
@@ -99,17 +111,31 @@ class FloodDisasterActivity : AppCompatActivity() {
                 1 -> {
                     step += 1;
                     showUIStep2();
-                    getWeatherAndDrawChart();
+
+                    try {
+                        getWeatherAndDrawChart();
+                    } catch (e: Error) {
+                        Log.e(TAG, e.message);
+                        Toast.makeText(applicationContext, e.message, Toast.LENGTH_SHORT);
+                    }
                 }
 
                 2 -> {
                     step += 1;
-//                    val prediction: HashMap<String, Any> = predictFlow();
-                    showUIStep3(3, 350F);
+
+                    binding.button.isEnabled = false;
+                    val prediction: HashMap<String, Any> = predictFlood();
+
+                    showUIStep3(
+                        prediction["flowLevel"]!! as Int, prediction["flow"]!! as Float,
+                        prediction["rain"]!! as Float
+                    );
                 }
 
                 3 -> {
-                    // TODO add Web view
+                    val preventionLink: Uri = Uri.parse("https://danang.gov.vn/web/phong-chong-thien-tai/chi-tiet-cd?id=2559&_c=94677443");
+                    val intent: Intent = Intent(Intent.ACTION_VIEW, preventionLink);
+                    startActivity(intent);
                 }
             }
         }
@@ -117,6 +143,7 @@ class FloodDisasterActivity : AppCompatActivity() {
 
     private fun getWeatherAndDrawChart() {
         binding.tvLoading.visibility = View.VISIBLE;
+        binding.button.isEnabled = false;
 
         // get data from api
         // require params : token, longitude, latitude
@@ -142,7 +169,7 @@ class FloodDisasterActivity : AppCompatActivity() {
                         val weatherDaily = weatherDailyList[7 - i];
                         inputTemp[i] = weatherDaily.temp.day - 273; // Convert F -> C
                         inputHumd[i] = weatherDaily.humidity.toFloat();
-                        inputRain[i] = weatherDaily.rain;
+                        inputRain[i] = weatherDaily.rain * 24; // Assume rain in 24 hours
                     }
 
                     drawChart();
@@ -214,10 +241,12 @@ class FloodDisasterActivity : AppCompatActivity() {
         binding.chart.invalidate();
 
         binding.chartArea.visibility = View.VISIBLE;
+
+        binding.button.isEnabled = true;
     }
 
-    private fun predictFlow(): HashMap<String, Any> {
-        val waterFlowPrediction: WaterFlowPrediction = WaterFlowPrediction(this);
+    private fun predictFlood(): HashMap<String, Any> {
+        // Predict flow average next 5 day
         val predictedFlow: Float = waterFlowPrediction.predict(
             inputWaterFlow["current"]!!,
             inputWaterFlow["day1Pre"]!!,
@@ -232,26 +261,41 @@ class FloodDisasterActivity : AppCompatActivity() {
             calendar.get(Calendar.DAY_OF_YEAR).toFloat()
         )
 
-        var flowLevel: Int = 0
-
-        if (predictedFlow < 100)
-            flowLevel = 0;
-        else if (predictedFlow < 200)
-            flowLevel = 1;
-        else if (predictedFlow < 400)
-            flowLevel = 2;
-        else if (predictedFlow < 700)
-            flowLevel = 3;
-        else if (predictedFlow < 1000)
-            flowLevel = 4;
-        else
-            flowLevel = 5;
+        val predictedRain: Float = rainPrediction.predict(
+            inputTemp, inputHumd, inputRain,
+            calendar.get(Calendar.DAY_OF_YEAR).toFloat()
+        );
 
         val result: HashMap<String, Any> = HashMap<String, Any>();
         result["flow"] = predictedFlow;
-        result["flowLevel"] = flowLevel;
+        result["rain"] = predictedRain; // Rainfall in 12 continue hours
+
+        // Compare with flood threshold
+        if ((result["flow"]!! as Float) < 100 && (result["rain"]!! as Float) < 100)
+            result["flowLevel"] = 0;
+        else if ((result["flow"]!! as Float) < 200 && (result["rain"]!! as Float) < 200)
+            result["flowLevel"] = 1;
+        else if ((result["flow"]!! as Float) < 300 && (result["rain"]!! as Float) < 300 )
+            result["flowLevel"] = 2;
+        else if ((result["flow"]!! as Float) < 400 && (result["rain"]!! as Float) < 400 )
+            result["flowLevel"] = 3;
+        else
+            result["flowLevel"] = 4;
 
         return result;
+    }
+
+    private fun floodVideo(floodLevel: Int) {
+        val uri: Uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.flood_video);
+
+        binding.videoFlood.setVideoURI(uri);
+        binding.videoFlood.requestFocus();
+
+        val mediaController: MediaController = MediaController(this);
+        binding.videoFlood.setMediaController(mediaController);
+        mediaController.setAnchorView(binding.videoFlood);
+
+        binding.videoFlood.start();
     }
 
     private fun showUIStep1() {
@@ -294,13 +338,27 @@ class FloodDisasterActivity : AppCompatActivity() {
         binding.rltMain.visibility = View.VISIBLE;
     }
 
-    private fun showUIStep3(floodLevel: Int, flow: Float) {
+    private fun showUIStep3(floodLevel: Int, flow: Float, rain: Float) {
+        binding.chartArea.visibility = View.GONE;
         binding.tvLoading.visibility = View.GONE;
-        binding.ivFlood.visibility = View.VISIBLE;
+        binding.cautionArea.visibility = View.VISIBLE;
 
+        binding.button.isEnabled = true;
         binding.button.text = "Phòng tránh";
-        binding.title.text = "Lũ cấp $floodLevel"
-        binding.subText.text = "Dự đoán: mực nước trung bình trong 5 ngày tiếp theo là ${flow}mm."
+
+        if (floodLevel > 0) {
+            binding.title.text = "Lũ cấp $floodLevel";
+            binding.tvPrediction.text = "Rất có thể xảy ra lũ cấp ${floodLevel} trong những ngày tới. Hãy chuẩn bị ứng phó với lũ ngay bây giờ!";
+
+            // Show video about flood
+            floodVideo(floodLevel);
+        } else {
+            binding.title.text = "Không có lũ";
+            binding.tvPrediction.text = "Trong thời gian tới sẽ không xảy ra lũ. Nhưng trên đây chỉ là dự đoán, thực tế có thể khác so với dự đoán một chút."
+        }
+
+        binding.title.setTextColor(floodLevelColor[floodLevel]!!);
+        binding.subText.text = "Dự đoán trong 5 ngày tiếp theo\nLưu lượng trung bình đạt ${"%.2f".format(flow)}mm\nLượng mưa khoảng ${"%.2f".format(rain)}mm.";
 
         binding.step3.setCardBackgroundColor(resources.getColor(R.color.blue, null));
         binding.step3.foreground = null;

@@ -13,6 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.ChartAnimator;
@@ -57,10 +59,12 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
     private Toolbar toolbar;
     private String title = "";
     private RecyclerView rcvProcess, rcvProductivityPrediction;
+    private LinearLayout lnlResult;
     private BarChart myBarChart;
     private ImageView imgTitle;
     private AutoCompleteTextView dropdownDistrict, dropdownSoil, dropdownTree, dropdownSeason;
     private TextInputEditText inputLandArea;
+    private TextView tvResult;
     private Button btnGuess;
     private MaterialAlertDialogBuilder dialog;
 
@@ -145,6 +149,8 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
         dropdownSeason = (AutoCompleteTextView) findViewById(R.id.dropdownSeason);
         inputLandArea = (TextInputEditText) findViewById(R.id.inputLandArea);
         btnGuess = (Button) findViewById(R.id.btnGuess);
+        lnlResult = (LinearLayout) findViewById(R.id.lnlResult);
+        tvResult = (TextView) findViewById(R.id.tvResult);
 
         btnGuess.setOnClickListener(this);
         inputLandArea.setHint("Nhập diện tích");
@@ -337,6 +343,8 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
                             .setMessage(String.format("Năng suất dự kiến: %.3f tạ/năm", prediction))
                             .setPositiveButton("OK", null)
                             .show();
+
+                    showResult(String.format("%.3f tạ/năm", prediction));
                 }
                 call.cancel();
             }
@@ -370,6 +378,11 @@ public class CropYieldActivity extends AppCompatActivity implements View.OnClick
                 (String) inputs.get("District"), (String) inputs.get("Soil"),
                 (String) inputs.get("Tree"), (String) inputs.get("Season")
         );
+    }
+
+    private void showResult(String result) {
+        lnlResult.setVisibility(View.VISIBLE);
+        tvResult.setText(result);
     }
 
     private void showDialog() {

@@ -35,12 +35,11 @@ class WaterFlowPrediction(
         // Scaling inputs
         val input1Scaled: FloatArray = FloatArray(10);
         val input2Scaled: FloatArray = FloatArray(1);
-        this.scalerX.transform(inputReal).mapIndexed { index, data ->
-            if (index < 10)
-                input1Scaled[index] = data;
-            else
-                input2Scaled[0] = data;
-        }
+        val inputScaled:FloatArray = this.scalerX.transform(inputReal);
+
+        input2Scaled[0] = inputScaled[0];
+        for (i in 1..10)
+            input1Scaled[i - 1] = inputScaled[i];
 
         // separate 2 inputs to 2 tensors
         val input0: Array<FloatArray> = arrayOf(input1Scaled);

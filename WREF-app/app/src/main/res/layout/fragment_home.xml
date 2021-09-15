@@ -90,7 +90,7 @@
                             android:drawablePadding="5dp"
                             android:fontFamily="@font/lato_medium"
                             android:gravity="center"
-                            android:text="15℃"
+                            android:text="32℃"
                             android:textColor="#2285E0"
                             android:textSize="12sp" />
 
@@ -110,7 +110,7 @@
                             android:drawablePadding="5dp"
                             android:fontFamily="@font/lato_medium"
                             android:gravity="center"
-                            android:text="80%"
+                            android:text="82%"
                             android:textColor="#2285E0"
                             android:textSize="12sp" />
                     </RelativeLayout>

@@ -111,11 +111,33 @@
 
                         </FrameLayout>
 
-                        <ImageView
-                            android:id="@+id/ivFlood"
+                        <LinearLayout
+                            android:id="@+id/cautionArea"
                             android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            android:visibility="gone" />
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone" >
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp" >
+
+                                <VideoView
+                                    android:id="@+id/videoFlood"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvPrediction"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dự đoán ..."
+                                android:fontFamily="@font/lato_regular"
+                                android:layout_marginTop="16dp"/>
+
+                        </LinearLayout>
 
                     </RelativeLayout>
 
