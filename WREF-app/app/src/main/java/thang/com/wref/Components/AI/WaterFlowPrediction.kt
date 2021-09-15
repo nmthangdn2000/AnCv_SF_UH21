@@ -5,7 +5,7 @@ import android.util.Log
 import org.tensorflow.lite.Interpreter
 import kotlin.collections.HashMap
 
-class FloodPrediction(
+class WaterFlowPrediction(
     private val app: Context
 ) {
 
@@ -14,7 +14,7 @@ class FloodPrediction(
     private lateinit var scalerY: MinMaxScaler;
 
     companion object {
-        val TAG: String = FloodPrediction::class.java.simpleName;
+        val TAG: String = WaterFlowPrediction::class.java.simpleName;
         private val SCALER_X: String = "Scalers/FloodPrediction/scalerX.json";
         private val SCALER_Y: String = "Scalers/FloodPrediction/scalerY.json";
         private val MODEL_NAME: String = "flood_prediction_model.tflite";
