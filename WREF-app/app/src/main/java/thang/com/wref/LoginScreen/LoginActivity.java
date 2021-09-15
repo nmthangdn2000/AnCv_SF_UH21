@@ -20,6 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import thang.com.wref.MainScreen.MainActivity;
+import thang.com.wref.MainScreen.Models.ResponseModel;
 import thang.com.wref.StoriesScreen.Models.UsersModel;
 import thang.com.wref.util.NetworkUtil;
 import thang.com.wref.R;
@@ -73,15 +74,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         else{
             userRetrofit = retrofit.create(UserRetrofit.class);
-            Call<UsersModel> errModelCall = userRetrofit.postSigin(edit_email.getEditText().getText().toString(), edit_password.getEditText().getText().toString());
-            errModelCall.enqueue(new Callback<UsersModel>() {
+            Call<ResponseModel<UsersModel>> errModelCall = userRetrofit.postSigin(edit_email.getEditText().getText().toString(), edit_password.getEditText().getText().toString());
+            errModelCall.enqueue(new Callback<ResponseModel<UsersModel>>() {
                 @Override
-                public void onResponse(Call<UsersModel> call, Response<UsersModel> response) {
+                public void onResponse(Call<ResponseModel<UsersModel>> call, Response<ResponseModel<UsersModel>> response) {
                     if(!response.isSuccessful()){
                         Toast.makeText(LoginActivity.this, "lỗi mạng", Toast.LENGTH_SHORT).show();
                         return;
                     }else{
-                        UsersModel usersModels = response.body();
+                        ResponseModel<UsersModel> responseModel = response.body();
+                        UsersModel usersModels = responseModel.getData();
+                        Log.d(TAG, "onResponse: " + response.body());
                         sharedPreferencesManagement.saveData(usersModels);
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
@@ -91,7 +94,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
 
                 @Override
-                public void onFailure(Call<UsersModel> call, Throwable t) {
+                public void onFailure(Call<ResponseModel<UsersModel>> call, Throwable t) {
                     Log.d(TAG, "lỗi "+ t.getMessage());
                     call.cancel();
                 }

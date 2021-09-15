@@ -9,7 +9,10 @@ import thang.com.wref.BuildConfig;
 
 import static thang.com.wref.util.Constants.BASE_URL;
 
+import android.util.Log;
+
 public class NetworkUtil {
+    private static final String TAG = "NetworkUtil";
     // config Retrofit library
     private Retrofit retrofit;
     public Retrofit getRetrofit(){
