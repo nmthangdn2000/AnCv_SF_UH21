@@ -13,6 +13,27 @@
         android:orientation="vertical"
         android:layout_centerInParent="true">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Camera"
+            android:fontFamily="@font/lato_bold"
+            android:textAlignment="center"
+            android:textColor="@color/cs_dark"
+            android:layout_marginBottom="8dp"
+            android:textSize="40dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="chẩn đoán bệnh"
+            android:textAllCaps="true"
+            android:fontFamily="@font/lato_light"
+            android:textAlignment="center"
+            android:textColor="@color/cs_gray"
+            android:layout_marginBottom="24dp"
+            android:textSize="24dp"/>
+
         <RelativeLayout
             android:id="@+id/rltCamera"
             android:layout_width="match_parent"
