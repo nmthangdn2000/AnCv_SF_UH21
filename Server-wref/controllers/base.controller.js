@@ -21,8 +21,7 @@ class BaseController {
     let message = '';
     if (Number.isInteger(code)) message = getErrorMessage(code);
     else {
-      message = errorCode;
-      code = ERROR.Default;
+      message = getErrorMessage(ERROR.NoData);
     }
     return res.status(200).json({
       success: false,
