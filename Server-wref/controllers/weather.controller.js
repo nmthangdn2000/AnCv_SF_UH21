@@ -16,7 +16,6 @@ const getDetailWeather = async (req, res) => {
   const data = GetData.getWeatherWithLocation(req.body.lat, req.body.long, res);
 };
 const getWeather24h = async (req, res) => {
-  console.log(req.body);
   const data = GetData.getWeather24h(req.body.lat, req.body.long, res);
 };
 module.exports = {
