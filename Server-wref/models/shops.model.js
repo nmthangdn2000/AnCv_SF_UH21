@@ -8,6 +8,9 @@ const shopShema = new mongoose.Schema({
   name: {
     type: String,
   },
+  description: {
+    type: String,
+  },
   media: {
     type: String,
   },
