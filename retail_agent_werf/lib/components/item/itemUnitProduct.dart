@@ -43,7 +43,7 @@ class _ItemUnitProductState extends State<ItemUnitProduct> {
             Hero(
               tag: "image-${widget.productModel.id}-${widget.color}",
               child: Image.asset(
-                "assets/images/" + widget.productModel.img,
+                "assets/images/" + widget.productModel.media,
                 height: 100,
                 width: 210,
                 fit: BoxFit.cover,
@@ -82,7 +82,7 @@ class _ItemUnitProductState extends State<ItemUnitProduct> {
                           tag:
                               "price-${widget.productModel.id}-${widget.color}",
                           child: Text(
-                            widget.productModel.price,
+                            "${widget.productModel.price}",
                             textAlign: TextAlign.end,
                             style: TextStyle(
                               color: widget.color == Color(0xFFB2E2FE)
@@ -107,7 +107,7 @@ class _ItemUnitProductState extends State<ItemUnitProduct> {
                           tag:
                               "company-${widget.productModel.id}-${widget.color}",
                           child: Text(
-                            widget.productModel.company,
+                            "${widget.productModel.company} ",
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 10,
@@ -121,7 +121,7 @@ class _ItemUnitProductState extends State<ItemUnitProduct> {
                           tag:
                               "saleOff-${widget.productModel.id}-${widget.color}",
                           child: Text(
-                            widget.productModel.saleOff,
+                            "${widget.productModel.saleOff}",
                             textAlign: TextAlign.end,
                             style: TextStyle(
                               color: widget.color == Color(0xFFB2E2FE)

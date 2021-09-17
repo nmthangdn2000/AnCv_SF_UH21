@@ -8,25 +8,27 @@ part of 'order.model.dart';
 
 OrderModel _$OrderModelFromJson(Map<String, dynamic> json) {
   return OrderModel(
-    id: json['id'] as String,
-    name: json['name'] as String,
+    id: json['_id'] as String,
+    idProduct: ProductModel.fromJson(json['idProduct'] as Map<String, dynamic>),
+    idUser: UserModel.fromJson(json['idUser'] as Map<String, dynamic>),
     amount: json['amount'] as int,
-    totalPrice: json['totalPrice'] as String,
-    date: json['date'] as String,
+    totalPrice: json['totalPrice'] as int,
     status: json['status'] as int,
+    deliveryTo: json['deliveryTo'] as String,
     statusShip: json['statusShip'] as int,
-    avata: json['avata'] as String,
+    createAt: json['create_at'] as int,
   );
 }
 
 Map<String, dynamic> _$OrderModelToJson(OrderModel instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
+      '_id': instance.id,
       'amount': instance.amount,
+      'idProduct': instance.idProduct,
+      'idUser': instance.idUser,
       'totalPrice': instance.totalPrice,
-      'date': instance.date,
       'status': instance.status,
       'statusShip': instance.statusShip,
-      'avata': instance.avata,
+      'deliveryTo': instance.deliveryTo,
+      'create_at': instance.createAt,
     };

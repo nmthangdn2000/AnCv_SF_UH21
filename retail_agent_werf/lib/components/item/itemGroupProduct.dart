@@ -41,7 +41,7 @@ class _ItemGroupProductState extends State<ItemGroupProduct> {
                 Hero(
                   tag: "image-${widget.productModel.id}-${widget.color}",
                   child: Image.asset(
-                    "assets/images/" + widget.productModel.img,
+                    "assets/images/" + widget.productModel.media,
                     height: 100,
                     width: 100,
                     fit: BoxFit.cover,
@@ -76,7 +76,7 @@ class _ItemGroupProductState extends State<ItemGroupProduct> {
                       Hero(
                         tag: "price-${widget.productModel.id}-${widget.color}",
                         child: Text(
-                          widget.productModel.price,
+                          "${widget.productModel.price}",
                           style: TextStyle(
                             color: widget.color == Color(0xFFB2E2FE)
                                 ? Color(0xFF62AEFB)
@@ -102,7 +102,7 @@ class _ItemGroupProductState extends State<ItemGroupProduct> {
                 child: Hero(
                   tag: "saleOff-${widget.productModel.id}-${widget.color}",
                   child: Text(
-                    widget.productModel.saleOff,
+                    "${widget.productModel.saleOff}",
                     style: TextStyle(
                       fontSize: 10,
                       color: widget.color == Color(0xFFB2E2FE)

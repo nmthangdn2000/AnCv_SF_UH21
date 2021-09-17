@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:retail_agent_werf/models/order.model/order.model.dart';
+import 'package:retail_agent_werf/utils/base_url.dart';
+import 'package:retail_agent_werf/utils/constants.dart';
+import 'package:retail_agent_werf/utils/format_date.dart';
 
 class ItemOrder extends StatefulWidget {
   final OrderModel orderModel;
@@ -12,6 +16,7 @@ class ItemOrder extends StatefulWidget {
 }
 
 class _ItemOrderState extends State<ItemOrder> {
+  final oCcy = new NumberFormat("#,##0", "vi_VND");
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,7 +41,7 @@ class _ItemOrderState extends State<ItemOrder> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  widget.orderModel.name,
+                  widget.orderModel.idProduct.name,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -51,14 +56,14 @@ class _ItemOrderState extends State<ItemOrder> {
                   ),
                 ),
                 Text(
-                  "Tổng tiền: ${widget.orderModel.totalPrice}",
+                  "Tổng tiền: ${oCcy.format(widget.orderModel.totalPrice)} ₫",
                   style: TextStyle(
                     fontSize: 12,
                     color: Color(0xFF818181),
                   ),
                 ),
                 Text(
-                  widget.orderModel.date,
+                  "${new FormatDate().formatDate(widget.orderModel.createAt)}",
                   style: TextStyle(
                     color: _colorText(widget.orderModel.status),
                     fontSize: 10,
@@ -72,7 +77,7 @@ class _ItemOrderState extends State<ItemOrder> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  widget.orderModel.date,
+                  "${new FormatDate().formatDate(widget.orderModel.createAt)}",
                   style: TextStyle(
                     color: _colorText(widget.orderModel.status),
                     fontSize: 10,
@@ -91,11 +96,18 @@ class _ItemOrderState extends State<ItemOrder> {
                   ),
                   child: CircleAvatar(
                     radius: 20,
-                    backgroundImage: AssetImage(
-                      'assets/images/${widget.orderModel.avata}',
+                    backgroundImage: NetworkImage(
+                      '$BASE_URL_MEDIA/uploads/${widget.orderModel.idUser.avata}',
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  widget.orderModel.idUser.userName,
+                  style: TextStyle(fontSize: 12),
+                )
               ],
             ),
           ),
@@ -105,14 +117,16 @@ class _ItemOrderState extends State<ItemOrder> {
   }
 
   Color _colorCard(status) {
+    print(["CANCEL"]);
+    print(status);
     switch (status) {
-      case 0:
+      case CANCEL:
         return Color(0xFFFFE8E3);
-      case 1:
+      case PENDDING:
         return Color(0xFFEFFBFF);
-      case 2:
+      case CONFIM:
         return Color(0xFFE2F3FF);
-      case 3:
+      case DONE:
         return Color(0xFFE2F3FF);
       default:
         return Color(0xFFFFE8E3);
@@ -121,13 +135,13 @@ class _ItemOrderState extends State<ItemOrder> {
 
   Color _colorText(status) {
     switch (status) {
-      case 0:
+      case CANCEL:
         return Color(0xFFE04422);
-      case 1:
+      case PENDDING:
         return Color(0xFF62AEFB);
-      case 2:
+      case CONFIM:
         return Color(0xFF2285E0);
-      case 3:
+      case DONE:
         return Color(0xFF22E079);
       default:
         return Color(0xFFE04422);
@@ -136,13 +150,13 @@ class _ItemOrderState extends State<ItemOrder> {
 
   Text _textStatus(status) {
     switch (status) {
-      case 0:
+      case CANCEL:
         return _textWidget("Hủy", _colorText(status));
-      case 1:
+      case PENDDING:
         return _textWidget("Đang chờ", _colorText(status));
-      case 2:
+      case CONFIM:
         return _textWidget("Đang chuyển", _colorText(status));
-      case 3:
+      case DONE:
         return _textWidget("Đã nhận", _colorText(status));
       default:
         return _textWidget("Hủy", _colorText(status));

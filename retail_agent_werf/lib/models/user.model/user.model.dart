@@ -7,11 +7,11 @@ class UserModel {
   @JsonKey(name: '_id')
   final String id;
   final String userName;
-  final String email;
-  final String avata;
+  final String? email;
+  final String? avata;
   final String? firstName;
   final String? lastName;
-  final String token;
+  final String? token;
   UserModel({
     required this.id,
     required this.userName,
