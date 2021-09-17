@@ -5,7 +5,8 @@ const orderService = require('../service/order.service');
 class OrderController {
   async getByIdUser(req, res) {
     try {
-      const data = await orderService.getByIdUser(req.params.id);
+      const { idCustomer, idBoss } = req.query;
+      const data = await orderService.getByIdUser(idCustomer, idBoss);
       if (!data) return responseError(res, ERROR.NoData, data);
       return responseSuccessWithData(res, data);
     } catch (error) {

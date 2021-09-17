@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require('../../controllers/order.controller');
 
 // id user
-router.get('/:id/order', controller.getByIdUser);
+router.get('/order', controller.getByIdUser);
 
 router.get('/order/:id', controller.getById);
 
