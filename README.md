@@ -97,7 +97,7 @@ Farmers need **a cheap product** that solves all their problems: natural disaste
 
 - Use AI to **recognize images and analyze diseases** on trees, therefore recommending solutions and products to use. ([**code here**](WREF-app/app/src/main/java/thang/com/wref/CameraPredictionScreen))
 - Use RS and AI to **predict crop yields**. ([**code here**](WREF-app/app/src/main/java/thang/com/wref/MainScreen/Havest/CropYieldActivity.java))
-- Use OpenWeather API and AI for **flood prediction** and **early weather forecast**.
+- Use OpenWeather API and AI for **flood prediction** and **early weather forecast**. ([**code here**](https://github.com/ancv-hackatrix2021/AnCv_SF_UH21/blob/main/WREF-app/app/src/main/java/thang/com/wref/MainScreen/Disaster/Flood/FloodDisasterActivity.kt))
 - Use OpenWeather API to **display the weather forecast** for the next 24h, 5 days. ([**code here**](WREF-app/app/src/main/java/thang/com/wref/MainScreen/Weather))
 - **Agricultural knowledge** is obtained from [**Harvest Helper**][harvest helper link]. ([**code here**](WREF-app/app/src/main/java/thang/com/wref/MainScreen/Havest/HarvesthelperActivity.java))
 - **Agricultural social networks** help farmers to share beautiful and happy moments when achieving results. ([**code here**](WREF-app/app/src/main/java/thang/com/wref/StoriesScreen))
