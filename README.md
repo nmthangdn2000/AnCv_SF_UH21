@@ -297,7 +297,7 @@ In this model, we use **Crop Yield dataset** to training. This model combine of 
 
 The result of this **2 small model is combine to the main model** and go throwing many Fully Connected Networks to predict the result.
 
-<img src="AI/models/images/model3.png" width="800px" />
+<img src="AI/models/images/model3.jpg" width="800px" />
 
 We trained this model in 100 epochs. Here is metrics' chart of this model calculated by [**MSE**][mse path] function:
 
