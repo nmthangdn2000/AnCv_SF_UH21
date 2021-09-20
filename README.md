@@ -82,7 +82,12 @@
 
 ## About The Project
 
-AnCv will build a **Mobile Agriculture Application** called WREF to provide the best services to Vietnamese farmers and pesticide shops.
+**AnCv team** created the **WREF Mobile Agriculture App** to provide the best services to Vietnamese farmers and pesticide retailers. We use technology to help Vietnamese farmers, especially those in the Central region, overcome productivity challenges.
+**The app connects with retailers** so they know the farmers' agricultural performance to improve their business and help sell the right products through a dedicated app for retailers odd.
+
+<p  float="left" align="middle">
+  <img src="images/main.jpg" alt="Main screen" > 
+</p>
 
 ### Application for farmers
 
