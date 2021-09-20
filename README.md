@@ -258,7 +258,7 @@ We also **use time as a field** in the training data because the type of dataset
 
 In this model, we use **Rain Fall dataset** to training. This model using RNN including **Bidirectional LSTM Network** and **Fully Connected Network**. The model structure is display below.
 
-<img src="AI/models/images/Rainfall Model Structure.png" width="800px" />
+<img src="AI/models/images/model1.jpg" width="800px" />
 
 We trained this model in 100 epochs. Here is metrics' chart of this model calculated by [**MSE**][mse path] function:
 
@@ -276,7 +276,7 @@ This is the result when we test this model on the testing dataset. The blue line
 
 In this model, we use **Water Flow dataset** to training. This model just using normal Neural Network include many **Fully Connected Network** to build. The model structure is display below.
 
-<img src="AI/models/images/Water Flow Model Structure.png" width="800px" />
+<img src="AI/models/images/model2.jpg" width="800px" />
 
 We trained this model in 100 epochs. Here is metrics' chart of this model calculated by [**MSE**][mse path] function:
 
@@ -297,7 +297,7 @@ In this model, we use **Crop Yield dataset** to training. This model combine of 
 
 The result of this **2 small model is combine to the main model** and go throwing many Fully Connected Networks to predict the result.
 
-<img src="AI/models/images/Crop Yield Model Structure.png" width="800px" />
+<img src="AI/models/images/model3.png" width="800px" />
 
 We trained this model in 100 epochs. Here is metrics' chart of this model calculated by [**MSE**][mse path] function:
 
@@ -317,7 +317,7 @@ We have just replace and add some **Fully Connected Network** in the output of M
 
 The model structure is display below.
 
-<img src="AI/models/images/Plant Disease Model Structure.png" width="800px" />
+<img src="AI/models/images/model4.jpg" width="800px" />
 
 We trained this model in 25 epochs. Here is metrics' chart of this model calculated by [**Categorical Cross Entropy**][categorical cross entropy path] function:
 
