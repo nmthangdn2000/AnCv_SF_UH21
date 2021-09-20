@@ -1,6 +1,7 @@
 package thang.com.wref.CameraPredictionScreen.Adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -34,6 +35,9 @@ class PesticideAdapter(
                 txtPesticidePrice.text = item["price"];
                 txtPesticideWeight.text = item["weight"];
                 Glide.with(context).load(item["image"]).into(ivPesticideImg);
+                buyNow.setOnClickListener(){
+                    Log.d("TAG", "onBindViewHolder: heheheehehe", )
+                };
             }
         }
     }

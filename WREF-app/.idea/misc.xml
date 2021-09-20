@@ -38,10 +38,13 @@
         <entry key="..\:/android-project/WREF-app/app/src/main/res/layout/activity_theme_agri.xml" value="0.209375" />
         <entry key="..\:/android-project/WREF-app/app/src/main/res/layout/dropdown_item_district.xml" value="0.209375" />
         <entry key="..\:/android-project/WREF-app/app/src/main/res/layout/fragment_home.xml" value="0.209375" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/layout_choose_img_plant.xml" value="0.209375" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/layout_chuan_doan_benh.xml" value="0.209375" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/pesticide_item.xml" value="0.209375" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

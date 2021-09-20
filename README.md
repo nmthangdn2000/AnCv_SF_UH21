@@ -126,9 +126,9 @@ Pesticides retailers will use a **secondary application** to be able to post the
 
 - Font-End: [**Java**](https://www.java.com/), [**Kotlin**](https://kotlinlang.org/), [**Dart**](https://dart.dev/).
 
-- Back-End: [**Node.js**](https://nodejs.dev/) (Express.js), [**Php**](https://www.php.net/) (Laravel), [**Mongodb**](https://www.mongodb.com/).
+- Back-End: [**Node.js**](https://nodejs.dev/) (Express.js), [**Mongodb**](https://www.mongodb.com/).
 
-- IDE: [**Android studio**](https://developer.android.com/studio), [**VS Code**](https://code.visualstudio.com/) (Larvel), [**Pycharm**](https://www.jetbrains.com/pycharm/).
+- IDE: [**Android studio**](https://developer.android.com/studio), [**VS Code**](https://code.visualstudio.com/), [**Pycharm**](https://www.jetbrains.com/pycharm/).
 
 - Build and train model: [**Google Colab**](https://colab.research.google.com/notebook?hl=vi)
 
@@ -199,7 +199,7 @@ The app is located in [**WREF-app**][app path] folder. User your **Android Studi
 
 This app is developed by [**Flutter Framework**](<(https://flutter.dev/)>). You must have installed it to continue develop it or run.
 
-The app is located in [**retail_agent_werf**](<(retail_agent_werf)>) folder.
+The app is located in [**retail_agent_werf**](retail_agent_werf) folder.
 
 **Some screen shoot of the App:**
 
