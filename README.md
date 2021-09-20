@@ -322,7 +322,7 @@ We trained this model in 25 epochs. Here is metrics' chart of this model calcula
 As we can see, the result of this model good. The model can predict a result that is closing to the real value.
 
 <p>
-  <img src="images/Sâu bệnh_2.png" width="400px" />
+  <img src="images/Sâu bệnh_2.png" width="200px" />
 </p>
 
 This is the result when we test this model.
