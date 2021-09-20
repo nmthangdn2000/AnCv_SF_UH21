@@ -114,7 +114,7 @@ In addition, farmers can also directly order agricultural tools, fertilizers, pe
   <img src="images/2_Thông tin sản phẩm.png" alt="product information" width="200px" />
 </p>
 
-Pesticides retailers will use a **secondary application** to be able to post the products being sold in the store to the system, if a farmer places an order, they can clearly see the farmer's information. when they order products on the app.
+Pesticides retailers will use a **sub-application** to be able to post the products being sold in the store to the system, if a farmer places an order, they can clearly see the farmer's information. when they order products on the app.
 
 - Statistics of the store's business activities. ([**code here**](retail_agent_werf/lib/screen/homePage.dart))
 - Register to open an app store. ([**code here**](retail_agent_werf/lib/components/tabView/shop_tab_view.dart))
@@ -224,7 +224,7 @@ This image is the rainfall dataset from 2000 to 2006. In each frequency, rainfal
 
 ##### Crop Yield Dataset
 
-This dataset contains **temperature**, **humidity**, **precipitation** and **yield area** month by month from 1997 - 2014. In each year, it has data from 26 districts.
+This dataset contains **temperature**, **humidity**, **precipitation** and **yield area** month by month from 1997 - 2014. In each year, it has data from 17 districts.
 
 <img src="AI/datasets/images/Crop Yield Dataset 2010 - 2014.png" width="800px" />
 
@@ -276,7 +276,7 @@ As we can see, the result of this model good. The model can predict a result tha
 
 <img src="AI/models/images/Water Flow Model Test.png" width="800px" />
 
-This is the result when we test this model on the testing dataset. The blue line is the real water flow (mm2/s) in real life and the orange line is the prediction ones.
+This is the result when we test this model on the testing dataset. The blue line is the real water flow (m3/s) in real life and the orange line is the prediction ones.
 
 ##### Crop Yield AI Model
 
