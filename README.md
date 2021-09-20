@@ -186,7 +186,11 @@ app.use('/', (req, res) => {
 
 4. When you are ready to public this server, you can use [**Heroku**](https://www.heroku.com/) to host on the cloud.
 
-> Here is the server we have developed on the cloud: **https://wref.herokuapp.com/**
+> Here is the server we have developed on the cloud: **https://wref.herokuapp.com/** > <br>
+
+<p  float="left" align="middle">
+  <a href="https://wref.herokuapp.com/"><img src="images/api.jpg" alt="Api" /></a>
+</p>
 
 ### Setup WREF app
 
