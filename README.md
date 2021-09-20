@@ -88,9 +88,10 @@ AnCv will build a **Mobile Agriculture Application** called WREF to provide the 
 
 <br/>
 <p  float="left" align="middle">
-  <img src="images/about1.jpg" alt="about1" width="180"> 
-  <img src="images/about2.jpg" alt="about2" width="180">
-  <img src="images/about3.jpg" alt="about3" width="180">
+  <img src="images/Màn hình chính_1.png" alt="Main screen" width="180"> 
+  <img src="images/Dự đoán lũ_kết quả1.png" alt="flood prediction" width="180">
+  <img src="images/Năng suất_6.png" alt="productivity prediction" width="180">
+  <img src="images/Sâu bệnh_2.png" alt="pest identification" width="180">
 </p>
 
 Farmers need **a cheap product** that solves all their problems: natural disasters, diseases, wrong pesticide products and low yields.
@@ -108,9 +109,9 @@ In addition, farmers can also directly order agricultural tools, fertilizers, pe
 
 <br/>
 <p  float="left" align="middle">
-  <img src="images/agent1.jpg" alt="agent1" width="180"> 
-  <img src="images/agent2.jpg" alt="agent2" width="180">
-  <img src="images/agent3.jpg" alt="agent3" width="180">
+  <img src="images/2_Thống kê.png" alt="Order" width="200px" />
+  <img src="images/2_màn hình chính.png" alt="import goods" width="200px" />
+  <img src="images/2_Thông tin sản phẩm.png" alt="product information" width="200px" />
 </p>
 
 Pesticides retailers will use a **secondary application** to be able to post the products being sold in the store to the system, if a farmer places an order, they can clearly see the farmer's information. when they order products on the app.
@@ -187,27 +188,11 @@ To run this app. You must have installed [**Android Studio**](https://developer.
 
 The app is located in [**WREF-app**][app path] folder. User your **Android Studio** to open it.
 
-**Some screen shoot of the App:**
-
-<p>
-  <img src="images/about1.jpg" width="200px" />
-  <img src="images/about2.jpg" width="200px" />
-  <img src="images/about3.jpg" width="200px" />
-</p>
-
 ### Setup WREF app for retailers
 
 This app is developed by [**Flutter Framework**](<(https://flutter.dev/)>). You must have installed it to continue develop it or run.
 
 The app is located in [**retail_agent_werf**](retail_agent_werf) folder.
-
-**Some screen shoot of the App:**
-
-<p>
-  <img src="images/agent1.jpg" width="200px" />
-  <img src="images/agent2.jpg" width="200px" />
-  <img src="images/agent3.jpg" width="200px" />
-</p>
 
 ## Technology in detailed
 

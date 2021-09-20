@@ -30,9 +30,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WREF"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainScreen.Havest.AllHavestHelperActivity"/>
-        <activity android:name=".MainScreen.Havest.HarvesthelperActivity"/>
-        <activity android:name="thang.com.wref.CameraPredictionScreen.Prediction.DiseaseDetail" />
+        <activity
+            android:name=".MainScreen.Orders.OrderActivity"
+            android:exported="true" />
+        <activity android:name=".MainScreen.Havest.AllHavestHelperActivity" />
+        <activity android:name=".MainScreen.Havest.HarvesthelperActivity" />
+        <activity android:name=".CameraPredictionScreen.Prediction.DiseaseDetail" />
         <activity android:name=".MainScreen.Havest.CropYieldActivity" />
         <activity android:name=".MainScreen.Map.MapActivity" />
         <activity android:name=".MainScreen.Weather.DetailWeatherFragment" />
