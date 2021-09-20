@@ -4,14 +4,16 @@ const Shop = require('../models/shops.model');
 const { ERROR, STATUS } = require('../common/constants');
 
 class OrderService {
-  async getByIdUser(idCustomer, idBoss) {
+  async getByIdUser(idCustomer, idBoss, status) {
     if (idCustomer) return await getDataByIdCustomer(idCustomer);
-    if (idBoss) return await getDataByIdBoss(idBoss);
+    if (idBoss) return await getDataByIdBoss(idBoss, status);
     throw Error(ERROR.NoData);
   }
 
   async getById(id) {
-    const data = await Order.findById(id).populate('idProduct', 'name media price').populate('idUser', 'name');
+    const data = await Order.findById(id)
+      .populate('idProduct', 'name media price effect')
+      .populate('idUser', 'userName');
     if (!data) throw Error(ERROR.NoData);
     return data;
   }
@@ -49,20 +51,27 @@ class OrderService {
 module.exports = new OrderService();
 
 async function getDataByIdCustomer(idUser) {
-  const data = await Order.find({ idUser }).populate('idProduct', 'name media price').populate('idUser', 'userName');
+  const data = await Order.find({ idUser })
+    .populate('idProduct', 'name media price')
+    .populate('idUser', 'userName avata')
+    .select('-idShop');
   if (!data) throw Error(ERROR.NoData);
   return data;
 }
 
-async function getDataByIdBoss(idUser) {
+async function getDataByIdBoss(idUser, status) {
   const shops = await Shop.find({ idUser }).select('_id');
   const orders = [];
   shops.forEach((idShop) => {
-    orders.push(Order.find({ idShop }).populate('idProduct', 'name media price').populate('idUser', 'userName'));
+    orders.push(
+      Order.find({ idShop, status })
+        .populate('idProduct', 'name media price')
+        .populate('idUser', 'userName avata')
+        .select('-idShop')
+    );
   });
   const arr = await Promise.all(orders);
   const data = [].concat.apply([], arr);
-  console.log(data);
   if (!data) throw Error(ERROR.NoData);
   return data;
 }

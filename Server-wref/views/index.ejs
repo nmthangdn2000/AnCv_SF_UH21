@@ -4,12 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>WREF API Server Document</title>
   </head>
   <body>
     <script src="/socket.io/socket.io.js"></script>
     <script>
       const socket = io();
     </script>
+
+    <h1>Welcome to WREF API Server</h1>
+    <hr />
+    <h3>Here are some request example:</h3>
+
+    <h4>Login requests</h4>
+    <p><code>POST /api/signin</code> - Sign in</p>
+    <p><code>POST /api/signup</code> - Sign up</p>
+
+    <h5>Get weather requests</h5>
+    <p><code>GET /api/weather</code> - Get weather (require Authentication)</p>
+    <p><code>GET /api/detailweather</code> - Get details weather (require Authentication)</p>
+    <p><code>GET /api/getweather24h</code> - Get weather in 24h (require Authentication)</p>
+
+    <h5>Retailer app requests</h5>
+    <p><code>POST /api/shop</code> - Create a new shop (require Authentication)</p>
+    <p><code>POST /api/shop/:id</code> - Delete a shop (require Authentication)</p>
+    <p><code>POST /api/shop/:id</code> - Update a shop (require Authentication)</p>
+    <p><code>GET /api/category</code> - Get all categories (require Authentication)</p>
+    <p><code>GET /api/category/:id</code> - Get details category (require Authentication)</p>
+
+    <h5>Communication requests</h5>
+    <p><code>GET /api/stories</code> - Get stories (require Authentication)</p>
+    <p><code>POST /api/stories</code> - Create a new story (require Authentication)</p>
+    <p><code>GET /api/posts/:id/comment</code> - Get comments (require Authentication)</p>
+    <p><code>POST /api/posts/:id/comment</code> - Create a new comment (require Authentication)</p>
   </body>
 </html>
