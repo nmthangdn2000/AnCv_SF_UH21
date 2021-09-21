@@ -5,12 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WREF API Server Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
   </head>
   <style>
+    body {
+      background-image: url('../images/main.jpg');
+      background-repeat: no-repeat, repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
     .container {
       max-width: 1200px;
-      margin: auto;
-      padding: 1rem 0;
+      padding: 1rem 2rem;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
     .method-get {
       color: rgb(12, 187, 82);
@@ -32,9 +45,9 @@
     <div class="container">
       <h1>Welcome to WREF API Server</h1>
       <hr />
-      <h2>Here are some request example:</h2>
+      <p>Here are some request examples:</p>
 
-      <h3>Login requests</h3>
+      <h4>Login requests</h4>
       <p>
         <code><span class="method-post">POST</span> /api/signin</code> - Sign in
       </p>
@@ -42,7 +55,7 @@
         <code><span class="method-post">POST</span> /api/signup</code> - Sign up
       </p>
 
-      <h3>Get weather requests</h3>
+      <h4>Get weather requests</h4>
       <p>
         <code><span class="method-get">GET</span> /api/weather</code> - Get weather (require Authentication)
       </p>
@@ -55,7 +68,7 @@
         Authentication)
       </p>
 
-      <h3>Retailer app requests</h3>
+      <h4>Retailer app requests</h4>
       <p>
         <code><span class="method-post">POST</span> /api/shop</code> - Create a new shop (require Authentication)
       </p>
@@ -73,7 +86,7 @@
         Authentication)
       </p>
 
-      <h3>Communication requests</h3>
+      <h4>Communication requests</h4>
       <p>
         <code><span class="method-get">GET</span> /api/stories</code> - Get stories (require Authentication)
       </p>
@@ -88,7 +101,7 @@
         Authentication)
       </p>
 
-      <h3>Order requests</h3>
+      <h4>Order requests</h4>
       <p>
         <code><span class="method-get">GET</span> /api/order</code> - Get order by query (require Authentication) (query
         = (idBoss + status) || idCustomer ) (order status 0 -> 5)
@@ -100,7 +113,7 @@
         <code><span class="method-post">POST</span> /api/order</code> - POST order (require Authentication)
       </p>
 
-      <h3>Product requests</h3>
+      <h4>Product requests</h4>
       <p>
         <code><span class="method-get">GET</span> /api/product</code> - Get product by query (require Authentication)
         (query = idShop + page + limit)
