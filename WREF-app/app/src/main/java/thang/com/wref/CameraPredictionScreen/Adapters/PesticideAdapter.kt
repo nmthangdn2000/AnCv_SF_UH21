@@ -1,11 +1,12 @@
 package thang.com.wref.CameraPredictionScreen.Adapters
 
 import android.content.Context
-import android.util.Log
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import thang.com.wref.MainScreen.Orders.ProductDetailActivity
 import thang.com.wref.databinding.PesticideItemBinding
 
 class PesticideAdapter(
@@ -36,7 +37,11 @@ class PesticideAdapter(
                 txtPesticideWeight.text = item["weight"];
                 Glide.with(context).load(item["image"]).into(ivPesticideImg);
                 buyNow.setOnClickListener(){
-                    Log.d("TAG", "onBindViewHolder: heheheehehe", )
+                    val intent = Intent(context ,
+                        ProductDetailActivity::class.java)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    intent.putExtra("idProduct","614440304268072074bae629")
+                    context.startActivity(intent)
                 };
             }
         }

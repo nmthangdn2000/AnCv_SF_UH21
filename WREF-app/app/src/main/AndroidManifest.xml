@@ -31,7 +31,7 @@
         android:theme="@style/Theme.WREF"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainScreen.Orders.OrderActivity"
+            android:name=".MainScreen.Orders.ProductDetailActivity"
             android:exported="true" />
         <activity android:name=".MainScreen.Havest.AllHavestHelperActivity" />
         <activity android:name=".MainScreen.Havest.HarvesthelperActivity" />
