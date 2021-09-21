@@ -1,9 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:retail_agent_werf/apis/order.api.dart';
 import 'package:retail_agent_werf/components/item/itemOrder.dart';
+import 'package:retail_agent_werf/components/loader/loading.dart';
 import 'package:retail_agent_werf/models/order.model/order.model.dart';
 
 class ListViewOrder extends StatefulWidget {
@@ -14,6 +12,7 @@ class ListViewOrder extends StatefulWidget {
 }
 
 class _ListViewOrderState extends State<ListViewOrder> {
+  bool _loading = true;
   @override
   void initState() {
     // TODO: implement initState
@@ -28,9 +27,9 @@ class _ListViewOrderState extends State<ListViewOrder> {
       child: FutureBuilder(
         future: getOrders(),
         builder: (context, data) {
-          if (data.hasError)
+          if (data.hasError) {
             return Text("Không có đơn hàng nào");
-          else if (data.hasData) {
+          } else if (data.hasData) {
             List<OrderModel> items = data.data as List<OrderModel>;
             if (items.length > 0)
               return ListView.builder(
@@ -48,9 +47,7 @@ class _ListViewOrderState extends State<ListViewOrder> {
                 child: Text("Không có đơn hàng nào"),
               );
           } else
-            return Center(
-              child: CircularProgressIndicator(),
-            );
+            return Loading();
         },
       ),
     );

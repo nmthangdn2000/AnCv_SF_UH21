@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:retail_agent_werf/apis/order.api.dart';
 import 'package:retail_agent_werf/components/listview/listViewOrder.dart';
-import 'package:retail_agent_werf/models/order.model/order.model.dart';
 import 'package:retail_agent_werf/utils/constants.dart';
 
 class OrderPage extends StatefulWidget {
@@ -113,6 +111,7 @@ class _OrderPageState extends State<OrderPage>
           Container(
             color: Color(0xFFFAFAFA),
             child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
               child: ListViewOrder(
                 status: PENDDING,
               ),

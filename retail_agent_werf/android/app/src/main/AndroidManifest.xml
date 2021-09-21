@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.retail_agent_werf">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="Agent WREF"
         android:icon="@mipmap/ic_launcher">

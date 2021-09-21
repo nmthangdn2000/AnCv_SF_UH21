@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:retail_agent_werf/models/order.model/order.model.dart';
+import 'package:retail_agent_werf/screen/orderDetail.dart';
 import 'package:retail_agent_werf/utils/base_url.dart';
 import 'package:retail_agent_werf/utils/constants.dart';
 import 'package:retail_agent_werf/utils/format_date.dart';
@@ -19,99 +20,101 @@ class _ItemOrderState extends State<ItemOrder> {
   final oCcy = new NumberFormat("#,##0", "vi_VND");
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 111,
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-      margin: EdgeInsets.only(
-          top: 6,
-          left: 20,
-          right: 20,
-          bottom: widget.isLastItem == true ? 20 : 6),
-      decoration: BoxDecoration(
-        color: _colorCard(widget.orderModel.status),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
-            flex: 2,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  widget.orderModel.idProduct.name,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-                Text(
-                  "Số lượng: ${widget.orderModel.amount.toString()}",
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Color(0xFF818181),
-                  ),
-                ),
-                Text(
-                  "Tổng tiền: ${oCcy.format(widget.orderModel.totalPrice)} ₫",
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Color(0xFF818181),
-                  ),
-                ),
-                Text(
-                  "${new FormatDate().formatDate(widget.orderModel.createAt)}",
-                  style: TextStyle(
-                    color: _colorText(widget.orderModel.status),
-                    fontSize: 10,
-                  ),
-                ),
-              ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => OrderDetail(
+              id: widget.orderModel.id,
             ),
           ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "${new FormatDate().formatDate(widget.orderModel.createAt)}",
-                  style: TextStyle(
-                    color: _colorText(widget.orderModel.status),
-                    fontSize: 10,
+        );
+      },
+      child: Container(
+        height: 111,
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+        margin: EdgeInsets.only(
+            top: 6,
+            left: 20,
+            right: 20,
+            bottom: widget.isLastItem == true ? 20 : 6),
+        decoration: BoxDecoration(
+          color: _colorCard(widget.orderModel.status),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 2,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.orderModel.idProduct.name,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
+                  Text(
+                    "Số lượng: ${widget.orderModel.amount.toString()}",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFF818181),
+                    ),
+                  ),
+                  Text(
+                    "Tổng tiền: ${oCcy.format(widget.orderModel.totalPrice)} ₫",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFF818181),
+                    ),
+                  ),
+                  Text(
+                    "${new FormatDate().formatDate(widget.orderModel.createAt)}",
+                    style: TextStyle(
                       color: _colorText(widget.orderModel.status),
-                      width: 2.0,
+                      fontSize: 10,
                     ),
                   ),
-                  child: CircleAvatar(
-                    radius: 20,
-                    backgroundImage: NetworkImage(
-                      '$BASE_URL_MEDIA/uploads/${widget.orderModel.idUser.avata}',
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  widget.orderModel.idUser.userName,
-                  style: TextStyle(fontSize: 12),
-                )
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: _colorText(widget.orderModel.status),
+                        width: 2.0,
+                      ),
+                    ),
+                    child: CircleAvatar(
+                      radius: 20,
+                      backgroundImage: NetworkImage(
+                        '$BASE_URL_MEDIA/uploads/${widget.orderModel.idUser.avata}',
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    widget.orderModel.idUser.userName,
+                    style: TextStyle(fontSize: 12),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

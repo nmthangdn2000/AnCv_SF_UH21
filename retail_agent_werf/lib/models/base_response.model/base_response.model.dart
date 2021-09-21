@@ -6,7 +6,7 @@ class BaseResponseModel<T> {
   BaseResponseModel({
     required this.success,
     required this.message,
-    required this.data,
+    this.data,
   });
 
   factory BaseResponseModel.fromJson(
@@ -15,6 +15,13 @@ class BaseResponseModel<T> {
       success: json["success"],
       message: json["message"],
       data: fromJson(json["data"]),
+    );
+  }
+
+  factory BaseResponseModel.fromJsonNotData(Map<String, dynamic> json) {
+    return BaseResponseModel<T>(
+      success: json["success"],
+      message: json["message"],
     );
   }
 }

@@ -35,6 +35,8 @@ dependencies:
   carousel_slider: ^4.0.0
   dotted_border: ^2.0.0+1
   intl: ^0.17.0
+  lottie: ^1.1.0
+  fluttertoast: ^8.0.8
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +58,7 @@ flutter:
   assets:
     - assets/images/
     - assets/jsonfile/
+    - assets/lotties/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

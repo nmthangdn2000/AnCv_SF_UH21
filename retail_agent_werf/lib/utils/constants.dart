@@ -9,4 +9,6 @@ const int PENDDING = 0;
 const int CONFIM = 1;
 const int TRANSPORT = 2;
 const int DONE = 3;
-const int CANCEL = 2;
+const int CANCEL = 4;
+
+const String CanNotGetData = "Can not get data";
