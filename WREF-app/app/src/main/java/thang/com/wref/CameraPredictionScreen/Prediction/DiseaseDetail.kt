@@ -67,6 +67,7 @@ class DiseaseDetail : AppCompatActivity() {
             pesticide["price"] = it.price;
             pesticide["weight"] = it.weight;
             pesticide["image"] = it.image;
+            pesticide["id"] = it.id;
 
             result.add(pesticide);
         }
@@ -79,7 +80,8 @@ class DiseaseDetail : AppCompatActivity() {
         val quality: String,
         val weight: String,
         val price: String,
-        val image: String
+        val image: String,
+        val id: String
     )
 
     class DiseaseJson(

@@ -2,6 +2,7 @@ package thang.com.wref.CameraPredictionScreen.Adapters
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -40,7 +41,7 @@ class PesticideAdapter(
                     val intent = Intent(context ,
                         ProductDetailActivity::class.java)
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    intent.putExtra("idProduct","614440304268072074bae629")
+                    intent.putExtra("idProduct", item["id"])
                     context.startActivity(intent)
                 };
             }

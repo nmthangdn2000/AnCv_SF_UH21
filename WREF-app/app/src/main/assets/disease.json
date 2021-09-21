@@ -1,433 +1,538 @@
-[{
-  "diseaseId": "Cà chua_Đốm lá",
-  "diseaseName":"BỆNH ĐỐM LÁ",
-  "cause":"Bệnh đốm lá do nấm Septoria xảy ra trên toàn thế giới và gây ra bởi nấm Septoria lycopersici. Nấm này chỉ lây nhiễm cho cây thuộc họ khoai tây và cà chua. Phạm vi nhiệt độ cho sự phát triển của nấm thay đổi trong khoảng từ 15 đến 27°C, với tăng trưởng tối ưu ở 25°C.\nCác bào tử có thể được lan truyền bởi nước trên cao, mưa bắn, tay và quần áo của người hái, côn trùng như bọ cánh cứng và thiết bị trồng trọt. Nấm sống sót qua mùa đông trên cỏ dại thuộc họ cà và trong thời gian ngắn trong đất hoặc mảnh vụn đất.",
-  "symptom":"Các triệu chứng lan rộng về phía trên từ phần già nhất đến non nhất. Những đốm tròn nhỏ màu xám bủng nước với viền màu nâu sẫm xuất hiện ở mặt dưới của lá già. Ở giai đoạn sau của bệnh, các đốm này to ra và kết lại, và các chấm đen xuất hiện ở phần trung tâm của chúng.\nDấu hiệu tương tự cũng có thể được quan sát thấy trên thân cây và hoa, nhưng hiếm khi trên củ/quả. Lá bị nhiễm bệnh nặng sẽ hơi chuyển sang màu vàng, héo và rụng. Rụng lá dẫn đến việc quả bị rám nắng.",
-  "prevention":"- Có được hạt giống được chứng nhận không bị nhiễm bệnh. \n- Nếu có, hãy sử dụng các giống kháng bệnh. \n- Dùng lớp phủ hữu cơ hoặc lớp phủ nhựa để tránh truyền bệnh từ đất. \n- Loại bỏ lá bị nhiễm bệnh và tiêu hủy chúng. \n- Cải thiện lưu thông không khí và giữ cho cây không chạm mặt đất với cọc. \n- Đảm bảo các khu vực sản xuất không có cỏ dại dễ mắc bệnh. \n- Không sử dụng tưới phun hoặc tưới trên cao khác. \n- Giữ thiết bị và dụng cụ sạch sẽ sau khi làm việc tại đồng ruộng. \n- Đào bới mảnh vụn thực vật sâu trong đất sau khi thu hoạch. \n- Hoặc, loại bỏ và tiêu hủy chúng. \n- Lên kế hoạch luân canh cây trồng trong vài năm với các cây không dễ mắc bệnh.",
-  "image":"https://content.peat-cloud.com/w200/septoria-leaf-spot-tomato-2.jpg",
-  "pesticide": [
-    {
-      "name": "Daconil 75WP",
-      "quality": "Rất tốt",
-      "weight": "15g",
-      "price": "50.000 VNĐ",
-      "image": "https://www.phandoiso1.com/wp-content/uploads/2020/12/Daconil-75WP-15g.jpg"
-    }, {
-      "name": "Overamis 300SC",
-      "quality": "Hiệu quả cao",
-      "weight": "100ml",
-      "price": "80.000 VNĐ",
-      "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2017/08/thu%E1%BB%91c-overamis-300sc.jpg"
-    }, {
-      "name": "Revus Opti 440SC",
-      "quality": "Hiệu quả cao",
-      "weight": "100ml",
-      "price": "285.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/rovus_opti_100ml_fix_master.jpg"
-    }, {
-      "name": "AMISTAR 250SC",
-      "quality": "Hiệu quả cao",
-      "weight": "100ml",
-      "price": "185.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/amistar-250sc_daa8583d2a524151a57f64fa57c819fb_master.jpg"
-    }, {
-      "name": "Vitrobin 320SC",
-      "quality": "Tốt",
-      "weight": "100ml",
-      "price": "130.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/vitrobin-100ml_26521e9c885643d5bc3d80752060a04d_master.jpg"
-    }, {
-      "name": "Ortiva 600SC",
-      "quality": "Tốt",
-      "weight": "100ml",
-      "price": "90.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/ortiva-01_6fba08fd0b8e4639b5f4c1fcb6877108_master.jpg"
-    }, {
-      "name": "CHAMPION 57.6DP",
-      "quality": "Dùng được",
-      "weight": "100g",
-      "price": "19.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/champion-56.7-dp-300g_cedcbd10530e4b71b8606cbf97bd174f_master.jpg"
-    }, {
-      "name": "COPPERION 77WP",
-      "quality": "Dùng được",
-      "weight": "100g",
-      "price": "19.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/copperion-100gr_7463e7d20a0b423b814c389322919f6b_master.jpg"
-    }
-  ]
-}, {
-  "diseaseId": "Cà chua_Đốm vi khuẩn",
-  "diseaseName":"BỆNH ĐỐM VI KHUẨN",
-  "cause":"Bệnh đốm vi khuẩn do nhiều loài vi khuẩn thuộc chi Xanthomonas gây ra. Bệnh xuất hiện trên khắp thế giới và là một trong những bệnh có sức tàn phá lớn nhất đối với các cây cà chua được trồng tại các môi trường nóng và ẩm. Mầm bệnh có thể tồn tại trong hoặc trên hạt giống, trên các tàn tích của cây và trên một số loài cỏ dại cụ thể.\nVi khuẩn có thời gian sinh tồn rất ngắn, khoảng vài ngày đến vài tuần, trong đất. Khi gặp điều kiện thuận lợi, vi khuẩn nhiễm sang các cây lành mạnh thông qua nước mưa hay qua nước tưới từ hệ thống phun từ trên cao. Chúng xâm nhập vào các mô cây thông qua các lỗ thở (khí khổng) và các vết thương trên lá. Nhiệt độ tối ưu cho vi khuẩn phát triển là từ 25 đến 30°C.\nKhi cây đã nhiễm khuẩn, bệnh rất khó khống chế và có thể dẫn đến tình trạng tổn thất toàn bộ năng suất cây trồng.",
-  "symptom":"Vi khuẩn tấn công tán lá, thân và quả của các cây cà chua. Các triệu chứng đầu tiên là sự xuất hiện của các tổn thương nhỏ màu xanh ngả vàng trên lá non, lá biến dạng và thường xoắn lại. Trên những lá già, các tổn thương không lan qua các gân lá, dần dần tạo nên hình dạng có góc cạnh.\nThoạt đầu, chúng có màu xanh sẫm, nhờn nhớt và thường được bao quanh bởi một quầng màu vàng. Chúng thường xuất hiện nhiều hơn ở mép lá hay chóp lá. Trong điều kiện thuận lợi, chúng nhanh chóng lan ra và đạt đến chiều rộng từ 0,25 - 0,5 cm và chuyển sang màu nâu nhạt rồi màu đỏ nâu. Cuối cùng, các đốm trông giống như các lỗ vỡ toét do phần trung tâm bị khô giòn và rã nát.\nCác đốm trên quả (đạt đến kích cỡ 0,5 cm) bắt đầu xuất hiện như những khu vực có màu xanh nhợt, sũng nước, bao quanh bởi một quầng màu vàng, cuối cùng trở nên xù xì, chuyển sang màu nâu và đóng vảy.",
-  "prevention":"- Nếu có thể, hãy gieo trồng các hạt giống từ các nguồn đã được chứng nhận không nhiễm bệnh. \n- Sử dụng các giống cây có sức đề kháng bệnh tại địa phương. \n- Giám sát vườn thường xuyên, đặc biệt là trong những ngày thời tiết âm u. \n- Loại bỏ và đốt sạch bất cứ cây giống hay bộ phận nào của cây xuất hiện các đốm trên lá. \n- Loại bỏ cỏ dại trong và quanh vườn. \n- Sử dụng lớp phủ trên mặt đất để tránh cho đất nhiễm mầm bệnh từ cây. \n- Vệ sinh sạch sẽ công cụ và trang thiết bị làm vườn. \n- Không sử dụng hệ thống tưới phun từ trên cao và tránh làm việc trong vườn khi tán lá còn ẩm ướt. \n- Cày sâu để chôn các tàn tích của cây sau khi thu hoạch hoặc loại bỏ các tàn tích của cây và để cho đất nghỉ vài tuần hay trọn tháng (phơi ải đất). \n- Lên kế hoạch luân canh với các loài cây trồng không mẫn cảm với bệnh suốt 2 - 3 năm.",
-  "image":"https://content.peat-cloud.com/w400/bacterial-spot-of-tomato-tomato-1567496245.jpg",
-  "pesticide": [
-    {
-      "name": "New Kasuran 16.6WP",
-      "quality": "Hiệu quả cao",
-      "weight": "200g",
-      "price": "26.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/new_kasuran_696db8b985b14028a5ce9b6a3267b842_master.jpg"
-    }, {
-      "name": "Kasumin 2SL",
-      "quality": "Hiệu quả cao",
-      "weight": "425ml",
-      "price": "75.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/kasumin_22b82ae3c67f479aa3af4c8f9435c63b_master.jpg"
-    }, {
-      "name": "CNX-CN",
-      "quality": "Rất tốt",
-      "weight": "500ml",
-      "price": "130.000 VNĐ",
-      "image": "https://media3.scdn.vn/img4/2021/07_23/yFDNcvG07OtKWfQc6tF8_simg_b5529c_250x250_maxb.png"
-    }, {
-      "name": "Starner 20WP",
-      "quality": "Rất tốt",
-      "weight": "100g",
-      "price": "90.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/starner-20wp_3c62cca6d759481280ab825499cbe96b_master.jpg"
-    }, {
-      "name": "ACROBAT MZ 90/600WP",
-      "quality": "Tốt",
-      "weight": "100g",
-      "price": "39.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/acrobat-mz-90-600wp-100g_51678c1728fe49b1b23ab2950a29a594_master.jpg"
-    }, {
-      "name": "Supercook 85WP",
-      "quality": "Dùng được",
-      "weight": "20g",
-      "price": "15.000 VNĐ",
-      "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2017/02/super-cook-1.jpg"
-    }
-  ]
-}, {
-  "diseaseId": "Cà chua_Úa sớm",
-  "diseaseName":"BỆNH ÚA SỚM",
-  "cause":"Khả năng nhiễm nấm xảy ra cao nhất vào giữa mùa hè. Nấm xâm nhập vào cây thông qua các vết thương và vết rách trên cây. Nhiệt độ và độ ẩm là các yếu tố môi trường quan trọng nhất có khả năng ảnh hưởng đến quá trình phát triển của bệnh này.\nCác loài nấm gây bệnh héo muộn phát triển mạnh nhất trong điều kiện độ ẩm tương đối cao (khoảng 90%) và nhiệt độ từ 18 đến 26°C. Thời tiết khô và ấm có thể khiến bệnh dừng tiến triển.",
-  "symptom":"Các đốm màu xanh nâu xuất hiện trên mép lá và đầu lá. Về sau, phần lớn phiến lá chuyển sang màu nâu hoàn toàn. Trong thời tiết ẩm ướt, các thương tổn ở mặt dưới lá có thể bị phủ bởi một lớp mốc xám ngả trắng phát triển; đó là dấu hiệu phân biệt giữa mô lá khỏe mạnh và mô lá chết.\nKhi bệnh tiến triển, tán lá chuyển sang màu nâu, uốn quăn và khô đi. Ở một số trường hợp, các đốm nâu có ranh giới rõ ràng và lớp phủ màu trắng cũng xuất hiện trên thân, cành và cuống lá. Các vết nhăn nheo màu xanh xám chuyển sang màu nâu sẫm xuất hiện trên quả. Ở các đốm ấy, thịt quả chai cứng lại.",
-  "prevention":"- Mua hạt giống lành mạnh từ các đại lý đáng tin cậy. \n- Trồng các giống cây có sức chịu bệnh cao. \n- Không nên trồng cà chua và khoai tây cạnh nhau. \n- Giữ cây khô ráo thông qua hệ thống thoát nước và thông gió của vườn cây. \n- Nên lắp đặt một hệ thống che mưa đơn giản bằng vải dầu trong suốt được chống đỡ bằng các cọc gỗ. \n- Các loại phân bón có chứa silic có thể giúp cây tăng sức đề kháng đối với nấm mốc, đặc biệt là trong giai đoạn cây con. \n- Không nên tưới nước muộn trong ngày và nên tưới sát mặt đất. \n- Khử trùng dụng cụ và trang thiết bị làm vườn. \n- Nên luân canh trong hai đến ba năm với các loài cây không phải là ký chủ của nấm.",
-  "image":"https://content.peat-cloud.com/w400/tomato-late-blight-tomato-1556463774.jpg",
-  "pesticide": [
-    {
-      "name": "Amistar 250SC",
-      "quality": "Hiệu quả cao",
-      "weight": "100ml",
-      "price": "185.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/amistar-250sc_daa8583d2a524151a57f64fa57c819fb_master.jpg"
-    }, {
-      "name": "Daconil 500SC",
-      "quality": "Hiệu quả cao",
-      "weight": "450ml",
-      "price": "165.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/daconil-500sc_89a9cb59eb4e4030bdf052a556962433_master.jpg"
-    }, {
-      "name": "VICILIN 32WP",
-      "quality": "Rất tốt",
-      "weight": "25g",
-      "price": "15.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/vicilin_584c508f4f814f5cb20b6842104b5f90_master.jpg"
-    }, {
-      "name": "New Kasuran 16.6WP",
-      "quality": "Tốt",
-      "weight": "200g",
-      "price": "26.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/new_kasuran_696db8b985b14028a5ce9b6a3267b842_master.jpg"
-    }, {
-      "name": "Romio 300WP",
-      "quality": "Dùng được",
-      "weight": "300g",
-      "price": "90.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/romio-300wp-300g_3e36686d5bae4fb7aac3242e8955a705_master.jpg"
-    }
-  ]
-}, {
-  "diseaseId": "Cải bắp_Thối đen",
-  "diseaseName":"BỆNH THỐI ĐEN",
-  "cause":"Các loài vi khuẩn sống trong đất có tên khoa học là Xanthomonas campestris. Loài vi khuẩn này sinh tồn trong các tàn dư cây trồng hay hạt giống bị nhiễm bệnh suốt hai năm, hoặc trên thân các loài cỏ dại thuộc họ Cải (Brassica) trong thời gian dài hơn thế.\nChúng tấn công nhiều loài rau cải khác nhau trong họ Cải (bao gồm bông cải xanh, bông cải trắng, cải củ turnip, củ cải cay, su hào, vv...) Vi khuẩn lây lan sang cây khỏe mạnh thông qua nước hắt và thâm nhập vào các mô cây theo nhiều đường khác nhau, trong số đó có các vết tổn thương. Khi một cây đã bị nhiễm khuẩn, bệnh nhanh chóng lan sang những cây khác.\nNếu đất hay hạt giống bị nhiễm khuẩn, các triệu chứng bệnh đầu tiên có thể được quan sát thấy ngay trên luống ươm cây giống. Các điều kiện môi trường thuận lợi cho vi khuẩn phát triển và lây lan là độ ẩm cao và các mức nhiệt độ từ 25 - 30°C. Trồng dày cũng là điều kiện lý tưởng để vi khuẩn lây lan trên ruộng vườn. Trong những điều kiện như thế, năng suất thu hoạch có thể giảm thiểu đến 75 - 90%.",
-  "symptom":"Trong hầu hết các trường hợp, các triệu chứng bệnh gây thiệt hại trên lá bắp cải chỉ xuất hiện vào lúc cuối mùa hè. Các triệu chứng chính là những mảng hình chữ V màu vàng xuất hiện ở mép lá, chuyển dần vào bên trong mặt lá và lan xuống phần thân.\nTriệu chứng này có điểm khác biệt với bệnh héo rũ do nấm Fusarium gây ra triệu chứng thối đen từ phần cây ngang mặt đất chuyển dần lên trên. Khi bệnh tiến triển, phần hóa vàng ở lá lớn dần rồi chuyển sang màu nâu khi các mô lá chết đi. Các gân lá chuyển sang màu đen ở giai đoạn cuối của bệnh, vì thế bệnh được gọi là bệnh cháy bìa đen gân lá bắp cải.\nMầm bệnh có thể thâm nhập vào thân cải và lan tràn thông qua hệ thống mạch vận chuyển nước và chất dinh dưỡng trong cây. Do vậy, nếu cắt ngang thân bắp cải ở gần sát mặt đất, chúng ta có thể nhìn thấy một vòng màu đen hiện trên vết cắt của thân.",
-  "prevention":"- Cần đảm bảo sử dụng các hạt giống lành mạnh từ các nguồn cung được chứng nhận để gieo trồng. \n- Trồng các giống có sức đề kháng và không nên trồng các giống mẫn cảm với bệnh trong mùa mưa. \n- Không nên xén cây giống tại vườn ươm bởi vì chúng to quá cỡ. \n- Chuẩn bị tốt hệ thống thoát nước cho ruộng vườn và trồng cây giống trên các luống cao. \n- Không nên trồng bắp cải trong ruộng vườn đã từng trồng bông cải xanh, cải xoăn hay bất cứ loài cây nào thuộc họ Cải (Brassica) suốt 3 năm trước đó. \n- Dọn sạch các loài cỏ dại, đặc biệt là các loài cỏ lá rộng thuộc họ Cải, trong và xung quanh ruộng vườn. \n- Không nên sử dụng hệ thống tưới phun và nên tưới cây vào các giờ giữa ngày. \n- Không nên làm việc trên ruộng vườn khi cây còn ẩm để tránh lây lan bệnh tật. \n- Giám sát ruộng vườn thường xuyên để phát hiện các dấu hiệu bệnh hại. \n- Cắt bớt các lá già chạm đất để cây không tiếp xúc với các mầm bệnh trong đất. \n- Đảm bảo vệ sinh sạch sẽ dụng cụ canh tác bằng thuốc tẩy. \n- Cày sâu để vùi tàn dư cây trồng sau khi thu hoạch vào lòng đất hoặc đốt sạch chúng. \n- Khống chế số lượng quần thể của sâu bắp cải và các loài côn trùng khác có thể gây tổn thương cho cây.",
-  "image":"https://content.peat-cloud.com/w200/black-rot-cabbage-1562754705.jpg",
-  "pesticide": [
-    {
-      "name": "Miksabe 100WP",
-      "quality": "Hiệu quả cao",
-      "weight": "10g",
-      "price": "25.000 VNĐ",
-      "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2018/01/miksabe.jpg"
-    }, {
-      "name": "Lobo 8WP",
-      "quality": "Hiệu quả cao",
-      "weight": "25g",
-      "price": "35.000 VNĐ",
-      "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2019/01/lobo-8wp-40-gram.jpg"
-    }, {
-      "name": "Asana 2SL",
-      "quality": "Hiệu quả",
-      "weight": "20ml",
-      "price": "15.000 VNĐ",
-      "image": "https://nongduocxanh.com/wp-content/uploads/2020/05/ASana.jpg"
-    }
-  ]
-}, {
-  "diseaseId": "Cà chua_Mốc xám",
-  "diseaseName":"BỆNH MỐC XÁM",
-  "cause":"Các triệu chứng nêu trên xuất phát từ một loài nấm mốc có tên là Mycovellosiella fulva. Các bào tử của loài nấm này có thể tồn tại mà không có vật ký chủ suốt 6 tháng đến một năm ở nhiệt độ trong phòng (không bắt buộc phải sống trong điều kiện ấy).\nTình trạng ẩm ướt kéo dài và độ ẩm trên 85% là điều kiện thuận lợi để bào tử sản sinh. Các bào tử cần có điều kiện nhiệt độ từ  4°C đến 34 °C để nẩy mầm, nhiệt độ tối ưu là 24-26°C. Các điều kiện khô ráo và thiếu nước bên ngoài lá cây gây bất lợi cho quá trình nẩy mầm của chúng.\nCác triệu chứng thường bắt đầu xuất hiện khoảng 10 ngày sau khi ghép cây, với sự hình thành các đốm trên cả hai mặt của phiến lá. Ở mặt dưới lá, một lượng lớn cấu trúc nấm sinh sản bào tử được hình thành và các bào tử dễ dàng lan từ cây này sang cây khác nhờ gió và nước hắt, qua công cụ và thiết bị làm việc, quần áo của công nhân làm vườn và các loài côn trùng.\nMầm bệnh thường nhiễm vào lá bằng cách thâm nhập qua các lỗ thở (khí khổng) của lá trong điều kiện có độ ẩm cao.",
-  "symptom":"Các triệu chứng thường xuất hiện ở cả hai mặt của tán lá và đôi khi xuất hiện trên quả. Lá già bị ảnh hưởng đầu tiên, sau đó bệnh dần tiến triển và lan đến các lá non. Ở mặt trên lá xuất hiện các đốm nhỏ màu xanh nhợt hay hơi vàng, có đường viền không rõ ràng. Ở mặt dưới lá xuất hiện các mảng màu xanh lục sẫm ngả tím xám như nhung ngay bên dưới các đốm lá. Đó là những mảng cấu trúc nấm sản sinh ra các bào tử và các đốm bào tử đã được tạo thành (bào tử đính).\nQua thời gian, khi các đốm lớn dần, màu của các lá bị nhiễm nấm chuyển từ hơi vàng (úa vàng) sang nâu (mô chết) và lá bắt đầu khô cong lại. Lá rụng sớm, dẫn đến tình trạng rụng lá khi bệnh tiến triển đến mức nghiêm trọng. Đôi khi, các mầm nấm ấy gây ra các triệu chứng bệnh khác nhau ở hoa hoặc quả. Hoa có thể chuyển sang màu đen và sẽ chết trước khi kết quả.\nQuả xanh và quả chín sẽ hình thành các khu vực có hình dạng bất thường màu đen, mượt trên cuống quả. Khi bệnh tiến triển, khu vực nhiễm bệnh trũng xuống, khô đi và dai.",
-  "prevention":"- Sử dụng hạt giống không nhiễm bệnh đã được chứng nhận. \n- Trồng các giống có sức đề kháng hay chống chịu cao tại địa phương, nếu có. \n- Trồng sớm để giảm mức độ nghiêm trọng của bệnh. \n- Điều chỉnh khoảng cách giữa các hàng và cây để tăng lưu thông khí và giảm độ ẩm trên tán lá. \n- Giám sát vườn để phát hiện các dấu hiệu về bệnh và tỉa bỏ các cây bị nhiễm bệnh ngay khi phát hiện ra. \n- Không nên bón thừa phân đạm. \n- Tăng cường độ thoáng khí bên trong nhà kính. \n- Duy trì độ ẩm tương đối dưới 85% và nhiệt độ về đêm cao hơn nhiệt độ bên ngoài (áp dụng với nhà kính). \n- Sử dụng hệ thống tưới nhỏ giọt và tránh tưới nước trên vòm lá. \n- Sử dụng cọc, dây, hoặc tỉa bớt cây để giữ cho cây luôn đứng thẳng và cho phép không khí lưu thông quanh cây. \n- Loại bỏ và tiêu hủy (đốt) mọi tàn tích của cây sau khi thu hoạch. \n- Vệ sinh khu nhà kính giữa những mùa vụ và duy trì các tiêu chuẩn vệ sinh nghiêm ngặt đối với công cụ, thiết bị làm vườn cũng như đối với các công nhân làm vườn.",
-  "image":"https://content.peat-cloud.com/w400/leaf-mold-of-tomato-1.jpg",
-  "pesticide": [
-    {
-      "name": "RV04",
-      "quality": "Rất tốt",
-      "weight": "250ml",
-      "price": "210.000 VNĐ",
-      "image": "https://congnghecaogroup.vn/wp-content/uploads/2020/12/Tri-benh-than-thu-thoi-trai-600x600.jpg"
-    }, {
-      "name": "OLICIDE 9DD",
-      "quality": "Hiệu quả cao",
-      "weight": "100ml",
-      "price": "29.000 VNĐ",
-      "image": "https://product.hstatic.net/1000269461/product/9f6f238829b9d4e78da8_0282c512a3364bb89567741795e3de7a_master.jpg"
-    }, {
-      "name": "Trineb 80WP",
-      "quality": "Dùng được",
-      "weight": "100g",
-      "price": "130.000 VNĐ",
-      "image": "https://cdn.nufarm.com/wp-content/uploads/sites/20/2018/06/18162517/trineb-1kg-resized-.png"
-    }, {
-      "name": "Zineb bul 80WP",
-      "quality": "Dùng được",
-      "weight": "1kg",
-      "price": "170.000 VNĐ",
-      "image": "http://vinhthanh.com.vn/datafiles/setone/1502176109_Zineb-Blue-1kg-Bottom-12-2014-for-web.png"
-    }
-  ]
-}, {
-  "diseaseId": "Đậu nành_Đốm mắt ếch",
-  "diseaseName":"BỆNH ĐỐM MẮT ẾCH",
-  "cause":"Tác nhân: do nấm Cercospora sojina Hara (Cercospora diazu Miura)  Đính-bào-đài ngắn, thường mọc thẳng, nhô lên khỏi khối stroma thành từng chùm nhỏ\nĐính-bào tử hình sợi, thon dài, có sáu vách ngăn, màu nâu hoặc đen hơi xanh, phân bố nhờ gió\nNấm bệnh tiềm sinh trong lá, thân cây và hạt đậu\n",
-  "symptom":"- Trên lá: đốm bệnh có dạng mắt ếch\nTrên một cây, có thể có hàng trăm đốm bệnh trên lá\nĐốm có màu nâu hơi đỏ với viền hẹp rõ nét, giữa đốm có màu trắng hoặc màu xám tro (ash-grey)\nDấu hiệu tiêu biểu của bệnh là giữa đốm có những chùm đính bào đài (conidiophores) màu xám đậm\nỞ những giống dài ngày, phiến lá dễ bị hủy hoại, lá rụng sớm, làm thất thu lớn\n- Trên thân: lúc đầu, đốm bệnh có màu đỏ với viền đen\nSau đó, giữa đốm có màu xám tro và viền chuyển sang màu đỏ\nĐốm bệnh trên thân cây ít xuất hiện như đốm bệnh ở lá và chỉ hiện diện khi hạt đang giai đoạn chín\nTrái và hạt cũng có thể bị nhiểm bệnh cùng lúc\n",
-  "prevention":"Trồng giống ngắn ngày và luân canh sẽ mang lại hiệu qủa phòng bệnh cao nhất\n",
-  "image":"https://content.peat-cloud.com/w200/frogeye-leaf-spot-soybean-1.jpg",
-  "pesticide": [
-    {
-      "name": "Zincopper 50WP",
-      "quality": "Hiệu quả cao",
-      "weight": "500g",
-      "price": "70.000 VNĐ",
-      "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2018/06/zincopper.jpg"
-    }, {
-      "name": "Carosal 50SC",
-      "quality": "Hiệu quả cao",
-      "weight": "500g",
-      "price": "120.000 VNĐ",
-      "image": "https://firebasestorage.googleapis.com/v0/b/wref-47fe8.appspot.com/o/pesticides%2FCarosal%2050SC.png?alt=media"
-    }, {
-      "name": "Canazole Super 320EC",
-      "quality": "Rất tốt",
-      "weight": "320g",
-      "price": "145.000 VNĐ",
-      "image": "https://cf.shopee.vn/file/4e8567e04f5b441e2243fe043831ffed_tn"
-    }
-  ]
-}, {
-  "diseaseId": "Đậu nành_Đốm Phấn",
-  "diseaseName":"BỆNH ĐỐM PHẤN",
-  "cause":"Do nấm Peronospora manshurica (Naumov) Sydow  Đính bào đài không màu và không vách ngăn\nmọc thành chùm ở khí khẩu, có kích thước: 350-880 x 6-8 micron, phân nhánh đôi ở đầu (đặc điểm nầy giúp ta nhận diện nấm được dễ dàng)\nĐính-bào-tử là một tế bào không màu hoặc có màu vàng nhạt, hình cầu hoặc hình trứng\ncó màng mỏng, kích thước: 15-28 x 16-22 micron\nNoãn-bào-tử còn được gọi là bào-tử-nghỉ (resting spore), được thành lập bên trong mô cây, có vách dày, màu vàng, hình cầu có đường kính: 24-40 micron, bề mặt láng với cấu tạo võng lưới\nNoãn bào tử có thể tồn tại ở hạt giống, bao phủ bên ngoài hạt giống làm cho lớp võ hạt cứng lại",
-  "symptom":"Bệnh tấn công chủ yếu trên lá, trái và hạt cũng bị nhiểm khi bệnh nặng\nĐầu tiên, mặt trên lá có những đốm nhỏ màu vàng hoặc xanh nhạt, mặt dưới lá có những cụm nấm giống như phấn màu trắng xám\nĐây là tập hợp các đính-bào-đài (conidiophores) và các đính-bào-tử (conidia) của nấm gây bệnh \nĐốm bệnh sẽ chuyển sang màu xám sậm hoặc nâu sậm, lá khô và rụng sớm\nNấm bệnh cũng có khả năng xâm nhập vào lớp vỏ trái rồi vào hạt\nHạt bị phủ bởi một lớp bụi trắng (white crusts) với nhiều noãn-bào-tử (oospores)\nBệnh nặng, trái và hạt không phát triển\n",
-  "prevention":"- Chọn hạt giống ở những ruộng không bệnh\nSàng sẩy hạt trước khi tồn trữ hoặc trước khi gieo\nDùng giống chống bệnh\n- Chọn thời vụ thích hợp, tăng cường bón thêm phân P và K\nÁp dụng biện pháp canh tác và vệ sinh đồng ruộng giống như ở bệnh rỉ\nKhử hạt giống bằng thuốc hóa học trước khi gieo: dùng Granosan 0,3% hoặc TMTD 0,6% hoặc Maneb 0,25%\n- Có thể phòng và trị bệnh bằng cách xịt thuốc trừ nấm như Maneb 0,25-0,3% hoặc Dithane 0,25% hoặc Brestan\n",
-  "image":"http://s3-wp-lyleprintingandp.netdna-ssl.com/wp-content/uploads/2017/11/03133548/leaf-1000423_1280-e1509730564185.jpg",
-  "pesticide": [
-    {
-      "name": "Score 250EC",
-      "quality": "Hiệu quả cao",
-      "weight": "50ml",
-      "price": "75.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/score-250-ec-thuoc-tru-benh-cho-cay-trong-1_3f6a7560570547cab72f92cb56062d4e_master.jpg"
-    }, {
-      "name": "Dithane M45",
-      "quality": "Rất tốt",
-      "weight": "100g",
-      "price": "45.000 VNĐ",
-      "image": "https://vn-test-11.slatic.net/p/dbcdbd412e346b1166f149e17d16b7af.jpg_720x720q80.jpg_.webp"
-    }, {
-      "name": "Carosal 50SC",
-      "quality": "Rất tốt",
-      "weight": "320g",
-      "price": "145.000 VNĐ",
-      "image": "https://firebasestorage.googleapis.com/v0/b/wref-47fe8.appspot.com/o/pesticides%2FCAJET%20M10%2072WP.png?alt=media"
-    }, {
-      "name": "Canazole Super 320EC",
-      "quality": "Dùng được",
-      "weight": "320g",
-      "price": "145.000 VNĐ",
-      "image": "https://cf.shopee.vn/file/4e8567e04f5b441e2243fe043831ffed_tn"
-    }
-  ]
-}, {
-  "diseaseId": "Ngô_Gỉ ngô",
-  "diseaseName":"BỆNH GỈ NGÔ",
-  "cause":"Do nấm Puccinia  maydis gây ra. Bệnh xuất hiện và gây hại trong suốt thời kỳ sinh trưởng của bắp từ khi mới mọc cho đến khi thu hoạch. Bệnh gỉ sắt gây hại khá phổ biến ở các vùng trồng bắp của nước ta.\nNếu bệnh xuất hiện sớm sẽ làm cho lá bắp bị khô rụi sớm, cây còi cọc rất khó phục hồi, và có thể bị chết nếu bệnh quá nặng. Bệnh thường phát triển và gây hại mạnh khi điều kiện thời tiết thuận lợi như mưa nhiều làm độ ẩm không khí cao, thời tiết mát mẻ, nhiệt độ trung bình.\nBệnh cũng xuất hiện nhiều khi trồng với mật độ quá dày, bón thừa phân đạm làm cho lá bít bùng thiếu ánh sáng.",
-  "symptom":"Bệnh gây hại chủ yếu trên phiến lá, bẹ lá và vỏ trái bắp (vỏ bi). Ban đầu vết bệnh chỉ là một chấm nhỏ mầu vàng trong, sau đó lớn dần tạo thành những ổ nổi có kích thước khoảng 1mm. Khi bệnh nặng sẽ thấy lấm tấm những u nhỏ cỡ hạt tấm trên mặt lá, bên trong chứa đầy chất bột mầu nâu đỏ như mầu gạch non. Những u này lớn dần và sẽ làm rách tế bào biểu bì phía ngoài lúc đó sẽ để lộ ra khối bột mầu nâu đỏ giống mầu của gỉ sắt, đó là giai đoạn hình thành ổ bào tử hạ.\nĐến cuối giai đoạn sinh trưởng của cây bắp, trên lá bệnh có thể xuất hiện những ổ nổi mầu đen, đó là giai đoạn hình thành ổ bào tử đông. Nếu bị hại nặng, nhiều vết bệnh dày đặc trên lá sẽ làm lá bị khô cháy, diện tích lá xanh có thể quang hợp được bị giảm sẽ làm quá trình tổng hợp chất hữu cơ và vận chuyển chất khô về bắp bị giảm dẫn đến hạt không đạt, vỏ nhăn, năng suất và phẩm chất hạt giảm.",
-  "prevention":"- Cần vệ sinh đồng ruộng sạch sẽ trước khi trồng. Dọn sạch hết thân, lá bắp từ vụ trước bằng cách phơi khô và đốt. Cày xới đất chôn vùi gốc, thân lá bắp còn sót lại sẽ hạn chế được mầm bệnh cho vụ sau.\n- Trồng với mật độ vừa phải, vụ hè thu do mưa nhiều, thân lá phát triển mạnh thì trồng với khoảng cách hàng 80 cm, khoảng cách cây là 20-25 cm (80 x 20-25 cm). Còn vụ đông xuân trồng với khoảng cách 60 x 20 cm, tỉa cây khi được 10 ngày tuổi, để 1 cây/hốc, làm sạch cỏ để ruộng bắp luôn thông thoáng. Sử dụng những giống bắp lai sẽ có khả năng chống bệnh cao.\n- Chăm sóc chu đáo, bón phân cho cây ngô, tưới nước đầy đủ theo yêu cầu của cây bắp giúp cây sinh trưởng và phát triển tốt, có sức chống chịu với bệnh và hạn chế tác hại.\n- Sử dụng thuốc trừ bệnh: Khi ruộng bị bệnh có thể sử dụng một trong những lọai thuốc như: Anvil 5SC; Sumi-Eight 12.5; WPBayfidan 25EC hoặc 250EC; Bamper 250EC. Liều lượng sử dụng theo hướng dẫn trên bao bì, khi phun cần nâng cao cần để thuốc thấm hết hai mặt của lá và từ trên ngọn xuống và nên phun vào những buổi chiều mát. Trường hợp ruộng bị bệnh nặng thì sau khi phun thuốc cần tăng cường bổ sung phân bón và tưới đủ ẩm để ruộng bắp phục hồi nhanh.",
-  "image":"https://content.peat-cloud.com/w200/common-rust-of-maize-maize-1.jpg",
-  "pesticide": [
-    {
-      "name": "Tilt Super 300EC",
-      "quality": "Hiệu quả cao",
-      "weight": "100ml",
-      "price": "90.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/til-super-300ec-100ml_234b7a6d0b1b438c8dd54b7a65b54924_master.jpg"
-    }, {
-      "name": "Anvil 5SC",
-      "quality": "Hiệu quả cao",
-      "weight": "1l",
-      "price": "230.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/chai-anvil_105191eaa5084b0cbd2d1de1a7633904_master.jpg"
-    }, {
-      "name": "Catcat 250EC",
-      "quality": "Tốt",
-      "weight": "250ml",
-      "price": "120.000 VNĐ",
-      "image": "https://media3.scdn.vn/img4/2020/09_02/4PCwk8oyRBPcBKH60sNs_simg_b5529c_250x250_maxb.jpg"
-    }, {
-      "name": "Aviso 350SC",
-      "quality": "Rất tốt",
-      "weight": "250ml",
-      "price": "260.000 VNĐ",
-      "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2017/05/aviso-350sc-thu%E1%BB%91c-tr%E1%BB%AB-b%E1%BB%87nh-cho-c%C3%A2y-tr%E1%BB%93ng-1.jpg"
-    }, {
-      "name": "Domark 40ME",
-      "quality": "Dùng tốt",
-      "weight": "100ml",
-      "price": "38.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/domark-40-me_e6589fb7a77646229a61aafa9a4c70b4_master.jpg"
-    }
-  ]
-}, {
-  "diseaseId": "Ngô_Đốm lá",
-  "diseaseName":"BỆNH ĐỐM LÁ",
-  "cause":"Bệnh sọc lá do nấm Cercospora zeae-maydis gây ra. Nấm tồn tại trong tàn dư thực vật, trong đất qua thời gian dài. Trong mùa xuân, các bào tử theo nước mưa và gió lên những lá phía bên dưới.\nVòng đời của nó được đẩy nhanh khi nhiệt độ cao (25 đến 30°C), độ ẩm cao (sương, sương mù) và độ ẩm trên lá trong thời gian dài.\nThời tiết nóng, khô cản trở sự phát triển của bệnh. Các triệu chứng khác nhau trên các giống cây trồng khác nhau. Nấm hoàn thành vòng đời của nó (từ lây nhiễm đến sản xuất bào tử mới) trong 14-21 ngày trên giống cây mẫn cảm và trong 21-28 ngày đối với giống kháng bệnh.",
-  "symptom":"Những đốm hoại tử nhỏ (nâu hoặc nâu cháy) có thể có quầng màu vàng xuất hiện ở lá dưới, thường là trước khi ra hoa. Dần dần những vết bệnh này sẽ chuyển sang màu xám và xuất hiện trên lá non. Khi bệnh tiến triển, chúng mở rộng thành các tổn thương hình chữ nhật kéo dài song song với các gân lá.\nTrong điều kiện tối ưu (nhiệt độ ấm áp, độ ẩm cao và lá ướt), chúng có thể kết lại và che phủ toàn bộ lá. Nếu điều này xảy ra trước khi sinh hạt ngô có thể gây ra tổn thất năng suất đáng kể. Tàn lụi lá có thể làm suy yếu cây và đôi khi làm mềm thân cây, dẫn đến cây bị héo tàn.",
-  "prevention":"- Vệ sinh đồng ruộng, không bón quá nhiều đạm, cần bón thêm kali\n- Luân canh với chu kỳ hai năm\nChọn trồng giống kháng bệnh, các giống kháng bệnh nầy có nguồn gốc từ các vùng Colombia, Caribê, Peru,Venezuella\nChọn giống dài ngày vì nó ít nhiểm bệnh hơn giống ngắn ngày\n- Khi cây cao khoảng 0,5m, nên phun thuốc ngừa bệnh\nCác thuốc có chứa maneb hoặc chlorothalonil hoặc propiconazol đều có hiệu quả trong việc phòng trị bệnh nầy, như: Dithane M-45 (80% mancozeb), Manzate 200 (80% maneb), Tilt (41,8% propiconazole), phun định kỳ 5-7 ngày/lần\n",
-  "image":"https://content.peat-cloud.com/w400/grey-leaf-spot-of-maize-maize-1.jpg",
-  "pesticide": [
-    {
-      "name": "Dithane M45",
-      "quality": "Rất tốt",
-      "weight": "100g",
-      "price": "45.000 VNĐ",
-      "image": "https://vn-test-11.slatic.net/p/dbcdbd412e346b1166f149e17d16b7af.jpg_720x720q80.jpg_.webp"
-    }, {
-      "name": "Overamis 300SC",
-      "quality": "Hiệu quả cao",
-      "weight": "100ml",
-      "price": "80.000 VNĐ",
-      "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2017/08/thu%E1%BB%91c-overamis-300sc.jpg"
-    }, {
-      "name": "Tilt Super 300EC",
-      "quality": "Hiệu quả cao",
-      "weight": "100ml",
-      "price": "90.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/til-super-300ec-100ml_234b7a6d0b1b438c8dd54b7a65b54924_master.jpg"
-    }, {
-      "name": "Anvil 5SC",
-      "quality": "Hiệu quả cao",
-      "weight": "1l",
-      "price": "230.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/chai-anvil_105191eaa5084b0cbd2d1de1a7633904_master.jpg"
-    }
-  ]
-}, {
-  "diseaseId": "Ngô_Sọc lá",
-  "diseaseName":"BỆNH SỌC LÁ",
-  "cause":"Tất cả các cây ngô đều dễ bị bệnh. Tuy nhiên, các triệu chứng khác nhau đáng kể tùy thuộc vào sự kết hợp của vi-rút, điều kiện môi trường và giai đoạn sinh dưỡng của cây.\nCăn bệnh này thực sự hình thành khi có sự kết hợp của hai loại vi-rút, vi-rút khảm đốm lá ngô và một loại vi-rút khác, trong hầu hết các trường hợp là vi-rút khảm mía.\nCác tác nhân lây nhiễm này chủ yếu lây lan trong và giữa các cánh đồng bởi các côn trùng mang bệnh như bọ trĩ ngô, trùng đục rễ ngô và bọ cánh cứng cũng như bọ cánh cứng ngũ cốc.\nCác triệu chứng trở nên tồi tệ hơn khi các điều kiện môi trường trở nên bất lợi như hạn hán, độ phì nhiêu của đất kém và thực hành nông nghiệp không đầy đủ.",
-  "symptom":"Trong giai đoạn mới nhiễm trùng, lá có lốm đốm màu vàng-xanh, thường song song với gân lá và bắt đầu từ cuống lá. Khi bệnh tiến triển, lá bắt đầu khô, thường là từ rìa về phía gân giữa. Trong trường hợp nhiễm bệnh nặng, triệu chứng này có thể dần dần kéo dài đến phần còn lại của cây và có thể thấy hiện tượng nõn héo trong thân cây cắt ngang.\nCây bị nhiễm bệnh phát triển còi cọc, hoa không có khả năng sinh sản và bắp ngô bị dị dạng, ngắn và chỉ lấp đầy hạt một phần. Các cây bị bệnh suy yếu đi và có thể trở thành mục tiêu của nấm và giun tròn cơ hội, dẫn đến thối các mô và suy giảm số lượng và chất lượng hạt.",
-  "prevention":"- Trồng giống chịu bệnh, nếu có.\n- Sử dụng hạt giống từ cây khỏe mạnh hoặc từ các nguồn được chứng nhận.\n- Trồng sớm hoặc muộn để tránh các quần thể mang bệnh lên đỉnh điểm trong khu vực của bạn.\n- Nhổ và đốt những cây bị nhiễm bệnh nặng để ngăn chặn bệnh lây lan.\n- Kiểm soát cỏ dại trong và xung quanh đồng ruộng.\n- Không trồng ngô độc canh trong cùng một khu vực.\n- Luân canh cây trồng với cây họ đậu, đậu đũa, khoai tây, sắn và các loại cây trồng không phải là cây ký chủ khác.",
-  "image":"https://content.peat-cloud.com/w400/grey-leaf-spot-of-maize-maize-1.jpg",
-  "pesticide": [
-    {
-      "name": "Ridomil Gold 69WG",
-      "quality": "Hiệu quả cao",
-      "weight": "100g",
-      "price": "48.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/ridomil-gold_8242e5e8f3ab47d8b7fbd74b33ab2330_master.jpg"
-    }, {
-      "name": "Manthane M46",
-      "quality": "Dùng được",
-      "weight": "100g",
-      "price": "33.000 VNĐ",
-      "image": "https://cf.shopee.vn/file/b41ab3b8725ae0e0433c1fca80a925a1"
-    }
-  ]
-}, {
-  "diseaseId": "Cà chua_Nhện đỏ",
-  "diseaseName":"BỆNH NHỆN ĐỎ",
-  "cause":"Đây là loài nhện có kích thước rất nhỏ, khó nhìn thấy bằng mắt thường. Nhện đỏ hút chất dịch trong lá cây cà chua để sống. Hậu quả là cây sẽ chết khô. Chúng thường hoạt động ở mặt dưới của lá.\nNhện đỏ phát triển nhanh trong môi trường nhiệt độ nóng và độ ẩm thấp. Chúng lây lan rất nhanh nếu có gió.",
-  "symptom":"Lá cà chua sẽ bị những đốm trắng li ti, lâu dần sẽ chuyển sang vàng và lá bị khô. Ngoài ra để sớm phát hiện bạn có thể lật mặt dưới của lá để kiểm tra thường xuyên.",
-  "prevention":"- Thường xuyên cắt bỏ bớt lá chân, lá già bên dưới gốc để tạo độ thoáng khí cho cây.\n- Hạn chế bón phân chứa hàm lượng Nitrogen ( N) cao.\n- Tưới nước rửa lá cây nếu vườn của bạn ở khu vực nhiều bụi bám trên lá. Lưu ý nên tưới vào khoảng 8 -9 giờ sáng.",
-  "image":"https://media.sciencephoto.com/image/c0373170/800wm",
-  "pesticide": [
-    {
-      "name": "Agrovertin 50EC",
-      "quality": "Rất tốt",
-      "weight": "100ml",
-      "price": "85.000 VNĐ",
-      "image": "https://agriviet.org/wp-content/uploads/2020/12/a.jpg"
-    }, {
-      "name": "Silsau 3.6EC",
-      "quality": "Hiệu quả cao",
-      "weight": "10gói",
-      "price": "90.000 VNĐ",
-      "image": "https://media3.scdn.vn/img3/2019/9_24/lecTOc_simg_de2fe0_500x500_maxb.jpg"
-    }, {
-      "name": "Limater 7.5EC",
-      "quality": "Hiệu quả cao",
-      "weight": "100ml",
-      "price": "120.000 VNĐ",
-      "image": "https://lh3.googleusercontent.com/proxy/zutD_YWjhxZT4Bn4OV4pYq_H9t3wQ5GuETwIEQywFt_PX1_TpA8-k-hHoh5qh3P1crWv0KTaefpnFH9wbUdibxfUX6611bikbZBlgb9CN7LURHPNWSHjVUg"
-    }
-  ]
-}, {
-  "diseaseId": "Cà chua_Xoăn vàng lá",
-  "diseaseName":"BỆNH XOĂN VÀNG LÁ",
-  "cause":"Bệnh không lan truyền qua hạt giống hay thông qua các vết tổn thương cơ học. Bệnh lan truyền nhờ các loài bọ phấn có tên khoa học là Bemisia tabaci.\nBọ phấn ăn mặt dưới lá của một số loài cây, rất thích các cây còn non. Toàn bộ chu trình nhiễm bệnh có thể diễn ra trong khoảng 24 giờ và diễn ra thuận lợi trong điều kiện thời tiết khô ráo và nhiệt độ cao.",
-  "symptom":"Khi tấn công cà chua ở giai đoạn cây giống, bệnh vi-rút xoắn vàng lá (TYLCV) khiến đọt và lá non còi cọc nghiêm trọng, khiến cây có vẻ rậm rạp.\nĐối với các cây trưởng thành nhiễm bệnh, nhánh mọc nhiều hơn, lá dày hơn và nhăn nhúm, và phiến lá xuất hiện tình trạng vàng lá giữa các gân.\nKhi bệnh tiến triển đến các giai đoạn cuối, lá có vẻ dày và sần, các mép lá úa vàng, cuộn lên trên hay cuộn vào trong. Nếu cây nhiễm bệnh trước giai đoạn nở hoa, cây kết quả ít hẳn mặc dù không có triệu chứng nào thể hiện rõ ở bề mặt quả.",
-  "prevention":"- Sử dụng các giống kháng hay chịu bệnh tốt. \n- Trồng sớm để tránh đỉnh điểm phát triển số lượng quần thể của loài bọ phấn. \n- Trồng xen canh với các luống cây không mẫn cảm với bệnh như bí hay dưa chuột. \n- Sử dụng lưới phủ lên các luống ươm cây giống để ngăn chận bọ phấn tiếp xúc với cây. \n- Không nên trồng các loài cây ký chủ trung gian của bệnh gần với các luống cà chua. \n- Sử dụng các lớp phủ trên mặt đất tại các luống ươm cây giống hay vườn trồng để phá vỡ vòng đời của bọ phấn. \n- Sử dụng các loại bẫy dính bằng nhựa vàng để thu bắt bọ phấn với số lượng lớn. \n- Giám sát vườn, dùng tay nhổ các cây nhiễm bệnh và chôn chúng cách xa vườn trồng. \n- Tìm kiếm và loại trừ các loài cỏ dại bên trong và quanh vườn. \n- Cày sâu để chôn kín mọi tàn dư của cây sau khi thu hoạch hoặc đốt sạch chúng. \n- Thực hiện luân canh với các loài cây không mẫn cảm với bệnh.",
-  "image":"https://content.peat-cloud.com/w400/tomato-yellow-leaf-curl-virus-tomato-1575981956.jpg",
-  "pesticide": [
-    {
-      "name": "Trebon 10EC",
-      "quality": "Hiệu quả cao",
-      "weight": "480ml",
-      "price": "136.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/trebon-10ec_68f395fa006e462aa631c9023fecb1bf_master.jpg"
-    },{
-      "name": "Applaud 10WP",
-      "quality": "Dùng được",
-      "weight": "1gói",
-      "price": "7.000 VNĐ",
-      "image": "https://www.fao.org.vn/wp-content/uploads/2019/08/Ap-plaud-10WP.jpg"
-    }, {
-      "name": "Limater 7.5EC",
-      "quality": "Dùng tốt",
-      "weight": "100ml",
-      "price": "120.000 VNĐ",
-      "image": "https://lh3.googleusercontent.com/proxy/zutD_YWjhxZT4Bn4OV4pYq_H9t3wQ5GuETwIEQywFt_PX1_TpA8-k-hHoh5qh3P1crWv0KTaefpnFH9wbUdibxfUX6611bikbZBlgb9CN7LURHPNWSHjVUg"
-    }, {
-      "name": "PEGASUS 500SC",
-      "quality": "Rất tốt",
-      "weight": "10ml",
-      "price": "20.000 VNĐ",
-      "image": "https://product.hstatic.net/1000220686/product/pegasus_500sc_10ml_fix_master.jpg"
-    }, {
-      "name": "Fastac",
-      "quality": "Tốt",
-      "weight": "240ml",
-      "price": "60.000 VNĐ",
-      "image": "https://firebasestorage.googleapis.com/v0/b/wref-47fe8.appspot.com/o/pesticides%2FFastac.png?alt=media"
-    }
-  ]
-}]
+[
+  {
+    "diseaseId": "Cà chua_Đốm lá",
+    "diseaseName": "BỆNH ĐỐM LÁ",
+    "cause": "Bệnh đốm lá do nấm Septoria xảy ra trên toàn thế giới và gây ra bởi nấm Septoria lycopersici. Nấm này chỉ lây nhiễm cho cây thuộc họ khoai tây và cà chua. Phạm vi nhiệt độ cho sự phát triển của nấm thay đổi trong khoảng từ 15 đến 27°C, với tăng trưởng tối ưu ở 25°C.\nCác bào tử có thể được lan truyền bởi nước trên cao, mưa bắn, tay và quần áo của người hái, côn trùng như bọ cánh cứng và thiết bị trồng trọt. Nấm sống sót qua mùa đông trên cỏ dại thuộc họ cà và trong thời gian ngắn trong đất hoặc mảnh vụn đất.",
+    "symptom": "Các triệu chứng lan rộng về phía trên từ phần già nhất đến non nhất. Những đốm tròn nhỏ màu xám bủng nước với viền màu nâu sẫm xuất hiện ở mặt dưới của lá già. Ở giai đoạn sau của bệnh, các đốm này to ra và kết lại, và các chấm đen xuất hiện ở phần trung tâm của chúng.\nDấu hiệu tương tự cũng có thể được quan sát thấy trên thân cây và hoa, nhưng hiếm khi trên củ/quả. Lá bị nhiễm bệnh nặng sẽ hơi chuyển sang màu vàng, héo và rụng. Rụng lá dẫn đến việc quả bị rám nắng.",
+    "prevention": "- Có được hạt giống được chứng nhận không bị nhiễm bệnh. \n- Nếu có, hãy sử dụng các giống kháng bệnh. \n- Dùng lớp phủ hữu cơ hoặc lớp phủ nhựa để tránh truyền bệnh từ đất. \n- Loại bỏ lá bị nhiễm bệnh và tiêu hủy chúng. \n- Cải thiện lưu thông không khí và giữ cho cây không chạm mặt đất với cọc. \n- Đảm bảo các khu vực sản xuất không có cỏ dại dễ mắc bệnh. \n- Không sử dụng tưới phun hoặc tưới trên cao khác. \n- Giữ thiết bị và dụng cụ sạch sẽ sau khi làm việc tại đồng ruộng. \n- Đào bới mảnh vụn thực vật sâu trong đất sau khi thu hoạch. \n- Hoặc, loại bỏ và tiêu hủy chúng. \n- Lên kế hoạch luân canh cây trồng trong vài năm với các cây không dễ mắc bệnh.",
+    "image": "https://content.peat-cloud.com/w200/septoria-leaf-spot-tomato-2.jpg",
+    "pesticide": [
+      {
+        "name": "Daconil 75WP",
+        "quality": "Rất tốt",
+        "weight": "15g",
+        "price": "50.000 VNĐ",
+        "image": "https://www.phandoiso1.com/wp-content/uploads/2020/12/Daconil-75WP-15g.jpg",
+        "id": "614a02ad57b54f3358b5b160"
+      },
+      {
+        "name": "Overamis 300SC",
+        "quality": "Hiệu quả cao",
+        "weight": "100ml",
+        "price": "80.000 VNĐ",
+        "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2017/08/thu%E1%BB%91c-overamis-300sc.jpg",
+        "id": "614a02ad57b54f3358b5b161"
+      },
+      {
+        "name": "Revus Opti 440SC",
+        "quality": "Hiệu quả cao",
+        "weight": "100ml",
+        "price": "285.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/rovus_opti_100ml_fix_master.jpg",
+        "id": "614a02ad57b54f3358b5b162"
+      },
+      {
+        "name": "AMISTAR 250SC",
+        "quality": "Hiệu quả cao",
+        "weight": "100ml",
+        "price": "185.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/amistar-250sc_daa8583d2a524151a57f64fa57c819fb_master.jpg",
+        "id": "614a02ad57b54f3358b5b163"
+      },
+      {
+        "name": "Vitrobin 320SC",
+        "quality": "Tốt",
+        "weight": "100ml",
+        "price": "130.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/vitrobin-100ml_26521e9c885643d5bc3d80752060a04d_master.jpg",
+        "id": "614a02ad57b54f3358b5b164"
+      },
+      {
+        "name": "Ortiva 600SC",
+        "quality": "Tốt",
+        "weight": "100ml",
+        "price": "90.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/ortiva-01_6fba08fd0b8e4639b5f4c1fcb6877108_master.jpg",
+        "id": "614a02ad57b54f3358b5b165"
+      },
+      {
+        "name": "CHAMPION 57.6DP",
+        "quality": "Dùng được",
+        "weight": "100g",
+        "price": "19.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/champion-56.7-dp-300g_cedcbd10530e4b71b8606cbf97bd174f_master.jpg",
+        "id": "614a02ad57b54f3358b5b166"
+      },
+      {
+        "name": "COPPERION 77WP",
+        "quality": "Dùng được",
+        "weight": "100g",
+        "price": "19.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/copperion-100gr_7463e7d20a0b423b814c389322919f6b_master.jpg",
+        "id": "614a02ad57b54f3358b5b167"
+      }
+    ]
+  },
+  {
+    "diseaseId": "Cà chua_Đốm vi khuẩn",
+    "diseaseName": "BỆNH ĐỐM VI KHUẨN",
+    "cause": "Bệnh đốm vi khuẩn do nhiều loài vi khuẩn thuộc chi Xanthomonas gây ra. Bệnh xuất hiện trên khắp thế giới và là một trong những bệnh có sức tàn phá lớn nhất đối với các cây cà chua được trồng tại các môi trường nóng và ẩm. Mầm bệnh có thể tồn tại trong hoặc trên hạt giống, trên các tàn tích của cây và trên một số loài cỏ dại cụ thể.\nVi khuẩn có thời gian sinh tồn rất ngắn, khoảng vài ngày đến vài tuần, trong đất. Khi gặp điều kiện thuận lợi, vi khuẩn nhiễm sang các cây lành mạnh thông qua nước mưa hay qua nước tưới từ hệ thống phun từ trên cao. Chúng xâm nhập vào các mô cây thông qua các lỗ thở (khí khổng) và các vết thương trên lá. Nhiệt độ tối ưu cho vi khuẩn phát triển là từ 25 đến 30°C.\nKhi cây đã nhiễm khuẩn, bệnh rất khó khống chế và có thể dẫn đến tình trạng tổn thất toàn bộ năng suất cây trồng.",
+    "symptom": "Vi khuẩn tấn công tán lá, thân và quả của các cây cà chua. Các triệu chứng đầu tiên là sự xuất hiện của các tổn thương nhỏ màu xanh ngả vàng trên lá non, lá biến dạng và thường xoắn lại. Trên những lá già, các tổn thương không lan qua các gân lá, dần dần tạo nên hình dạng có góc cạnh.\nThoạt đầu, chúng có màu xanh sẫm, nhờn nhớt và thường được bao quanh bởi một quầng màu vàng. Chúng thường xuất hiện nhiều hơn ở mép lá hay chóp lá. Trong điều kiện thuận lợi, chúng nhanh chóng lan ra và đạt đến chiều rộng từ 0,25 - 0,5 cm và chuyển sang màu nâu nhạt rồi màu đỏ nâu. Cuối cùng, các đốm trông giống như các lỗ vỡ toét do phần trung tâm bị khô giòn và rã nát.\nCác đốm trên quả (đạt đến kích cỡ 0,5 cm) bắt đầu xuất hiện như những khu vực có màu xanh nhợt, sũng nước, bao quanh bởi một quầng màu vàng, cuối cùng trở nên xù xì, chuyển sang màu nâu và đóng vảy.",
+    "prevention": "- Nếu có thể, hãy gieo trồng các hạt giống từ các nguồn đã được chứng nhận không nhiễm bệnh. \n- Sử dụng các giống cây có sức đề kháng bệnh tại địa phương. \n- Giám sát vườn thường xuyên, đặc biệt là trong những ngày thời tiết âm u. \n- Loại bỏ và đốt sạch bất cứ cây giống hay bộ phận nào của cây xuất hiện các đốm trên lá. \n- Loại bỏ cỏ dại trong và quanh vườn. \n- Sử dụng lớp phủ trên mặt đất để tránh cho đất nhiễm mầm bệnh từ cây. \n- Vệ sinh sạch sẽ công cụ và trang thiết bị làm vườn. \n- Không sử dụng hệ thống tưới phun từ trên cao và tránh làm việc trong vườn khi tán lá còn ẩm ướt. \n- Cày sâu để chôn các tàn tích của cây sau khi thu hoạch hoặc loại bỏ các tàn tích của cây và để cho đất nghỉ vài tuần hay trọn tháng (phơi ải đất). \n- Lên kế hoạch luân canh với các loài cây trồng không mẫn cảm với bệnh suốt 2 - 3 năm.",
+    "image": "https://content.peat-cloud.com/w400/bacterial-spot-of-tomato-tomato-1567496245.jpg",
+    "pesticide": [
+      {
+        "name": "New Kasuran 16.6WP",
+        "quality": "Hiệu quả cao",
+        "weight": "200g",
+        "price": "26.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/new_kasuran_696db8b985b14028a5ce9b6a3267b842_master.jpg",
+        "id": "614a02ad57b54f3358b5b168"
+      },
+      {
+        "name": "Kasumin 2SL",
+        "quality": "Hiệu quả cao",
+        "weight": "425ml",
+        "price": "75.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/kasumin_22b82ae3c67f479aa3af4c8f9435c63b_master.jpg",
+        "id": "614a02ad57b54f3358b5b169"
+      },
+      {
+        "name": "CNX-CN",
+        "quality": "Rất tốt",
+        "weight": "500ml",
+        "price": "130.000 VNĐ",
+        "image": "https://media3.scdn.vn/img4/2021/07_23/yFDNcvG07OtKWfQc6tF8_simg_b5529c_250x250_maxb.png",
+        "id": "614a02ad57b54f3358b5b16a"
+      },
+      {
+        "name": "Starner 20WP",
+        "quality": "Rất tốt",
+        "weight": "100g",
+        "price": "90.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/starner-20wp_3c62cca6d759481280ab825499cbe96b_master.jpg",
+        "id": "614a02ad57b54f3358b5b16b"
+      },
+      {
+        "name": "ACROBAT MZ 90/600WP",
+        "quality": "Tốt",
+        "weight": "100g",
+        "price": "39.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/acrobat-mz-90-600wp-100g_51678c1728fe49b1b23ab2950a29a594_master.jpg",
+        "id": "614a02ad57b54f3358b5b16c"
+      },
+      {
+        "name": "Supercook 85WP",
+        "quality": "Dùng được",
+        "weight": "20g",
+        "price": "15.000 VNĐ",
+        "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2017/02/super-cook-1.jpg",
+        "id": "614a02ad57b54f3358b5b16d"
+      }
+    ]
+  },
+  {
+    "diseaseId": "Cà chua_Úa sớm",
+    "diseaseName": "BỆNH ÚA SỚM",
+    "cause": "Khả năng nhiễm nấm xảy ra cao nhất vào giữa mùa hè. Nấm xâm nhập vào cây thông qua các vết thương và vết rách trên cây. Nhiệt độ và độ ẩm là các yếu tố môi trường quan trọng nhất có khả năng ảnh hưởng đến quá trình phát triển của bệnh này.\nCác loài nấm gây bệnh héo muộn phát triển mạnh nhất trong điều kiện độ ẩm tương đối cao (khoảng 90%) và nhiệt độ từ 18 đến 26°C. Thời tiết khô và ấm có thể khiến bệnh dừng tiến triển.",
+    "symptom": "Các đốm màu xanh nâu xuất hiện trên mép lá và đầu lá. Về sau, phần lớn phiến lá chuyển sang màu nâu hoàn toàn. Trong thời tiết ẩm ướt, các thương tổn ở mặt dưới lá có thể bị phủ bởi một lớp mốc xám ngả trắng phát triển; đó là dấu hiệu phân biệt giữa mô lá khỏe mạnh và mô lá chết.\nKhi bệnh tiến triển, tán lá chuyển sang màu nâu, uốn quăn và khô đi. Ở một số trường hợp, các đốm nâu có ranh giới rõ ràng và lớp phủ màu trắng cũng xuất hiện trên thân, cành và cuống lá. Các vết nhăn nheo màu xanh xám chuyển sang màu nâu sẫm xuất hiện trên quả. Ở các đốm ấy, thịt quả chai cứng lại.",
+    "prevention": "- Mua hạt giống lành mạnh từ các đại lý đáng tin cậy. \n- Trồng các giống cây có sức chịu bệnh cao. \n- Không nên trồng cà chua và khoai tây cạnh nhau. \n- Giữ cây khô ráo thông qua hệ thống thoát nước và thông gió của vườn cây. \n- Nên lắp đặt một hệ thống che mưa đơn giản bằng vải dầu trong suốt được chống đỡ bằng các cọc gỗ. \n- Các loại phân bón có chứa silic có thể giúp cây tăng sức đề kháng đối với nấm mốc, đặc biệt là trong giai đoạn cây con. \n- Không nên tưới nước muộn trong ngày và nên tưới sát mặt đất. \n- Khử trùng dụng cụ và trang thiết bị làm vườn. \n- Nên luân canh trong hai đến ba năm với các loài cây không phải là ký chủ của nấm.",
+    "image": "https://content.peat-cloud.com/w400/tomato-late-blight-tomato-1556463774.jpg",
+    "pesticide": [
+      {
+        "name": "Amistar 250SC",
+        "quality": "Hiệu quả cao",
+        "weight": "100ml",
+        "price": "185.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/amistar-250sc_daa8583d2a524151a57f64fa57c819fb_master.jpg",
+        "id": "614a02ad57b54f3358b5b16e"
+      },
+      {
+        "name": "Daconil 500SC",
+        "quality": "Hiệu quả cao",
+        "weight": "450ml",
+        "price": "165.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/daconil-500sc_89a9cb59eb4e4030bdf052a556962433_master.jpg",
+        "id": "614a02ad57b54f3358b5b16f"
+      },
+      {
+        "name": "VICILIN 32WP",
+        "quality": "Rất tốt",
+        "weight": "25g",
+        "price": "15.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/vicilin_584c508f4f814f5cb20b6842104b5f90_master.jpg",
+        "id": "614a02ad57b54f3358b5b170"
+      },
+      {
+        "name": "New Kasuran 16.6WP",
+        "quality": "Tốt",
+        "weight": "200g",
+        "price": "26.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/new_kasuran_696db8b985b14028a5ce9b6a3267b842_master.jpg",
+        "id": "614a02ad57b54f3358b5b168"
+      },
+      {
+        "name": "Romio 300WP",
+        "quality": "Dùng được",
+        "weight": "300g",
+        "price": "90.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/romio-300wp-300g_3e36686d5bae4fb7aac3242e8955a705_master.jpg",
+        "id": "614a02ad57b54f3358b5b171"
+      }
+    ]
+  },
+  {
+    "diseaseId": "Cải bắp_Thối đen",
+    "diseaseName": "BỆNH THỐI ĐEN",
+    "cause": "Các loài vi khuẩn sống trong đất có tên khoa học là Xanthomonas campestris. Loài vi khuẩn này sinh tồn trong các tàn dư cây trồng hay hạt giống bị nhiễm bệnh suốt hai năm, hoặc trên thân các loài cỏ dại thuộc họ Cải (Brassica) trong thời gian dài hơn thế.\nChúng tấn công nhiều loài rau cải khác nhau trong họ Cải (bao gồm bông cải xanh, bông cải trắng, cải củ turnip, củ cải cay, su hào, vv...) Vi khuẩn lây lan sang cây khỏe mạnh thông qua nước hắt và thâm nhập vào các mô cây theo nhiều đường khác nhau, trong số đó có các vết tổn thương. Khi một cây đã bị nhiễm khuẩn, bệnh nhanh chóng lan sang những cây khác.\nNếu đất hay hạt giống bị nhiễm khuẩn, các triệu chứng bệnh đầu tiên có thể được quan sát thấy ngay trên luống ươm cây giống. Các điều kiện môi trường thuận lợi cho vi khuẩn phát triển và lây lan là độ ẩm cao và các mức nhiệt độ từ 25 - 30°C. Trồng dày cũng là điều kiện lý tưởng để vi khuẩn lây lan trên ruộng vườn. Trong những điều kiện như thế, năng suất thu hoạch có thể giảm thiểu đến 75 - 90%.",
+    "symptom": "Trong hầu hết các trường hợp, các triệu chứng bệnh gây thiệt hại trên lá bắp cải chỉ xuất hiện vào lúc cuối mùa hè. Các triệu chứng chính là những mảng hình chữ V màu vàng xuất hiện ở mép lá, chuyển dần vào bên trong mặt lá và lan xuống phần thân.\nTriệu chứng này có điểm khác biệt với bệnh héo rũ do nấm Fusarium gây ra triệu chứng thối đen từ phần cây ngang mặt đất chuyển dần lên trên. Khi bệnh tiến triển, phần hóa vàng ở lá lớn dần rồi chuyển sang màu nâu khi các mô lá chết đi. Các gân lá chuyển sang màu đen ở giai đoạn cuối của bệnh, vì thế bệnh được gọi là bệnh cháy bìa đen gân lá bắp cải.\nMầm bệnh có thể thâm nhập vào thân cải và lan tràn thông qua hệ thống mạch vận chuyển nước và chất dinh dưỡng trong cây. Do vậy, nếu cắt ngang thân bắp cải ở gần sát mặt đất, chúng ta có thể nhìn thấy một vòng màu đen hiện trên vết cắt của thân.",
+    "prevention": "- Cần đảm bảo sử dụng các hạt giống lành mạnh từ các nguồn cung được chứng nhận để gieo trồng. \n- Trồng các giống có sức đề kháng và không nên trồng các giống mẫn cảm với bệnh trong mùa mưa. \n- Không nên xén cây giống tại vườn ươm bởi vì chúng to quá cỡ. \n- Chuẩn bị tốt hệ thống thoát nước cho ruộng vườn và trồng cây giống trên các luống cao. \n- Không nên trồng bắp cải trong ruộng vườn đã từng trồng bông cải xanh, cải xoăn hay bất cứ loài cây nào thuộc họ Cải (Brassica) suốt 3 năm trước đó. \n- Dọn sạch các loài cỏ dại, đặc biệt là các loài cỏ lá rộng thuộc họ Cải, trong và xung quanh ruộng vườn. \n- Không nên sử dụng hệ thống tưới phun và nên tưới cây vào các giờ giữa ngày. \n- Không nên làm việc trên ruộng vườn khi cây còn ẩm để tránh lây lan bệnh tật. \n- Giám sát ruộng vườn thường xuyên để phát hiện các dấu hiệu bệnh hại. \n- Cắt bớt các lá già chạm đất để cây không tiếp xúc với các mầm bệnh trong đất. \n- Đảm bảo vệ sinh sạch sẽ dụng cụ canh tác bằng thuốc tẩy. \n- Cày sâu để vùi tàn dư cây trồng sau khi thu hoạch vào lòng đất hoặc đốt sạch chúng. \n- Khống chế số lượng quần thể của sâu bắp cải và các loài côn trùng khác có thể gây tổn thương cho cây.",
+    "image": "https://content.peat-cloud.com/w200/black-rot-cabbage-1562754705.jpg",
+    "pesticide": [
+      {
+        "name": "Miksabe 100WP",
+        "quality": "Hiệu quả cao",
+        "weight": "10g",
+        "price": "25.000 VNĐ",
+        "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2018/01/miksabe.jpg",
+        "id": "614a02ad57b54f3358b5b172"
+      },
+      {
+        "name": "Lobo 8WP",
+        "quality": "Hiệu quả cao",
+        "weight": "25g",
+        "price": "35.000 VNĐ",
+        "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2019/01/lobo-8wp-40-gram.jpg",
+        "id": "614a02ad57b54f3358b5b173"
+      },
+      {
+        "name": "Asana 2SL",
+        "quality": "Hiệu quả",
+        "weight": "20ml",
+        "price": "15.000 VNĐ",
+        "image": "https://nongduocxanh.com/wp-content/uploads/2020/05/ASana.jpg",
+        "id": "614a02ad57b54f3358b5b174"
+      }
+    ]
+  },
+  {
+    "diseaseId": "Cà chua_Mốc xám",
+    "diseaseName": "BỆNH MỐC XÁM",
+    "cause": "Các triệu chứng nêu trên xuất phát từ một loài nấm mốc có tên là Mycovellosiella fulva. Các bào tử của loài nấm này có thể tồn tại mà không có vật ký chủ suốt 6 tháng đến một năm ở nhiệt độ trong phòng (không bắt buộc phải sống trong điều kiện ấy).\nTình trạng ẩm ướt kéo dài và độ ẩm trên 85% là điều kiện thuận lợi để bào tử sản sinh. Các bào tử cần có điều kiện nhiệt độ từ  4°C đến 34 °C để nẩy mầm, nhiệt độ tối ưu là 24-26°C. Các điều kiện khô ráo và thiếu nước bên ngoài lá cây gây bất lợi cho quá trình nẩy mầm của chúng.\nCác triệu chứng thường bắt đầu xuất hiện khoảng 10 ngày sau khi ghép cây, với sự hình thành các đốm trên cả hai mặt của phiến lá. Ở mặt dưới lá, một lượng lớn cấu trúc nấm sinh sản bào tử được hình thành và các bào tử dễ dàng lan từ cây này sang cây khác nhờ gió và nước hắt, qua công cụ và thiết bị làm việc, quần áo của công nhân làm vườn và các loài côn trùng.\nMầm bệnh thường nhiễm vào lá bằng cách thâm nhập qua các lỗ thở (khí khổng) của lá trong điều kiện có độ ẩm cao.",
+    "symptom": "Các triệu chứng thường xuất hiện ở cả hai mặt của tán lá và đôi khi xuất hiện trên quả. Lá già bị ảnh hưởng đầu tiên, sau đó bệnh dần tiến triển và lan đến các lá non. Ở mặt trên lá xuất hiện các đốm nhỏ màu xanh nhợt hay hơi vàng, có đường viền không rõ ràng. Ở mặt dưới lá xuất hiện các mảng màu xanh lục sẫm ngả tím xám như nhung ngay bên dưới các đốm lá. Đó là những mảng cấu trúc nấm sản sinh ra các bào tử và các đốm bào tử đã được tạo thành (bào tử đính).\nQua thời gian, khi các đốm lớn dần, màu của các lá bị nhiễm nấm chuyển từ hơi vàng (úa vàng) sang nâu (mô chết) và lá bắt đầu khô cong lại. Lá rụng sớm, dẫn đến tình trạng rụng lá khi bệnh tiến triển đến mức nghiêm trọng. Đôi khi, các mầm nấm ấy gây ra các triệu chứng bệnh khác nhau ở hoa hoặc quả. Hoa có thể chuyển sang màu đen và sẽ chết trước khi kết quả.\nQuả xanh và quả chín sẽ hình thành các khu vực có hình dạng bất thường màu đen, mượt trên cuống quả. Khi bệnh tiến triển, khu vực nhiễm bệnh trũng xuống, khô đi và dai.",
+    "prevention": "- Sử dụng hạt giống không nhiễm bệnh đã được chứng nhận. \n- Trồng các giống có sức đề kháng hay chống chịu cao tại địa phương, nếu có. \n- Trồng sớm để giảm mức độ nghiêm trọng của bệnh. \n- Điều chỉnh khoảng cách giữa các hàng và cây để tăng lưu thông khí và giảm độ ẩm trên tán lá. \n- Giám sát vườn để phát hiện các dấu hiệu về bệnh và tỉa bỏ các cây bị nhiễm bệnh ngay khi phát hiện ra. \n- Không nên bón thừa phân đạm. \n- Tăng cường độ thoáng khí bên trong nhà kính. \n- Duy trì độ ẩm tương đối dưới 85% và nhiệt độ về đêm cao hơn nhiệt độ bên ngoài (áp dụng với nhà kính). \n- Sử dụng hệ thống tưới nhỏ giọt và tránh tưới nước trên vòm lá. \n- Sử dụng cọc, dây, hoặc tỉa bớt cây để giữ cho cây luôn đứng thẳng và cho phép không khí lưu thông quanh cây. \n- Loại bỏ và tiêu hủy (đốt) mọi tàn tích của cây sau khi thu hoạch. \n- Vệ sinh khu nhà kính giữa những mùa vụ và duy trì các tiêu chuẩn vệ sinh nghiêm ngặt đối với công cụ, thiết bị làm vườn cũng như đối với các công nhân làm vườn.",
+    "image": "https://content.peat-cloud.com/w400/leaf-mold-of-tomato-1.jpg",
+    "pesticide": [
+      {
+        "name": "RV04",
+        "quality": "Rất tốt",
+        "weight": "250ml",
+        "price": "210.000 VNĐ",
+        "image": "https://congnghecaogroup.vn/wp-content/uploads/2020/12/Tri-benh-than-thu-thoi-trai-600x600.jpg",
+        "id": "614a02ad57b54f3358b5b175"
+      },
+      {
+        "name": "OLICIDE 9DD",
+        "quality": "Hiệu quả cao",
+        "weight": "100ml",
+        "price": "29.000 VNĐ",
+        "image": "https://product.hstatic.net/1000269461/product/9f6f238829b9d4e78da8_0282c512a3364bb89567741795e3de7a_master.jpg",
+        "id": "614a02ad57b54f3358b5b176"
+      },
+      {
+        "name": "Trineb 80WP",
+        "quality": "Dùng được",
+        "weight": "100g",
+        "price": "130.000 VNĐ",
+        "image": "https://cdn.nufarm.com/wp-content/uploads/sites/20/2018/06/18162517/trineb-1kg-resized-.png",
+        "id": "614a02ad57b54f3358b5b177"
+      },
+      {
+        "name": "Zineb bul 80WP",
+        "quality": "Dùng được",
+        "weight": "1kg",
+        "price": "170.000 VNĐ",
+        "image": "http://vinhthanh.com.vn/datafiles/setone/1502176109_Zineb-Blue-1kg-Bottom-12-2014-for-web.png",
+        "id": "614a02ad57b54f3358b5b178"
+      }
+    ]
+  },
+  {
+    "diseaseId": "Đậu nành_Đốm mắt ếch",
+    "diseaseName": "BỆNH ĐỐM MẮT ẾCH",
+    "cause": "Tác nhân: do nấm Cercospora sojina Hara (Cercospora diazu Miura)  Đính-bào-đài ngắn, thường mọc thẳng, nhô lên khỏi khối stroma thành từng chùm nhỏ\nĐính-bào tử hình sợi, thon dài, có sáu vách ngăn, màu nâu hoặc đen hơi xanh, phân bố nhờ gió\nNấm bệnh tiềm sinh trong lá, thân cây và hạt đậu\n",
+    "symptom": "- Trên lá: đốm bệnh có dạng mắt ếch\nTrên một cây, có thể có hàng trăm đốm bệnh trên lá\nĐốm có màu nâu hơi đỏ với viền hẹp rõ nét, giữa đốm có màu trắng hoặc màu xám tro (ash-grey)\nDấu hiệu tiêu biểu của bệnh là giữa đốm có những chùm đính bào đài (conidiophores) màu xám đậm\nỞ những giống dài ngày, phiến lá dễ bị hủy hoại, lá rụng sớm, làm thất thu lớn\n- Trên thân: lúc đầu, đốm bệnh có màu đỏ với viền đen\nSau đó, giữa đốm có màu xám tro và viền chuyển sang màu đỏ\nĐốm bệnh trên thân cây ít xuất hiện như đốm bệnh ở lá và chỉ hiện diện khi hạt đang giai đoạn chín\nTrái và hạt cũng có thể bị nhiểm bệnh cùng lúc\n",
+    "prevention": "Trồng giống ngắn ngày và luân canh sẽ mang lại hiệu qủa phòng bệnh cao nhất\n",
+    "image": "https://content.peat-cloud.com/w200/frogeye-leaf-spot-soybean-1.jpg",
+    "pesticide": [
+      {
+        "name": "Zincopper 50WP",
+        "quality": "Hiệu quả cao",
+        "weight": "500g",
+        "price": "70.000 VNĐ",
+        "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2018/06/zincopper.jpg",
+        "id": "614a02ad57b54f3358b5b179"
+      },
+      {
+        "name": "Carosal 50SC",
+        "quality": "Hiệu quả cao",
+        "weight": "500g",
+        "price": "120.000 VNĐ",
+        "image": "https://firebasestorage.googleapis.com/v0/b/wref-47fe8.appspot.com/o/pesticides%2FCarosal%2050SC.png?alt=media",
+        "id": "614a02ad57b54f3358b5b17a"
+      },
+      {
+        "name": "Canazole Super 320EC",
+        "quality": "Rất tốt",
+        "weight": "320g",
+        "price": "145.000 VNĐ",
+        "image": "https://cf.shopee.vn/file/4e8567e04f5b441e2243fe043831ffed_tn",
+        "id": "614a02ad57b54f3358b5b17b"
+      }
+    ]
+  },
+  {
+    "diseaseId": "Đậu nành_Đốm Phấn",
+    "diseaseName": "BỆNH ĐỐM PHẤN",
+    "cause": "Do nấm Peronospora manshurica (Naumov) Sydow  Đính bào đài không màu và không vách ngăn\nmọc thành chùm ở khí khẩu, có kích thước: 350-880 x 6-8 micron, phân nhánh đôi ở đầu (đặc điểm nầy giúp ta nhận diện nấm được dễ dàng)\nĐính-bào-tử là một tế bào không màu hoặc có màu vàng nhạt, hình cầu hoặc hình trứng\ncó màng mỏng, kích thước: 15-28 x 16-22 micron\nNoãn-bào-tử còn được gọi là bào-tử-nghỉ (resting spore), được thành lập bên trong mô cây, có vách dày, màu vàng, hình cầu có đường kính: 24-40 micron, bề mặt láng với cấu tạo võng lưới\nNoãn bào tử có thể tồn tại ở hạt giống, bao phủ bên ngoài hạt giống làm cho lớp võ hạt cứng lại",
+    "symptom": "Bệnh tấn công chủ yếu trên lá, trái và hạt cũng bị nhiểm khi bệnh nặng\nĐầu tiên, mặt trên lá có những đốm nhỏ màu vàng hoặc xanh nhạt, mặt dưới lá có những cụm nấm giống như phấn màu trắng xám\nĐây là tập hợp các đính-bào-đài (conidiophores) và các đính-bào-tử (conidia) của nấm gây bệnh \nĐốm bệnh sẽ chuyển sang màu xám sậm hoặc nâu sậm, lá khô và rụng sớm\nNấm bệnh cũng có khả năng xâm nhập vào lớp vỏ trái rồi vào hạt\nHạt bị phủ bởi một lớp bụi trắng (white crusts) với nhiều noãn-bào-tử (oospores)\nBệnh nặng, trái và hạt không phát triển\n",
+    "prevention": "- Chọn hạt giống ở những ruộng không bệnh\nSàng sẩy hạt trước khi tồn trữ hoặc trước khi gieo\nDùng giống chống bệnh\n- Chọn thời vụ thích hợp, tăng cường bón thêm phân P và K\nÁp dụng biện pháp canh tác và vệ sinh đồng ruộng giống như ở bệnh rỉ\nKhử hạt giống bằng thuốc hóa học trước khi gieo: dùng Granosan 0,3% hoặc TMTD 0,6% hoặc Maneb 0,25%\n- Có thể phòng và trị bệnh bằng cách xịt thuốc trừ nấm như Maneb 0,25-0,3% hoặc Dithane 0,25% hoặc Brestan\n",
+    "image": "http://s3-wp-lyleprintingandp.netdna-ssl.com/wp-content/uploads/2017/11/03133548/leaf-1000423_1280-e1509730564185.jpg",
+    "pesticide": [
+      {
+        "name": "Score 250EC",
+        "quality": "Hiệu quả cao",
+        "weight": "50ml",
+        "price": "75.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/score-250-ec-thuoc-tru-benh-cho-cay-trong-1_3f6a7560570547cab72f92cb56062d4e_master.jpg",
+        "id": "614a02ad57b54f3358b5b17c"
+      },
+      {
+        "name": "Dithane M45",
+        "quality": "Rất tốt",
+        "weight": "100g",
+        "price": "45.000 VNĐ",
+        "image": "https://vn-test-11.slatic.net/p/dbcdbd412e346b1166f149e17d16b7af.jpg_720x720q80.jpg_.webp",
+        "id": "614a02ad57b54f3358b5b17d"
+      },
+      {
+        "name": "Carosal 50SC",
+        "quality": "Rất tốt",
+        "weight": "320g",
+        "price": "145.000 VNĐ",
+        "image": "https://firebasestorage.googleapis.com/v0/b/wref-47fe8.appspot.com/o/pesticides%2FCAJET%20M10%2072WP.png?alt=media",
+        "id": "614a02ad57b54f3358b5b17a"
+      },
+      {
+        "name": "Canazole Super 320EC",
+        "quality": "Dùng được",
+        "weight": "320g",
+        "price": "145.000 VNĐ",
+        "image": "https://cf.shopee.vn/file/4e8567e04f5b441e2243fe043831ffed_tn",
+        "id": "614a02ad57b54f3358b5b17b"
+      }
+    ]
+  },
+  {
+    "diseaseId": "Ngô_Gỉ ngô",
+    "diseaseName": "BỆNH GỈ NGÔ",
+    "cause": "Do nấm Puccinia  maydis gây ra. Bệnh xuất hiện và gây hại trong suốt thời kỳ sinh trưởng của bắp từ khi mới mọc cho đến khi thu hoạch. Bệnh gỉ sắt gây hại khá phổ biến ở các vùng trồng bắp của nước ta.\nNếu bệnh xuất hiện sớm sẽ làm cho lá bắp bị khô rụi sớm, cây còi cọc rất khó phục hồi, và có thể bị chết nếu bệnh quá nặng. Bệnh thường phát triển và gây hại mạnh khi điều kiện thời tiết thuận lợi như mưa nhiều làm độ ẩm không khí cao, thời tiết mát mẻ, nhiệt độ trung bình.\nBệnh cũng xuất hiện nhiều khi trồng với mật độ quá dày, bón thừa phân đạm làm cho lá bít bùng thiếu ánh sáng.",
+    "symptom": "Bệnh gây hại chủ yếu trên phiến lá, bẹ lá và vỏ trái bắp (vỏ bi). Ban đầu vết bệnh chỉ là một chấm nhỏ mầu vàng trong, sau đó lớn dần tạo thành những ổ nổi có kích thước khoảng 1mm. Khi bệnh nặng sẽ thấy lấm tấm những u nhỏ cỡ hạt tấm trên mặt lá, bên trong chứa đầy chất bột mầu nâu đỏ như mầu gạch non. Những u này lớn dần và sẽ làm rách tế bào biểu bì phía ngoài lúc đó sẽ để lộ ra khối bột mầu nâu đỏ giống mầu của gỉ sắt, đó là giai đoạn hình thành ổ bào tử hạ.\nĐến cuối giai đoạn sinh trưởng của cây bắp, trên lá bệnh có thể xuất hiện những ổ nổi mầu đen, đó là giai đoạn hình thành ổ bào tử đông. Nếu bị hại nặng, nhiều vết bệnh dày đặc trên lá sẽ làm lá bị khô cháy, diện tích lá xanh có thể quang hợp được bị giảm sẽ làm quá trình tổng hợp chất hữu cơ và vận chuyển chất khô về bắp bị giảm dẫn đến hạt không đạt, vỏ nhăn, năng suất và phẩm chất hạt giảm.",
+    "prevention": "- Cần vệ sinh đồng ruộng sạch sẽ trước khi trồng. Dọn sạch hết thân, lá bắp từ vụ trước bằng cách phơi khô và đốt. Cày xới đất chôn vùi gốc, thân lá bắp còn sót lại sẽ hạn chế được mầm bệnh cho vụ sau.\n- Trồng với mật độ vừa phải, vụ hè thu do mưa nhiều, thân lá phát triển mạnh thì trồng với khoảng cách hàng 80 cm, khoảng cách cây là 20-25 cm (80 x 20-25 cm). Còn vụ đông xuân trồng với khoảng cách 60 x 20 cm, tỉa cây khi được 10 ngày tuổi, để 1 cây/hốc, làm sạch cỏ để ruộng bắp luôn thông thoáng. Sử dụng những giống bắp lai sẽ có khả năng chống bệnh cao.\n- Chăm sóc chu đáo, bón phân cho cây ngô, tưới nước đầy đủ theo yêu cầu của cây bắp giúp cây sinh trưởng và phát triển tốt, có sức chống chịu với bệnh và hạn chế tác hại.\n- Sử dụng thuốc trừ bệnh: Khi ruộng bị bệnh có thể sử dụng một trong những lọai thuốc như: Anvil 5SC; Sumi-Eight 12.5; WPBayfidan 25EC hoặc 250EC; Bamper 250EC. Liều lượng sử dụng theo hướng dẫn trên bao bì, khi phun cần nâng cao cần để thuốc thấm hết hai mặt của lá và từ trên ngọn xuống và nên phun vào những buổi chiều mát. Trường hợp ruộng bị bệnh nặng thì sau khi phun thuốc cần tăng cường bổ sung phân bón và tưới đủ ẩm để ruộng bắp phục hồi nhanh.",
+    "image": "https://content.peat-cloud.com/w200/common-rust-of-maize-maize-1.jpg",
+    "pesticide": [
+      {
+        "name": "Tilt Super 300EC",
+        "quality": "Hiệu quả cao",
+        "weight": "100ml",
+        "price": "90.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/til-super-300ec-100ml_234b7a6d0b1b438c8dd54b7a65b54924_master.jpg",
+        "id": "614a02ad57b54f3358b5b17e"
+      },
+      {
+        "name": "Anvil 5SC",
+        "quality": "Hiệu quả cao",
+        "weight": "1l",
+        "price": "230.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/chai-anvil_105191eaa5084b0cbd2d1de1a7633904_master.jpg",
+        "id": "614a02ad57b54f3358b5b17f"
+      },
+      {
+        "name": "Catcat 250EC",
+        "quality": "Tốt",
+        "weight": "250ml",
+        "price": "120.000 VNĐ",
+        "image": "https://media3.scdn.vn/img4/2020/09_02/4PCwk8oyRBPcBKH60sNs_simg_b5529c_250x250_maxb.jpg",
+        "id": "614a02ad57b54f3358b5b180"
+      },
+      {
+        "name": "Aviso 350SC",
+        "quality": "Rất tốt",
+        "weight": "250ml",
+        "price": "260.000 VNĐ",
+        "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2017/05/aviso-350sc-thu%E1%BB%91c-tr%E1%BB%AB-b%E1%BB%87nh-cho-c%C3%A2y-tr%E1%BB%93ng-1.jpg",
+        "id": "614a02ad57b54f3358b5b181"
+      },
+      {
+        "name": "Domark 40ME",
+        "quality": "Dùng tốt",
+        "weight": "100ml",
+        "price": "38.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/domark-40-me_e6589fb7a77646229a61aafa9a4c70b4_master.jpg",
+        "id": "614a02ad57b54f3358b5b182"
+      }
+    ]
+  },
+  {
+    "diseaseId": "Ngô_Đốm lá",
+    "diseaseName": "BỆNH ĐỐM LÁ",
+    "cause": "Bệnh sọc lá do nấm Cercospora zeae-maydis gây ra. Nấm tồn tại trong tàn dư thực vật, trong đất qua thời gian dài. Trong mùa xuân, các bào tử theo nước mưa và gió lên những lá phía bên dưới.\nVòng đời của nó được đẩy nhanh khi nhiệt độ cao (25 đến 30°C), độ ẩm cao (sương, sương mù) và độ ẩm trên lá trong thời gian dài.\nThời tiết nóng, khô cản trở sự phát triển của bệnh. Các triệu chứng khác nhau trên các giống cây trồng khác nhau. Nấm hoàn thành vòng đời của nó (từ lây nhiễm đến sản xuất bào tử mới) trong 14-21 ngày trên giống cây mẫn cảm và trong 21-28 ngày đối với giống kháng bệnh.",
+    "symptom": "Những đốm hoại tử nhỏ (nâu hoặc nâu cháy) có thể có quầng màu vàng xuất hiện ở lá dưới, thường là trước khi ra hoa. Dần dần những vết bệnh này sẽ chuyển sang màu xám và xuất hiện trên lá non. Khi bệnh tiến triển, chúng mở rộng thành các tổn thương hình chữ nhật kéo dài song song với các gân lá.\nTrong điều kiện tối ưu (nhiệt độ ấm áp, độ ẩm cao và lá ướt), chúng có thể kết lại và che phủ toàn bộ lá. Nếu điều này xảy ra trước khi sinh hạt ngô có thể gây ra tổn thất năng suất đáng kể. Tàn lụi lá có thể làm suy yếu cây và đôi khi làm mềm thân cây, dẫn đến cây bị héo tàn.",
+    "prevention": "- Vệ sinh đồng ruộng, không bón quá nhiều đạm, cần bón thêm kali\n- Luân canh với chu kỳ hai năm\nChọn trồng giống kháng bệnh, các giống kháng bệnh nầy có nguồn gốc từ các vùng Colombia, Caribê, Peru,Venezuella\nChọn giống dài ngày vì nó ít nhiểm bệnh hơn giống ngắn ngày\n- Khi cây cao khoảng 0,5m, nên phun thuốc ngừa bệnh\nCác thuốc có chứa maneb hoặc chlorothalonil hoặc propiconazol đều có hiệu quả trong việc phòng trị bệnh nầy, như: Dithane M-45 (80% mancozeb), Manzate 200 (80% maneb), Tilt (41,8% propiconazole), phun định kỳ 5-7 ngày/lần\n",
+    "image": "https://content.peat-cloud.com/w400/grey-leaf-spot-of-maize-maize-1.jpg",
+    "pesticide": [
+      {
+        "name": "Dithane M45",
+        "quality": "Rất tốt",
+        "weight": "100g",
+        "price": "45.000 VNĐ",
+        "image": "https://vn-test-11.slatic.net/p/dbcdbd412e346b1166f149e17d16b7af.jpg_720x720q80.jpg_.webp",
+        "id": "614a02ad57b54f3358b5b17d"
+      },
+      {
+        "name": "Overamis 300SC",
+        "quality": "Hiệu quả cao",
+        "weight": "100ml",
+        "price": "80.000 VNĐ",
+        "image": "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2017/08/thu%E1%BB%91c-overamis-300sc.jpg",
+        "id": "614a02ad57b54f3358b5b161"
+      },
+      {
+        "name": "Tilt Super 300EC",
+        "quality": "Hiệu quả cao",
+        "weight": "100ml",
+        "price": "90.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/til-super-300ec-100ml_234b7a6d0b1b438c8dd54b7a65b54924_master.jpg",
+        "id": "614a02ad57b54f3358b5b17e"
+      },
+      {
+        "name": "Anvil 5SC",
+        "quality": "Hiệu quả cao",
+        "weight": "1l",
+        "price": "230.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/chai-anvil_105191eaa5084b0cbd2d1de1a7633904_master.jpg",
+        "id": "614a02ad57b54f3358b5b17f"
+      }
+    ]
+  },
+  {
+    "diseaseId": "Ngô_Sọc lá",
+    "diseaseName": "BỆNH SỌC LÁ",
+    "cause": "Tất cả các cây ngô đều dễ bị bệnh. Tuy nhiên, các triệu chứng khác nhau đáng kể tùy thuộc vào sự kết hợp của vi-rút, điều kiện môi trường và giai đoạn sinh dưỡng của cây.\nCăn bệnh này thực sự hình thành khi có sự kết hợp của hai loại vi-rút, vi-rút khảm đốm lá ngô và một loại vi-rút khác, trong hầu hết các trường hợp là vi-rút khảm mía.\nCác tác nhân lây nhiễm này chủ yếu lây lan trong và giữa các cánh đồng bởi các côn trùng mang bệnh như bọ trĩ ngô, trùng đục rễ ngô và bọ cánh cứng cũng như bọ cánh cứng ngũ cốc.\nCác triệu chứng trở nên tồi tệ hơn khi các điều kiện môi trường trở nên bất lợi như hạn hán, độ phì nhiêu của đất kém và thực hành nông nghiệp không đầy đủ.",
+    "symptom": "Trong giai đoạn mới nhiễm trùng, lá có lốm đốm màu vàng-xanh, thường song song với gân lá và bắt đầu từ cuống lá. Khi bệnh tiến triển, lá bắt đầu khô, thường là từ rìa về phía gân giữa. Trong trường hợp nhiễm bệnh nặng, triệu chứng này có thể dần dần kéo dài đến phần còn lại của cây và có thể thấy hiện tượng nõn héo trong thân cây cắt ngang.\nCây bị nhiễm bệnh phát triển còi cọc, hoa không có khả năng sinh sản và bắp ngô bị dị dạng, ngắn và chỉ lấp đầy hạt một phần. Các cây bị bệnh suy yếu đi và có thể trở thành mục tiêu của nấm và giun tròn cơ hội, dẫn đến thối các mô và suy giảm số lượng và chất lượng hạt.",
+    "prevention": "- Trồng giống chịu bệnh, nếu có.\n- Sử dụng hạt giống từ cây khỏe mạnh hoặc từ các nguồn được chứng nhận.\n- Trồng sớm hoặc muộn để tránh các quần thể mang bệnh lên đỉnh điểm trong khu vực của bạn.\n- Nhổ và đốt những cây bị nhiễm bệnh nặng để ngăn chặn bệnh lây lan.\n- Kiểm soát cỏ dại trong và xung quanh đồng ruộng.\n- Không trồng ngô độc canh trong cùng một khu vực.\n- Luân canh cây trồng với cây họ đậu, đậu đũa, khoai tây, sắn và các loại cây trồng không phải là cây ký chủ khác.",
+    "image": "https://content.peat-cloud.com/w400/grey-leaf-spot-of-maize-maize-1.jpg",
+    "pesticide": [
+      {
+        "name": "Ridomil Gold 69WG",
+        "quality": "Hiệu quả cao",
+        "weight": "100g",
+        "price": "48.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/ridomil-gold_8242e5e8f3ab47d8b7fbd74b33ab2330_master.jpg",
+        "id": "614a02ad57b54f3358b5b183"
+      },
+      {
+        "name": "Manthane M46",
+        "quality": "Dùng được",
+        "weight": "100g",
+        "price": "33.000 VNĐ",
+        "image": "https://cf.shopee.vn/file/b41ab3b8725ae0e0433c1fca80a925a1",
+        "id": "614a02ad57b54f3358b5b184"
+      }
+    ]
+  },
+  {
+    "diseaseId": "Cà chua_Nhện đỏ",
+    "diseaseName": "BỆNH NHỆN ĐỎ",
+    "cause": "Đây là loài nhện có kích thước rất nhỏ, khó nhìn thấy bằng mắt thường. Nhện đỏ hút chất dịch trong lá cây cà chua để sống. Hậu quả là cây sẽ chết khô. Chúng thường hoạt động ở mặt dưới của lá.\nNhện đỏ phát triển nhanh trong môi trường nhiệt độ nóng và độ ẩm thấp. Chúng lây lan rất nhanh nếu có gió.",
+    "symptom": "Lá cà chua sẽ bị những đốm trắng li ti, lâu dần sẽ chuyển sang vàng và lá bị khô. Ngoài ra để sớm phát hiện bạn có thể lật mặt dưới của lá để kiểm tra thường xuyên.",
+    "prevention": "- Thường xuyên cắt bỏ bớt lá chân, lá già bên dưới gốc để tạo độ thoáng khí cho cây.\n- Hạn chế bón phân chứa hàm lượng Nitrogen ( N) cao.\n- Tưới nước rửa lá cây nếu vườn của bạn ở khu vực nhiều bụi bám trên lá. Lưu ý nên tưới vào khoảng 8 -9 giờ sáng.",
+    "image": "https://media.sciencephoto.com/image/c0373170/800wm",
+    "pesticide": [
+      {
+        "name": "Agrovertin 50EC",
+        "quality": "Rất tốt",
+        "weight": "100ml",
+        "price": "85.000 VNĐ",
+        "image": "https://agriviet.org/wp-content/uploads/2020/12/a.jpg",
+        "id": "614a02ad57b54f3358b5b185"
+      },
+      {
+        "name": "Silsau 3.6EC",
+        "quality": "Hiệu quả cao",
+        "weight": "10gói",
+        "price": "90.000 VNĐ",
+        "image": "https://media3.scdn.vn/img3/2019/9_24/lecTOc_simg_de2fe0_500x500_maxb.jpg",
+        "id": "614a02ad57b54f3358b5b186"
+      },
+      {
+        "name": "Limater 7.5EC",
+        "quality": "Hiệu quả cao",
+        "weight": "100ml",
+        "price": "120.000 VNĐ",
+        "image": "https://lh3.googleusercontent.com/proxy/zutD_YWjhxZT4Bn4OV4pYq_H9t3wQ5GuETwIEQywFt_PX1_TpA8-k-hHoh5qh3P1crWv0KTaefpnFH9wbUdibxfUX6611bikbZBlgb9CN7LURHPNWSHjVUg",
+        "id": "614a02ad57b54f3358b5b187"
+      }
+    ]
+  },
+  {
+    "diseaseId": "Cà chua_Xoăn vàng lá",
+    "diseaseName": "BỆNH XOĂN VÀNG LÁ",
+    "cause": "Bệnh không lan truyền qua hạt giống hay thông qua các vết tổn thương cơ học. Bệnh lan truyền nhờ các loài bọ phấn có tên khoa học là Bemisia tabaci.\nBọ phấn ăn mặt dưới lá của một số loài cây, rất thích các cây còn non. Toàn bộ chu trình nhiễm bệnh có thể diễn ra trong khoảng 24 giờ và diễn ra thuận lợi trong điều kiện thời tiết khô ráo và nhiệt độ cao.",
+    "symptom": "Khi tấn công cà chua ở giai đoạn cây giống, bệnh vi-rút xoắn vàng lá (TYLCV) khiến đọt và lá non còi cọc nghiêm trọng, khiến cây có vẻ rậm rạp.\nĐối với các cây trưởng thành nhiễm bệnh, nhánh mọc nhiều hơn, lá dày hơn và nhăn nhúm, và phiến lá xuất hiện tình trạng vàng lá giữa các gân.\nKhi bệnh tiến triển đến các giai đoạn cuối, lá có vẻ dày và sần, các mép lá úa vàng, cuộn lên trên hay cuộn vào trong. Nếu cây nhiễm bệnh trước giai đoạn nở hoa, cây kết quả ít hẳn mặc dù không có triệu chứng nào thể hiện rõ ở bề mặt quả.",
+    "prevention": "- Sử dụng các giống kháng hay chịu bệnh tốt. \n- Trồng sớm để tránh đỉnh điểm phát triển số lượng quần thể của loài bọ phấn. \n- Trồng xen canh với các luống cây không mẫn cảm với bệnh như bí hay dưa chuột. \n- Sử dụng lưới phủ lên các luống ươm cây giống để ngăn chận bọ phấn tiếp xúc với cây. \n- Không nên trồng các loài cây ký chủ trung gian của bệnh gần với các luống cà chua. \n- Sử dụng các lớp phủ trên mặt đất tại các luống ươm cây giống hay vườn trồng để phá vỡ vòng đời của bọ phấn. \n- Sử dụng các loại bẫy dính bằng nhựa vàng để thu bắt bọ phấn với số lượng lớn. \n- Giám sát vườn, dùng tay nhổ các cây nhiễm bệnh và chôn chúng cách xa vườn trồng. \n- Tìm kiếm và loại trừ các loài cỏ dại bên trong và quanh vườn. \n- Cày sâu để chôn kín mọi tàn dư của cây sau khi thu hoạch hoặc đốt sạch chúng. \n- Thực hiện luân canh với các loài cây không mẫn cảm với bệnh.",
+    "image": "https://content.peat-cloud.com/w400/tomato-yellow-leaf-curl-virus-tomato-1575981956.jpg",
+    "pesticide": [
+      {
+        "name": "Trebon 10EC",
+        "quality": "Hiệu quả cao",
+        "weight": "480ml",
+        "price": "136.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/trebon-10ec_68f395fa006e462aa631c9023fecb1bf_master.jpg",
+        "id": "614a02ad57b54f3358b5b188"
+      },
+      {
+        "name": "Applaud 10WP",
+        "quality": "Dùng được",
+        "weight": "1gói",
+        "price": "7.000 VNĐ",
+        "image": "https://www.fao.org.vn/wp-content/uploads/2019/08/Ap-plaud-10WP.jpg",
+        "id": "614a02ad57b54f3358b5b189"
+      },
+      {
+        "name": "Limater 7.5EC",
+        "quality": "Dùng tốt",
+        "weight": "100ml",
+        "price": "120.000 VNĐ",
+        "image": "https://lh3.googleusercontent.com/proxy/zutD_YWjhxZT4Bn4OV4pYq_H9t3wQ5GuETwIEQywFt_PX1_TpA8-k-hHoh5qh3P1crWv0KTaefpnFH9wbUdibxfUX6611bikbZBlgb9CN7LURHPNWSHjVUg",
+        "id": "614a02ad57b54f3358b5b187"
+      },
+      {
+        "name": "PEGASUS 500SC",
+        "quality": "Rất tốt",
+        "weight": "10ml",
+        "price": "20.000 VNĐ",
+        "image": "https://product.hstatic.net/1000220686/product/pegasus_500sc_10ml_fix_master.jpg",
+        "id": "614a02ad57b54f3358b5b18a"
+      },
+      {
+        "name": "Fastac",
+        "quality": "Tốt",
+        "weight": "240ml",
+        "price": "60.000 VNĐ",
+        "image": "https://firebasestorage.googleapis.com/v0/b/wref-47fe8.appspot.com/o/pesticides%2FFastac.png?alt=media",
+        "id": "614a02ad57b54f3358b5b18b"
+      }
+    ]
+  }
+]

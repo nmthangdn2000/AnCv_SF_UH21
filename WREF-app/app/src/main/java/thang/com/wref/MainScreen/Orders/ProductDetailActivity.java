@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,8 @@ import com.bumptech.glide.Glide;
 
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +38,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
     private TextView name, price, amount, ingredient, effect, userManual, note;
     private AppCompatButton btnSignUp, reduced, increase;
     private String idProduct = "";
+    private RelativeLayout rltBack;
     private NetworkUtil networkUtil;
     private Retrofit retrofit;
     private ProductRetrofit productRetrofit;
@@ -64,10 +68,12 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         effect = (TextView) findViewById(R.id.effect);
         userManual = (TextView) findViewById(R.id.userManual);
         note = (TextView) findViewById(R.id.note);
+        rltBack = (RelativeLayout) findViewById(R.id.rltBack);
 
         btnSignUp.setOnClickListener(this);
         reduced.setOnClickListener(this);
         increase.setOnClickListener(this);
+        rltBack.setOnClickListener(this);
      }
 
      private void getProductById() {
@@ -82,8 +88,15 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                      ResponseModel<ProductModel> responseModel = response.body();
                      if(responseModel.isSuccess()) {
                          ProductModel productModel = responseModel.getData();
+                         String url = "";
+                         String regex = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+                         if(IsMatch(productModel.getMedia(), regex)) {
+                             url = productModel.getMedia();
+                         } else {
+                             url = BASE_URL+"uploads/"+productModel.getMedia();
+                         }
                          Glide.with(ProductDetailActivity.this)
-                                 .load(BASE_URL+"uploads/"+productModel.getMedia()).into(imgProduct);
+                                 .load(url).into(imgProduct);
                          name.setText(productModel.getName());
                          Locale locale = new Locale("vi", "vn");
                          NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
@@ -118,6 +131,9 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             case R.id.increase:
                 increaseAmount();
                 break;
+            case R.id.rltBack:
+                finish();
+                break;
             default:
                 break;
         }
@@ -148,7 +164,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                     Toast.makeText(ProductDetailActivity.this, "Không có mạng", Toast.LENGTH_SHORT).show();
                 } else {
                     ResponseModel<OrderRetrofit> responseModel = response.body();
-                    if(responseModel.isSuccess()) {
+                    if (responseModel.isSuccess()) {
                         Toast.makeText(ProductDetailActivity.this, "Đặt hàng thành công", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -161,5 +177,15 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                 call.cancel();
             }
         });
+    }
+
+    private boolean IsMatch (String s, String pattern){
+        try {
+            Pattern patt = Pattern.compile(pattern);
+            Matcher matcher = patt.matcher(s);
+            return matcher.matches();
+        } catch (RuntimeException e) {
+            return false;
+        }
     }
 }

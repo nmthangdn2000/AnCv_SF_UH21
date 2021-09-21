@@ -285,13 +285,13 @@
         android:padding="10dp"
         android:background="@drawable/circle"
         android:backgroundTint="#50000000">
+
         <LinearLayout
-            android:layout_centerInParent="true"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:layout_centerInParent="true"
             android:background="@drawable/ic_baseline_arrow_back_24"
-            android:layout_centerVertical="true"
-            android:backgroundTint="@color/white"/>
+            android:backgroundTint="@color/white" />
     </RelativeLayout>
 
 </RelativeLayout>
