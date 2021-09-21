@@ -189,7 +189,7 @@ app.use('/', (req, res) => {
 > Here is the server we have developed on the cloud: **https://wref.herokuapp.com/** > <br>
 
 <p  float="left" align="middle">
-  <a href="https://wref.herokuapp.com/"><img src="images/api.jpg" alt="Api" /></a>
+  <a href="https://wref.herokuapp.com/"><img src="images/api.png" alt="Api" /></a>
 </p>
 
 ### Setup WREF app
