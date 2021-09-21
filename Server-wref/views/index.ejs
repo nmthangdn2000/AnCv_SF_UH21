@@ -91,7 +91,7 @@
       <h3>Order requests</h3>
       <p>
         <code><span class="method-get">GET</span> /api/order</code> - Get order by query (require Authentication) (query
-        = idBoss || idCustomer + status (order status 0 -> 5))
+        = (idBoss + status) || idCustomer ) (order status 0 -> 5)
       </p>
       <p>
         <code><span class="method-get">GET</span> /api/order/:id</code> - Get order by id (require Authentication)
