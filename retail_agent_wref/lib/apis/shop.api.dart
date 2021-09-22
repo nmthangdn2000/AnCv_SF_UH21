@@ -13,14 +13,12 @@ class ShopApi {
       String token = UserSharedPreferences.getToken();
       String idUser = UserSharedPreferences.getId();
       var url = Uri.parse("$BASE_URL/$idUser/shop");
-      print(url);
       var res = await http.get(url, headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Authorization': 'Bearer $token'
       });
       if (res.statusCode == 200) {
-        print(res.body);
         final BaseListResponseModel baseListResponseModel =
             BaseListResponseModel<ShopModel>.fromJson(jsonDecode(res.body),
                 (data) => data.map((e) => ShopModel.fromJson(e)).toList());

@@ -17,9 +17,9 @@ class UserSharedPreferences {
     print(userModel);
     await _sharedPreferences?.setString(ID, userModel.id);
     await _sharedPreferences?.setString(USER_NAME, userModel.userName);
-    await _sharedPreferences?.setString(EMAIL, userModel.email);
-    await _sharedPreferences?.setString(AVATA, userModel.avata);
-    await _sharedPreferences?.setString(TOKEN, userModel.token);
+    await _sharedPreferences?.setString(EMAIL, "${userModel.email}");
+    await _sharedPreferences?.setString(AVATA, "${userModel.avata}");
+    await _sharedPreferences?.setString(TOKEN, "${userModel.token}");
   }
 
   static String getId() {
@@ -40,5 +40,9 @@ class UserSharedPreferences {
 
   static String getToken() {
     return _sharedPreferences?.getString(TOKEN) ?? "";
+  }
+
+  static clear() {
+    return _sharedPreferences?.clear();
   }
 }

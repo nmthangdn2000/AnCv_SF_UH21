@@ -4,7 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:retail_agent_werf/components/slider/card_service.dart';
 import 'package:retail_agent_werf/components/tabView/menu_tab_view.dart';
 import 'package:retail_agent_werf/components/tabView/shop_tab_view.dart';
+import 'package:retail_agent_werf/screen/signIn.dart';
 import 'package:retail_agent_werf/utils/constants.dart';
+import 'package:retail_agent_werf/utils/user_shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -70,13 +72,18 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(50),
+          GestureDetector(
+            onTap: () {
+              _signOut();
+            },
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Icon(FontAwesomeIcons.signOutAlt),
             ),
-            child: Icon(FontAwesomeIcons.signOutAlt),
           ),
         ],
       ),
@@ -158,5 +165,13 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  _signOut() async {
+    await UserSharedPreferences.init();
+    UserSharedPreferences.clear();
+    return Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (BuildContext context) => SignIn()),
+        (route) => false);
   }
 }

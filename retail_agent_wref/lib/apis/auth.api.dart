@@ -14,7 +14,6 @@ class AuthApi {
       var url = Uri.parse("$BASE_URL/signin");
       var res = await http.post(url, body: body);
       if (res.statusCode == 200) {
-        print(res.body);
         final BaseResponseModel baseRessponseModel =
             BaseResponseModel<UserModel>.fromJson(
                 jsonDecode(res.body), (data) => UserModel.fromJson(data));

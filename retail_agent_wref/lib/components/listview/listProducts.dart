@@ -35,7 +35,7 @@ class _ListProductState extends State<ListProduct> {
                 physics: BouncingScrollPhysics(),
                 itemCount: items.length,
                 itemBuilder: (context, index) {
-                  if (items[index].type)
+                  if (items[index].type == true)
                     return ItemUnitProduct(
                       productModel: items[index],
                       color: widget.color,

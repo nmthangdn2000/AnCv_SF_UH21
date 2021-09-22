@@ -10,11 +10,11 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
   return UserModel(
     id: json['_id'] as String,
     userName: json['userName'] as String,
-    email: json['email'] as String,
-    avata: json['avata'] as String,
+    email: json['email'] as String?,
+    avata: json['avata'] as String?,
     firstName: json['firstName'] as String?,
     lastName: json['lastName'] as String?,
-    token: json['token'] as String,
+    token: json['token'] as String?,
   );
 }
 
