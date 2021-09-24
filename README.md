@@ -216,7 +216,7 @@ There are all the datasets we use to train some models.
 
 All the datasets located in [**AI/datasets**][datasets path] folder.
 
-##### Rainfall Dataset
+##### [Rainfall Dataset](AI/datasets/source/DN_RF_Data.csv)
 
 This dataset contains **rainfall**, **temperature** and **humidity** day by day from 1979 - 2012.
 
@@ -224,7 +224,7 @@ This dataset contains **rainfall**, **temperature** and **humidity** day by day 
 
 This image is the rainfall dataset from 2010 to 2016. In each frequency, temperature, humidity and rain fall is **almost repeat the same in each year**.
 
-##### Water Flow Dataset
+##### [Water Flow Dataset](AI/datasets/source/DATA_WATER_FLOW.csv)
 
 This dataset contains **rainfall** and **water flow** day by day from 1978 - 2006.
 
@@ -232,7 +232,7 @@ This dataset contains **rainfall** and **water flow** day by day from 1978 - 200
 
 This image is the rainfall dataset from 2000 to 2006. In each frequency, rainfall and water flow is **almost repeat the same in each year**.
 
-##### Crop Yield Dataset
+##### [Crop Yield Dataset](AI/datasets/source/DATA_YEILD_QUANGNAM.csv)
 
 This dataset contains **temperature**, **humidity**, **precipitation** and **yield area** month by month from 1997 - 2014. In each year, it has data from 17 districts.
 
@@ -240,7 +240,9 @@ This dataset contains **temperature**, **humidity**, **precipitation** and **yie
 
 This image is the crop yield dataset from 2010 to 2014.
 
-##### Plant Village Dataset
+We also have a crop yield dataset from more than 200 districts in Quang Nam Province. You can find it [here](AI/datasets/source/200_DISTRICTS_CROP_YIELD.csv).
+
+##### [Plant Village Dataset](https://arxiv.org/abs/1511.08060)
 
 We use the PlantVillage dataset consisting of about 87,000 healthy and unhealthy leaf images. It is divided into 38 categories by species and disease. We also end up transfer learning from MobileNet and use the weights from pre-training on ImageNet.
 
@@ -357,11 +359,11 @@ Remote Sensing: https://en.wikipedia.org/wiki/Remote_sensing
 
 [retailer app path]: retail_agent_werf
 [app path]: WREF-app
-[datasets path]: AI/datasets
+[datasets path]: AI/datasets/source
 [harvest helper link]: https://github.com/damwhit/harvest_helper
 [mse path]: https://en.wikipedia.org/wiki/Mean_squared_error#:~:text=In%20statistics%2C%20the%20mean%20squared,values%20and%20the%20actual%20value.
 [categorical cross entropy path]: https://gombru.github.io/2018/05/23/cross_entropy_loss/
-[notebooks path]: AI\models\notebooks
+[notebooks path]: AI/models/notebooks
 
 <hr/>
 
