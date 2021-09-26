@@ -1,0 +1,42 @@
+/* BG image */
+.cs-bg-img {
+  background-size: cover;
+  background-position: center;
+  min-height: 250px;
+}
+
+#header {
+  min-height: 100vh;
+  padding-top: 150px;
+  background: linear-gradient(0deg, #19875499, #19875499),
+    url("https://picsum.photos/1920/1000");
+  background-blend-mode: multiply;
+}
+
+#header h1 {
+  font-size: 4rem;
+}
+
+#customer .replies {
+  margin-top: 100px;
+}
+
+#customer .right-quote {
+  transform: rotate(180deg);
+}
+
+#install {
+  background: linear-gradient(90deg, #0d6efd00 0%, #0d6efdff 90%),
+    url("https://picsum.photos/id/112/1920/200");
+  background-size: cover;
+  background-position-y: top;
+}
+#quoteCEO {
+  background: linear-gradient(0deg, #00000066, #00000066),
+    url("https://picsum.photos/id/627/1920/400");
+  background-size: cover;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background-blend-mode: multiply;
+  background-size: cover;
+}

@@ -1,0 +1,154 @@
+<%- include("../partials/head", { 
+  title: "WREF - Mô hình kinh doanh",
+  cssPaths: ["css/page.css", "css/business.css"]
+}) %>
+
+<body>
+  <%- include("../partials/navbar", { linkActive: "Kinh doanh" }) %>
+
+  <section id="header" class="container-fluid bg-light position-relative">
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <h2 class="cs-fNiramit text-center text-light">Chiến lược phát triển</h2>
+        <h5 class="text-center text-light">WREF hiện tại đang ở giai đoạn II</h5>
+      </div>
+    </div>
+
+    <div class="row justify-content-center align-items-stretch mt-4">
+      <div class="col-auto">
+        <img src="https://picsum.photos/600/400" alt="Phase Path" class="img-fluid rounded-3 shadow-sm" width="600px">
+      </div>
+      <div class="col-auto">
+        <div class="card" style="width: 350px">
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li class="row">
+                <div class="col-auto">
+                  <img src="" alt="Disease" width="32px">
+                </div>
+                <div class="col">
+                  Tìm hiểu nỗi đau của người nông dân và tìm ra phương hướng giải quyết hiệu quả.
+                </div>
+              </li>
+              <li class="row">
+                <div class="col-auto">
+                  <img src="" alt="Disease" width="32px">
+                </div>
+                <div class="col">
+                  Tập trung vào các sản phẩm mang lại nhiều lợi ích cho người nông dân nhất.
+                </div>
+              </li>
+              <li class="row">
+                <div class="col-auto">
+                  <img src="" alt="Disease" width="32px">
+                </div>
+                <div class="col">
+                  Tìm ra các địa phương sử dụng sản phẩm nhiều nhất và thực hiện marketing.
+                </div>
+              </li>
+              <li class="row">
+                <div class="col-auto">
+                  <img src="" alt="Disease" width="32px">
+                </div>
+                <div class="col">
+                  Hợp tác với các công ti sản xuất, cung cấp thuốc BVTV, drone nông nghiệp, ...
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+      <div class="col-auto">
+        <button class="btn btn-lg btn-outline-light cs-fNiramit">Khám phá ngay</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-light pt-5">
+    <section class="container bg-white shadow p-4 rounded-3">
+      <div class="row">
+        <div class="col-auto">
+          <h3 class="cs-fNiramit">Các câu hỏi thường gặp</h3>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-6">
+          <ul class="list-unstyled accordion">
+
+            <% FAQs=[
+              {
+                question: "Làm thế nào WREF thu thập dữ liệu?",
+                answer: "Bằng việc sử dụng ứng dụng, các nông dân, cũng là các đối tượng thụ hưởng, sẽ cung cấp thông tin liên quan về mùa vụ cho WREF. Dữ liệu này sẽ được phân tích và đưa về WREF."
+              }, {
+                question: "Dữ liệu mà WREF có là gì?",
+                answer: "Chúng tôi chỉ thua thập những thông tin cơ bản bao gồm tên, số điện thoại và thông tin về mùa vụ của những người nông dân sử dụng ứng dụng. Một khi họ ngưng sử dụng, mọi thông tin của họ sẽ được xoá khỏi hệ thống."
+              }, {
+                question: "WREF có thể dự đoán được bao nhiêu loại sâu bệnh?",
+                answer: "Hiện tại, ứng dụng vừa mới được phát triển nên chỉ dự đoán được 38 loại bệnh thường gặp ở 4 loại cây trồng phổ biến bao gồm: Lúa, Ngô, Đậu nành, Cà chua."
+              }, {
+                question: "Tôi có thể lấy dữ liệu từ WREF như thế nào?",
+                answer: "Vâng. Bạn có thể mua dữ liệu đã được xử lí từ WREF. Vui lòng liên hệ WREF tại địa chỉ email WREFteam2021@gmail.com để biết thêm chi tiết và bảng giá dịch vụ."
+              }, {
+                question: "Tỉ lệ dự đoán đúng bệnh của WREF?",
+                answer: "Tất cả các loại sâu bệnh được dự đoán đúng với tỉ lệ >85%. Kết quả này đã được kiểm chứng trên môi trường Google Colab"
+              }, {
+                question: "Ứng dụng có thể dự đoán sớm hạn hán không?",
+                answer: "Chưa được. Hiện tại nhóm WREF vẫn đang làm việc để đưa chức năng này vào ứng dụng một cách sớm nhất."
+              }, {
+                question: "Có thể yên tâm khi giao dữ liệu của tôi cho WREF không?",
+                answer: "Chúng tôi cam kết bảo vệ thông tin người dùng nghiêm ngặt. Bất kì dữ liệu nào từ người dùng gửi về đều được mã hoá với một mã định danh riêng biệt."
+              }
+            ]
+
+            FAQs.forEach((FAQ, index) => { %>
+              <div class="accordion-item">
+                <h4 class="accordion-header">
+                  <button class="accordion-button cs- shadow-none collapsed cs-fNiramit" data-bs-toggle="collapse" data-bs-target="#Q<%= index + 1 %>">
+                    <%= FAQ.question %>
+                  </button>
+                </h4>
+
+                <div id="Q<%= index + 1 %>" class="accordion-collapse collapse" data-bs-parent=".collapse">
+                  <div class="accordion-body">
+                    <p>
+                      <%= FAQ.answer %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            <% }) %>
+
+          </ul>
+        </div>
+
+        <div class="col-6">
+          <div class="row">
+            <div class="col">
+              <img src="https://picsum.photos/600/400" alt="Business Model" class="img-fluid rounded-3 shadow">
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <div class="row">
+                <div class="col-auto">
+                  <img src="https://picsum.photos/100/150" alt="Map" class="img-fluid rounded-3" width="100px">
+                </div>
+                <div class="col">
+                  <h5 class="cs-fNiramit">Mô hình kinh doanh</h5>
+                  <p>Chúng tôi thu thập dữ liệu của người nông dân khi sử dụng ứng dụng. Sau đó xử lí với các mô hình phân tích dữ liệu. Kết quả là WREF có một nguồn dữ liệu liên tục đáng tin cậy.</p>
+                  <p>Nguồn dữ liệu này sẽ được sử dụng làm dịch vụ cho các nhà sản suất và kinh doanh phân bón, thuốc BVTV và các dịch vụ Nông nghiệp khác.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <%- include("../partials/footer") %>
+
+</body>

@@ -1,0 +1,10 @@
+#header {
+  padding-top: 100px;
+  min-height: calc(100vh);
+
+  background: linear-gradient(0deg, #0d6efd99, #0d6efd99),
+    url("https://picsum.photos/1920/1000");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}

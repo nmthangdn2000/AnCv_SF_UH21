@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Niramit:ital,wght@0,300;0,400;0,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+
+body {
+  font-family: "Be Vietnam Pro", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+  font-family: "Niramit", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+/* Fonts */
+.cs-fBungee {
+  font-family: "Bungee", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cs-fNiramit {
+  font-family: "Niramit", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+}

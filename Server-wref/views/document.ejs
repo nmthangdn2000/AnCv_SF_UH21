@@ -1,0 +1,129 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WREF API Server Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('../images/main.jpg');
+      background-repeat: no-repeat, repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    .container {
+      max-width: 1200px;
+      padding: 1rem 2rem;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .method-get {
+      color: rgb(12, 187, 82);
+    }
+    .method-post {
+      color: rgb(255, 180, 0);
+    }
+    span {
+      font-weight: 700;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+  </script>
+
+  <div class="container">
+    <h1>Welcome to WREF API Server</h1>
+    <hr>
+    <p>Here are some request examples:</p>
+
+    <h4>Login requests</h4>
+    <p>
+      <code><span class="method-post">POST</span> /api/signin</code> - Sign in
+    </p>
+    <p>
+      <code><span class="method-post">POST</span> /api/signup</code> - Sign up
+    </p>
+
+    <h4>Get weather requests</h4>
+    <p>
+      <code><span class="method-get">GET</span> /api/weather</code> - Get weather (require Authentication)
+    </p>
+    <p>
+      <code><span class="method-get">GET</span> /api/detailweather</code> - Get details weather (require
+      Authentication)
+    </p>
+    <p>
+      <code><span class="method-get">GET</span> /api/getweather24h</code> - Get weather in 24h (require
+      Authentication)
+    </p>
+
+    <h4>Retailer app requests</h4>
+    <p>
+      <code><span class="method-post">POST</span> /api/shop</code> - Create a new shop (require Authentication)
+    </p>
+    <p>
+      <code><span class="method-post">POST</span> /api/shop/:id</code> - Delete a shop (require Authentication)
+    </p>
+    <p>
+      <code><span class="method-post">POST</span> /api/shop/:id</code> - Update a shop (require Authentication)
+    </p>
+    <p>
+      <code><span class="method-get">GET</span> /api/category</code> - Get all categories (require Authentication)
+    </p>
+    <p>
+      <code><span class="method-get">GET</span> /api/category/:id</code> - Get details category (require
+      Authentication)
+    </p>
+
+    <h4>Communication requests</h4>
+    <p>
+      <code><span class="method-get">GET</span> /api/stories</code> - Get stories (require Authentication)
+    </p>
+    <p>
+      <code><span class="method-post">POST</span> /api/stories</code> - Create a new story (require Authentication)
+    </p>
+    <p>
+      <code><span class="method-get">GET</span> /api/posts/:id/comment</code> - Get comments (require Authentication)
+    </p>
+    <p>
+      <code><span class="method-post">POST</span> /api/posts/:id/comment</code> - Create a new comment (require
+      Authentication)
+    </p>
+
+    <h4>Order requests</h4>
+    <p>
+      <code><span class="method-get">GET</span> /api/order</code> - Get order by query (require Authentication) (query
+      = (idBoss + status) || idCustomer ) (order status 0 -&gt; 5)
+    </p>
+    <p>
+      <code><span class="method-get">GET</span> /api/order/:id</code> - Get order by id (require Authentication)
+    </p>
+    <p>
+      <code><span class="method-post">POST</span> /api/order</code> - POST order (require Authentication)
+    </p>
+
+    <h4>Product requests</h4>
+    <p>
+      <code><span class="method-get">GET</span> /api/product</code> - Get product by query (require Authentication)
+      (query = idShop + page + limit)
+    </p>
+    <p>
+      <code><span class="method-get">GET</span> /api/product/:id</code> - Get product by id (require Authentication)
+    </p>
+    <p>
+      <code><span class="method-post">POST</span> /api/product</code> - POST product (require Authentication)
+    </p>
+  </div>
+
+
+<div class="selection_bubble_root" style="display: none;"></div></body></html>
