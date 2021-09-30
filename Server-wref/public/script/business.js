@@ -149,24 +149,26 @@ const initiateProvinceChooser = (provincePaths, provinceListElement, summaryElem
   const provinceList = new Array();
 
   // initiate
-  provincePaths.forEach(provincePath => {
-    const value = provincePath.getAttribute("data-name");
-    const provinceOption = document.createElement("option");
-    provinceOption.value = value;
-    provinceOption.innerText = value;
+  provincePaths
+    .sort((provincePath1, provincePath2) => provincePath1.id > provincePath2.id ? 1 : -1)
+    .forEach(provincePath => {
+      const value = provincePath.getAttribute("data-name");
+      const provinceOption = document.createElement("option");
+      provinceOption.value = value;
+      provinceOption.innerText = value;
 
-    // Make binding list
-    provinceList.push({
-      name: provincePath.getAttribute("data-name"),
-      pathElement: provincePath,
-      optionElement: provinceOption
+      // Make binding list
+      provinceList.push({
+        name: provincePath.getAttribute("data-name"),
+        pathElement: provincePath,
+        optionElement: provinceOption
+      })
+
+      // Add to View
+      provinceListElement.appendChild(provinceOption);
+
+      return provinceList;
     })
-
-    // Add to View
-    provinceListElement.appendChild(provinceOption);
-
-    return provinceList;
-  })
 
   // Make binding list
   provinceList.forEach(province => {

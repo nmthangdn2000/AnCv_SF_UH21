@@ -6,6 +6,26 @@ body {
   font-family: "Be Vietnam Pro", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Scroll Style */
+body::-webkit-scrollbar {
+  width: 6px;
+  background-color: var(--bs-light);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--bs-primary);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
+  background-color: var(--bs-light);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--bs-primary);
+}
+
+/* Navbar */
 nav {
   font-family: "Niramit", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
