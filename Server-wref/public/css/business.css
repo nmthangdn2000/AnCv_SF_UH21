@@ -2,9 +2,24 @@
   padding-top: 100px;
   min-height: calc(100vh);
 
-  background: linear-gradient(0deg, #0d6efd99, #0d6efd99),
-    url("https://picsum.photos/1920/1000");
+  background: url("../images/field2.jpg");
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
+}
+
+#dataPrice .VietNamMap > path.active {
+  fill: var(--bs-primary);
+}
+
+#advertisementPrice .VietNamMap > path.active {
+  fill: var(--bs-warning);
+}
+
+.VietNamMap > path {
+  fill: var(--bs-secondary);
+}
+
+.VietNamMap > path:hover {
+  opacity: 0.8;
 }

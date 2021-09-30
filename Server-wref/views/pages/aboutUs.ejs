@@ -1,0 +1,31 @@
+<%- include("../partials/head", { 
+  title: "AnCV - Về chúng tôi",
+  cssPaths: ["css/page.css", "css/aboutUs.css"],
+  scriptPaths: []
+}) %>
+
+<body>
+  <%- include("../partials/navbar", { linkActive: "Về chúng tôi" }) %>
+
+  <section class="container">
+    <div class="row">
+      <div class="col-auto">
+        <h5 class="text-primary text-uppercase">Sứ mệnh của chúng tôi</h5>
+        <h3 class="cs-fNiramit">Áp dụng công nghệ vào nông nghiệp</h3>
+        <p class="text-muted">Đảm bảo cho người nông dân đầu vào, đầu ra hiệu quả</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <h3 class="cs-fNiramit">Chúng tôi là ai?</h3>
+        <p>Chúng tôi là những sinh viên đến từ Đại học Đà Nẵng. Nhiệm vụ của chúng tôi là giúp người nông dân Việt Nam sử dụng được các công nghệ tiên tiến. Mục tiêu đến năm 2030 có hơn 30% nông dân Việt Nam sử dụng WREF.</p>
+      </div>
+      <div class="col-7"></div>
+    </div>
+  </div>
+
+  <%- include("../partials/footer") %>
+</body>

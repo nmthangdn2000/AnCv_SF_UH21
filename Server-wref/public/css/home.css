@@ -1,16 +1,16 @@
 /* BG image */
 .cs-bg-img {
   background-size: cover;
-  background-position: center;
+  background-position: top;
   min-height: 250px;
 }
 
 #header {
   min-height: 100vh;
   padding-top: 150px;
-  background: linear-gradient(0deg, #19875499, #19875499),
-    url("https://picsum.photos/1920/1000");
+  background: url("../images/depth_field.jpg");
   background-blend-mode: multiply;
+  background-size: cover;
 }
 
 #header h1 {
@@ -31,12 +31,34 @@
   background-size: cover;
   background-position-y: top;
 }
+
+#quote {
+  background: linear-gradient(0deg, #00000066 0%, #00000066 100%),
+    url("../images/tomato.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#quote article {
+  min-height: 300px;
+}
+
 #quoteCEO {
-  background: linear-gradient(0deg, #00000066, #00000066),
+  background: linear-gradient(0deg, #00000066 0%, #00000066 100%),
     url("https://picsum.photos/id/627/1920/400");
   background-size: cover;
   padding-top: 150px;
   padding-bottom: 150px;
   background-blend-mode: multiply;
   background-size: cover;
+  background-attachment: fixed;
+}
+
+#technologies .card {
+  transition: 0.5s;
+}
+
+#technologies .card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
