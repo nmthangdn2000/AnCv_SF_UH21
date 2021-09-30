@@ -7,6 +7,8 @@ class UserModel {
   @JsonKey(name: '_id')
   final String id;
   final String userName;
+  final String? address;
+  final int? userType;
   final String? email;
   final String? avata;
   final String? firstName;
@@ -16,6 +18,8 @@ class UserModel {
     required this.id,
     required this.userName,
     required this.email,
+    this.userType,
+    this.address,
     required this.avata,
     this.firstName,
     this.lastName,

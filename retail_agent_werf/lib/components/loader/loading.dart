@@ -11,10 +11,9 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height,
-      width: size.width,
+      height: 100,
+      width: 100,
       child: Center(
         child: Lottie.asset("assets/lotties/8370-loading.json", width: 100),
       ),

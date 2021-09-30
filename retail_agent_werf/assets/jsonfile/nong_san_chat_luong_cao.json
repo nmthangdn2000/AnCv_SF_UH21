@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "unitPrice": "45K VND/KG",
+    "residual": "Còn lại 8KG",
+    "note": "-20%",
+    "img": "san1.png"
+  },
+  {
+    "id": "1",
+    "unitPrice": "20K VND/KG",
+    "residual": "Còn lại 16KG",
+    "note": "-10%",
+    "img": "lua2.png"
+  },
+  {
+    "id": "1",
+    "unitPrice": "32K VND/KG",
+    "residual": "Còn lại 18KG",
+    "note": "-15%",
+    "img": "ca_chua3.png"
+  },
+  {
+    "id": "1",
+    "unitPrice": "27K VND/KG",
+    "residual": "Còn lại 8KG",
+    "note": "-20%",
+    "img": "ca_chua4.png"
+  }
+]

@@ -1,10 +1,12 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:retail_agent_werf/apis/auth.api.dart';
+import 'package:retail_agent_werf/components/commom/common.dart';
 import 'package:retail_agent_werf/screen/mainPage.dart';
+import 'package:retail_agent_werf/screen/purchaser/mainPage.purchaser.dart';
 import 'package:retail_agent_werf/screen/signIn.dart';
+import 'package:retail_agent_werf/utils/user_shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,15 +19,13 @@ class _SplashScreenState extends State<SplashScreen> {
   _auth() async {
     AuthApi authApi = new AuthApi();
     bool auth = await authApi.auth();
-    if (auth) {
-      return Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (BuildContext context) => MainPage()),
-          (route) => false);
-    } else {
-      return Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (BuildContext context) => SignIn()),
-          (route) => false);
+    if (!auth) {
+      return CommomComponents.pushContextFalse(context, SignIn());
     }
+    int type = UserSharedPreferences.getUserType();
+    if (type == 1)
+      return CommomComponents.pushContextFalse(context, MainPage());
+    return CommomComponents.pushContextFalse(context, MainPagePurchaser());
   }
 
   @override

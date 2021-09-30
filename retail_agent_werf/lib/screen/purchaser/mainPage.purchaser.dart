@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:retail_agent_werf/screen/goodsPage.dart';
 import 'package:retail_agent_werf/screen/homePage.dart';
-import 'package:retail_agent_werf/screen/orderPage.dart';
+import 'package:retail_agent_werf/screen/purchaser/goodsPage.purchaser.dart';
+import 'package:retail_agent_werf/screen/purchaser/orderPage.purchaser.dart';
+import 'package:retail_agent_werf/screen/purchaser/preOrderPage.purchaser.dart';
 import 'package:retail_agent_werf/utils/constants.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+class MainPagePurchaser extends StatefulWidget {
+  const MainPagePurchaser({Key? key}) : super(key: key);
 
   @override
-  _MainPageState createState() => _MainPageState();
+  _MainPagePurchaserState createState() => _MainPagePurchaserState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPagePurchaserState extends State<MainPagePurchaser> {
   int _currentPage = 0;
-  HomePage _homePage = new HomePage();
-  OrderPage _orderPage = new OrderPage();
-  GoodsPage _goodsPage = new GoodsPage();
-  Widget _showPage = new HomePage();
+  PreOrderPagePurchaser _homePage = new PreOrderPagePurchaser();
+  OrderPagePurchaser _orderPage = new OrderPagePurchaser();
+  GoodsPagePurchaser _goodsPage = new GoodsPagePurchaser();
+  Widget _showPage = new OrderPagePurchaser();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,11 +29,12 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.home), label: "Nhà"),
+              icon: FaIcon(FontAwesomeIcons.solidClipboard), label: "Thống kê"),
           BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.solidClipboard), label: "Đơn hàng"),
+              icon: FaIcon(FontAwesomeIcons.shoppingBasket),
+              label: "Nhập hàng"),
           BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.truck), label: "Nhập hàng"),
+              icon: FaIcon(FontAwesomeIcons.cartArrowDown), label: "Đặt trước"),
         ],
         currentIndex: _currentPage,
         selectedItemColor: signInColor,
@@ -49,11 +51,11 @@ class _MainPageState extends State<MainPage> {
   Widget _getBody() {
     switch (_currentPage) {
       case 0:
-        return _homePage;
-      case 1:
         return _orderPage;
-      case 2:
+      case 1:
         return _goodsPage;
+      case 2:
+        return _homePage;
       default:
         return Container(
           child: Text("jadnsakdjn"),

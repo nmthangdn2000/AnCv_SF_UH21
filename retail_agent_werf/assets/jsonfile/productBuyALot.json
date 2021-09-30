@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "Cà chua",
+    "note": "Hết mùa sau 1 tuần",
+    "img": "ca_chuaa.png"
+  },
+  {
+    "id": "1",
+    "name": "Cam đỏ",
+    "note": "Hết mùa sau 1 tuần",
+    "img": "cam.png"
+  },
+  {
+    "id": "1",
+    "name": "Lúa",
+    "note": "Hết mùa sau 1 tuần",
+    "img": "lua.png"
+  },
+  {
+    "id": "1",
+    "name": "Dưa leo",
+    "note": "Hết mùa sau 1 tuần",
+    "img": "dua_leo.png"
+  }
+]

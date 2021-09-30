@@ -1,26 +1,24 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:retail_agent_werf/apis/auth.api.dart';
 import 'package:retail_agent_werf/components/commom/common.dart';
-import 'package:retail_agent_werf/screen/mainPage.dart';
-import 'package:retail_agent_werf/screen/purchaser/mainPage.purchaser.dart';
-import 'package:retail_agent_werf/screen/signUp.dart';
+import 'package:retail_agent_werf/screen/signIn.dart';
+import 'package:retail_agent_werf/screen/signUp2.dart';
 import 'package:retail_agent_werf/utils/Constants.dart';
-import 'package:retail_agent_werf/utils/user_shared_preferences.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
-  _SignInState createState() => _SignInState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignUpState extends State<SignUp> {
   bool _isHiddenPassword = true;
   TextEditingController phoneController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
+  TextEditingController userController = new TextEditingController();
+  TextEditingController addressController = new TextEditingController();
   bool _validatePassword = false, _validatePhone = false;
   @override
   Widget build(BuildContext context) {
@@ -59,49 +57,20 @@ class _SignInState extends State<SignIn> {
             height: 2,
           ),
           Text(
-            "Đăng nhập",
+            "Đăng Ký - Bước 1",
             style: TextStyle(
                 color: signInColor, fontSize: 26, fontWeight: FontWeight.bold),
           ),
           SizedBox(
+            height: 30,
+          ),
+          _inputUserName(),
+          SizedBox(
             height: 10,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 8,
-                  horizontal: 20,
-                ),
-                decoration: BoxDecoration(
-                  border: Border.all(color: signInColor),
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    FaIcon(
-                      FontAwesomeIcons.google,
-                      color: signInColor,
-                      size: 16,
-                    ),
-                    SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      "Đăng nhập bằng Google",
-                      style: TextStyle(color: signInColor, fontSize: 14),
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
+          _inputAddress(),
           SizedBox(
-            height: 30,
+            height: 10,
           ),
           _inputEmail(),
           SizedBox(
@@ -131,6 +100,29 @@ class _SignInState extends State<SignIn> {
     );
   }
 
+  TextField _inputUserName() {
+    return TextField(
+      controller: userController,
+      keyboardType: TextInputType.text,
+      decoration: InputDecoration(
+          errorText: _validatePhone ? 'Tên không thể trống' : null,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: signInColor),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: signInColor),
+          ),
+          prefixIcon: Icon(
+            FontAwesomeIcons.solidUser,
+            color: signInColor,
+          ),
+          hintText: 'Nhập tên của bạn',
+          labelText: 'Họ & tên',
+          labelStyle: TextStyle(color: signInColor)),
+      obscureText: false,
+    );
+  }
+
   TextField _inputEmail() {
     return TextField(
       controller: phoneController,
@@ -148,7 +140,30 @@ class _SignInState extends State<SignIn> {
             color: signInColor,
           ),
           hintText: 'Nhập số điện thoại',
-          labelText: 'Phone',
+          labelText: 'Số điện thoại',
+          labelStyle: TextStyle(color: signInColor)),
+      obscureText: false,
+    );
+  }
+
+  TextField _inputAddress() {
+    return TextField(
+      controller: addressController,
+      keyboardType: TextInputType.text,
+      decoration: InputDecoration(
+          errorText: _validatePhone ? 'Địa chỉ không thể trống' : null,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: signInColor),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: signInColor),
+          ),
+          prefixIcon: Icon(
+            FontAwesomeIcons.mapMarkerAlt,
+            color: signInColor,
+          ),
+          hintText: 'Nhập địa chỉ',
+          labelText: 'Địa chỉ',
           labelStyle: TextStyle(color: signInColor)),
       obscureText: false,
     );
@@ -184,7 +199,7 @@ class _SignInState extends State<SignIn> {
             ),
           ),
           hintText: 'Nhập mật khẩu',
-          labelText: 'Password',
+          labelText: 'Mật khẩu',
           labelStyle: TextStyle(color: signInColor)),
       obscureText: _isHiddenPassword,
     );
@@ -193,7 +208,8 @@ class _SignInState extends State<SignIn> {
   ElevatedButton _btnSignIn() {
     return ElevatedButton(
       onPressed: () {
-        _validateSignIn(phoneController.text, passwordController.text);
+        _validateSignIn(userController.text, phoneController.text,
+            addressController.text, passwordController.text);
       },
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
@@ -202,7 +218,7 @@ class _SignInState extends State<SignIn> {
         shadowColor: Colors.transparent,
       ),
       child: const Text(
-        "Đăng nhập",
+        "Tiếp theo",
         textAlign: TextAlign.center,
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
@@ -212,7 +228,9 @@ class _SignInState extends State<SignIn> {
   ElevatedButton _btnSignUp() {
     return ElevatedButton(
         onPressed: () {
-          CommomComponents.pushContextTrue(context, SignUp());
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (BuildContext context) => SignIn()),
+              (route) => false);
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
@@ -226,36 +244,28 @@ class _SignInState extends State<SignIn> {
           ),
         ),
         child: const Text(
-          "Đăng ký",
+          "Đăng nhập",
           textAlign: TextAlign.center,
           style: TextStyle(fontWeight: FontWeight.bold, color: signInColor),
         ));
   }
 
-  _validateSignIn(String phone, String password) async {
-    if (phone.isEmpty) {
-      return setState(() {
-        _validatePhone = true;
-      });
+  _validateSignIn(
+      String username, String phone, String address, String password) {
+    if (username.isNotEmpty &&
+        phone.isNotEmpty &&
+        address.isNotEmpty &&
+        password.isNotEmpty) {
+      return Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(
+              builder: (BuildContext context) => SignUp2(
+                    userName: username,
+                    address: address,
+                    phone: phone,
+                    password: password,
+                  )),
+          (route) => false);
     }
-    if (password.isEmpty) {
-      return setState(() {
-        _validatePassword = true;
-      });
-    }
-    try {
-      AuthApi api = new AuthApi();
-      bool signIn = await api.signIn(phone, password).then((value) => value);
-      if (signIn) {
-        int type = UserSharedPreferences.getUserType();
-        if (type == 1)
-          return CommomComponents.pushContextFalse(context, MainPage());
-        return CommomComponents.pushContextFalse(context, MainPagePurchaser());
-      } else {
-        print("sai");
-      }
-    } catch (e) {
-      print(e);
-    }
+    return CommomComponents.showToast("Bạn phải nhập đủ thông tin");
   }
 }

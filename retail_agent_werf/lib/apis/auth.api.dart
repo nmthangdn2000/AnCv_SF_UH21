@@ -10,9 +10,9 @@ class AuthApi {
   Future<bool> signIn(String email, password) async {
     try {
       Map body = {"email": email, "password": password};
-      print(body);
       var url = Uri.parse("$BASE_URL/signin");
       var res = await http.post(url, body: body);
+      print("res ${res.body}");
       if (res.statusCode == 200) {
         final BaseResponseModel baseRessponseModel =
             BaseResponseModel<UserModel>.fromJson(
@@ -20,25 +20,32 @@ class AuthApi {
         await UserSharedPreferences.init();
         await UserSharedPreferences.saveData(baseRessponseModel.data);
         return true;
-      } else {
-        return false;
       }
+      return false;
     } catch (e) {
       print(e);
       return false;
     }
   }
 
-  Future<bool> signUp(String username, email, password) async {
+  Future<bool> signUp(
+      String username, address, email, password, userType) async {
     try {
-      Map body = {"username": username, "email": email, "password": password};
+      Map body = {
+        "userName": username,
+        "email": email,
+        "address": address,
+        "passWord": password,
+        "userType": userType.toString(),
+      };
       var url = Uri.parse("$BASE_URL/signup");
       var res = await http.post(url, body: body);
       if (res.statusCode == 200) {
-        return true;
-      } else {
-        return false;
+        final BaseResponseModel baseResponseModel =
+            BaseResponseModel.fromJsonNotData(jsonDecode(res.body));
+        if (baseResponseModel.success) return true;
       }
+      return false;
     } catch (e) {
       print(e);
       return false;

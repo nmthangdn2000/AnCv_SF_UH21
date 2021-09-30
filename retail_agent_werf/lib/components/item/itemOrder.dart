@@ -120,8 +120,6 @@ class _ItemOrderState extends State<ItemOrder> {
   }
 
   Color _colorCard(status) {
-    print(["CANCEL"]);
-    print(status);
     switch (status) {
       case CANCEL:
         return Color(0xFFFFE8E3);

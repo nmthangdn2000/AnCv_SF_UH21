@@ -8,6 +8,8 @@ class UserSharedPreferences {
   static const String EMAIL = "email";
   static const String AVATA = "avata";
   static const String TOKEN = "token";
+  static const String USER_TYPE = "userType";
+  static const String PURCHASER = "purchaser";
 
   static Future init() async {
     _sharedPreferences = await SharedPreferences.getInstance();
@@ -20,6 +22,7 @@ class UserSharedPreferences {
     await _sharedPreferences?.setString(EMAIL, "${userModel.email}");
     await _sharedPreferences?.setString(AVATA, "${userModel.avata}");
     await _sharedPreferences?.setString(TOKEN, "${userModel.token}");
+    await _sharedPreferences?.setInt(USER_TYPE, userModel.userType ?? 1);
   }
 
   static String getId() {
@@ -44,5 +47,9 @@ class UserSharedPreferences {
 
   static clear() {
     return _sharedPreferences?.clear();
+  }
+
+  static int getUserType() {
+    return _sharedPreferences?.getInt(USER_TYPE) ?? 1;
   }
 }

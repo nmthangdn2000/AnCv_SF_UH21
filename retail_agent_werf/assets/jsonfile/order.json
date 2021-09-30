@@ -1,72 +1,32 @@
 [
-    {
-        "id": "1",
-        "name": "Phân bón NPK",
-        "amount": 2,
-        "totalPrice": "36.000 VND",
-        "date": "25/08/2021",
-        "statusShip": 1,
-        "status": 1,
-        "avata": "avata1.jpg"
-    },
-    {
-        "id": "2",
-        "name": "FASTAC",
-        "amount": 10,
-        "totalPrice": "1.600.000 VND",
-        "date": "25/08/2021",
-        "statusShip": 1,
-        "status": 2,
-        "avata": "avata2.jpg"
-    },
-    {
-        "id": "3",
-        "name": "Limater 7.5EC",
-        "amount": 20,
-        "totalPrice": "1.200.000 VND",
-        "date": "30/08/2021",
-        "statusShip": 1,
-        "status": 3,
-        "avata": "avata3.jpg"
-    },
-    {
-        "id": "4",
-        "name": "Bộ 3 thuốc trừ sâu KCD",
-        "amount": 1,
-        "totalPrice": "320.000 VND",
-        "date": "31/08/2021",
-        "statusShip": 1,
-        "status": 3,
-        "avata": "avata4.jpg"
-    },
-    {
-        "id": "5",
-        "name": "Dacolnil 75WP",
-        "amount": 2,
-        "totalPrice": "36.000 VND",
-        "date": "02/09/2021",
-        "statusShip": 1,
-        "status": 2,
-        "avata": "avata5.jpg"
-    },
-    {
-        "id": "6",
-        "name": "VITROBIN",
-        "amount": 15,
-        "totalPrice": "900.000 VND",
-        "date": "02/09/2021",
-        "statusShip": 1,
-        "status": 0,
-        "avata": "avata3.jpg"
-    },
-    {
-        "id": "7",
-        "name": "Phân bón NPK",
-        "amount": 2,
-        "totalPrice": "36.000 VND",
-        "date": "03/09/2021",
-        "statusShip": 1,
-        "status": 1,
-        "avata": "avata1.jpg"
-    }
+  {
+    "id": "1",
+    "name": "Cà chua",
+    "amount": 3,
+    "totalPrice": "96.000 VND",
+    "date": "25/08/2021",
+    "statusShip": 1,
+    "status": 1,
+    "avata": "avata1.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Lúa",
+    "amount": 10,
+    "totalPrice": "240.000 VND",
+    "date": "25/08/2021",
+    "statusShip": 1,
+    "status": 2,
+    "avata": "avata2.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Lúa",
+    "amount": 15,
+    "totalPrice": "320.000 VND",
+    "date": "30/08/2021",
+    "statusShip": 1,
+    "status": 3,
+    "avata": "avata3.jpg"
+  }
 ]
