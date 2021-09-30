@@ -4,11 +4,13 @@ const { JWT_SECRET } = require('../config/appconfig');
 const { ERROR } = require('../common/constants');
 
 class AuthService {
-  async postSignUp(userName, email, passWord) {
+  async postSignUp(userName, email, passWord, address, userType) {
     const newUser = new User({
       userName,
       email,
       passWord,
+      address,
+      userType,
       create_at: new Date(),
       update_at: new Date(),
     });
@@ -27,6 +29,8 @@ class AuthService {
       userName: user.userName,
       email: user.email,
       avata: user.avata,
+      address: user.address,
+      userType: user.userType,
       token: token,
     };
     return data;

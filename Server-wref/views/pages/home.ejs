@@ -1,0 +1,546 @@
+<%- include("../partials/head", { 
+  title: "AnCV - Ứng dụng di động nông nghiệp WREF",
+  cssPaths: ["css/page.css", "css/home.css"],
+  scriptPaths: []
+}) %>
+
+<body>
+  <%- include("../partials/navbar", { linkActive: "Trang chủ" }) %>
+
+  <section id="header" class="container-fluid bg-light position-relative">
+    <div class="row">
+      <div class="col">
+        <h1 class="cs-fBungee text-center animate__animated animate__fadeIn">AnCV - WREF</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h5 class="cs-fNiramit text-center animate__animated animate__fadeIn animate__slow">Vì một cuộc sống An toàn - Thịnh Vượng</h5>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+      <div class="col-auto">
+        <button class="btn btn-primary btn-lg rounded-3 py-3 px-5 text-uppercase cs-fNiramit animate__animated animate__bounceIn">Cài đặt ngay!</button>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-5 d-lg-none">
+      <div class="col-auto">
+        <img src="images/main screen.png" alt="Màn hình chính" width="300px" class="animate__animated animate__zoomIn">
+      </div>
+    </div>
+
+    <div class="position-absolute top-50 end-0 translate-middle-y d-lg-block d-none">
+      <img src="images/main screen.png" alt="Màn hình chính" width="300px" class="me-5 mt-5 animate__animated animate__zoomIn">
+    </div>
+
+    <div class="position-absolute bottom-0 start-0 d-lg-block d-none">
+      <img src="images/App 3D full.png" alt="Màn hình chính" width="600px" class="me-5 mt-5 animate__animated animate__zoomIn">
+    </div>
+  </section>
+
+  <section class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-5 me-4">
+        <div class="row justify-content-end">
+          <div class="col-auto">
+            <img src="images/App3D.png" alt="App 3D" class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <div class="col-5 animate__animated animate__fadeIn">
+        <h3 class="cs-fNiramit text-primary">Dùng thử WREF app ngay</h3>
+        <h5 class="cs-fNiramit text-muted mb-4">Ứng dụng dành cho người nông dân Việt Nam</h5>
+        <p>Biến chiếc điện thoại thông minh của bạn trở thành một công cụ hữu ích. Giúp bạn giám sát, nâng cao năng suất mùa vụ một cách hiện đại và hiệu quả cao.</p>
+        <button class="btn btn-primary btn-lg cs-fNiramit">Cài đặt miễn phí!</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid mt-5">
+    <div class="row justify-content-end align-items-center">
+      <div class="col-4 animate__animated animate__fadeIn">
+        <div class="pe-3">
+          <h3 class="cs-fNiramit mb-4 text-success text-end">Tăng trưởng năng suất</h3>
+          <p class="text-end">Ứng dụng sử dụng công nghệ AI để dự đoán năng suất mùa vụ trước khi bạn quyết định trồng trọt.</p>
+          <p class="text-end">Ngoài ra, ứng dụng còn đưa ra lời khuyên và lên kế hoạch giúp bạn điều chỉnh mùa vụ của bạn theo điều kiện ngoại cảnh.</p>
+          <button class="btn btn-success btn-lg cs-fNiramit float-end">Thử WREF ngay!</button>
+        </div>
+      </div>
+      <div class="col-7 cs-bg-img" style="background-image: url('images/green corn.png'); background-position: center; height: 300px;">
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid mt-5">
+    <div class="row justify-content-start align-items-center">
+      <div class="col-7 cs-bg-img" style="background-image: url('images/ethnic minority.png'); height: 300px;">
+      </div>
+
+      <div class="col-4 animate__animated animate__fadeIn">
+        <div class="ps-3">
+          <h3 class="cs-fNiramit text-primary mb-4">Dự đoán thiên tai</h3>
+          <p>Với dịch vụ OpenWeather API, có thể dự báo và xem thông tin thời tiết một cách chính xác. Ngoài ra ứng dụng còn tích hợp AI, dự báo lũ sớm, tránh thiệt hại mùa màng.</p>
+          <button class="btn btn-primary btn-lg cs-fNiramit">Thử WREF ngay!</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid mt-5">
+    <div class="row justify-content-end align-items-center">
+      <div class="col-4 animate__animated animate__fadeIn">
+        <div class="pe-3">
+          <h3 class="cs-fNiramit mb-4 text-success text-end">Bệnh & Giải pháp</h3>
+          <p class="text-end">Chỉ với một hình ảnh từ điện thoại của bạn, WREF có thể chẩn đoán bệnh cây trồng nhanh, chính xác và đưa ra giải pháp hiệu quả hoàn toàn miễn phí.</p>
+          <button class="btn btn-success btn-lg cs-fNiramit float-end">Thử WREF ngay!</button>
+        </div>
+      </div>
+      <div class="col-7 cs-bg-img" style="background-image: url('images/tech.png'); height: 300px;">
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid mt-5">
+    <div class="row justify-content-start align-items-center">
+      <div class="col-7 cs-bg-img" style="background-image: url('images/smile1.jpg'); height: 300px;">
+      </div>
+      <div class="col-4 animate__animated animate__fadeIn">
+        <div class="ps-3">
+          <h3 class="cs-fNiramit text-primary mb-4">Tham gia cộng đồng!</h3>
+          <p>Nhận lợi ích từ các chuyên gia trong ngành Nông Nghiệp và sự hiểu biết từ các nông dân Việt Nam thông qua mạng xã hội mini được tích hợp sẵn trong ứng dụng.</p>
+          <p>Hãy tham gia cộng đồng WREF, cộng đồng những người nông dân lớn nhất Việt Nam.</p>
+          <button class="btn btn-primary btn-lg cs-fNiramit">Tham gia ngay!</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid mt-5">
+    <div class="row justify-content-end align-items-center">
+      <div class="col-4 animate__animated animate__fadeIn">
+        <div class="pe-3">
+          <h3 class="cs-fNiramit text-success text-end">WREF app cho nhà bán lẻ</h3>
+          <h5 class="cs-fNiramit mb-4 text-muted text-end">Theo dõi tình hình sản xuất nông nghiệp, đưa ra chiến lược hiệu quả nhất và kiểm soát thị trường</h5>
+          <p class="text-end">Ứng dụng dành cho các nhà bán lẻ thuốc BVTV, các nhà hỗ trợ thiết bị cho nông nghiệp và các nhà thu mua sản phẩm của người nông dân.</p>
+          <button class="btn btn-success btn-lg cs-fNiramit float-end">Sử dụng ngay!</button>
+        </div>
+      </div>
+
+      <div class="col-7 cs-bg-img" style="background-image: url('images/pesticide.png'); height: 300px;">
+      </div>
+    </div>
+  </section>
+
+  <section id="video" class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="cs-fNiramit text-center mb-5">Video giới thiệu sản phẩm</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col">
+        <iframe width="1920px" height="1080px" src="https://www.youtube.com/embed/-JLQVLH6RT8" title="Video Intro AnCV - WREF 2021" frameborder="10" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote" class="mt-5">
+    <div class="container">
+      <article class="row flex-column justify-content-center align-items-center">
+        <div class="col-auto">
+          <h1 class="text-center text-white cs-fNiramit">Không Nông Dân - Không Lương Thực</h1>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="bg-light">
+    
+    <section id="customer" class="container py-5">
+      <div class="row">
+        <div class="col">
+          <h3 class="text-center text-primary mb-3 cs-fNiramit">Người dùng của chúng tôi nói gì?</h3>
+          <p class="text-center mb-0">Ứng dụng WREF đặc biệt dành cho các nông dân có quy mô vừa và nhỏ. Ứng dụng dễ sử dụng và đã cơ mặt ở hầu hết các tỉnh miền trung.</p>
+          <p class="text-center">Điều làm WREF trở nên khác biệt là người nông dân nhận được rất nhiều lợi ích từ app mà không phải trả bất kì chi phí nào.</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center replies">
+        <div class="col-4">
+          <div class="ms-5 me-1">
+            <div class="row flex-column align-items-stretch bg-white px-3 py-4 rounded-3 border border-secondary">
+              <div class="col-auto position-relative" style="height: 90px;">
+                <div class="position-absolute top-0 start-50 translate-middle">
+                  <img src="images/Mrs Hoa.png" alt="" class="img-thumbnail rounded-circle shadow-sm" width="150px">
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="row justify-content-center">
+                  <div class="col-auto">
+                    <h5 class="px-3">Cô Hoa</h5>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="row justify-content-center">
+                  <div class="col-auto">Tuý Loan - Đà Nẵng</div>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="row justify-content-center">
+                  <div class="col-auto fs-6 text-muted">Hộ nông dân nhỏ</div>
+                </div>
+              </div>
+  
+              <div class="col-auto">
+                <div class="row justify-content-start">
+                  <div class="col-auto mb-2">
+                    <img src="images/quote.svg" alt="quote" width="32px">
+                  </div>
+                </div>
+                <div class="p text-muted text-center">
+                  Đây là ứng dụng mà tôi tìm kiếm bấy lâu nay. Các chẩn đoán và gợi ý về bệnh của cây trồng rất chính xác và hiệu quả. Mọi chức năng trên ứng dụng rất dễ tương tác và sử dụng.
+                </div>
+                <div class="row justify-content-end">
+                  <div class="col-auto mt-2">
+                    <img src="images/quote.svg" alt="quote" width="32px" class="right-quote">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="mx-4">
+            <div class="row flex-column align-items-stretch bg-white px-3 py-4 rounded-3 border border-secondary">
+              <div class="col-auto position-relative" style="height: 90px;">
+                <div class="position-absolute top-0 start-50 translate-middle">
+                  <img src="images/Mrs Dong.png" alt="" class="img-thumbnail rounded-circle shadow-sm" width="150px">
+                </div>
+              </div>
+              
+              <div class="col-auto">
+                <div class="row justify-content-center">
+                  <div class="col-auto">
+                    <h5 class="px-3">Cô Đông</h5>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="row justify-content-center">
+                  <div class="col-auto">Đại Lộc - Đà Nẵng</div>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="row justify-content-center">
+                  <div class="col-auto fs-6 text-muted">Hộ nông dân nhỏ</div>
+                </div>
+              </div>
+  
+              <div class="col-auto">
+                <div class="row justify-content-start">
+                  <div class="col-auto mb-2">
+                    <img src="images/quote.svg" alt="quote" width="32px">
+                  </div>
+                </div>
+                <div class="p text-muted text-center">
+                  Khi có ai đó hỏi về kinh nghiệm trong Nông Nghiệp, tôi liền nghĩ ngay đến WREF. Ứng dụng thật tuyệt, không những đưa ra những quy trình tiêu chuẩn chất lượng mà còn dự báo chính xác được lũ.
+                </div>
+                <div class="row justify-content-end">
+                  <div class="col-auto mt-2">
+                    <img src="images/quote.svg" alt="quote" width="32px" class="right-quote">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="ms-1 me-5">
+            <div class="row flex-column align-items-stretch bg-white px-3 py-4 rounded-3 border border-secondary">
+              <div class="col-auto position-relative" style="height: 90px;">
+                <div class="position-absolute top-0 start-50 translate-middle">
+                  <img src="images/Mr Vinh.png" alt="" class="img-thumbnail rounded-circle shadow-sm" width="150px">
+                </div>
+              </div>
+              
+              <div class="col-auto">
+                <div class="row justify-content-center">
+                  <div class="col-auto">
+                    <h5 class="px-3">Chú Vinh</h5>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="row justify-content-center">
+                  <div class="col-auto">Hoà Nhơn - Đà Nẵng</div>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="row justify-content-center">
+                  <div class="col-auto fs-6 text-muted">Hộ nông dân nhỏ</div>
+                </div>
+              </div>
+  
+              <div class="col-auto">
+                <div class="row justify-content-start">
+                  <div class="col-auto mb-2">
+                    <img src="images/quote.svg" alt="quote" width="32px">
+                  </div>
+                </div>
+                <div class="p text-muted text-center">
+                  Tôi rất bất ngờ khi năng suất nhà tôi tăng gấp đôi chỉ sau 3 tháng sử dụng WREF. Chỉ cần thực hiện đúng từng bước được chỉ rõ trong quy trình trồng trọt, thu nhập của gia đình đã tăng lên đáng kể.
+                </div>
+                <div class="row justify-content-end">
+                  <div class="col-auto mt-2">
+                    <img src="images/quote.svg" alt="quote" width="32px" class="right-quote">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center" style="margin-top: 100px;">
+        <div class="col-auto mx-4">
+          <div class="row align-items-stretch flex-column position-relative">
+            <div class="col">
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  <img src="https://plantix.net/en/assets/custom/big-number-counter/crops.jpg" alt="Dissease Number" class="img-thumbnail rounded-circle shadow" width="200px">
+                </div>
+              </div>
+            </div>
+            <div class="col mt-3">
+              <h4 class="cs-fNiramit text-center text-primary mb-0">Theo dõi</h4>
+            </div>
+            <div class="col">
+              <h1 class="cs-fNiramit text-center text-primary mb-0">08</h1>
+            </div>
+            <div class="col">
+              <h5 class="cs-fNiramit text-center text-primary mb-0">Loại cây phổ biến</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto mx-4">
+          <div class="row align-items-stretch flex-column position-relative">
+            <div class="col">
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  <img src="https://plantix.net/en/assets/custom/big-number-counter/diseases.jpg" alt="Dissease Number" class="img-thumbnail rounded-circle shadow" width="200px">
+                </div>
+              </div>
+            </div>
+            <div class="col mt-3">
+              <h4 class="cs-fNiramit text-center text-primary mb-0">Phát hiện</h4>
+            </div>
+            <div class="col">
+              <h1 class="cs-fNiramit text-center text-primary mb-0">38</h1>
+            </div>
+            <div class="col">
+              <h5 class="cs-fNiramit text-center text-primary mb-0">Sâu bệnh, giải pháp</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto mx-4">
+          <div class="row align-items-stretch flex-column position-relative">
+            <div class="col">
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  <img src="images/expert.png" class="img-thumbnail rounded-circle shadow" width="200px">
+                </div>
+              </div>
+            </div>
+            <div class="col mt-3">
+              <h4 class="cs-fNiramit text-center text-primary mb-0">Cùng với</h4>
+            </div>
+            <div class="col">
+              <h1 class="cs-fNiramit text-center text-primary mb-0">07</h1>
+            </div>
+            <div class="col">
+              <h5 class="cs-fNiramit text-center text-primary mb-0">Chuyên gia trong ngành</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto mx-4">
+          <div class="row align-items-stretch flex-column position-relative">
+            <div class="col">
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  <img src="images/farmer.png" alt="Dissease Number" class="img-thumbnail rounded-circle shadow" width="200px">
+                </div>
+              </div>
+            </div>
+            <div class="col mt-3">
+              <h4 class="cs-fNiramit text-center text-primary mb-0">Với hơn</h4>
+            </div>
+            <div class="col">
+              <h1 class="cs-fNiramit text-center text-primary mb-0">1k</h1>
+            </div>
+            <div class="col">
+              <h5 class="cs-fNiramit text-center text-primary mb-0">Người dùng mỗi tháng</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="mt-5">
+      <div class="container py-5">
+        <div class="row justify-content-end">
+          <div class="col-auto">
+            <button class="btn btn-outline-light btn-lg px-4 py-3 cs-fNiramit text-uppercase me-5 cs-fNiramit">Cài đặt miễn phí</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="technologies" class="container mt-5">
+      <div class="row">
+        <div class="col">
+          <h3 class="text-center cs-fNiramit mb-3">Áp dụng công nghệ</h3>
+          <p class="text-center mb-2">WREF đã sử dụng các công nghệ, dịch vụ tiên tiến trong nông nghiệp bao gồm:</p>
+          <h5 class="text-center cs-fNiramit mb-0">AI, Viễn thám, OpenWeather API</h5>
+        </div>
+      </div>
+
+      <div class="row align-items-stretch mt-5">
+        <div class="col-4">
+          <div class="card h-100 mx-4">
+            <div class="row justify-content-center mt-3">
+              <div class="col-auto">
+                <img src="images/brain.gif" alt="technology" class="img-fluid">
+              </div>
+            </div>
+            <div class="card-body flex-grow-1">
+              <h4 class="card-title cs-fNiramit">AI - Trí tuệ nhân tạo</h4>
+              <p class="card-text">
+                Ứng dụng sử dụng AI trong hầu hết các chức năng chính như: Dự báo lũ lụt, Dự đoán năng suất mùa vụ, Chẩn đoán bệnh cây trồng và đưa ra giải pháp.
+              </p>
+              <a href="https://www.fusioninformatics.com/services/ai-development.html" class="btn btn-primary cs-fNiramit">Tìm hiểu thêm</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card h-100 mx-4">
+            <div class="row justify-content-center mt-3" style="height: 300px;">
+              <div class="col-auto">
+                <img src="images/Drone.gif" alt="drone" class="img-fluid">
+              </div>
+            </div>
+            <div class="card-body flex-grow-1">
+              <h4 class="card-title cs-fNiramit">RS - Viễn Thám</h4>
+              <p class="card-text">
+                Công nghệ viễn thám giúp ứng dụng thu thập dữ liệu trên các cánh đồng một cách chính xác hơn, từ đó kết hợp với AI để cho ra kết quả dự đoán với độ lệch nhỏ.
+              </p>
+              <a href="https://grindgis.com/remote-sensing/remote-sensing-applications-in-agriculture#:~:text=Remote%20sensing%20gives%20the%20soil,be%20grown%20in%20the%20soil.&text=This%20information%20is%20used%20to,irrigation%20needs%20of%20the%20soil." class="btn btn-primary cs-fNiramit">Tìm hiểu thêm</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card h-100 mx-4">
+            <div class="row justify-content-center mt-3" style="height: 300px;">
+              <div class="col-auto">
+                <img src="images/OpenWeatherAPI.gif" alt="technology" class="img-fluid">
+              </div>
+            </div>
+            <div class="card-body flex-grow-1">
+              <h4 class="card-title cs-fNiramit">OpenWeatherAPI</h4>
+              <p class="card-text">
+                OpenWeatherAPI là một dịch vụ cung cấp thông tin thời tiết đáng tin cậy. Ứng dụng đưa ra các quy trình trồng trọt có năng suất. Ngoài ra còn phục vụ cho việc dự đoán sớm lũ.
+              </p>
+              <a href="https://openweathermap.org/" class="btn btn-primary cs-fNiramit">Tìm hiểu thêm</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quoteCEO" class="mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h4 class="cs-fNiramit text-center text-light mb-4">
+              Mục tiêu của chúng tôi là giúp người nông dân có thể cải thiện năng suất,<br/> giảm rủi ro đến mức thấp nhất có thể.
+            </h4>
+            <h6 class="text-small text-center text-light">Nguyễn Đình Huy - WREF CEO</h6>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center cs-fNiramit text-success">Nỗ lực & Giải thưởng</h3>
+        <p class="text-center">Không chỉ là một sản phẩm, WREF là năng lượng, nhiệt huyết của các thành viên trong team.<br/>Dưới đây là những giải thưởng và thành quả của các thành viên trong team đã đạt được.</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+
+      <% let prizes = [
+        {
+          achievement: "Top 5",
+          name: "Cuộc thi Startup Runway",
+          time: "1/2/2021 - 10/10/2021",
+          logo: "images/Startup Runway 2021.jpg"
+        }, {
+          achievement: "Top 5",
+          name: "Cuộc thi UAVS Hackatrix",
+          time: "23/8/2021 - 2/10/2021",
+          logo: "images/UAVS Hackatrix 2021.png"
+        }, {
+          achievement: "Giải Nhì",
+          name: "Cuộc thi Hult Prize",
+          time: "30/8/2020 - 30/10/2020",
+          logo: "images/Hult Prize 2020.jpg"
+        }, {
+          achievement: "Chung kết",
+          name: "UDN Youth Union Innovation and Entreneurship",
+          time: "Đang diễn ra",
+          logo: "images/UDN Youth Union 2021.jpg"
+        }, {
+          achievement: "Giải Nhì",
+          name: "Cuộc thi BKĐN-TechShow 2021",
+          time: "3/2021",
+          logo: "images/BK TechShow.jpg"
+        }, {
+          achievement: "Chung kết",
+          name: "SV NCKH Đại học Đà Nẵng 2021",
+          time: "Đang diễn ra",
+          logo: "images/SV NCKH 2021.jpg"
+        },
+      ]
+
+      prizes.forEach(prize => { %>
+        <div class="col-lg-4 mb-3">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <img src="<%= prize.logo %>" alt="<%= prize.name %>" height="150px">
+            </div>
+            <div class="col">
+              <h3 class="cs-fNiramit text-success"><%= prize.achievement %></h3>
+              <hr/>
+              <p><%= prize.name %></p>
+              <p class="text-muted"><%= prize.time %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+
+    </div>
+  </div>
+
+  <%- include("../partials/footer") %>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary bg-opacity-25">
+  <div class="container">
+    <a class="navbar-brand rounded-circle" href="/" >
+      <div class="row gx-2 justify-content-center align-items-center">
+        <div class="col-auto">
+          <img src="images/Logo Full.png" alt="Logo" height="40px">
+        </div>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+
+        <% 
+          let links = [
+            {
+              name: "Trang chủ",
+              path: "/"
+            }, {
+              name: "Kinh doanh",
+              path: "/Business"
+            }, {
+              name: "Về chúng tôi",
+              path: "/AboutUs"
+            }
+          ]
+          links.forEach(link => { 
+            let className = ["nav-link"]; 
+            if (link.name == linkActive) { 
+              className.push("active"); 
+            } 
+        %>
+          <li class="nav-item">
+            <a class="<%= className.join(' ') %>" href="<%= link.path %>"><%= link.name %></a>
+          </li>
+        <% }) %>
+        
+      </ul>
+    </div>
+  </div>
+</nav>

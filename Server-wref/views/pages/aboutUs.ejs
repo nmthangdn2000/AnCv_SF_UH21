@@ -1,0 +1,257 @@
+<%- include("../partials/head", { title: "AnCV - Về chúng tôi", cssPaths: ["css/page.css", "css/aboutUs.css"],
+scriptPaths: [] }) %>
+
+<body>
+  <%- include("../partials/navbar", { linkActive: "Về chúng tôi" }) %>
+
+  <section id="header" class="container">
+    <div class="row">
+      <div class="col">
+        <p class="text-primary text-center fw-bold text-uppercase"><small>Sứ mệnh của chúng tôi</small></p>
+        <h1 class="cs-fNiramit text-center mb-3">Vì một cuộc sống An toàn - Thịnh vượng</h1>
+        <p class="text-muted text-center">
+          Kết nối, mang công nghệ vào nông nghiệp để giúp người dân tăng năng suất, ổn định thu nhập.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div id="introduction" class="bg-light py-5">
+    <section class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-5">
+          <div class="me-5">
+            <h2 class="cs-fNiramit mb-4">Chúng tôi là ai?</h2>
+            <p class="text-muted">
+              Với tên nhóm là AnCV, chúng tôi là những sinh viên đến từ Đại học Đà Nẵng, giúp người nông dân Việt Nam
+              mang công nghệ tiên tiến vào Nông nghiệp để tăng năng suất, cải thiện đời sống sau dịch. Mục tiêu đến năm
+              2030 có hơn 30% nông dân Việt Nam sử dụng WREF.
+            </p>
+          </div>
+        </div>
+        <div class="col-5 position-relative">
+          <div class="position-absolute bottom-0 start-0 rounded-2 decoration"></div>
+          <div class="ps-4 pb-3">
+            <img src="images/team.jpg" alt="Team" class="img-fluid position-relative rounded-3 shadow-sm" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="video" class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="cs-fNiramit text-center mb-5">Video giới thiệu nhóm AnCV</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col">
+        <iframe
+          width="1920px"
+          height="1080px"
+          src="https://www.youtube.com/embed/X1zXfjNLKTE"
+          title="Video Intro AnCV - WREF 2021"
+          frameborder="10"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div class="mt-5 pt-5" id="WREF">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col px-0">
+          <img src="images/robot hand.svg" alt="robot hand" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2 class="cs-fNiramit text-center mb-3">Ứng dụng nông nghiệp WREF</h2>
+          <p class="text-center text-muted mb-1">
+            Nhóm AnCV đã và đang phát triển một ứng dụng hỗ trợ nông nghiệp có tên là WREF
+          </p>
+          <p class="text-center text-muted">Ứng dụng áp dụng các công nghệ cao như AI, Viễn thám và OpenWeather API</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="member" class="container">
+    <div class="row justify-content-center align-items-stretch replies">
+      <div class="col-4">
+        <div class="h-100 ms-5 me-1">
+          <div class="row flex-column align-items-stretch h-100 bg-white px-3 py-4 rounded-3 border border-secondary">
+            <div class="col-auto position-relative" style="height: 90px">
+              <div class="position-absolute top-0 start-50 translate-middle">
+                <img
+                  src="images/Nguyen Dinh Huy.jpg"
+                  alt=""
+                  class="img-thumbnail rounded-circle shadow-sm"
+                  width="150px"
+                />
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  <h5 class="px-3">Nguyễn Đình Huy</h5>
+                  <hr />
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="row justify-content-center">
+                <div class="col-auto">Sinh viên trường ĐHBK Đà Nẵng</div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="row justify-content-center">
+                <div class="col-auto fs-6 text-muted">Thành viên</div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="row h-100 align-items-center">
+                <div class="col">
+                  <div class="row justify-content-start">
+                    <div class="col-auto mb-2">
+                      <img src="images/quote.svg" alt="quote" width="32px" />
+                    </div>
+                  </div>
+                  <div class="p text-muted text-center">
+                    Tôi đã dành hơn 2 năm để đồng hành cùng AnCV. WREF là đứa con tinh thần và cũng là tuổi trẻ của tôi.
+                  </div>
+                  <div class="row justify-content-end">
+                    <div class="col-auto mt-2">
+                      <img src="images/quote.svg" alt="quote" width="32px" class="right-quote" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="h-100 mx-4">
+          <div class="row flex-column align-items-stretch h-100 bg-white px-3 py-4 rounded-3 border border-secondary">
+            <div class="col-auto position-relative" style="height: 90px">
+              <div class="position-absolute top-0 start-50 translate-middle">
+                <img
+                  src="images/Nguyen Le Anh Minh.jpg"
+                  alt=""
+                  class="img-thumbnail rounded-circle shadow-sm"
+                  width="150px"
+                />
+              </div>
+            </div>
+
+            <div class="col-auto">
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  <h5 class="px-3">Nguyễn Lê Anh Minh</h5>
+                  <hr />
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="row justify-content-center">
+                <div class="col-auto">Sinh viên trường ĐHBK Đà Nẵng</div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="row justify-content-center">
+                <div class="col-auto fs-6 text-muted">nhóm trưởng</div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="row h-100 align-items-center">
+                <div class="col">
+                  <div class="row justify-content-start">
+                    <div class="col-auto mb-2">
+                      <img src="images/quote.svg" alt="quote" width="32px" />
+                    </div>
+                  </div>
+                  <div class="p text-muted text-center">
+                    Không có gì vui hơn khi được làm việc với những người đồng đội có đẩy đủ tinh thần nhiệi huyết. Với
+                    vai trò là một leader, WREF là trách nhiệm, là tuổi trẻ, là tinh thần đồng đội, là cả nguồn năng
+                    lượng chúng tôi có được cho quảng đời sinh viên.
+                  </div>
+                  <div class="row justify-content-end">
+                    <div class="col-auto mt-2">
+                      <img src="images/quote.svg" alt="quote" width="32px" class="right-quote" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="h-100 ms-1 me-5">
+          <div class="row flex-column align-items-stretch h-100 bg-white px-3 py-4 rounded-3 border border-secondary">
+            <div class="col-auto position-relative" style="height: 90px">
+              <div class="position-absolute top-0 start-50 translate-middle">
+                <img
+                  src="images/Nguyen Minh Thang.jpg"
+                  alt=""
+                  class="img-thumbnail rounded-circle shadow-sm"
+                  width="150px"
+                />
+              </div>
+            </div>
+
+            <div class="col-auto">
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  <h5 class="px-3">Nguyễn Minh Thắng</h5>
+                  <hr />
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="row justify-content-center">
+                <div class="col-auto text-center">Đại học công nghệ thông tin và truyền thông Việt-Hàn</div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="row justify-content-center">
+                <div class="col-auto fs-6 text-muted">Thành viên</div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="row h-100 align-items-center">
+                <div class="col">
+                  <div class="row justify-content-start">
+                    <div class="col-auto mb-2">
+                      <img src="images/quote.svg" alt="quote" width="32px" />
+                    </div>
+                  </div>
+                  <div class="p text-muted text-center">
+                    Nhờ WREF mà kĩ năng của tôi được cải thiện. Tôi đã dành rất nhiều thời gian để suy nghĩ cho các chức
+                    năng của ứng dụng. Gia đình tôi là nông dân, nên tôi hiểu rất rõ tầm quan trọng của ứng dụng.
+                  </div>
+                  <div class="row justify-content-end">
+                    <div class="col-auto mt-2">
+                      <img src="images/quote.svg" alt="quote" width="32px" class="right-quote" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include("../partials/footer") %>
+</body>

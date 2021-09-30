@@ -5,8 +5,9 @@ const { ERROR, RESPONSE } = require('../common/constants');
 class AuthController {
   async postSignUp(req, res) {
     try {
-      const { userName, email, passWord } = req.body;
-      await authService.postSignUp(userName, email, passWord);
+      const { userName, email, passWord, address, userType } = req.body;
+      console.log(userName, email, passWord, address, userType);
+      await authService.postSignUp(userName, email, passWord, address, userType);
       return responseSuccess(res, RESPONSE.SIGNUPSUCCESS);
     } catch (error) {
       return responseError(res, error.message);
