@@ -86,9 +86,11 @@
 
 **The app connects with retailers** so they know the farmers' agricultural performance to improve their business and help sell the right products through a dedicated app for retailers odd.
 
-<p  float="left" align="middle">
-  <img src="images/main.jpg" alt="Main screen" > 
-</p>
+<img src="images/main.jpg" alt="Main screen" >
+
+> You can visit [**our website**](https://wref.herokuapp.com/) for more information.
+
+<img src="images/Web.png" alt="Main screen">
 
 ### Application for farmers
 
@@ -110,6 +112,10 @@ Farmers need **a cheap product** that solves all their problems: natural disaste
 - **Agricultural social networks** help farmers to share beautiful and happy moments when achieving results. ([**code here**](WREF-app/app/src/main/java/thang/com/wref/StoriesScreen))
 
 In addition, farmers can also directly order agricultural tools, fertilizers, pesticides, etc. from the retailers in the app.
+
+This is the intro video for this app.
+
+[![Video intro](https://img.youtube.com/vi/-JLQVLH6RT8/0.jpg)](https://www.youtube.com/watch?v=-JLQVLH6RT8 "Link Title")
 
 ### Application for pesticides retailers
 
