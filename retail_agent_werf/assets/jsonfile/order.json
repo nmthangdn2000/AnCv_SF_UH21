@@ -7,7 +7,7 @@
     "date": "25/08/2021",
     "statusShip": 1,
     "status": 1,
-    "avata": "avata1.jpg"
+    "avata": "ca_chua.png"
   },
   {
     "id": "2",
@@ -17,7 +17,7 @@
     "date": "25/08/2021",
     "statusShip": 1,
     "status": 2,
-    "avata": "avata2.jpg"
+    "avata": "lua.png"
   },
   {
     "id": "3",
@@ -27,6 +27,6 @@
     "date": "30/08/2021",
     "statusShip": 1,
     "status": 3,
-    "avata": "avata3.jpg"
+    "avata": "lua1.png"
   }
 ]

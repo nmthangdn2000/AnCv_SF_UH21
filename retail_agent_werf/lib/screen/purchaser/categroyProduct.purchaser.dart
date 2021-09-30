@@ -53,18 +53,18 @@ class _CategoryProductPurchaserState extends State<CategoryProductPurchaser> {
                 SizedBox(
                   height: 10,
                 ),
-                _listViewProduct(
-                    "Mới rao bán", Color(0xFF62AEFB), "moi_rao_ban.json"),
+                _listViewProduct("Mới rao bán", Color(0xFF62AEFB),
+                    "moi_rao_ban_ca_chua.json"),
                 SizedBox(
                   height: 10,
                 ),
-                _listViewProduct(
-                    "Đang bán rẻ", Color(0xFFB2E2FE), "dang_ban_re.json"),
+                _listViewProduct("Đang bán rẻ", Color(0xFFB2E2FE),
+                    "dang_ban_re_ca_chua.json"),
                 SizedBox(
                   height: 10,
                 ),
                 _listViewProduct("Nông sản chất lượng cao", Color(0xFFB2E2FE),
-                    "nong_san_chat_luong_cao.json"),
+                    "nong_san_chat_luong_cao_ca_chua.json"),
               ],
             ),
           ),
@@ -88,10 +88,13 @@ class _CategoryProductPurchaserState extends State<CategoryProductPurchaser> {
             bottom: 0,
             left: 0,
             right: 0,
-            child: Image.asset(
-              "assets/images/ellipse3.png",
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.contain,
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(16)),
+              child: Image.asset(
+                "assets/images/ellipse3.png",
+                width: MediaQuery.of(context).size.width,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
           Positioned(
@@ -101,14 +104,19 @@ class _CategoryProductPurchaserState extends State<CategoryProductPurchaser> {
               margin: const EdgeInsets.all(20),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(40.0),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 5.0),
-                  child: Container(
-                    color: Colors.black.withOpacity(0.2),
-                    padding: const EdgeInsets.all(8),
-                    child: Icon(
-                      FontAwesomeIcons.chevronLeft,
-                      color: Colors.white,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 5.0),
+                    child: Container(
+                      color: Colors.black.withOpacity(0.2),
+                      padding: const EdgeInsets.all(8),
+                      child: Icon(
+                        FontAwesomeIcons.chevronLeft,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "unitPrice": "40K VND/KG",
+    "residual": "Còn lại 8KG",
+    "note": "Bán chạy",
+    "img": "ca_chua1.png"
+  },
+  {
+    "id": "1",
+    "unitPrice": "35K VND/KG",
+    "residual": "Còn lại 16KG",
+    "note": "",
+    "img": "ca_chua2.png"
+  },
+  {
+    "id": "1",
+    "unitPrice": "30K VND/KG",
+    "residual": "Còn lại 18KG",
+    "note": "Chất lượng cao",
+    "img": "ca_chua3.png"
+  },
+  {
+    "id": "1",
+    "unitPrice": "40K VND/KG",
+    "residual": "Còn lại 8KG",
+    "note": "",
+    "img": "ca_chua4.png"
+  }
+]

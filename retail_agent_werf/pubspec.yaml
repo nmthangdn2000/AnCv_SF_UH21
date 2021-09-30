@@ -37,6 +37,7 @@ dependencies:
   intl: ^0.17.0
   lottie: ^1.1.0
   fluttertoast: ^8.0.8
+  google_fonts: ^2.1.0
 
 dev_dependencies:
   flutter_test:

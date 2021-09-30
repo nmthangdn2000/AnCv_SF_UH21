@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:retail_agent_werf/components/commom/common.dart';
 import 'package:retail_agent_werf/components/item/itemOrderPurchaser.dart';
 import 'package:retail_agent_werf/models/order.purchaser/order.purchaser.model.dart';
+import 'package:retail_agent_werf/screen/signIn.dart';
 import 'package:retail_agent_werf/utils/constants.dart';
+import 'package:retail_agent_werf/utils/user_shared_preferences.dart';
 
 class OrderPagePurchaser extends StatefulWidget {
   const OrderPagePurchaser({Key? key}) : super(key: key);
@@ -16,6 +19,17 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              _signOut();
+            },
+            icon: Icon(
+              FontAwesomeIcons.signOutAlt,
+              color: Colors.black,
+            ),
+          ),
+        ],
         backgroundColor: Color(0xFFFAFAFA),
         elevation: 0,
         centerTitle: true,
@@ -27,6 +41,7 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: Column(
             children: [
               _list1(),
@@ -57,7 +72,7 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
                 ),
               ),
               Text(
-                "----------------------------------------",
+                "--------------------------------------",
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 18,
@@ -87,7 +102,7 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
               totalPrice: "96.000 VNĐ",
               status: TRANSPORT,
               date: "29/09/2021",
-              img: "avata1.jpg"),
+              img: "ca_chua.png"),
         ),
         SizedBox(
           height: 10,
@@ -100,7 +115,7 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
               totalPrice: "240.000 VNĐ",
               status: DONE,
               date: "29/09/2021",
-              img: "avata1.jpg"),
+              img: "lua.png"),
         ),
         SizedBox(
           height: 10,
@@ -113,7 +128,7 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
               totalPrice: "320.000 VNĐ",
               status: PENDDING,
               date: "29/09/2021",
-              img: "avata1.jpg"),
+              img: "lua1.png"),
         ),
         SizedBox(
           height: 10,
@@ -136,7 +151,7 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
           "26.000 VND/KG",
           "29/09/2021",
           "80%",
-          "avata1.jpg",
+          "lua1.png",
           "32KG",
         ),
         _item(
@@ -147,7 +162,7 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
           "40.000 VND/KG",
           "29/09/2021",
           "12%",
-          "avata1.jpg",
+          "ca_chua2.png",
           "32KG",
         ),
       ],
@@ -170,7 +185,7 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
                 ),
               ),
               Text(
-                "----------------------------------------",
+                "--------------------------------------",
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 18,
@@ -200,7 +215,7 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
               totalPrice: "300.000 VNĐ",
               status: CANCEL,
               date: "30/09/2021",
-              img: "avata1.jpg"),
+              img: "ca_chua3.png"),
         ),
         SizedBox(
           height: 10,
@@ -213,7 +228,7 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
               totalPrice: "240.000 VNĐ",
               status: DONE,
               date: "30/09/2021",
-              img: "avata1.jpg"),
+              img: "cam.png"),
         ),
         SizedBox(
           height: 10,
@@ -358,5 +373,11 @@ class _OrderPagePurchaserState extends State<OrderPagePurchaser> {
           color: status ? Colors.green : signInColor,
         ),
       );
+  }
+
+  _signOut() async {
+    await UserSharedPreferences.init();
+    UserSharedPreferences.clear();
+    return CommomComponents.pushContextFalse(context, SignIn());
   }
 }

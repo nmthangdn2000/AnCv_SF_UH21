@@ -12,7 +12,6 @@ class AuthApi {
       Map body = {"email": email, "password": password};
       var url = Uri.parse("$BASE_URL/signin");
       var res = await http.post(url, body: body);
-      print("res ${res.body}");
       if (res.statusCode == 200) {
         final BaseResponseModel baseRessponseModel =
             BaseResponseModel<UserModel>.fromJson(
@@ -56,7 +55,7 @@ class AuthApi {
     try {
       await UserSharedPreferences.init();
       String token = UserSharedPreferences.getToken();
-      var url = Uri.parse("$BASE_URL/signup");
+      var url = Uri.parse("$BASE_URL/checklogin");
       var res = await http.get(url, headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

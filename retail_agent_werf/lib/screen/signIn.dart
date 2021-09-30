@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -114,16 +115,16 @@ class _SignInState extends State<SignIn> {
           Row(
             children: [
               Expanded(
-                flex: 1,
                 child: _btnSignIn(),
+                flex: 1,
               ),
               SizedBox(
                 width: 10,
               ),
               Expanded(
-                flex: 1,
                 child: _btnSignUp(),
-              )
+                flex: 1,
+              ),
             ],
           )
         ],
@@ -193,6 +194,7 @@ class _SignInState extends State<SignIn> {
   ElevatedButton _btnSignIn() {
     return ElevatedButton(
       onPressed: () {
+        CommomComponents.showDialogLoading(context);
         _validateSignIn(phoneController.text, passwordController.text);
       },
       style: ElevatedButton.styleFrom(
@@ -248,9 +250,12 @@ class _SignInState extends State<SignIn> {
       bool signIn = await api.signIn(phone, password).then((value) => value);
       if (signIn) {
         int type = UserSharedPreferences.getUserType();
-        if (type == 1)
-          return CommomComponents.pushContextFalse(context, MainPage());
-        return CommomComponents.pushContextFalse(context, MainPagePurchaser());
+        Timer(Duration(seconds: 2), () {
+          if (type == 1)
+            return CommomComponents.pushContextFalse(context, MainPage());
+          return CommomComponents.pushContextFalse(
+              context, MainPagePurchaser());
+        });
       } else {
         print("sai");
       }

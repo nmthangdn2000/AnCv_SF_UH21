@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:retail_agent_werf/components/commom/common.dart';
+import 'package:retail_agent_werf/screen/purchaser/mainPage.purchaser.dart';
 import 'package:retail_agent_werf/utils/constants.dart';
 
 class PreOrderPagePurchaser extends StatefulWidget {
@@ -135,8 +139,7 @@ class _PreOrderPagePurchaserState extends State<PreOrderPagePurchaser> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(
-                top: 15,
-                left: 20,
+                left: 10,
               ),
               child: Image.asset(
                 "assets/images/dat_truoc.png",
@@ -152,7 +155,7 @@ class _PreOrderPagePurchaserState extends State<PreOrderPagePurchaser> {
 
   _dropdownButton(List<String> item, String valueChoose, bool type) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(4),
           border: Border.all(color: signInColor.withOpacity(0.6), width: 2)),
@@ -226,7 +229,11 @@ class _PreOrderPagePurchaserState extends State<PreOrderPagePurchaser> {
   ElevatedButton _btnSuccess() {
     return ElevatedButton(
       onPressed: () {
-        _showBottomSheet(context);
+        CommomComponents.showDialogLoading(context);
+        Timer(Duration(seconds: 2), () {
+          Navigator.pop(context);
+          _showBottomSheet(context);
+        });
       },
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
@@ -312,6 +319,10 @@ class _PreOrderPagePurchaserState extends State<PreOrderPagePurchaser> {
           ],
         );
       },
-    );
+    ).whenComplete(() {
+      Timer(Duration(milliseconds: 500), () {
+        CommomComponents.pushContextFalse(context, MainPagePurchaser());
+      });
+    });
   }
 }

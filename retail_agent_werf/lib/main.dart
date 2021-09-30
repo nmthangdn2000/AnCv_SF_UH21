@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:retail_agent_werf/screen/splashScreen.dart';
 import 'package:retail_agent_werf/themes/myTheme.dart';
 
@@ -13,7 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       themeMode: ThemeMode.system,
-      theme: AppTheme.lightTheme,
+      theme: ThemeData(
+        colorScheme: ColorScheme.light(),
+        primaryColor: Colors.lightBlue[800],
+        fontFamily: GoogleFonts.lato().fontFamily,
+      ),
       darkTheme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),

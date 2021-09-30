@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:retail_agent_werf/components/loader/loading.dart';
 
 class CommomComponents {
   static showToast(String mess) {
@@ -24,5 +25,16 @@ class CommomComponents {
     return Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (BuildContext context) => page),
         (route) => true);
+  }
+
+  static showDialogLoading(context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          child: Loading(),
+        );
+      },
+    );
   }
 }
