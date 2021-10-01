@@ -130,7 +130,7 @@ class _ItemOrderState extends State<ItemOrder> {
       case DONE:
         return Color(0xFFE2F3FF);
       default:
-        return Color(0xFFFFE8E3);
+        return Color(0xFFEFFBFF);
     }
   }
 
@@ -145,7 +145,7 @@ class _ItemOrderState extends State<ItemOrder> {
       case DONE:
         return Color(0xFF22E079);
       default:
-        return Color(0xFFE04422);
+        return Color(0xFF62AEFB);
     }
   }
 

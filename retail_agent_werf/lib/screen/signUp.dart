@@ -50,7 +50,7 @@ class _SignUpState extends State<SignUp> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "WREF - An toàn Thịnh vượng",
+            "WREF - R Ứng dụng di động nông nghiệp dành cho nhà bán lẻ",
             style: TextStyle(color: Colors.grey, fontSize: 12),
           ),
           SizedBox(

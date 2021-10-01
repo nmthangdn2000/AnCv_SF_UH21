@@ -24,6 +24,7 @@ class _PreOrderPagePurchaserState extends State<PreOrderPagePurchaser> {
     "Sắn",
     "Dưa leo"
   ];
+  String tree = "dat_truoc";
   final List<String> itemUnit = ["kg", "yến", "tạ", "tấn"];
   String valueProduct = "Cà chua";
   String valueUnit = "kg";
@@ -95,6 +96,32 @@ class _PreOrderPagePurchaserState extends State<PreOrderPagePurchaser> {
     );
   }
 
+  _tree(String name) {
+    switch (name) {
+      case "Cà chua":
+        tree = "dat_truoc";
+        break;
+      case "Ngô":
+        tree = "bap1";
+        break;
+      case "Lúa":
+        tree = "lua1";
+        break;
+      case "Thanh long":
+        tree = "thanh_long1";
+        break;
+      case "Sắn":
+        tree = "san1";
+        break;
+      case "Dưa leo":
+        tree = "dua_leo1";
+        break;
+      default:
+        tree = "ca_chua1";
+        break;
+    }
+  }
+
   _rowTop(Size size) {
     return Container(
       width: size.width,
@@ -114,14 +141,14 @@ class _PreOrderPagePurchaserState extends State<PreOrderPagePurchaser> {
                 SizedBox(
                   height: 10,
                 ),
-                Text("Loại cây"),
+                Text("Đơn giá"),
                 SizedBox(
                   height: 5,
                 ),
                 Row(
                   children: [
                     Expanded(
-                      child: _inputTextField("20k VNĐ", "Đơn giá"),
+                      child: _inputTextField("Nhập đơn giá", "Đơn giá (VNĐ)"),
                       flex: 6,
                     ),
                     SizedBox(
@@ -142,7 +169,7 @@ class _PreOrderPagePurchaserState extends State<PreOrderPagePurchaser> {
                 left: 10,
               ),
               child: Image.asset(
-                "assets/images/dat_truoc.png",
+                "assets/images/$tree.png",
                 fit: BoxFit.contain,
               ),
             ),
@@ -164,6 +191,7 @@ class _PreOrderPagePurchaserState extends State<PreOrderPagePurchaser> {
         items: item.map(biuldMenuItem).toList(),
         value: valueChoose,
         onChanged: (value) => setState(() {
+          _tree(value.toString());
           if (type)
             valueProduct = value.toString();
           else

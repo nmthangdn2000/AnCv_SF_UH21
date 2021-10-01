@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     height: 20,
                   ),
                   Text(
-                    "WREF",
+                    "WREF - R ",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 50,
@@ -65,10 +65,11 @@ class _SplashScreenState extends State<SplashScreen> {
                     height: 20,
                   ),
                   Text(
-                    "ứng dụng dành cho đại lý bán lẻ".toUpperCase(),
+                    "Ứng dụng di động nông nghiệp dành cho nhà bán lẻ"
+                        .toUpperCase(),
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 14,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

@@ -183,6 +183,7 @@ class _QuickPurchase3State extends State<QuickPurchase3> {
         if (type) {
           CommomComponents.showDialogLoading(context);
           Timer(Duration(seconds: 2), () {
+            Navigator.pop(context);
             _showBottomSheet(context);
           });
         } else {

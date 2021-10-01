@@ -347,7 +347,7 @@ class _QuickPurchase2State extends State<QuickPurchase2> {
       padding: const EdgeInsets.all(0),
       child: Row(
         children: [
-          Expanded(flex: 9, child: _inputTextField("Nhập giá", "")),
+          Expanded(flex: 9, child: _inputTextField("Nhập đặc điểm", "")),
           Visibility(
             visible: note.length > 1,
             child: Expanded(

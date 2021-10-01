@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -5,6 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:retail_agent_werf/apis/order.api.dart';
+import 'package:retail_agent_werf/components/commom/common.dart';
 import 'package:retail_agent_werf/components/loader/loading.dart';
 import 'package:retail_agent_werf/models/order.model/order.model.dart';
 import 'package:retail_agent_werf/utils/base_url.dart';
@@ -20,13 +23,13 @@ class OrderDetail extends StatefulWidget {
 
 class _OrderDetailState extends State<OrderDetail> {
   late Future futureOrder;
-
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     futureOrder = getOrder(widget.id);
-    _loadingDialog();
+    // _loadingDialog();
   }
 
   _loadingDialog() async {
@@ -41,6 +44,7 @@ class _OrderDetailState extends State<OrderDetail> {
     final oCcy = new NumberFormat("#,##0", "vi_VND");
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Color(0xFFFAFAFA),
@@ -78,7 +82,7 @@ class _OrderDetailState extends State<OrderDetail> {
                       SizedBox(
                         height: 20,
                       ),
-                      _button(order),
+                      _button(order, context),
                     ],
                   ),
                 );
@@ -110,7 +114,10 @@ class _OrderDetailState extends State<OrderDetail> {
                 child: Container(
                   margin: const EdgeInsets.only(right: 10),
                   child: Image.network(
-                    "$BASE_URL_MEDIA/uploads/${order.idProduct.media}",
+                    Uri.tryParse(order.idProduct.media)?.hasAbsolutePath ??
+                            false
+                        ? order.idProduct.media
+                        : "$BASE_URL_MEDIA/uploads/${order.idProduct.media}",
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -275,22 +282,22 @@ class _OrderDetailState extends State<OrderDetail> {
     );
   }
 
-  Widget _button(OrderModel order) {
+  Widget _button(OrderModel order, BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20),
       child: Row(
         children: [
-          _btnCancle(order),
+          _btnCancle(order, context),
           SizedBox(
             width: 20,
           ),
-          _btnSubmit(order),
+          _btnSubmit(order, context),
         ],
       ),
     );
   }
 
-  Widget _btnCancle(OrderModel order) {
+  Widget _btnCancle(OrderModel order, BuildContext contextParrent) {
     if (order.status == DONE || order.status == CANCEL)
       return SizedBox.shrink();
     return Expanded(
@@ -309,8 +316,28 @@ class _OrderDetailState extends State<OrderDetail> {
                   child: Text("Không"),
                 ),
                 TextButton(
-                  onPressed: () {
-                    updateOrderStatus(CANCEL);
+                  onPressed: () async {
+                    bool update = await updateOrderStatus(CANCEL);
+                    Navigator.pop(context);
+                    if (!update) {
+                      Fluttertoast.showToast(
+                          msg: "Cập nhật thất bại",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0);
+                    } else {
+                      CommomComponents.showDialogLoading(contextParrent);
+                      Timer(Duration(seconds: 2), () {
+                        Navigator.of(contextParrent).pop();
+                        CommomComponents.showBottomSheet(
+                            contextParrent,
+                            "Hủy đơn hàng thành công",
+                            () => Navigator.pop(contextParrent));
+                      });
+                    }
                   },
                   child: Text("Đồng ý"),
                 ),
@@ -341,7 +368,7 @@ class _OrderDetailState extends State<OrderDetail> {
     );
   }
 
-  Widget _btnSubmit(OrderModel order) {
+  Widget _btnSubmit(OrderModel order, BuildContext contextParrent) {
     if (order.status == DONE || order.status == CANCEL)
       return SizedBox.shrink();
     return Expanded(
@@ -363,14 +390,25 @@ class _OrderDetailState extends State<OrderDetail> {
                   onPressed: () async {
                     bool update = await updateOrderStatus(order.status + 1);
                     Navigator.pop(context);
-                    Fluttertoast.showToast(
-                        msg: "Cập nhật ${update ? "thành công" : "thất bại"}",
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.CENTER,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: Colors.red,
-                        textColor: Colors.white,
-                        fontSize: 16.0);
+                    if (!update) {
+                      Fluttertoast.showToast(
+                          msg: "Cập nhật ${update ? "thành công" : "thất bại"}",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0);
+                    } else {
+                      CommomComponents.showDialogLoading(contextParrent);
+                      Timer(Duration(seconds: 2), () {
+                        Navigator.of(contextParrent).pop();
+                        CommomComponents.showBottomSheet(
+                            contextParrent,
+                            "Cập nhật đơn hàng thành công",
+                            () => Navigator.pop(contextParrent));
+                      });
+                    }
                   },
                   child: Text("Đồng ý"),
                 ),
