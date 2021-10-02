@@ -9,7 +9,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
 import thang.com.wref.CameraPredictionScreen.CameraPredictFragment;
 import thang.com.wref.MainScreen.HomeFragment;
-import thang.com.wref.QRCode.QRCodeFragment;
+import thang.com.wref.QRCodeScreen.QRCodeFragment;
 import thang.com.wref.StoriesScreen.SocialNetworkFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {

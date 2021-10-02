@@ -29,7 +29,7 @@
         android:theme="@style/Theme.WREF"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".QRCode.ScannerActivity"
+            android:name=".QRCodeScreen.ScannerActivity"
             android:exported="true" />
         <activity
             android:name=".MainScreen.Havest.ProductionStatisticsActivity"

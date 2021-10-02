@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QRCode.ScannerActivity"
+    tools:context=".QRCodeScreen.ScannerActivity"
     android:fitsSystemWindows="true">
 
     <com.budiyev.android.codescanner.CodeScannerView

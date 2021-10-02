@@ -1,4 +1,4 @@
-package thang.com.wref.QRCode;
+package thang.com.wref.QRCodeScreen;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
