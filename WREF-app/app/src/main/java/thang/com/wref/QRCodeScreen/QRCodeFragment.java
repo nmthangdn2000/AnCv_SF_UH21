@@ -3,6 +3,7 @@ package thang.com.wref.QRCodeScreen;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,7 +16,7 @@ import thang.com.wref.R;
 
 public class QRCodeFragment extends Fragment {
     private View view;
-    private RoundedImageView btnQrCode;
+    private CardView scanButton;
     public QRCodeFragment() {
         // Required empty public constructor
     }
@@ -32,9 +33,9 @@ public class QRCodeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_q_r_code, container, false);
-        btnQrCode = (RoundedImageView) view.findViewById(R.id.btnQrCode);
+        scanButton = (CardView) view.findViewById(R.id.scanButton);
 
-        btnQrCode.setOnClickListener(new View.OnClickListener() {
+        scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ScannerActivity.class);

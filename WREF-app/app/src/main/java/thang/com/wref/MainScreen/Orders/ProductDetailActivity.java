@@ -4,6 +4,7 @@ import static thang.com.wref.util.Constants.BASE_URL;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,6 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import thang.com.wref.CameraPredictionScreen.Adapters.PesticideAdapter;
 import thang.com.wref.Components.Retrofits.OrderRetrofit;
 import thang.com.wref.Components.Retrofits.ProductRetrofit;
 import thang.com.wref.LoginScreen.SharedPreferencesManagement;
@@ -36,6 +40,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
     private static final String TAG = "ProductDetailActivity";
     private ImageView imgProduct;
     private TextView name, price, amount, ingredient, effect, userManual, note;
+    private RecyclerView suggestedPesticides;
     private AppCompatButton btnSignUp, reduced, increase;
     private String idProduct = "";
     private RelativeLayout rltBack;
@@ -43,6 +48,8 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
     private Retrofit retrofit;
     private ProductRetrofit productRetrofit;
     private OrderRetrofit orderRetrofit;
+    private PesticideAdapter suggestedPesticideAdapter;
+    private ArrayList<HashMap<String, String>> pesticideList = new ArrayList<>();
     private SharedPreferencesManagement sharedPreferencesManagement;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +59,9 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         networkUtil = new NetworkUtil();
         retrofit = networkUtil.getRetrofit();
         sharedPreferencesManagement = new SharedPreferencesManagement(ProductDetailActivity.this);
+        suggestedPesticideAdapter = new PesticideAdapter(pesticideList, this);
+        suggestedPesticides.setAdapter(suggestedPesticideAdapter);
+
         mapingView();
         getProductById();
     }
@@ -64,10 +74,11 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         reduced = (AppCompatButton) findViewById(R.id.reduced);
         increase = (AppCompatButton) findViewById(R.id.increase);
         amount = (TextView) findViewById(R.id.amount);
-        ingredient = (TextView) findViewById(R.id.ingredient);
-        effect = (TextView) findViewById(R.id.effect);
-        userManual = (TextView) findViewById(R.id.userManual);
-        note = (TextView) findViewById(R.id.note);
+//        ingredient = (TextView) findViewById(R.id.ingredient);
+//        effect = (TextView) findViewById(R.id.effect);
+//        userManual = (TextView) findViewById(R.id.userManual);
+//        note = (TextView) findViewById(R.id.note);
+        suggestedPesticides = (RecyclerView) findViewById(R.id.rv_suggested_pesticide);
         rltBack = (RelativeLayout) findViewById(R.id.rltBack);
 
         btnSignUp.setOnClickListener(this);
@@ -101,10 +112,10 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                          Locale locale = new Locale("vi", "vn");
                          NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
                          price.setText(""+fmt.format(productModel.getPrice()));
-                         ingredient.setText(productModel.getIngredient());
-                         effect.setText(productModel.getEffect());
-                         userManual.setText(productModel.getUserManual());
-                         note.setText(productModel.getNote());
+//                         ingredient.setText(productModel.getIngredient());
+//                         effect.setText(productModel.getEffect());
+//                         userManual.setText(productModel.getUserManual());
+//                         note.setText(productModel.getNote());
                      }
                  }
                  call.cancel();
