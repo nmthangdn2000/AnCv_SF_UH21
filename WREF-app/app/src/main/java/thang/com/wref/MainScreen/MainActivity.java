@@ -119,5 +119,6 @@ public class MainActivity extends AppCompatActivity {
         });
         bottomNavigation.show(1, true);
         bottomNavigation.setCount(2, "15");
+        bottomNavigation.setCount(3, "Mới");
     }
 }

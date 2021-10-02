@@ -12,60 +12,58 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:background="#E7F6FF">
+        android:background="#E7F6FF"
+        android:layout_alignParentTop="true">
         <ImageView
             android:id="@+id/img_product"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/above_shadow"
-            android:scaleType="centerCrop"
-            android:layout_alignParentTop="true"/>
+            android:scaleType="centerCrop" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="188dp" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp">
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp" />
-                <LinearLayout
-                    android:layout_alignParentRight="true"
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/qr_code"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <com.makeramen.roundedimageview.RoundedImageView
-                        android:id="@+id/qr_code"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        app:riv_corner_radius_top_right="8dp"
-                        app:riv_corner_radius_bottom_right="8dp"
-                        app:riv_corner_radius_bottom_left="8dp"
-                        app:riv_corner_radius_top_left="8dp"
-                        android:src="@drawable/qrcode_main"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="20dp"/>
-                </LinearLayout>
+                    android:layout_marginEnd="32dp"
+                    android:src="@drawable/ic_qr2"
+                    app:riv_corner_radius_bottom_left="8dp"
+                    app:riv_corner_radius_bottom_right="8dp"
+                    app:riv_corner_radius_top_left="8dp"
+                    app:riv_corner_radius_top_right="8dp" />
+
             </RelativeLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="0dp"
-                app:cardCornerRadius="16dp"
                 app:cardBackgroundColor="#F5F7F8"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="0dp">
 
                 <LinearLayout
@@ -73,111 +71,148 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="20dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="NiTOX 30EC"
+                                android:textColor="@color/black"
                                 android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/black"/>
+                                android:textStyle="bold" />
+
                             <Space
                                 android:layout_width="match_parent"
                                 android:layout_height="10dp" />
+
                             <TextView
                                 android:id="@+id/price"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="150.000 VNĐ"
-                                android:textSize="18sp"
-                                android:textColor="#2285E0"/>
+                                android:textColor="#2285E0"
+                                android:textSize="18sp" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:elevation="15dp">
+
                                 <androidx.appcompat.widget.AppCompatButton
                                     android:id="@+id/btnSignUp"
                                     android:layout_width="match_parent"
                                     android:layout_height="30dp"
-                                    android:text="Mua ngay"
-                                    android:textColor="@color/white"
                                     android:background="@drawable/border_card"
-                                    android:backgroundTint="#E04422"/>
+                                    android:backgroundTint="#E04422"
+                                    android:text="Mua ngay"
+                                    android:textColor="@color/white" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
+
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/reduced"
                             android:layout_width="40dp"
                             android:layout_height="30dp"
-                            android:text="-"
-                            android:textSize="20sp"
-                            android:textColor="@color/black"
                             android:background="@drawable/border_card"
-                            android:backgroundTint="#F3F3F3"/>
+                            android:backgroundTint="@color/white"
+                            android:text="-"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
                         <TextView
                             android:id="@+id/amount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
                             android:text="3"
                             android:textColor="@color/black"
-                            android:textSize="18sp"
-                            android:layout_marginHorizontal="10dp"/>
+                            android:textSize="18sp" />
+
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/increase"
                             android:layout_width="40dp"
                             android:layout_height="30dp"
-                            android:text="+"
-                            android:textSize="20dp"
-                            android:textColor="@color/black"
                             android:background="@drawable/border_card"
-                            android:backgroundTint="#F3F3F3"/>
+                            android:backgroundTint="@color/white"
+                            android:text="+"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
                             android:text="|"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:layout_marginHorizontal="10dp"/>
+                            android:textSize="20sp" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
                             android:text="Số lượng khuyên dùng: 2"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:layout_marginHorizontal="10dp"/>
+                            android:textSize="16sp" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginBottom="24dp">
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_store_fill" />
+
+                            <TextView
+                                android:id="@+id/txtShopName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="Cửa hàng thuốc BVTV"
+                                android:textColor="@color/blue"
+                                android:textSize="14dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="24dp"
@@ -185,36 +220,36 @@
                                 android:src="@drawable/ic_baseline_location_on_24" />
 
                             <TextView
+                                android:id="@+id/txtLocation"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:fontFamily="@font/lato_bold"
                                 android:text="146 Hoà Vang, Đà Nẵng"
                                 android:textColor="@color/cs_danger"
-                                android:fontFamily="@font/lato_bold"
-                                android:textSize="14dp"
-                                android:layout_marginLeft="8dp"
-                                android:id="@+id/txtLocation"/>
+                                android:textSize="14dp" />
 
                         </LinearLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Thông tin chi tiết"
+                            android:layout_marginBottom="8dp"
                             android:fontFamily="@font/lato_bold"
-                            android:textSize="16dp"
+                            android:text="Thông tin chi tiết"
                             android:textColor="@color/cs_dark"
-                            android:layout_marginBottom="8dp"/>
+                            android:textSize="16dp" />
 
                         <View
                             android:layout_width="32dp"
-                            android:layout_height="4dp"
-                            android:background="@color/cs_dark"
-                            android:layout_marginBottom="8dp"/>
+                            android:layout_height="2dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@color/cs_dark" />
 
                         <TextView
+                            android:id="@+id/txtDetail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/txtDetail"
                             android:layout_marginBottom="24dp"
                             android:text="NITOX 30EC có thành phần là Dimethoate 27% + Cypermethrin 3%.
 
@@ -222,28 +257,28 @@ NITOX 30EC là thuốc trừ sâu hỗn hợp, có tác dụng tiếp xúc, vị
 
 NITOX 30EC đặc hiệu trừ sâu cuốn lá, sâu đục bẹ hại lúa; sâu ăn lá hại đậu tương; rệp hại cà phê; sâu ăn lá hại điều.
 
-NITOX 30EC Kết hợp được ưu điểm của hai hoạt chất nhóm Pyrethroid và lân hữu cơ nên có công dụng diệt sâu nhanh và mạnh."/>
+NITOX 30EC Kết hợp được ưu điểm của hai hoạt chất nhóm Pyrethroid và lân hữu cơ nên có công dụng diệt sâu nhanh và mạnh." />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sản phẩm tương tự"
+                            android:layout_marginBottom="8dp"
                             android:fontFamily="@font/lato_bold"
-                            android:textSize="16dp"
+                            android:text="Sản phẩm tương tự"
                             android:textColor="@color/cs_dark"
-                            android:layout_marginBottom="8dp"/>
+                            android:textSize="16dp" />
 
                         <View
                             android:layout_width="32dp"
-                            android:layout_height="4dp"
-                            android:background="@color/cs_dark"
-                            android:layout_marginBottom="8dp"/>
+                            android:layout_height="2dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@color/cs_dark" />
 
                         <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_suggested_pesticide"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/rv_suggested_pesticide"
-                            android:orientation="horizontal"/>
+                            android:orientation="horizontal" />
 
                     </LinearLayout>
 

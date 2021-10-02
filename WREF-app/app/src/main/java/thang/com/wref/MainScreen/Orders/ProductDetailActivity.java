@@ -2,10 +2,13 @@ package thang.com.wref.MainScreen.Orders;
 
 import static thang.com.wref.util.Constants.BASE_URL;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,7 +45,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
     private static final String TAG = "ProductDetailActivity";
     private ImageView imgProduct;
     private TextView name, price, amount, ingredient, effect, userManual, note, txtLocation, txtDetail;
-    private RecyclerView suggestedPesticides;
+    private RecyclerView suggestedPesticidesView;
     private AppCompatButton btnSignUp, reduced, increase;
     private String idProduct = "", idPlant = "";
     private RelativeLayout rltBack;
@@ -51,9 +54,9 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
     private ProductRetrofit productRetrofit;
     private OrderRetrofit orderRetrofit;
     private RoundedImageView qr_code;
-    private PesticideAdapter suggestedPesticideAdapter;
-    private ArrayList<HashMap<String, String>> pesticideList = new ArrayList<>();
     private SharedPreferencesManagement sharedPreferencesManagement;
+    private PesticideAdapter suggestedPesticidesAdapter;
+    private ArrayList<HashMap<String, String>> suggestedPesticides= new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,9 +69,8 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         networkUtil = new NetworkUtil();
         retrofit = networkUtil.getRetrofit();
         sharedPreferencesManagement = new SharedPreferencesManagement(ProductDetailActivity.this);
-//        suggestedPesticideAdapter = new PesticideAdapter(pesticideList, this);
-//        suggestedPesticides.setAdapter(suggestedPesticideAdapter);
         mapingView();
+
         if(idProduct != null) {
             mappingVieProduct();
             getProductById();
@@ -78,6 +80,34 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             getPlantProtectionById();
         }
 
+        setupSuggestedPesticidesRecyclerView();
+        addPesticide("614a02ad57b54f3358b5b160", "Daconil 75WP", "Rất tốt", "50.000 VNĐ", "15g", "https://www.phandoiso1.com/wp-content/uploads/2020/12/Daconil-75WP-15g.jpg");
+        addPesticide("614a02ad57b54f3358b5b161","Overamis 300SC", "Hiệu quả cao", "80.000 VNĐ", "100ml", "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2017/08/thu%E1%BB%91c-overamis-300sc.jpg");
+        addPesticide("614a02ad57b54f3358b5b162","Revus Opti 440SC", "Hiệu quả cao", "285.000 VNĐ", "100ml", "https://product.hstatic.net/1000220686/product/rovus_opti_100ml_fix_master.jpg");
+        addPesticide("614a02ad57b54f3358b5b163", "AMISTAR 250SC", "Hiệu quả cao", "185.000 VNĐ", "100ml", "https://product.hstatic.net/1000220686/product/amistar-250sc_daa8583d2a524151a57f64fa57c819fb_master.jpg");
+    }
+
+    private void setupSuggestedPesticidesRecyclerView() {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        suggestedPesticidesAdapter = new PesticideAdapter(suggestedPesticides, this);
+
+        suggestedPesticidesView.setLayoutManager(layoutManager);
+        suggestedPesticidesView.setAdapter(suggestedPesticidesAdapter);
+    }
+
+    private void addPesticide(String id, String name, String quality, String price, String weight, String image) {
+        HashMap<String, String> pesticide = new HashMap<>();
+
+        pesticide.put("id", id);
+        pesticide.put("name", name);
+        pesticide.put("quality", quality);
+        pesticide.put("price", price);
+        pesticide.put("weight", weight);
+        pesticide.put("image", image);
+
+        suggestedPesticides.add(pesticide);
+        suggestedPesticidesAdapter.notifyDataSetChanged();
     }
 
     private void mapingView(){
@@ -89,7 +119,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         increase = (AppCompatButton) findViewById(R.id.increase);
         amount = (TextView) findViewById(R.id.amount);
 
-        suggestedPesticides = (RecyclerView) findViewById(R.id.rv_suggested_pesticide);
+        suggestedPesticidesView = (RecyclerView) findViewById(R.id.rv_suggested_pesticide);
         rltBack = (RelativeLayout) findViewById(R.id.rltBack);
 
         btnSignUp.setOnClickListener(this);
@@ -117,7 +147,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
              @Override
              public void onResponse(Call<ResponseModel<ProductModel>> call, Response<ResponseModel<ProductModel>> response) {
                  if (!response.isSuccessful()) {
-                     Toast.makeText(ProductDetailActivity.this, "Không có mạng", Toast.LENGTH_SHORT).show();
+                     showFinishDialog("Xin lỗi, không tìm thấy thông tin sản phẩm này.");
                  } else {
                      ResponseModel<ProductModel> responseModel = response.body();
                      if(responseModel.isSuccess()) {
@@ -147,6 +177,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
              @Override
              public void onFailure(Call<ResponseModel<ProductModel>> call, Throwable t) {
                  Log.d(TAG, "onFailure: "+ t.getMessage());
+                 showFinishDialog("Không có mạng");
                 call.cancel();
              }
          });
@@ -195,7 +226,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onResponse(Call<ResponseModel<OrderRetrofit>> call, Response<ResponseModel<OrderRetrofit>> response) {
                 if (!response.isSuccessful()) {
-                    Toast.makeText(ProductDetailActivity.this, "Không có mạng", Toast.LENGTH_SHORT).show();
+                    showFinishDialog("Đã có lỗi bất ngờ xảy ra, vui lòng liên hệ với WREF để tìm cách giải quyết.");
                 } else {
                     ResponseModel<OrderRetrofit> responseModel = response.body();
                     if (responseModel.isSuccess()) {
@@ -208,6 +239,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onFailure(Call<ResponseModel<OrderRetrofit>> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage());
+                showFinishDialog("Không có mạng");
                 call.cancel();
             }
         });
@@ -231,7 +263,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onResponse(Call<ResponseModel<PlantProtection>> call, Response<ResponseModel<PlantProtection>> response) {
                 if (!response.isSuccessful()) {
-                    Toast.makeText(ProductDetailActivity.this, "Không có mạng", Toast.LENGTH_SHORT).show();
+                    showFinishDialog("Xin lỗi, không tìm thấy thông tin trong mã QR này.");
                 } else {
                     ResponseModel<PlantProtection> responseModel = response.body();
                     if (responseModel.isSuccess()) {
@@ -251,9 +283,22 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onFailure(Call<ResponseModel<PlantProtection>> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage());
+                showFinishDialog("Không có mạng");
                 call.cancel();
             }
         });
+    }
+
+    private void showFinishDialog(String message) {
+        new AlertDialog.Builder(this)
+                .setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                }).show();
     }
 
 }

@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.budiyev.android.codescanner.CodeScanner;
@@ -23,6 +24,7 @@ public class ScannerActivity extends AppCompatActivity {
     private static final String TAG = "ScannerActivity";
     private CodeScannerView scanner_view;
     private CodeScanner codeScanner;
+    private LinearLayout llBack;
     private static final int RC_PERMISSION = 10;
     private boolean mPermissionGranted;
     @Override
@@ -64,6 +66,12 @@ public class ScannerActivity extends AppCompatActivity {
         } else {
             mPermissionGranted = true;
         }
+
+        // Back button
+        llBack = (LinearLayout) findViewById(R.id.llBack);
+        llBack.setOnClickListener(view -> {
+            finish();
+        });
     }
 
     @Override

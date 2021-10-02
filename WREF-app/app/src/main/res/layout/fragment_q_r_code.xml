@@ -23,7 +23,7 @@
                 android:textSize="32sp"
                 android:fontFamily="@font/lato_bold"
                 android:text="Kiểm tra thuốc BVTV"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -41,9 +41,10 @@
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textColor="#818181"
-                android:fontFamily="@font/lato_bold"
+                android:fontFamily="@font/lato_regular"
                 android:text="Tính năng giúp kiểm tra đầy đủ thông tin của thuốc BVTV bằng việc quét mã QR"
-                android:layout_marginBottom="24dp"/>
+                android:layout_marginBottom="24dp"
+                android:textAlignment="center"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"

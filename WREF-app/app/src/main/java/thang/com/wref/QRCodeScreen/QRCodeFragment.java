@@ -10,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.makeramen.roundedimageview.RoundedImageView;
-
 import thang.com.wref.R;
 
 public class QRCodeFragment extends Fragment {
