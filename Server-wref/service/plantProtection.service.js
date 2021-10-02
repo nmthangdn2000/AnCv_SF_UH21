@@ -3,10 +3,22 @@ const { ERROR } = require('../common/constants');
 const QRCode = require('qrcode');
 
 class PlantProtectionService {
-  async getAll() {
-    const plantProtections = await PlantProtection.find().populate('idShop').select('name qrcode');
-    if (!plantProtections) throw Error(ERROR.CanNotGetPlantProtection);
-    return plantProtections;
+  async getByQuery(page, limit, query) {
+    const plantProtections = await PlantProtection.find(query)
+      .populate('idShop')
+      .select('name qrcode')
+      .limit(limit)
+      .skip(page * limit - limit)
+      .limit(Number(limit))
+      .lean();
+    const countPlantProtections = PlantProtection.find(query).countDocuments();
+    const [data, totalPage] = await Promise.all([plantProtections, countPlantProtections]);
+    if (!data) throw Error(ERROR.CanNotGetProduct);
+    return {
+      data,
+      page,
+      totalPage,
+    };
   }
 
   async getById(id) {

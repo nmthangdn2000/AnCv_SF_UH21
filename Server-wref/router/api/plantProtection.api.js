@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../../controllers/plantProtection.controller');
 
-router.get('/plant-protection', controller.getAll);
+router.get('/plant-protection', controller.getByQuery);
 
 router.get('/plant-protection/:id', controller.getById);
 

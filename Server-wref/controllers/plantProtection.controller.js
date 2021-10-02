@@ -3,9 +3,10 @@ const { responseError, responseSuccess, responseSuccessWithData } = require('./b
 const plantProtectionService = require('../service/plantProtection.service');
 
 class PlantProtectionController {
-  async getAll(req, res) {
+  async getByQuery(req, res) {
     try {
-      const data = await plantProtectionService.getAll();
+      const { page, limit, ...query } = req.query;
+      const data = await plantProtectionService.getByQuery(page, limit, query);
       return responseSuccessWithData(res, data);
     } catch (error) {
       console.log(error);
