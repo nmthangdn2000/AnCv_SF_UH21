@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".QRCode.QRCodeFragment"
+    android:padding="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Kiểm tra thuốc BVTV"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textColor="#818181"
+                android:fontFamily="@font/lato_bold"
+                android:text="Bằng mã QR code"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#818181"
+                android:fontFamily="@font/lato_bold"
+                android:text="Tính năng giúp kiểm tra đầy đủ thông tin của thuốc BVTV bằng việc quét mã QR"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/btnQrCode"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:riv_corner_radius_bottom_left="16dp"
+                app:riv_corner_radius_bottom_right="16dp"
+                app:riv_corner_radius_top_left="16dp"
+                app:riv_corner_radius_top_right="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/qrcode_main"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

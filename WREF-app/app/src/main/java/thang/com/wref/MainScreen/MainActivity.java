@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
         // set icon to bottmnavigation
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_baseline_map_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_newspaper_folded));
-//        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_cloud_queue_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_photo_camera_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_qr_code));
+        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_baseline_photo_camera_24));
         // default button
 
         //event
@@ -88,15 +88,15 @@ public class MainActivity extends AppCompatActivity {
                         bottomNavigation.clearCount(2);
                         viewPager2.setCurrentItem(1);
                         break;
-//                    case 3:
-//                        Log.d(TAG, " a3 "+ item.getId());
-//                        bottomNavigation.clearCount(3);
-//                        viewPager2.setCurrentItem(2);
-//                        break;
                     case 3:
                         Log.d(TAG, " a3 "+ item.getId());
-                        NumberPageCurr = item.getId();
+                        bottomNavigation.clearCount(3);
                         viewPager2.setCurrentItem(2);
+                        break;
+                    case 4:
+                        Log.d(TAG, " a3 "+ item.getId());
+                        NumberPageCurr = item.getId();
+                        viewPager2.setCurrentItem(4);
                         break;
                     default:
                         viewPager2.setCurrentItem(0);
@@ -119,6 +119,5 @@ public class MainActivity extends AppCompatActivity {
         });
         bottomNavigation.show(1, true);
         bottomNavigation.setCount(2, "15");
-        bottomNavigation.setCount(3, "");
     }
 }

@@ -111,6 +111,9 @@ dependencies {
     implementation 'org.tensorflow:tensorflow-lite-task-vision:0.1.0'
     implementation 'org.tensorflow:tensorflow-lite-gpu:2.2.0'
 
+    //Scanner QR code
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+
     // Socket.io
     implementation ('io.socket:socket.io-client:2.0.0') {
         exclude group: 'org.json', module: 'json'
