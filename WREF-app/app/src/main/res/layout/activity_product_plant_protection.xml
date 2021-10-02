@@ -202,7 +202,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
                                 android:fontFamily="@font/lato_bold"
-                                android:text="Cửa hàng thuốc BVTV"
+                                android:text="Công ti thuốc BVTV Thiên Bình"
                                 android:textColor="@color/blue"
                                 android:textSize="14dp" />
 
@@ -225,7 +225,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
                                 android:fontFamily="@font/lato_bold"
-                                android:text="146 Hoà Vang, Đà Nẵng"
+                                android:text="Số 292A Hàm Nghi, Bảo Vinh, Long Khánh, Đồng Nai"
                                 android:textColor="@color/cs_danger"
                                 android:textSize="14dp" />
 
@@ -309,6 +309,28 @@ NITOX 30EC Kết hợp được ưu điểm của hai hoạt chất nhóm Pyreth
             android:layout_centerInParent="true"
             android:background="@drawable/ic_baseline_arrow_back_24"
             android:backgroundTint="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:id="@+id/rl_backdrop"
+        android:background="#CC000000"
+        android:visibility="gone">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/qr_code_big"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/ic_qr2"
+            app:riv_corner_radius_bottom_left="16dp"
+            app:riv_corner_radius_bottom_right="16dp"
+            app:riv_corner_radius_top_left="16dp"
+            app:riv_corner_radius_top_right="16dp" />
+
     </RelativeLayout>
 
 </RelativeLayout>

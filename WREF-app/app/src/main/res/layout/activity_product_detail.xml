@@ -35,7 +35,27 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="300dp" />
+                android:layout_height="188dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/qr_code"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="32dp"
+                    android:src="@drawable/ic_qr2"
+                    app:riv_corner_radius_bottom_left="8dp"
+                    app:riv_corner_radius_bottom_right="8dp"
+                    app:riv_corner_radius_top_left="8dp"
+                    app:riv_corner_radius_top_right="8dp" />
+
+            </RelativeLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -314,6 +334,28 @@
             android:layout_centerInParent="true"
             android:background="@drawable/ic_baseline_arrow_back_24"
             android:backgroundTint="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:id="@+id/rl_backdrop"
+        android:background="#CC000000"
+        android:visibility="gone">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/qr_code_big"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/ic_qr2"
+            app:riv_corner_radius_bottom_left="16dp"
+            app:riv_corner_radius_bottom_right="16dp"
+            app:riv_corner_radius_top_left="16dp"
+            app:riv_corner_radius_top_right="16dp" />
+
     </RelativeLayout>
 
 </RelativeLayout>

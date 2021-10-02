@@ -48,15 +48,16 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
     private RecyclerView suggestedPesticidesView;
     private AppCompatButton btnSignUp, reduced, increase;
     private String idProduct = "", idPlant = "";
-    private RelativeLayout rltBack;
+    private RelativeLayout rltBack, rl_backdrop;
     private NetworkUtil networkUtil;
     private Retrofit retrofit;
     private ProductRetrofit productRetrofit;
     private OrderRetrofit orderRetrofit;
-    private RoundedImageView qr_code;
+    private RoundedImageView qr_code, qr_code_big;
     private SharedPreferencesManagement sharedPreferencesManagement;
     private PesticideAdapter suggestedPesticidesAdapter;
     private ArrayList<HashMap<String, String>> suggestedPesticides= new ArrayList<>();
+    private String QRCodeImg = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +73,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         mapingView();
 
         if(idProduct != null) {
-            mappingVieProduct();
+            mappingViewProduct();
             getProductById();
         }
         else {
@@ -122,13 +123,19 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         suggestedPesticidesView = (RecyclerView) findViewById(R.id.rv_suggested_pesticide);
         rltBack = (RelativeLayout) findViewById(R.id.rltBack);
 
+        qr_code = (RoundedImageView) findViewById(R.id.qr_code);
+        qr_code_big = (RoundedImageView) findViewById(R.id.qr_code_big);
+        rl_backdrop = (RelativeLayout) findViewById(R.id.rl_backdrop);
+
         btnSignUp.setOnClickListener(this);
         reduced.setOnClickListener(this);
         increase.setOnClickListener(this);
         rltBack.setOnClickListener(this);
+        qr_code.setOnClickListener(this);
+        rl_backdrop.setOnClickListener(this);
      }
 
-     private void mappingVieProduct(){
+     private void mappingViewProduct(){
          ingredient = (TextView) findViewById(R.id.ingredient);
          effect = (TextView) findViewById(R.id.effect);
          userManual = (TextView) findViewById(R.id.userManual);
@@ -138,7 +145,6 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
      private void mappingViewPlant() {
          txtLocation = (TextView) findViewById(R.id.txtLocation);
          txtDetail = (TextView) findViewById(R.id.txtDetail);
-         qr_code = (RoundedImageView) findViewById(R.id.qr_code);
      }
      private void getProductById() {
          productRetrofit = retrofit.create(ProductRetrofit.class);
@@ -169,6 +175,9 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                          effect.setText(productModel.getEffect());
                          userManual.setText(productModel.getUserManual());
                          note.setText(productModel.getNote());
+
+                         Glide.with(ProductDetailActivity.this).load(BASE_URL+"qrCode/61580efedbcbfe2ce8e93bfb.png").into(qr_code);
+                         Glide.with(ProductDetailActivity.this).load(BASE_URL+"qrCode/61580efedbcbfe2ce8e93bfb.png").into(qr_code_big);
                      }
                  }
                  call.cancel();
@@ -196,12 +205,27 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             case R.id.increase:
                 increaseAmount();
                 break;
+            case R.id.rl_backdrop:
+                closeBackdrop();
+                break;
+            case R.id.qr_code:
+                showQRCode();
+                break;
             case R.id.rltBack:
                 finish();
                 break;
             default:
                 break;
         }
+    }
+
+    private void showQRCode() {
+        rl_backdrop.setVisibility(View.VISIBLE);
+        Log.d(TAG, "Show");
+    }
+
+    private void closeBackdrop() {
+        rl_backdrop.setVisibility(View.GONE);
     }
 
     private void reducedAmount(){
@@ -273,6 +297,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                         price.setText("150.000 VNĐ");
                         Glide.with(ProductDetailActivity.this).load(plantProtection.getImage()).into(imgProduct);
                         Glide.with(ProductDetailActivity.this).load(BASE_URL+"qrCode/"+plantProtection.getQrcode()).into(qr_code);
+                        Glide.with(ProductDetailActivity.this).load(BASE_URL+"qrCode/"+plantProtection.getQrcode()).into(qr_code_big);
 //                        txtLocation.setText(plantProtection.getShop().getAddress());
                         txtDetail.setText(plantProtection.getDetail());
                     }
