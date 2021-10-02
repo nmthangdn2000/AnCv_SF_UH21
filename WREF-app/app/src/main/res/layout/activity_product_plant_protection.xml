@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainScreen.Orders.ProductDetailActivity"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="#F5F7F8">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
             android:id="@+id/img_product"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/img_plant_test"
+            android:src="@drawable/above_shadow"
             android:scaleType="centerCrop"
             android:layout_alignParentTop="true"/>
     </LinearLayout>
@@ -33,16 +34,39 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Space
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp" />
+                android:layout_height="wrap_content">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp" />
+                <LinearLayout
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/qr_code"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:riv_corner_radius_top_right="8dp"
+                        app:riv_corner_radius_bottom_right="8dp"
+                        app:riv_corner_radius_bottom_left="8dp"
+                        app:riv_corner_radius_top_left="8dp"
+                        android:src="@drawable/qrcode_main"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"/>
+                </LinearLayout>
+            </RelativeLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="0dp"
                 app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="#F5F7F8">
+                app:cardBackgroundColor="#F5F7F8"
+                app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -152,117 +176,75 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="24dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_baseline_location_on_24" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Thành phần"
+                                android:text="146 Hoà Vang, Đà Nẵng"
+                                android:textColor="@color/cs_danger"
                                 android:fontFamily="@font/lato_bold"
-                                android:textSize="16sp"
-                                android:textColor="@color/cs_dark"/>
-                            <View
-                                android:layout_width="32dp"
-                                android:layout_height="1dp"
-                                android:background="@color/cs_dark"
-                                android:layout_marginBottom="12dp"/>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/cs_gray"
-                                android:id="@+id/ingredient"
-                                android:text="Hiện tại chưa có triệu chứng cho bệnh này."
-                                android:textSize="14sp"/>
+                                android:textSize="14dp"
+                                android:layout_marginLeft="8dp"
+                                android:id="@+id/txtLocation"/>
 
                         </LinearLayout>
 
-                        <LinearLayout
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thông tin chi tiết"
+                            android:fontFamily="@font/lato_bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/cs_dark"
+                            android:layout_marginBottom="8dp"/>
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="4dp"
+                            android:background="@color/cs_dark"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/txtDetail"
+                            android:layout_marginBottom="24dp"
+                            android:text="NITOX 30EC có thành phần là Dimethoate 27% + Cypermethrin 3%.
+
+NITOX 30EC là thuốc trừ sâu hỗn hợp, có tác dụng tiếp xúc, vị độc, nội hấp mạnh và gây ngán.
+
+NITOX 30EC đặc hiệu trừ sâu cuốn lá, sâu đục bẹ hại lúa; sâu ăn lá hại đậu tương; rệp hại cà phê; sâu ăn lá hại điều.
+
+NITOX 30EC Kết hợp được ưu điểm của hai hoạt chất nhóm Pyrethroid và lân hữu cơ nên có công dụng diệt sâu nhanh và mạnh."/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sản phẩm tương tự"
+                            android:fontFamily="@font/lato_bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/cs_dark"
+                            android:layout_marginBottom="8dp"/>
+
+                        <View
+                            android:layout_width="32dp"
+                            android:layout_height="4dp"
+                            android:background="@color/cs_dark"
+                            android:layout_marginBottom="8dp"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
-                            android:orientation="vertical">
+                            android:id="@+id/rv_suggested_pesticide"
+                            android:orientation="horizontal"/>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Công dụng"
-                                android:fontFamily="@font/lato_bold"
-                                android:textSize="16sp"
-                                android:textColor="@color/cs_dark" />
-
-                            <View
-                                android:layout_width="32dp"
-                                android:layout_height="1dp"
-                                android:background="@color/cs_dark"
-                                android:layout_marginBottom="12dp"/>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/cs_gray"
-                                android:id="@+id/effect"
-                                android:text="Hiện tại chưa có nguyên nhân cho bệnh này."/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Hướng dẫn sử dụng"
-                                android:fontFamily="@font/lato_bold"
-                                android:textSize="16sp"
-                                android:textColor="@color/cs_dark"/>
-
-                            <View
-                                android:layout_width="32dp"
-                                android:layout_height="1dp"
-                                android:background="@color/cs_dark"
-                                android:layout_marginBottom="12dp"/>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/cs_gray"
-                                android:id="@+id/userManual"
-                                android:text="Hiện tại chưa có giải pháp cho bệnh này."/>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Lưu ý"
-                                android:fontFamily="@font/lato_bold"
-                                android:textSize="16sp"
-                                android:textColor="@color/cs_dark"/>
-
-                            <View
-                                android:layout_width="32dp"
-                                android:layout_height="1dp"
-                                android:background="@color/cs_dark"
-                                android:layout_marginBottom="12dp"/>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/cs_gray"
-                                android:id="@+id/note"
-                                android:text="Hiện tại chưa có giải pháp cho bệnh này."/>
-
-                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>

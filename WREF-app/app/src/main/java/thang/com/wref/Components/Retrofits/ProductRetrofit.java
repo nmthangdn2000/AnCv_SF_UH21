@@ -6,12 +6,19 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import thang.com.wref.MainScreen.Models.PlantProtection;
 import thang.com.wref.MainScreen.Models.ProductModel;
 import thang.com.wref.MainScreen.Models.ResponseModel;
 
 public interface ProductRetrofit {
     @GET("api/product/{id}")
     Call<ResponseModel<ProductModel>> getProductById (
+            @Header("Authorization") String auth,
+            @Path("id") String id
+    );
+
+    @GET("api/plant-protection/{id}")
+    Call<ResponseModel<PlantProtection>> getPlantProtectionById (
             @Header("Authorization") String auth,
             @Path("id") String id
     );

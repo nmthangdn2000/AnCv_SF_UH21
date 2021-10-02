@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ import thang.com.wref.CameraPredictionScreen.Adapters.PesticideAdapter;
 import thang.com.wref.Components.Retrofits.OrderRetrofit;
 import thang.com.wref.Components.Retrofits.ProductRetrofit;
 import thang.com.wref.LoginScreen.SharedPreferencesManagement;
+import thang.com.wref.MainScreen.Models.PlantProtection;
 import thang.com.wref.MainScreen.Models.ProductModel;
 import thang.com.wref.MainScreen.Models.ResponseModel;
 import thang.com.wref.R;
@@ -39,31 +41,43 @@ import thang.com.wref.util.NetworkUtil;
 public class ProductDetailActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = "ProductDetailActivity";
     private ImageView imgProduct;
-    private TextView name, price, amount, ingredient, effect, userManual, note;
+    private TextView name, price, amount, ingredient, effect, userManual, note, txtLocation, txtDetail;
     private RecyclerView suggestedPesticides;
     private AppCompatButton btnSignUp, reduced, increase;
-    private String idProduct = "";
+    private String idProduct = "", idPlant = "";
     private RelativeLayout rltBack;
     private NetworkUtil networkUtil;
     private Retrofit retrofit;
     private ProductRetrofit productRetrofit;
     private OrderRetrofit orderRetrofit;
+    private RoundedImageView qr_code;
     private PesticideAdapter suggestedPesticideAdapter;
     private ArrayList<HashMap<String, String>> pesticideList = new ArrayList<>();
     private SharedPreferencesManagement sharedPreferencesManagement;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_detail);
         idProduct = getIntent().getStringExtra("idProduct");
+        idPlant = getIntent().getStringExtra("idPlant");
+
+        if(idProduct != null) setContentView(R.layout.activity_product_detail);
+        else setContentView(R.layout.activity_product_plant_protection);
+
         networkUtil = new NetworkUtil();
         retrofit = networkUtil.getRetrofit();
         sharedPreferencesManagement = new SharedPreferencesManagement(ProductDetailActivity.this);
-        suggestedPesticideAdapter = new PesticideAdapter(pesticideList, this);
-        suggestedPesticides.setAdapter(suggestedPesticideAdapter);
-
+//        suggestedPesticideAdapter = new PesticideAdapter(pesticideList, this);
+//        suggestedPesticides.setAdapter(suggestedPesticideAdapter);
         mapingView();
-        getProductById();
+        if(idProduct != null) {
+            mappingVieProduct();
+            getProductById();
+        }
+        else {
+            mappingViewPlant();
+            getPlantProtectionById();
+        }
+
     }
 
     private void mapingView(){
@@ -74,10 +88,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         reduced = (AppCompatButton) findViewById(R.id.reduced);
         increase = (AppCompatButton) findViewById(R.id.increase);
         amount = (TextView) findViewById(R.id.amount);
-//        ingredient = (TextView) findViewById(R.id.ingredient);
-//        effect = (TextView) findViewById(R.id.effect);
-//        userManual = (TextView) findViewById(R.id.userManual);
-//        note = (TextView) findViewById(R.id.note);
+
         suggestedPesticides = (RecyclerView) findViewById(R.id.rv_suggested_pesticide);
         rltBack = (RelativeLayout) findViewById(R.id.rltBack);
 
@@ -87,6 +98,18 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         rltBack.setOnClickListener(this);
      }
 
+     private void mappingVieProduct(){
+         ingredient = (TextView) findViewById(R.id.ingredient);
+         effect = (TextView) findViewById(R.id.effect);
+         userManual = (TextView) findViewById(R.id.userManual);
+         note = (TextView) findViewById(R.id.note);
+     }
+
+     private void mappingViewPlant() {
+         txtLocation = (TextView) findViewById(R.id.txtLocation);
+         txtDetail = (TextView) findViewById(R.id.txtDetail);
+         qr_code = (RoundedImageView) findViewById(R.id.qr_code);
+     }
      private void getProductById() {
          productRetrofit = retrofit.create(ProductRetrofit.class);
          Call<ResponseModel<ProductModel>> call = productRetrofit.getProductById(sharedPreferencesManagement.getTOKEN(), idProduct);
@@ -112,10 +135,10 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                          Locale locale = new Locale("vi", "vn");
                          NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
                          price.setText(""+fmt.format(productModel.getPrice()));
-//                         ingredient.setText(productModel.getIngredient());
-//                         effect.setText(productModel.getEffect());
-//                         userManual.setText(productModel.getUserManual());
-//                         note.setText(productModel.getNote());
+                         ingredient.setText(productModel.getIngredient());
+                         effect.setText(productModel.getEffect());
+                         userManual.setText(productModel.getUserManual());
+                         note.setText(productModel.getNote());
                      }
                  }
                  call.cancel();
@@ -199,4 +222,38 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             return false;
         }
     }
+
+    private void getPlantProtectionById() {
+        Log.d(TAG, "getPlantProtectionById: " + idPlant);
+        productRetrofit = retrofit.create(ProductRetrofit.class);
+        Call<ResponseModel<PlantProtection>> call = productRetrofit.getPlantProtectionById(sharedPreferencesManagement.getTOKEN(), idPlant);
+        call.enqueue(new Callback<ResponseModel<PlantProtection>>() {
+            @Override
+            public void onResponse(Call<ResponseModel<PlantProtection>> call, Response<ResponseModel<PlantProtection>> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(ProductDetailActivity.this, "Không có mạng", Toast.LENGTH_SHORT).show();
+                } else {
+                    ResponseModel<PlantProtection> responseModel = response.body();
+                    if (responseModel.isSuccess()) {
+                        PlantProtection plantProtection = responseModel.getData();
+                        Log.d(TAG, "onResponse: "+plantProtection);
+                        name.setText(plantProtection.getName());
+                        price.setText("150.000 VNĐ");
+                        Glide.with(ProductDetailActivity.this).load(plantProtection.getImage()).into(imgProduct);
+                        Glide.with(ProductDetailActivity.this).load(BASE_URL+"qrCode/"+plantProtection.getQrcode()).into(qr_code);
+//                        txtLocation.setText(plantProtection.getShop().getAddress());
+                        txtDetail.setText(plantProtection.getDetail());
+                    }
+                }
+                call.cancel();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseModel<PlantProtection>> call, Throwable t) {
+                Log.d(TAG, "onFailure: " + t.getMessage());
+                call.cancel();
+            }
+        });
+    }
+
 }

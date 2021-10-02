@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 import com.google.zxing.Result;
 
+import thang.com.wref.MainScreen.Orders.ProductDetailActivity;
 import thang.com.wref.R;
 
 public class ScannerActivity extends AppCompatActivity {
@@ -37,7 +39,9 @@ public class ScannerActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Log.d(TAG, "run: " + result);
+                        Intent intent = new Intent(ScannerActivity.this, ProductDetailActivity.class);
+                        intent.putExtra("idPlant", result.toString());
+                        startActivity(intent);
                     }
                 });
             }
