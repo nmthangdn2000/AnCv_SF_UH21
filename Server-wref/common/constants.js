@@ -31,6 +31,11 @@ const constants = {
     CanNotCreateOrder: 162,
     CanNotDeleteOrder: 163,
     CanNotUpdateOrder: 164,
+    // order 171-180
+    CanNotGetPlantProtection: 161,
+    CanNotCreatePlantProtection: 162,
+    CanNotDeletePlantProtection: 163,
+    CanNotUpdatePlantProtection: 164,
   },
   RESPONSE: {
     SUCCESS: 'success',

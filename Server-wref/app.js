@@ -31,11 +31,12 @@ const apiProduct = require('./router/api/product.api');
 const apiCategory = require('./router/api/category.api');
 const apiOrder = require('./router/api/order.api');
 const apiRain = require('./router/api/rain.api');
+const apiPlantProtection = require('./router/api/plantProtection.api');
 // page
 const pages = require('./router/page/page');
-// const apiFakeData = require('./router/api/fakeData.api');
+const apiFakeData = require('./router/api/fakeData.api');
 // router api passport.authenticate('jwt', { session: false })
-// app.use('/data', apiFakeData);
+app.use('/data', apiFakeData);
 app.use('/api', apiLogin);
 app.use('/api', apiInforAgri);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiPosts);
@@ -50,6 +51,7 @@ app.use('/api', passport.authenticate('jwt', { session: false }), apiProduct);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiCategory);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiOrder);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiRain);
+app.use('/api', passport.authenticate('jwt', { session: false }), apiPlantProtection);
 
 // page path
 app.use('/', pages);

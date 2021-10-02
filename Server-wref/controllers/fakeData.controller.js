@@ -1,4 +1,5 @@
 const Product = require('../models/product.model');
+const PlantProtection = require('../models/plantProtection.model');
 const dataProduct = require('../util/product');
 
 const ingredient = 'Phân bón hỗn hợp chứa ít nhất 2 thành phần dinh dưỡng trong 3 thành N, P, K trở lên';
@@ -9,6 +10,8 @@ const userManual =
 const note =
   'Cần trang bị đủ khẩu trang, găng tay, trang phục bảo hộ và các dụng cụ phù hợp để đảm bảo an toàn cho cơ thể. Nên tuân thủ các chỉ định và hướng dẫn đi kèm để đạt được hiệu quả tốt nhất. Trong trường hợp bạn chưa có nhiều kinh nghiệm với một số giống cây trồng, hãy hỏi thêm thông tin từ chuyên gia hoặc những người có kinh nghiệm để lựa chọn và sử dụng phân bón NPK 1 cách phù hợp.';
 
+const dataPlantProtection = require('../util/pesticideData');
+const plantProtectionService = require('../service/plantProtection.service');
 class FakeDataController {
   async fakeData(req, res) {
     const list = [];
@@ -56,6 +59,19 @@ class FakeDataController {
     );
 
     res.send(list);
+  }
+
+  async plantProtection(req, res) {
+    // dataPlantProtection.forEach(async (element, index) => {
+    //   await plantProtectionService.create(element);
+    //   console.log(index);
+    // });615818d94c8ff23b989813fd
+
+    const plant = await PlantProtection.find().skip(30).limit(10);
+    plant.forEach(async (element) => {
+      await PlantProtection.updateOne({ _id: element._id }, { idShop: '61421c5c347b5b0dccad76c7' });
+    });
+    res.send('ok');
   }
 }
 
