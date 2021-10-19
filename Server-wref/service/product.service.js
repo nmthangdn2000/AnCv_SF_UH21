@@ -1,6 +1,7 @@
 const Product = require('../models/product.model');
 const { ERROR } = require('../common/constants');
 const fs = require('fs');
+const QRCode = require('qrcode');
 
 class ProductService {
   async getProduct(query, page, limit) {
@@ -28,6 +29,7 @@ class ProductService {
   }
 
   async create(product) {
+    console.log(product);
     const newProduct = await new Product({
       ...product,
       create_at: new Date(),
@@ -35,6 +37,23 @@ class ProductService {
     });
     const data = await newProduct.save();
     if (!data) throw Error(ERROR.CanNotCreateProduct);
+    const id = data._id;
+    const qr = await QRCode.toFile(`./public/qrCode/${id}.png`, id.toString())
+      .then((result) => {
+        return true;
+      })
+      .catch((err) => {
+        console.log(err);
+        return false;
+      });
+    // tạo qr ko đc thì xóa sản phẩm đó khỏi database
+    if (!qr) {
+      await Product.deleteOne({ _id: id });
+      throw Error(ERROR.CanNotCreateProduct);
+    }
+    const addQRCode = await Product.updateOne({ _id: id }, { qrcode: `${id}.png` });
+    if (addQRCode.n < 1) throw Error(ERROR.CanNotCreateProduct);
+    return { QRcode: `${id}.png` };
   }
 
   async update(req, res) {}

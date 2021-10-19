@@ -6,14 +6,13 @@ class PlantProtectionService {
   async getByQuery(page, limit, query) {
     const plantProtections = await PlantProtection.find(query)
       .populate('idShop')
-      .select('name qrcode')
       .limit(limit)
       .skip(page * limit - limit)
       .limit(Number(limit))
       .lean();
     const countPlantProtections = PlantProtection.find(query).countDocuments();
     const [data, totalPage] = await Promise.all([plantProtections, countPlantProtections]);
-    if (!data) throw Error(ERROR.CanNotGetProduct);
+    if (!data) throw Error(ERROR.CanNotGetPlantProtection);
     return {
       data,
       page,
@@ -34,7 +33,7 @@ class PlantProtectionService {
       update_at: new Date(),
     });
     const plantProtection = await newPlantProtection.save();
-    if (!plantProtection) throw Error(ERROR.CanNotCreateOrder);
+    if (!plantProtection) throw Error(ERROR.CanNotCreatePlantProtection);
     const id = plantProtection._id;
     const qr = await QRCode.toFile(`./public/qrCode/${id}.png`, id.toString())
       .then((result) => {
@@ -47,10 +46,10 @@ class PlantProtectionService {
     // tạo qr ko đc thì xóa sản phẩm đó khỏi database
     if (!qr) {
       await PlantProtection.deleteOne({ _id: id });
-      throw Error(ERROR.CanNotCreateOrder);
+      throw Error(ERROR.CanNotCreatePlantProtection);
     }
     const addQRCode = await PlantProtection.updateOne({ _id: id }, { qrcode: `${id}.png` });
-    if (addQRCode.n < 1) throw Error(ERROR.CanNotCreateOrder);
+    if (addQRCode.n < 1) throw Error(ERROR.CanNotCreatePlantProtection);
   }
 
   async delete() {}

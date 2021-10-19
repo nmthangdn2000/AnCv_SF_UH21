@@ -18,6 +18,7 @@ const productShema = new mongoose.Schema({
   effect: { type: String },
   userManual: { type: String },
   note: { type: String },
+  qrcode: { type: String },
   create_at: {
     type: Number,
   },

@@ -34,8 +34,8 @@ class ProductController {
     try {
       const media = req.file ? req.file.filename : null;
       const data = { ...req.body, media };
-      await productService.create(data);
-      return responseSuccess(res);
+      const qrcode = await productService.create(data);
+      return responseSuccessWithData(res, qrcode);
     } catch (error) {
       return responseError(res, error.message);
     }
