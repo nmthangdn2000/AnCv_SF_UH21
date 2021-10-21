@@ -32,13 +32,16 @@ const apiCategory = require('./router/api/category.api');
 const apiOrder = require('./router/api/order.api');
 const apiRain = require('./router/api/rain.api');
 const apiPlantProtection = require('./router/api/plantProtection.api');
+const apiBot = require('./router/api/bot.api');
 // page
 const pages = require('./router/page/page');
+const nlp = require('./router/page/nlp');
 const apiFakeData = require('./router/api/fakeData.api');
 // router api passport.authenticate('jwt', { session: false })
 app.use('/data', apiFakeData);
 app.use('/api', apiLogin);
 app.use('/api', apiInforAgri);
+app.use('/api', apiBot);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiPosts);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiUser);
 app.use('/api', passport.authenticate('jwt', { session: false }), apiComment);
@@ -55,5 +58,6 @@ app.use('/api', passport.authenticate('jwt', { session: false }), apiPlantProtec
 
 // page path
 app.use('/', pages);
+app.use('/', nlp);
 
 module.exports = app;

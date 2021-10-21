@@ -1,5 +1,6 @@
 const io = require('socket.io')();
 const Posts = require('../models/posts.model');
+const botService = require('../service/bot.service');
 
 const people = {};
 
@@ -29,6 +30,13 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
+
+  // chatbot
+  socket.on('client-send', async (mess) => {
+    const reply = await botService.handle(mess);
+    socket.emit('bot-send', reply);
+  });
+  // chatbot
 });
 
 function updateNotification() {}
