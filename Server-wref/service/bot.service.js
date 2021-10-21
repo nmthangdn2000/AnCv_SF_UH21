@@ -6,6 +6,7 @@ const tfidf = new vntk.TfIdf();
 
 class BotService {
   async train() {
+    // Bayes Classifier
     dataInput.forEach((data) => {
       const sample = pretreatment(data.sample);
       classifiers.addDocument(sample, data.intent);
@@ -13,6 +14,23 @@ class BotService {
     console.log('Đang train');
     classifiers.train();
     console.log('Train hoàn tất');
+
+    // deep learning --------------------------------------------------------
+    // let vocabulary = [];
+    // dataInput.forEach((d) => {
+    //   const sentenceClean = pretreatment(d.sample);
+    //   const words = sentenceClean.split(' ');
+    //   vocabulary = arrayUnique(vocabulary.concat(words));
+    // });
+    // console.log(vocabulary);
+    // let vector = [];
+    // dataInput.forEach((d) => {
+    //   const sentenceClean = pretreatment(d.sample);
+    //   const words = sentenceClean.split(' ');
+    //   const bagOfWord = bagOfWords(vocabulary, words);
+    //   vector.push(bagOfWord);
+    // });
+    // console.log(vector);
   }
 
   async handle(message) {
@@ -34,19 +52,20 @@ function pretreatment(text) {
 function stopWord(text) {
   // tách từ
   const words = tokenizer.tag(text);
+
   // xóa stopword
-  const removeStopWords = words.filter(function (w) {
+  let removeStopWords = words.filter(function (w) {
     return stopWords.indexOf(w) < 0;
   });
+  removeStopWords = removeStopWords.map((w) => w.replace(' ', '_'));
   // nối lại thành câu
   return removeStopWords.join(' ').toLowerCase();
 }
 
 function cleanText(text) {
-  return text.replace(/[&\/\\#,+()$~%.'":*?!<>{}]/g, '');
+  const textClean = text.replace(/[&\/\\#,+()$~%.'":*?!<>{}]/g, '');
+  return stringToSlug(textClean);
 }
-
-function vocabulary(input) {}
 
 function arrayUnique(array) {
   var a = array.concat();
@@ -70,4 +89,17 @@ function intentToMess(intent) {
     default:
       return 'Xin lỗi, tôi không thể hiểu ý của bạn!';
   }
+}
+
+function stringToSlug(str) {
+  // remove accents
+  var from = 'àáãảạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệđùúủũụưừứửữựòóỏõọôồốổỗộơờớởỡợìíỉĩịäëïîöüûñçýỳỹỵỷ',
+    to = 'aaaaaaaaaaaaaaaaaeeeeeeeeeeeduuuuuuuuuuuoooooooooooooooooiiiiiaeiiouuncyyyyy';
+  for (var i = 0, l = from.length; i < l; i++) {
+    str = str.replace(RegExp(from[i], 'gi'), to[i]);
+  }
+
+  str = str.toLowerCase().trim();
+
+  return str;
 }
