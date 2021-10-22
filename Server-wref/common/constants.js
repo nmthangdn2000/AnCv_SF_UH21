@@ -31,11 +31,31 @@ const constants = {
     CanNotCreateOrder: 162,
     CanNotDeleteOrder: 163,
     CanNotUpdateOrder: 164,
-    // order 171-180
-    CanNotGetPlantProtection: 161,
-    CanNotCreatePlantProtection: 162,
-    CanNotDeletePlantProtection: 163,
-    CanNotUpdatePlantProtection: 164,
+    // PlantProtection 171-180
+    CanNotGetPlantProtection: 171,
+    CanNotCreatePlantProtection: 172,
+    CanNotDeletePlantProtection: 173,
+    CanNotUpdatePlantProtection: 174,
+    // Stopword 181-190
+    CanNotGetStopword: 181,
+    CanNotCreateStopword: 182,
+    CanNotDeleteStopword: 183,
+    CanNotUpdateStopword: 184,
+    // Intent 191-200
+    CanNotGetIntent: 191,
+    CanNotCreateIntent: 192,
+    CanNotDeleteIntent: 193,
+    CanNotUpdateIntent: 194,
+    // Samples 200-210
+    CanNotGetSamples: 201,
+    CanNotCreateSamples: 202,
+    CanNotDeleteSamples: 203,
+    CanNotUpdateSamples: 204,
+    // Reply Intent 211-220
+    CanNotGetReplyIntent: 211,
+    CanNotCreateReplyIntent: 212,
+    CanNotDeleteReplyIntent: 213,
+    CanNotUpdateReplyIntent: 214,
   },
   RESPONSE: {
     SUCCESS: 'success',

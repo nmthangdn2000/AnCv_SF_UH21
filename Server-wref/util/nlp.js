@@ -27,6 +27,10 @@ const dataInput = [
     sample: 'Bạn thật tệ hại',
     intent: 'bad',
   },
+  {
+    sample: 'Mình tên là Đạt',
+    intent: 'name',
+  },
 ];
 
 const stopWords = ['nha', 'nhé'];
