@@ -6,7 +6,7 @@ const controller = require('../../controllers/nlp.controller');
 router.get('/nlp', controller.intent);
 router.post('/nlp', controller.createIntent);
 router.put('/nlp', controller.intent);
-router.delete('/nlp', controller.intent);
+router.delete('/nlp/delete/:id', controller.intent);
 // sample
 router.get('/nlp/sample', controller.sample);
 router.post('/nlp/sample', controller.intent);

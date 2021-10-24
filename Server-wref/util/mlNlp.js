@@ -45,9 +45,9 @@ class MlNlp {
   intentToMess(intent) {
     switch (intent) {
       case 'greeting':
-        return 'Xin chào, Tôi là TBot \n Bạn tên là gì?';
+        return 'Xin chào, Tôi là TBot. Bạn tên là gì?';
       case 'name':
-        return 'Đạt cái cc';
+        return 'aaa aa';
       default:
         return 'Xin lỗi, tôi không thể hiểu ý của bạn!';
     }

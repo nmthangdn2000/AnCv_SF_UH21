@@ -8,7 +8,6 @@ class NlpController {
   async intent(req, res) {
     try {
       const data = await intentService.getIntent();
-      console.log(data);
       return res.render('nlp/main.ejs', { data });
     } catch (error) {
       return responseError(res, error.message);

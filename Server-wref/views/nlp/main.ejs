@@ -36,6 +36,14 @@
                 </div>
               </div>
               <button type="button" class="btn btn-success" id="new-sample">Thêm câu mẫu</button>
+              <div class="mb-3" id="input-sample">
+                <label for="reply-intent" class="col-form-label">Phản hồi:</label>
+                <div style="position: relative;">
+                  <input type="text" name="reply-intent" class="form-control" id="reply-intent" style="margin: 2px 0;"></input>
+                  <i class="fas fa-minus-circle" onclick="removeInputReply(this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: red; cursor: pointer;"></i>
+                </div>
+              </div>
+              <button type="button" class="btn btn-success" id="new-sample">Thêm câu mẫu</button>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -92,23 +100,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>
-              <div class="d-flex">
-                <div class="px-2">
-                  <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+          <% data.forEach((d, index) => { %>
+            <tr>
+              <th scope="row"><%= index + 1 %></th>
+              <td><%= d.content %></td>
+              <td>""</td>
+              <td>
+                <div class="d-flex">
+                  <div class="px-2">
+                    <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                  </div>
+                  <div class="px-2">
+                    <a href="/nlp/delete/<%= d._id %>">
+                      <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    </a>
+                  </div>
                 </div>
-                <div class="px-2">
-                  <a href="">
-                    <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                  </a>
-                </div>
-              </div>
-            </td>
-          </tr>
+              </td>
+            </tr>
+          <% }) %>
+          
         </tbody>
       </table>
     </div>
@@ -138,6 +149,9 @@
       });
 
       function removeInput(e){
+        $(e).parent().remove();
+      }
+      function removeInputReply() {
         $(e).parent().remove();
       }
     </script>

@@ -28,7 +28,7 @@ const dataInput = [
     intent: 'bad',
   },
   {
-    sample: 'Mình tên là Đạt',
+    sample: 'Mình tên là Lý',
     intent: 'name',
   },
 ];
