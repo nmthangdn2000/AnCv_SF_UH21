@@ -1,7 +1,7 @@
 const vntk = require('vntk');
 const tokenizer = vntk.wordTokenizer();
 const { stopWords } = require('../util/nlp');
-
+const Intent = require('../models/intent.model');
 class MlNlp {
   pretreatment(text) {
     const textStopWord = this.stopWord(text);
@@ -42,15 +42,18 @@ class MlNlp {
     return parse(text);
   }
 
-  intentToMess(intent) {
-    switch (intent) {
-      case 'greeting':
-        return 'Xin chào, Tôi là TBot. Bạn tên là gì?';
-      case 'name':
-        return 'aaa aa';
-      default:
-        return 'Xin lỗi, tôi không thể hiểu ý của bạn!';
-    }
+  async intentToMess(intent) {
+    const message = await Intent.findOne({ intent }).lean();
+    if (!message) return 'Xin lỗi, tôi không thể hiểu ý của bạn!';
+    return message.feedback;
+    // switch (intent) {
+    //   case 'greeting':
+    //     return 'Xin chào, Tôi là TBot. Bạn tên là gì?';
+    //   case 'name':
+    //     return 'aaa aa';
+    //   default:
+    //     return 'Xin lỗi, tôi không thể hiểu ý của bạn!';
+    // }
   }
 
   stringToSlug(str) {

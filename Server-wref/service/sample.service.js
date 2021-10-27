@@ -8,6 +8,12 @@ class SampleService {
     return samples;
   }
 
+  // async getSampleByIdIntent() {
+  //   const samples = await Sample.findOne().populate('idIntent');
+  //   if (!samples) throw ERROR.CanNotGetSamples;
+  //   return samples;
+  // }
+
   async createSample(idIntent, data) {
     const newSample = await new Sample({
       idIntent: idIntent,

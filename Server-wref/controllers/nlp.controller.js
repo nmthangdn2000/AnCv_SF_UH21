@@ -8,7 +8,7 @@ class NlpController {
   async intent(req, res) {
     try {
       const data = await intentService.getIntent();
-      return res.render('nlp/main.ejs', { data });
+      return res.render('nlp/main.ejs', { data, page: 'intent' });
     } catch (error) {
       return responseError(res, error.message);
     }
@@ -16,10 +16,19 @@ class NlpController {
 
   async createIntent(req, res) {
     try {
-      console.log(req.body);
-      const { intent, sample } = req.body;
-      const idIntent = await intentService.createIntent(intent);
+      const { intent, sample, feedback } = req.body;
+      const idIntent = await intentService.createIntent(intent, feedback);
       await sampleService.createMultipleSample(idIntent, sample);
+      return res.redirect('/nlp');
+    } catch (error) {
+      return responseError(res, error.message);
+    }
+  }
+
+  async deleteIntent(req, res) {
+    try {
+      const idIntent = await intentService.deleteIntent(req.params.id);
+
       return res.redirect('/nlp');
     } catch (error) {
       return responseError(res, error.message);
@@ -29,20 +38,28 @@ class NlpController {
   async sample(req, res) {
     try {
       const data = await sampleService.getSample();
-      return res.render('nlp/sample.ejs', { data });
+      const intents = await intentService.getIntent();
+      return res.render('nlp/samples.ejs', { data, intents, page: 'samples' });
     } catch (error) {
       return responseError(res, error.message);
     }
   }
-  async stopword(req, res) {
-    res.render('nlp/main.ejs');
+
+  async createSample(req, res) {
+    try {
+      const data = await sampleService.createSample();
+      return res.redirect('/nlp/samples');
+    } catch (error) {
+      return responseError(res, error.message);
+    }
   }
-  async replyIntent(req, res) {
+
+  async stopword(req, res) {
     res.render('nlp/main.ejs');
   }
 
   async chatbot(req, res) {
-    res.render('nlp/chatbot.ejs');
+    res.render('nlp/chatbot.ejs', { page: 'chatbot' });
   }
 }
 

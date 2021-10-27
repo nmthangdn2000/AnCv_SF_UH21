@@ -1,7 +1,6 @@
 const stopwords = require('../models/stopword.model');
 const intent = require('../models/intent.model');
 const sample = require('../models/sample.model');
-const replyIntent = require('../models/replyIntent.model');
 const { ERROR } = require('../common/constants');
 class NlpService {
   async getStopWords() {

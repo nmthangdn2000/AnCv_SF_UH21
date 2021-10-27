@@ -8,9 +8,10 @@ class IntentService {
     return intent;
   }
 
-  async createIntent(data) {
+  async createIntent(data, feedback) {
     const newIntent = await new Intent({
-      content: data,
+      intent: data,
+      feedback: feedback,
       create_at: new Date(),
       update_at: new Date(),
     });
@@ -24,7 +25,7 @@ class IntentService {
     if (!updateIntent || updateIntent.n < 1) throw ERROR.CanNotUpdateIntent;
   }
 
-  async deleteStopWords(data) {
+  async deleteIntent(data) {
     const deleteStopword = await Intent.deleteOne({ _id: data });
     if (!deleteStopword || deleteStopword.deletedCount < 1) throw ERROR.CanNotDeleteStopword;
   }

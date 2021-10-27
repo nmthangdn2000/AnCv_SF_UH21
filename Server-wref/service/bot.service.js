@@ -1,16 +1,23 @@
 const vntk = require('vntk');
 const classifiers = new vntk.BayesClassifier();
 const { dataInput } = require('../util/nlp');
-// const tfidf = new vntk.TfIdf();
 const mlNlp = require('../util/mlNlp');
+const intentService = require('../service/intent.service');
+const sampleService = require('../service/sample.service');
 
 class BotService {
   async train() {
+    const samples = await sampleService.getSample();
+    const data = samples.map((s) => {
+      const sample = s.content;
+      const intent = s.idIntent.intent;
+      return { sample, intent };
+    });
     // Bayes Classifier
     try {
-      dataInput.forEach((data) => {
-        const sample = mlNlp.pretreatment(data.sample);
-        classifiers.addDocument(sample, data.intent);
+      data.forEach((d) => {
+        const sample = mlNlp.pretreatment(d.sample);
+        classifiers.addDocument(sample, d.intent);
       });
       console.log('Đang train');
       classifiers.train();
@@ -40,7 +47,7 @@ class BotService {
   async handle(message) {
     const text = mlNlp.pretreatment(message);
     const intent = await classifiers.classify(text);
-    const mess = mlNlp.intentToMess(intent);
+    const mess = await mlNlp.intentToMess(intent);
     return mess;
   }
 }
