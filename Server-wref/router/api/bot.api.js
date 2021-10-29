@@ -4,6 +4,6 @@ const controller = require('../../controllers/bot.controller');
 
 router.get('/bot/train', controller.train);
 
-router.get('/bot/message/:message', controller.handle);
+router.post('/bot/message', controller.handle);
 
 module.exports = router;

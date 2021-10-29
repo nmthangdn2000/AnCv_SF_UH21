@@ -8,10 +8,14 @@ class IntentService {
     return intent;
   }
 
-  async createIntent(data, feedback) {
+  async createIntent(data, feedback, type, script_intent, script_repeat, script_feedback) {
+    const script = createScript(script_intent, script_repeat, script_feedback);
+
     const newIntent = await new Intent({
       intent: data,
       feedback: feedback,
+      script,
+      type,
       create_at: new Date(),
       update_at: new Date(),
     });
@@ -33,3 +37,26 @@ class IntentService {
 }
 
 module.exports = new IntentService();
+
+function createScript(script_intent, script_repeat, script_feedback) {
+  const script = [];
+  if (script_intent == '') return script;
+  if (!Array.isArray(script_intent)) {
+    const data = {
+      intent: script_intent,
+      repeat: script_repeat,
+      feedback: script_feedback,
+    };
+    script.push(data);
+    return script;
+  }
+  script_intent.forEach((s, index) => {
+    const data = {
+      intent: s,
+      repeat: script_repeat[index],
+      feedback: script_feedback[index],
+    };
+    script.push(data);
+  });
+  return script;
+}

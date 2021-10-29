@@ -78,6 +78,11 @@ const constants = {
       DONE: 3, // đơn hàng thành công
     },
   },
+  TYPE_INTENT: {
+    TEXT: 'text',
+    DATA: 'data',
+    PRODUCT: 'product',
+  },
 };
 
 module.exports = constants;

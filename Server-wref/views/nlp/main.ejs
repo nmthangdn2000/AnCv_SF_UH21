@@ -28,18 +28,44 @@
                 <label for="recipient-name" class="col-form-label">Ý định:</label>
                 <input type="text" name="intent" class="form-control" id="intent" />
               </div>
-              <div class="mb-3" id="input-sample">
-                <label for="message-text" class="col-form-label">Câu mẫu:</label>
-                <div style="position: relative;">
-                  <input type="text" name="sample" class="form-control" id="message-text" style="margin: 2px 0;"></input>
-                  <i class="fas fa-minus-circle" onclick="removeInput(this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: red; cursor: pointer;"></i>
+              <div class="mb-3" >
+                <label for="message-text"style="cursor: pointer;" class="col-form-label slide">Câu mẫu: <i class="fas fa-angle-down" style="margin-left: 20px;"></i></label>
+                <div id="input-sample" style="display: none;">
+                  <div style="position: relative;">
+                    <input type="text" name="sample" class="form-control" id="message-text" style="margin: 2px 0;"></input>
+                    <i class="fas fa-minus-circle" onclick="removeInput(this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: red; cursor: pointer;"></i>
+                  </div>
                 </div>
               </div>
               <button type="button" class="btn btn-success" id="new-sample">Thêm câu mẫu</button>
-              <div class="mb-3" id="input-sample">
-                <label for="reply-intent" class="col-form-label">Phản hồi:</label>
-                <input type="text" name="feedback" class="form-control" id="reply-intent" style="margin: 2px 0;"></input>
+              <div class="mb-3">
+                <label for="reply-intent" style="cursor: pointer;"class="col-form-label slide">Phản hồi: <i class="fas fa-angle-down" style="margin-left: 20px;"></i></label>
+                <div  style="display: none;">
+                  <div style="display: flex;">
+                    <input type="text" name="feedback" class="form-control" id="reply-intent" style="margin: 2px 0; width: 100%;"></input>
+                    <select class="form-select" aria-label="Default select example" name="type" style="margin-left: 20px; width: 150px;">
+                      <option selected value="">Chọn kiểu phản hồi </option>
+                      <option value="text">text</option>
+                      <option value="data">data</option>
+                      <option value="product">product</option>
+                    </select>
+                  </div>
+                </div>
               </div>
+              <div class="mb-3">
+                <label for="reply-intent" style="cursor: pointer;"class="col-form-label slide">Tham số <i class="fas fa-angle-down" style="margin-left: 20px;"></i></label>
+                <div style="display: none;" id="input-params">
+                  <select class="form-select" aria-label="Default select example" name="script_intent" style="margin-top: 10px;">
+                    <option selected value="">Chọn ý định </option>
+                    <% data.forEach((d, index) => { %>
+                    <option value="<%= d._id %>"><%= d.intent %></option>
+                    <% }) %>
+                  </select>
+                  <input type="number" name="script_repeat" class="form-control" style="margin: 2px 0;" placeholder="Nhập số lần nhắc"></input>
+                  <input type="text" name="script_feedback" class="form-control"  style="margin: 2px 0;" placeholder="Lời nhắc"></input>
+                </div>
+              </div>
+              <button type="button" class="btn btn-success" id="new-params">Thêm tham số</button>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -130,6 +156,22 @@
       function removeInputReply() {
         $(e).parent().remove();
       }
+
+      $('.slide').on('click', function () {
+        $(this).next().slideToggle();
+      })
+
+      $('#new-params').on('click', () => {
+        const html = '<select class="form-select" aria-label="Default select example" name="script_intent" style="margin-top: 10px;">'+
+                   '<option selected>Chọn ý định </option>'+
+                   '<% data.forEach((d, index) => { %>'+
+                    '<option value="<%= d._id %>"><%= d.intent %></option>'+
+                    '<% }) %>'+
+                  '</select>'+
+                  '<input type="number" name="script_repeat" class="form-control" style="margin: 2px 0;" placeholder="Nhập số lần nhắc"></input>'+
+                  '<input type="text" name="script_feedback" class="form-control"  style="margin: 2px 0;" placeholder="Lời nhắc"></input>';
+        $('#input-params').append(html);      
+      })
     </script>
   </body>
 </html>

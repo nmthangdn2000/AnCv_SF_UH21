@@ -58,14 +58,6 @@ class MlNlp {
       type: 'text',
       data: message.feedback,
     };
-    // switch (intent) {
-    //   case 'greeting':
-    //     return 'Xin chào, Tôi là TBot. Bạn tên là gì?';
-    //   case 'name':
-    //     return 'aaa aa';
-    //   default:
-    //     return 'Xin lỗi, tôi không thể hiểu ý của bạn!';
-    // }
   }
 
   stringToSlug(str) {

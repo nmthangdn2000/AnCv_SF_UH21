@@ -16,11 +16,21 @@ class NlpController {
 
   async createIntent(req, res) {
     try {
-      const { intent, sample, feedback } = req.body;
-      const idIntent = await intentService.createIntent(intent, feedback);
-      await sampleService.createMultipleSample(idIntent, sample);
+      const { intent, sample, feedback, type, script_intent, script_repeat, script_feedback } = req.body;
+      console.log(req.body);
+      const idIntent = await intentService.createIntent(
+        intent,
+        feedback,
+        type,
+        script_intent,
+        script_repeat,
+        script_feedback
+      );
+      if (Array.isArray(sample)) await sampleService.createMultipleSample(idIntent, sample);
+      else sampleService.createSample(idIntent, sample);
       return res.redirect('/nlp');
     } catch (error) {
+      console.log(error);
       return responseError(res, error.message);
     }
   }
@@ -51,6 +61,15 @@ class NlpController {
       const { intent, sample } = req.body;
       if (Array.isArray(sample)) await sampleService.createMultipleSample(intent, sample);
       else await sampleService.createSample(intent, sample);
+      return res.redirect('/nlp/samples');
+    } catch (error) {
+      return responseError(res, error.message);
+    }
+  }
+
+  async updateSample(req, res) {
+    try {
+      await sampleService.updateSample(req.params.id);
       return res.redirect('/nlp/samples');
     } catch (error) {
       return responseError(res, error.message);

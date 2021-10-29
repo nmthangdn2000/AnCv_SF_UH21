@@ -14,7 +14,14 @@ class BotController {
   }
 
   async handle(req, res) {
-    return responseSuccessWithData(res, await botService.handle(req.params.message));
+    try {
+      const { message } = req.body;
+      const data = await botService.handle(message);
+      return responseSuccessWithData(res, data);
+    } catch (error) {
+      console.log(error);
+      return responseError(res, error.message);
+    }
   }
 }
 
