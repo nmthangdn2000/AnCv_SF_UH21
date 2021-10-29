@@ -6,12 +6,12 @@ const controller = require('../../controllers/nlp.controller');
 router.get('/nlp', controller.intent);
 router.post('/nlp', controller.createIntent);
 router.put('/nlp', controller.intent);
-router.delete('/nlp/delete/:id', controller.intent);
+router.get('/nlp/delete/:id', controller.deleteIntent);
 // sample
 router.get('/nlp/samples', controller.sample);
-router.post('/nlp/samples', controller.intent);
+router.post('/nlp/samples', controller.createSample);
 router.put('/nlp/samples', controller.intent);
-router.delete('/nlp/samples', controller.intent);
+router.get('/nlp/samples/delete/:id', controller.deleteSample);
 // reply
 router.get('/nlp/stopword', controller.stopword);
 router.post('/nlp/stopword', controller.intent);

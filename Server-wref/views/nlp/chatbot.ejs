@@ -69,7 +69,19 @@
         socket.on('bot-send', (reply) => {
           setTimeout(() => {
             $('#typing').remove();
-            divDontent.append('<div class="mess-bot"><div><span>' + reply + '</span></div></div>');
+            switch (reply.type) {
+              case 'text':
+                divDontent.append('<div class="mess-bot"><div><span>' + reply.data + '</span></div></div>');
+                break;
+              case 'weather':
+                divDontent.append(
+                  '<div class="mess-bot"><div><code>' + JSON.stringify(reply.data) + '</code></div></div>'
+                );
+                break;
+
+              default:
+                break;
+            }
           }, 2000);
         });
       });

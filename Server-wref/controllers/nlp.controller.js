@@ -28,9 +28,10 @@ class NlpController {
   async deleteIntent(req, res) {
     try {
       const idIntent = await intentService.deleteIntent(req.params.id);
-
+      await sampleService.deleteMutipleSample(idIntent);
       return res.redirect('/nlp');
     } catch (error) {
+      console.log(error);
       return responseError(res, error.message);
     }
   }
@@ -47,7 +48,18 @@ class NlpController {
 
   async createSample(req, res) {
     try {
-      const data = await sampleService.createSample();
+      const { intent, sample } = req.body;
+      if (Array.isArray(sample)) await sampleService.createMultipleSample(intent, sample);
+      else await sampleService.createSample(intent, sample);
+      return res.redirect('/nlp/samples');
+    } catch (error) {
+      return responseError(res, error.message);
+    }
+  }
+
+  async deleteSample(req, res) {
+    try {
+      await sampleService.deleteSample(req.params.id);
       return res.redirect('/nlp/samples');
     } catch (error) {
       return responseError(res, error.message);

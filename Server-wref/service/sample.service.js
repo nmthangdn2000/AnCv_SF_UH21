@@ -15,6 +15,7 @@ class SampleService {
   // }
 
   async createSample(idIntent, data) {
+    if (data == '') return;
     const newSample = await new Sample({
       idIntent: idIntent,
       content: data,
@@ -28,6 +29,7 @@ class SampleService {
   async createMultipleSample(idIntent, data) {
     const arraySample = [];
     data.forEach((d) => {
+      if (d == '') return;
       const newSample = new Sample({
         idIntent: idIntent,
         content: d,
@@ -36,7 +38,6 @@ class SampleService {
       });
       arraySample.push(newSample.save());
     });
-
     const samples = await Promise.all(arraySample);
 
     if (!samples) throw ERROR.CanNotCreateSamples;
@@ -47,8 +48,15 @@ class SampleService {
     if (!updateSamples || updateSamples.n < 1) throw ERROR.CanNotUpdateSamples;
   }
 
-  async deleteSample(data) {
-    const deleteSamples = await Sample.deleteOne({ _id: data });
+  async deleteSample(id) {
+    const deleteSamples = await Sample.deleteOne({ _id: id });
+    if (!deleteSamples || deleteSamples.deletedCount < 1) throw ERROR.CanNotDeleteSamples;
+  }
+
+  async deleteMutipleSample(id) {
+    console.log(id);
+    const deleteSamples = await Sample.deleteMany({ idIntent: id });
+    console.log(deleteSamples);
     if (!deleteSamples || deleteSamples.deletedCount < 1) throw ERROR.CanNotDeleteSamples;
   }
 }

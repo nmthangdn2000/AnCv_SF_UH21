@@ -3,8 +3,9 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-var path = require('path');
+const path = require('path');
 const cors = require('cors');
+const morgan = require('morgan');
 
 // require("./service/crawlData");
 app.set('views', path.join(__dirname, 'views'));
@@ -13,6 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
+app.use(morgan('dev'));
 // passport
 const passport = require('passport');
 const passportConfig = require('./middlewares/passport');

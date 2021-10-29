@@ -104,3 +104,13 @@ module.exports.getWeatherLocation = function getWeatherLocation(latiude, longitu
     })
     .catch((err) => console.log('lỗi'));
 };
+
+module.exports.getWeatherCity = function getWeatherCity(city, res) {
+  const URL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + process.env.KEY_API;
+  return rp(URL)
+    .then(async (data) => {
+      const weather = JSON.parse(data);
+      return weather;
+    })
+    .catch((err) => console.log('lỗi', err));
+};

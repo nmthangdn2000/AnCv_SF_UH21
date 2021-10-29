@@ -26,8 +26,9 @@ class IntentService {
   }
 
   async deleteIntent(data) {
-    const deleteStopword = await Intent.deleteOne({ _id: data });
-    if (!deleteStopword || deleteStopword.deletedCount < 1) throw ERROR.CanNotDeleteStopword;
+    const deleteStopword = await Intent.findByIdAndDelete({ _id: data });
+    if (!deleteStopword) throw ERROR.CanNotDeleteStopword;
+    return deleteStopword._id;
   }
 }
 
