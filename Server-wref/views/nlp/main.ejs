@@ -14,6 +14,22 @@
     <title>Document</title>
   </head>
   <body class="p-3">
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <i class="fas fa-robot"></i>
+          <strong class="me-auto" style="margin-left: 10px;">Huấn luyện</strong>
+          <!-- <small>11 mins ago</small> -->
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" id="close-toast"></button>
+        </div>
+        <div class="toast-body">
+          <span>Đang huấn luyện</span>
+          <div class="spinner-border text-success float-end" role="status" style="width: 20px; height: 20px;">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--  -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -80,6 +96,13 @@
     <h2 class="text-center">Dữ liệu câu mẫu</h2>
     <div style="padding: 30px 100px">
       <div class="float-end">
+        <button
+          type="button"
+          class="btn btn-success"
+          id="train"
+        >
+          Huấn luyện bot
+        </button>
         <button
           type="button"
           class="btn btn-primary"
@@ -172,6 +195,33 @@
                   '<input type="text" name="script_feedback" class="form-control"  style="margin: 2px 0;" placeholder="Lời nhắc"></input>';
         $('#input-params').append(html);      
       })
+
+
+      $('#train').on('click', () => {
+        $('#liveToast').removeClass('hide');
+        $('#liveToast').addClass('show');
+        $.ajax({
+          method: "GET",
+          url: "/api/bot/train",
+        })
+          .done(function( msg ) {
+            setTimeout(()=>{
+              console.log(msg);
+              $('.toast-body > span').text(msg.message);
+              $('.toast-body > span').css('color', 'white');
+              $('.toast-body').css('background', 'green');
+              $('.toast-body > .spinner-border').css('display', 'none')
+            }, 2000)
+          });
+        });
+        $('#close-toast').on('click', () => {
+          setTimeout(()=>{
+            $('.toast-body > span').text("Đang huấn luyện");
+            $('.toast-body > span').css('color', 'black');
+            $('.toast-body').css('background', 'white');
+            $('.toast-body > .spinner-border').css('display', 'block');
+          }, 1000)
+        });
     </script>
   </body>
 </html>

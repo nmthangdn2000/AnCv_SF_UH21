@@ -19,7 +19,7 @@
     <h2 class="text-center">Dữ liệu câu mẫu</h2>
     <div style="padding: 30px 100px" class="d-flex justify-content-center">
       <div class="rounded border border-primary position-relative" style="width: 400px; height: 600px">
-        <div id="content" class="d-flex flex-column p-2" style="height: 540px; width: 100%">
+        <div id="content" class="d-flex flex-column-reverse p-2" style="height: 540px; width: 100%; overflow-y: auto">
           <!-- content -->
         </div>
         <div class="position-absolute border-top p-2 d-flex justify-content-between" style="bottom: 0; width: 100%">
@@ -34,9 +34,10 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
     <script>
-      const socket = io();
+      let scriptIntent;
+      let oldIntent;
+      let repeat;
       $(document).ready(function () {
         const html =
           '<div class="chat-bubble" id="typing">' +
@@ -49,7 +50,7 @@
         const btnSendMess = $('#send-message');
         const divDontent = $('#content');
         const mess = $('#mess');
-        divDontent.append('<div class="mess-bot"><div><span>Xin chào bạn</span></div></div>');
+        divDontent.prepend('<div class="mess-bot"><div><span>Xin chào bạn</span></div></div>');
         btnSendMess.on('click', () => {
           hanldeMessage();
         });
@@ -60,31 +61,56 @@
           }
         });
         function hanldeMessage() {
-          socket.emit('client-send', mess.val());
-          divDontent.append('<div class="mess-client"><div><span>' + mess.val() + '</span></div></div>');
+          // socket.emit('client-send', mess.val());
+          $.ajax({
+            method: 'POST',
+            url: '/api/bot/message',
+            data: {
+              message: mess.val(),
+              scriptIntent,
+              oldIntent,
+              repeat: repeat,
+            },
+          }).done(function (res) {
+            const data = res.data;
+            console.log(data);
+            console.log(data.repeat);
+            scriptIntent = data.scriptIntent ? data.scriptIntent : null;
+            oldIntent = data.oldIntent ? data.oldIntent : null;
+            repeat = Number.isInteger(data.repeat) ? data.repeat : null;
+            console.log(repeat);
+            setTimeout(() => {
+              $('#typing').remove();
+              switch (data.type) {
+                case 'text':
+                  divDontent.prepend('<div class="mess-bot"><div><span>' + data.message + '</span></div></div>');
+                  break;
+                case 'data':
+                  divDontent.prepend(
+                    `<div class="mess-bot"><div><b>${data.message}</b><br>${dataToMess(data.data)}</div></div>`
+                  );
+                  break;
+
+                default:
+                  break;
+              }
+            }, 2000);
+          });
+          divDontent.prepend('<div class="mess-client"><div><span>' + mess.val() + '</span></div></div>');
           mess.val('');
-          divDontent.append(html);
+          divDontent.prepend(html);
         }
-
-        socket.on('bot-send', (reply) => {
-          setTimeout(() => {
-            $('#typing').remove();
-            switch (reply.type) {
-              case 'text':
-                divDontent.append('<div class="mess-bot"><div><span>' + reply.data + '</span></div></div>');
-                break;
-              case 'weather':
-                divDontent.append(
-                  '<div class="mess-bot"><div><code>' + JSON.stringify(reply.data) + '</code></div></div>'
-                );
-                break;
-
-              default:
-                break;
-            }
-          }, 2000);
-        });
       });
+
+      function dataToMess(data) {
+        let html = '';
+        for (var property in data) {
+          name = property;
+          value = data[property];
+          html = html + `<div>${name}: ${value}</div>`;
+        }
+        return html;
+      }
     </script>
   </body>
 </html>

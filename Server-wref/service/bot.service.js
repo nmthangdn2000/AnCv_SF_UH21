@@ -44,11 +44,13 @@ class BotService {
     // console.log(vector);
   }
 
-  async handle(message) {
+  async handle(message, scriptIntent, oldIntent, repeat) {
     const text = mlNlp.pretreatment(message);
     const intent = await classifiers.classify(text);
-    const mess = await mlNlp.intentToMess(intent);
-    return mess;
+    let data;
+    if (scriptIntent) data = await mlNlp.intentScript(intent, message, scriptIntent, oldIntent, repeat);
+    else data = await mlNlp.intentToMess(intent);
+    return data;
   }
 }
 

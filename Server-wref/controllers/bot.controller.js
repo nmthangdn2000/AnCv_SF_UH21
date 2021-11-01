@@ -15,8 +15,9 @@ class BotController {
 
   async handle(req, res) {
     try {
-      const { message } = req.body;
-      const data = await botService.handle(message);
+      console.log(req.body);
+      const { message, scriptIntent, oldIntent, repeat } = req.body;
+      const data = await botService.handle(message, scriptIntent, oldIntent, repeat ? repeat : 0);
       return responseSuccessWithData(res, data);
     } catch (error) {
       console.log(error);
