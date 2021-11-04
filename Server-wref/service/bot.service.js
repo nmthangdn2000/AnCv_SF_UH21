@@ -4,10 +4,21 @@ const { dataInput } = require('../util/nlp');
 const mlNlp = require('../util/mlNlp');
 const intentService = require('../service/intent.service');
 const sampleService = require('../service/sample.service');
+const entityService = require('../service/entity.service');
+const entityData = {};
 
 class BotService {
   async train() {
     const samples = await sampleService.getSample();
+    entityService
+      .getEntity()
+      .then((data) => {
+        data.forEach((d) => {
+          entityData[d.name] = d.sampleEntity;
+        });
+        console.log(entityData);
+      })
+      .catch((err) => console.log(err));
     const data = samples.map((s) => {
       const sample = s.content;
       const intent = s.idIntent.intent;
@@ -44,11 +55,11 @@ class BotService {
     // console.log(vector);
   }
 
-  async handle(message, scriptIntent, oldIntent, repeat) {
+  async handle(message, entity, oldIntent, repeat) {
     const text = mlNlp.pretreatment(message);
     const intent = await classifiers.classify(text);
     let data;
-    if (scriptIntent) data = await mlNlp.intentScript(intent, message, scriptIntent, oldIntent, repeat);
+    if (entity) data = await mlNlp.intentScript(intent, message, entity, oldIntent, repeat, entityData);
     else data = await mlNlp.intentToMess(intent);
     return data;
   }

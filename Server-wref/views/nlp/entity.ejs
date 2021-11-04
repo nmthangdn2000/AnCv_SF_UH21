@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body class="p-3">
+    <!--  -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form method="POST" action="/nlp/entity">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Thực thể:</label>
+                <input type="text" name="name" class="form-control" id="message-text" style="margin: 2px 0;"></input>
+              </div>
+              <div class="mb-3" id="input-sample">
+                <label for="message-text" class="col-form-label">Thực thể mẫu:</label>
+                <div style="position: relative;">
+                  <input type="text" name="sampleEntity" class="form-control" id="message-text" style="margin: 2px 0;"></input>
+                  <i class="fas fa-minus-circle" onclick="removeInput(this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: red; cursor: pointer;"></i>
+                </div>
+              </div>
+              <button type="button" class="btn btn-success" id="new-sample">Thêm câu mẫu</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <%- include('./header.ejs') %>
+    <h2 class="text-center">Dữ liệu câu mẫu</h2>
+    <div style="padding: 30px 100px">
+      <div class="float-end">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-bs-whatever="@mdo"
+        >
+          Thêm thực thể
+        </button>
+      </div>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col" width="5%">#</th>
+            <th scope="col" width="20%">Thực thể</th>
+            <th scope="col" width="65%">Thực thể mẫu</th>
+            <th scope="col" width="10%">Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach((d, index) => { %>
+            <tr>
+              <th scope="row"><%= index + 1 %></th>
+              <td><%= d.name %></td>
+              <td>
+                <% d.sampleEntity.forEach((s) => {%>
+                  <span><%= s %>, </span>
+                <% }) %>
+              </td>
+              <td>
+                <div class="d-flex">
+                  <div class="px-2">
+                    <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                  </div>
+                  <div class="px-2">
+                    <a href="/nlp/entity/delete/<%= d._id %>">
+                      <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    </a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% }) %>
+          
+        </tbody>
+      </table>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var recipient = button.data('whatever'); // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this);
+        modal.find('.modal-title').text('New message to ' + recipient);
+        modal.find('.modal-body input').val(recipient);
+      });
+
+      $('#new-sample').on('click', () => {
+        const html = '<div style="position: relative;">'
+                  +'<input type="text" name="sampleEntity" class="form-control" id="message-text" style="margin: 2px 0;"></input>'
+                  +'<i class="fas fa-minus-circle" onclick="removeInput(this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: red; cursor: pointer;"></i>'
+                +'</div>';
+        $('#input-sample').append(html);
+      });
+
+      function removeInput(e){
+        $(e).parent().remove();
+      }
+      function removeInputReply() {
+        $(e).parent().remove();
+      }
+    </script>
+  </body>
+</html>

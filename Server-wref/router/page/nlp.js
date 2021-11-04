@@ -12,11 +12,16 @@ router.get('/nlp/samples', controller.sample);
 router.post('/nlp/samples', controller.createSample);
 router.put('/nlp/samples', controller.intent);
 router.get('/nlp/samples/delete/:id', controller.deleteSample);
-// reply
+// stopword
 router.get('/nlp/stopword', controller.stopword);
 router.post('/nlp/stopword', controller.intent);
 router.put('/nlp/stopword', controller.intent);
 router.delete('/nlp/stopword', controller.intent);
+// entity
+router.get('/nlp/entity', controller.entity);
+router.post('/nlp/entity', controller.createEntity);
+router.put('/nlp/entity', controller.intent);
+router.delete('/nlp/entity', controller.intent);
 // chatbot
 router.get('/nlp/chatbot', controller.chatbot);
 

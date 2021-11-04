@@ -4,7 +4,7 @@ const { stopWords } = require('../util/nlp');
 const Intent = require('../models/intent.model');
 const weatherService = require('../service/getDataWeather');
 
-const params = [];
+const params = {};
 class MlNlp {
   pretreatment(text) {
     const textStopWord = this.stopWord(text);
@@ -75,8 +75,8 @@ class MlNlp {
     return str;
   }
 
-  async intentScript(intent, message, scriptIntent, oldIntent, repeat) {
-    const getIntent = await Intent.findOne({ intent: oldIntent }).populate('script.intent').lean();
+  async intentScript(intent, message, entity, oldIntent, repeat, entityData) {
+    const getIntent = await Intent.findOne({ intent: oldIntent }).populate('script.entity').lean();
     if (!getIntent) {
       return {
         type: 'text',
@@ -84,31 +84,25 @@ class MlNlp {
       };
     }
     let index = getIntent.script.findIndex((s) => {
-      console.log(s.intent._id);
-      return scriptIntent === s.intent._id.toString();
+      console.log(s.entity._id);
+      return entity === s.entity._id.toString();
     });
+    const param = getEntities(message, getIntent.script[index].entity.name, entityData);
+
     // đúng
-    if (intent === getIntent.script[index].intent.intent) {
-      const param = getEntities(message);
-      params.push(param);
+    if (param[0]) {
+      params[getIntent.script[index].entity.name] = param[0];
       index++;
       if (index < getIntent.script.length) {
         return {
           type: 'text',
           message: getIntent.script[index].feedback,
-          scriptIntent: getIntent.script[index].intent,
+          entity: getIntent.script[index].entity,
           oldIntent: oldIntent,
           repeat: 0,
         };
       }
-      const data = await weatherService.getWeatherCity('danang');
-      return {
-        type: getIntent.type,
-        message: `${getIntent.feedback} ${param} như sau:`,
-        data: data,
-        oldIntent: oldIntent,
-        repeat: 0,
-      };
+      return resultData(getIntent, oldIntent);
     }
     //sai thì lặp lại câu hỏi
     repeat = Number(repeat) + 1;
@@ -121,7 +115,7 @@ class MlNlp {
     return {
       type: 'text',
       message: getIntent.script[index].feedback,
-      scriptIntent: scriptIntent,
+      entity: entity,
       oldIntent: oldIntent,
       repeat: repeat,
     };
@@ -135,12 +129,37 @@ async function withScript(intent) {
   return {
     type: 'text',
     message: message.script[0].feedback,
-    scriptIntent: message.script[0].intent,
+    entity: message.script[0].entity,
     oldIntent: intent,
     repeat: 0,
   };
 }
 
-function getEntities(message) {
-  return 'Đà Nẵng';
+function getEntities(message, entity, dataEntity) {
+  let key = '';
+  dataEntity[entity].forEach((e) => {
+    key += `${e}|`;
+  });
+  const regex = new RegExp(`(${key})`, 'g');
+  return message.match(regex);
+}
+
+async function resultData(getIntent, oldIntent) {
+  let data;
+  if (getIntent.intent === 'weather') data = await weatherService.getWeatherCity(params.city);
+  let feedback = getIntent.feedback;
+
+  const keys = feedback.match(/{\w+}/g);
+  const keyClear = keys.map((k) => k.match(/\w+/));
+  keys.forEach((k, index) => {
+    const regex = new RegExp(k, 'g');
+    feedback = feedback.replace(regex, params[keyClear[index]]);
+  });
+  return {
+    type: getIntent.type,
+    message: feedback,
+    data: data,
+    oldIntent: oldIntent,
+    repeat: 0,
+  };
 }

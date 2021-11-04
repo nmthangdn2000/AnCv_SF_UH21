@@ -1,6 +1,7 @@
 const nlpService = require('../service/nlp.service');
 const intentService = require('../service/intent.service');
 const sampleService = require('../service/sample.service');
+const entityService = require('../service/entity.service');
 const { RESPONSE, ERROR } = require('../common/constants');
 const { responseError, responseSuccess, responseSuccessWithData } = require('./base.controller');
 
@@ -81,6 +82,26 @@ class NlpController {
       await sampleService.deleteSample(req.params.id);
       return res.redirect('/nlp/samples');
     } catch (error) {
+      return responseError(res, error.message);
+    }
+  }
+
+  async entity(req, res) {
+    try {
+      const data = await entityService.getEntity();
+      return res.render('nlp/entity.ejs', { data, page: 'entity' });
+    } catch (error) {
+      console.log(error);
+      return responseError(res, error.message);
+    }
+  }
+
+  async createEntity(req, res) {
+    try {
+      await entityService.createEntity(req.body);
+      return res.redirect('/nlp/entity');
+    } catch (error) {
+      console.log(error);
       return responseError(res, error.message);
     }
   }

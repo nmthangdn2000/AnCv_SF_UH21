@@ -35,7 +35,7 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      let scriptIntent;
+      let entity;
       let oldIntent;
       let repeat;
       $(document).ready(function () {
@@ -67,7 +67,7 @@
             url: '/api/bot/message',
             data: {
               message: mess.val(),
-              scriptIntent,
+              entity,
               oldIntent,
               repeat: repeat,
             },
@@ -75,7 +75,7 @@
             const data = res.data;
             console.log(data);
             console.log(data.repeat);
-            scriptIntent = data.scriptIntent ? data.scriptIntent : null;
+            entity = data.entity ? data.entity : null;
             oldIntent = data.oldIntent ? data.oldIntent : null;
             repeat = Number.isInteger(data.repeat) ? data.repeat : null;
             console.log(repeat);

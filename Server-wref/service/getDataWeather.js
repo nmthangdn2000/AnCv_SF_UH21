@@ -106,7 +106,8 @@ module.exports.getWeatherLocation = function getWeatherLocation(latiude, longitu
 };
 
 module.exports.getWeatherCity = function getWeatherCity(city, res) {
-  const URL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + process.env.KEY_API;
+  const keyCity = getKeyCity(city);
+  const URL = 'https://api.openweathermap.org/data/2.5/weather?q=' + keyCity + '&appid=' + process.env.KEY_API;
   return rp(URL)
     .then(async (data) => {
       const weather = JSON.parse(data);
@@ -114,3 +115,12 @@ module.exports.getWeatherCity = function getWeatherCity(city, res) {
     })
     .catch((err) => console.log('lỗi', err));
 };
+
+function getKeyCity(city) {
+  switch (city) {
+    case 'Đà Nẵng':
+      return 'danang';
+    default:
+      break;
+  }
+}

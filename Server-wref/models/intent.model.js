@@ -7,9 +7,9 @@ const intentShema = new mongoose.Schema({
   feedback: { type: String },
   script: [
     {
-      intent: {
+      entity: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Intent',
+        ref: 'Entity',
       },
       repeat: Number,
       feedback: String,

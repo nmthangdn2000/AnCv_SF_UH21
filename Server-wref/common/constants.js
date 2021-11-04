@@ -56,6 +56,11 @@ const constants = {
     CanNotCreateReplyIntent: 212,
     CanNotDeleteReplyIntent: 213,
     CanNotUpdateReplyIntent: 214,
+    // Entity 221-230
+    CanNotGetEntity: 221,
+    CanNotCreateEntity: 222,
+    CanNotDeleteEntity: 223,
+    CanNotUpdateEntity: 224,
   },
   RESPONSE: {
     SUCCESS: 'success',

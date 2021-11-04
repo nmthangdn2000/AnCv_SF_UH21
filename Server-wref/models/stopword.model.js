@@ -6,6 +6,6 @@ const stopwordShema = new mongoose.Schema({
   update_at: { type: Number },
 });
 
-const Stopword = mongoose.model('Stopword', stopwordShema, 'Stopword');
+const Stopword = mongoose.model('Stopword', stopwordShema, 'stopword');
 
 module.exports = Stopword;
