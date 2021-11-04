@@ -106,12 +106,18 @@ module.exports.getWeatherLocation = function getWeatherLocation(latiude, longitu
 };
 
 module.exports.getWeatherCity = function getWeatherCity(city, res) {
-  const keyCity = getKeyCity(city);
-  const URL = 'https://api.openweathermap.org/data/2.5/weather?q=' + keyCity + '&appid=' + process.env.KEY_API;
+  const URL =
+    'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&lang=vi&units=metric&appid=' + process.env.KEY_API;
   return rp(URL)
     .then(async (data) => {
       const weather = JSON.parse(data);
-      return weather;
+      return {
+        'Mô tả': weather.weather[0].description,
+        'Nhiệt độ trung bình': `${weather.main.temp} °C`,
+        'Nhiệt độ cao nhất': `${weather.main.temp_max} °C`,
+        'Nhiệt độ thấp nhất': `${weather.main.temp_min} °C`,
+        'Tốc độ gió': `${weather.wind.speed} m/s`,
+      };
     })
     .catch((err) => console.log('lỗi', err));
 };

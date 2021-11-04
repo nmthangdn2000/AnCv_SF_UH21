@@ -49,17 +49,13 @@ class MlNlp {
     const message = await Intent.findOne({ intent }).lean();
     if (!message) return 'Xin lỗi, tôi không thể hiểu ý của bạn!';
     if (message.script.length > 0) {
-      return await withScript(intent);
-      // const data = await weatherService.getWeatherCity('danang');
-      // return {
-      //   type: 'weather',
-      //   data,
-      // };
+      return resultMess('text', message.script[0].feedback, message.script[0].entity, intent, 0);
     }
-    return {
-      type: 'text',
-      message: message.feedback,
-    };
+    return resultMess('text', message.feedback);
+    // return {
+    //   type: 'text',
+    //   message: message.feedback,
+    // };
   }
 
   stringToSlug(str) {
@@ -84,9 +80,9 @@ class MlNlp {
       };
     }
     let index = getIntent.script.findIndex((s) => {
-      console.log(s.entity._id);
       return entity === s.entity._id.toString();
     });
+    if (index < 0) return defaultMess();
     const param = getEntities(message, getIntent.script[index].entity.name, entityData);
 
     // đúng
@@ -94,46 +90,22 @@ class MlNlp {
       params[getIntent.script[index].entity.name] = param[0];
       index++;
       if (index < getIntent.script.length) {
-        return {
-          type: 'text',
-          message: getIntent.script[index].feedback,
-          entity: getIntent.script[index].entity,
-          oldIntent: oldIntent,
-          repeat: 0,
-        };
+        return resultMess('text', getIntent.script[index].feedback, getIntent.script[index].entity, oldIntent, 0);
       }
-      return resultData(getIntent, oldIntent);
+      return resultMessageData(getIntent, oldIntent);
     }
     //sai thì lặp lại câu hỏi
     repeat = Number(repeat) + 1;
     if (repeat >= getIntent.script[index].repeat) {
-      return {
-        type: 'text',
-        message: 'Xin lỗi, tôi không thể hiểu ý của bạn!',
-      };
+      return defaultMess();
     }
-    return {
-      type: 'text',
-      message: getIntent.script[index].feedback,
-      entity: entity,
-      oldIntent: oldIntent,
-      repeat: repeat,
-    };
+    return resultMess('text', getIntent.script[index].feedback, entity, oldIntent, repeat);
   }
 }
 
 module.exports = new MlNlp();
 
-async function withScript(intent) {
-  const message = await Intent.findOne({ intent }).lean();
-  return {
-    type: 'text',
-    message: message.script[0].feedback,
-    entity: message.script[0].entity,
-    oldIntent: intent,
-    repeat: 0,
-  };
-}
+async function withScript(intent) {}
 
 function getEntities(message, entity, dataEntity) {
   let key = '';
@@ -144,9 +116,9 @@ function getEntities(message, entity, dataEntity) {
   return message.match(regex);
 }
 
-async function resultData(getIntent, oldIntent) {
+async function resultMessageData(getIntent, oldIntent) {
   let data;
-  if (getIntent.intent === 'weather') data = await weatherService.getWeatherCity(params.city);
+  if (getIntent.intent === 'weather') data = await weatherService.getWeatherCity(new MlNlp().stringToSlug(params.city));
   let feedback = getIntent.feedback;
 
   const keys = feedback.match(/{\w+}/g);
@@ -155,11 +127,32 @@ async function resultData(getIntent, oldIntent) {
     const regex = new RegExp(k, 'g');
     feedback = feedback.replace(regex, params[keyClear[index]]);
   });
+  return resultMessWithData(getIntent.type, feedback, data, oldIntent, 0);
+}
+
+function resultMessWithData(type, message, data, oldIntent, repeat) {
   return {
-    type: getIntent.type,
-    message: feedback,
-    data: data,
-    oldIntent: oldIntent,
-    repeat: 0,
+    type,
+    message,
+    data,
+    oldIntent,
+    repeat,
+  };
+}
+
+function resultMess(type, message, entity, oldIntent, repeat) {
+  return {
+    type,
+    message,
+    entity,
+    oldIntent,
+    repeat,
+  };
+}
+
+function defaultMess() {
+  return {
+    type: 'text',
+    message: 'Xin lỗi, tôi không thể hiểu ý của bạn!',
   };
 }

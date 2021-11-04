@@ -106,6 +106,16 @@ class NlpController {
     }
   }
 
+  async deleteEntity(req, res) {
+    try {
+      await entityService.deleteById(req.params.id);
+      return res.redirect('/nlp/entity');
+    } catch (error) {
+      console.log(error);
+      return responseError(res, error.message);
+    }
+  }
+
   async stopword(req, res) {
     res.render('nlp/main.ejs');
   }

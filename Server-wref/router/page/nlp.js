@@ -21,7 +21,7 @@ router.delete('/nlp/stopword', controller.intent);
 router.get('/nlp/entity', controller.entity);
 router.post('/nlp/entity', controller.createEntity);
 router.put('/nlp/entity', controller.intent);
-router.delete('/nlp/entity', controller.intent);
+router.get('/nlp/entity/delete/:id', controller.deleteEntity);
 // chatbot
 router.get('/nlp/chatbot', controller.chatbot);
 
