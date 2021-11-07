@@ -30,6 +30,9 @@
         android:theme="@style/Theme.WREF"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ChatBot.ChatBotActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainScreen.Orders.ProductPlantProtectionActivity"
             android:exported="true" />
         <activity

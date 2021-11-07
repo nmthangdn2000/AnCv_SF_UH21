@@ -44,13 +44,21 @@
         <entry key="..\:/android-project/WREF-app/app/src/main/res/layout/dropdown_item_district.xml" value="0.209375" />
         <entry key="..\:/android-project/WREF-app/app/src/main/res/layout/fragment_home.xml" value="0.209375" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable-v24/border_card.xml" value="0.16018518518518518" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable/background_weather_sun.xml" value="0.382051282051282" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable/bg_bot_message.xml" value="1.384375" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable/bg_indicator.xml" value="0.22552083333333334" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable/bg_my_message.xml" value="0.28055555555555556" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable/border_bottom_img_plant.xml" value="0.382051282051282" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable/border_sent_message.xml" value="0.382051282051282" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable/circle.xml" value="0.16018518518518518" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable/circle_bg.xml" value="0.16018518518518518" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.382051282051282" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable/ic_harvest.xml" value="0.22552083333333334" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/drawable/ic_tea_bag.xml" value="0.16018518518518518" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_chat_bot.xml" value="0.371875" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_crop_yield.xml" value="0.2046875" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_disease_detail.xml" value="0.209375" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_item_theme_agri.xml" value="0.371875" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_order.xml" value="0.33" />
@@ -60,7 +68,12 @@
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_qrcode.xml" value="0.209375" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_register.xml" value="0.2046875" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_scanner.xml" value="0.209375" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/activity_theme_agri.xml" value="0.371875" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/flood_disaster_activity.xml" value="0.371875" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/fragment_home.xml" value="0.371875" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/fragment_q_r_code.xml" value="0.18" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/item_bot_message.xml" value="0.371875" />
+        <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/item_my_message.xml" value="0.371875" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/item_photo_statistics.xml" value="0.209375" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/item_process.xml" value="0.2046875" />
         <entry key="..\:/android-project/project/AnCv_SF_UH21/WREF-app/app/src/main/res/layout/layout_choose_img_plant.xml" value="0.209375" />
@@ -69,7 +82,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

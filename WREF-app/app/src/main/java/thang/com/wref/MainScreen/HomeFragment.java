@@ -35,6 +35,8 @@ import com.google.android.gms.tasks.Task;
 import java.io.IOException;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+import thang.com.wref.ChatBot.ChatBotActivity;
 import thang.com.wref.LoginScreen.LoginActivity;
 import thang.com.wref.LoginScreen.SharedPreferencesManagement;
 import thang.com.wref.MainScreen.Disaster.Flood.FloodDisasterActivity;
@@ -62,6 +64,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, View.O
     private FusedLocationProviderClient client;
     private SharedPreferencesManagement sharedPreferencesManagement;
     private SupportMapFragment mapFragment;
+    private CircleImageView chatBot;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -118,6 +121,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, View.O
         lnlDuaLeoHavestHelper = (LinearLayout) view.findViewById(R.id.lnlDuaLeoHavestHelper);
         btnShownAllHarvestHelper = (TextView) view.findViewById(R.id.btnShownAllHarvestHelper);
         rlvLogOut = (RelativeLayout) view.findViewById(R.id.rlvLogOut);
+        chatBot = (CircleImageView) view.findViewById(R.id.chatBot);
 
         rltWeather.setOnClickListener(this);
         rltDisaster.setOnClickListener(this);
@@ -128,6 +132,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, View.O
         lnlDuaLeoHavestHelper.setOnClickListener(this);
         btnShownAllHarvestHelper.setOnClickListener(this);
         rlvLogOut.setOnClickListener(this);
+        chatBot.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
@@ -162,9 +167,17 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, View.O
                 getActivity().startActivity(intent);
                 getActivity().finish();
                 break;
+            case R.id.chatBot:
+                chatBot();
+                break;
             default:
                 break;
         }
+    }
+
+    private void chatBot() {
+        Intent intent = new Intent(getContext(), ChatBotActivity.class);
+        getActivity().startActivity(intent);
     }
 
     private void clickDisaster() {
