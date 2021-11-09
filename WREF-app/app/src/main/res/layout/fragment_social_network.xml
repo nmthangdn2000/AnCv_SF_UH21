@@ -18,54 +18,60 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <RelativeLayout
                 android:id="@+id/rltToolBar"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="#189CFA">
+
                 <ImageView
                     android:id="@+id/iconSearchBar"
-                    android:layout_marginStart="20dp"
-                    android:layout_centerVertical="true"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
                     android:src="@drawable/ic_baseline_search_24"
                     app:tint="@color/white" />
+
                 <SearchView
                     android:id="@+id/searchView"
-                    android:layout_toRightOf="@+id/iconSearchBar"
-                    android:layout_toLeftOf="@+id/btnNotification"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:queryHint="@string/search_hint"
-                    android:iconifiedByDefault="false"
-                    android:theme="@style/text"
-                    android:queryBackground="@null"
+                    android:layout_toLeftOf="@+id/btnNotification"
+                    android:layout_toRightOf="@+id/iconSearchBar"
                     android:closeIcon="@null"
-                    android:searchIcon="@null"/>
+                    android:iconifiedByDefault="false"
+                    android:queryBackground="@null"
+                    android:queryHint="@string/search_hint"
+                    android:searchIcon="@null"
+                    android:theme="@style/text" />
+
                 <RelativeLayout
                     android:id="@+id/btnNotification"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_centerVertical="true"
                     android:layout_width="35dp"
-                    android:layout_height="35dp">
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp">
+
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:src="@drawable/ic_baseline_notifications_none_24"
-                        app:tint="@color/white"/>
+                        app:tint="@color/white" />
+
                     <TextView
-                        android:layout_alignParentRight="true"
                         android:layout_width="18dp"
                         android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/red"
                         android:gravity="center"
                         android:text="12"
-                        android:textSize="10sp"
                         android:textColor="@color/white"
-                        android:background="@drawable/circle"
-                        android:backgroundTint="@color/red"/>
+                        android:textSize="10sp" />
                 </RelativeLayout>
             </RelativeLayout>
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

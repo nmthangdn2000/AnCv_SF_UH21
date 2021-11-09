@@ -67,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
         // set icon to bottmnavigation
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_baseline_map_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_newspaper_folded));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_qr_code));
-        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_baseline_photo_camera_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_newspaper_folded));
+        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_qr_code));
+        bottomNavigation.add(new MeowBottomNavigation.Model(5, R.drawable.ic_baseline_photo_camera_24));
         // default button
 
         //event
@@ -90,11 +91,17 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 3:
                         Log.d(TAG, " a3 "+ item.getId());
-                        bottomNavigation.clearCount(3);
+                        NumberPageCurr = item.getId();
+                        bottomNavigation.clearCount(2);
                         viewPager2.setCurrentItem(2);
                         break;
                     case 4:
-                        Log.d(TAG, " a3 "+ item.getId());
+                        Log.d(TAG, " a4 "+ item.getId());
+                        bottomNavigation.clearCount(3);
+                        viewPager2.setCurrentItem(3);
+                        break;
+                    case 5:
+                        Log.d(TAG, " a5"+ item.getId());
                         NumberPageCurr = item.getId();
                         viewPager2.setCurrentItem(4);
                         break;

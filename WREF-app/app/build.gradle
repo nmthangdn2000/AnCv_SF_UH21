@@ -79,6 +79,7 @@ dependencies {
     // roundedimageview
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
     // lottie
     implementation 'com.airbnb.android:lottie:3.5.0'
     // MPAndroid Chart
@@ -110,7 +111,9 @@ dependencies {
     implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0-rc1'
     implementation 'org.tensorflow:tensorflow-lite-task-vision:0.1.0'
     implementation 'org.tensorflow:tensorflow-lite-gpu:2.2.0'
-
+    // blury
+    implementation 'com.eightbitlab:supportrenderscriptblur:1.0.2'
+    implementation 'com.eightbitlab:blurview:1.6.6'
     //Scanner QR code
     implementation 'com.budiyev.android:code-scanner:2.1.0'
 

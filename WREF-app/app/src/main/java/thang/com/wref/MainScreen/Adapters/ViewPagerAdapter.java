@@ -8,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
 import thang.com.wref.CameraPredictionScreen.CameraPredictFragment;
+import thang.com.wref.Commerce.CommerceFragment;
 import thang.com.wref.MainScreen.HomeFragment;
 import thang.com.wref.QRCodeScreen.QRCodeFragment;
 import thang.com.wref.StoriesScreen.SocialNetworkFragment;
@@ -30,8 +31,10 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 SocialNetworkFragment socialNetworkFragment = new SocialNetworkFragment();
                 return socialNetworkFragment.newInstance(meowBottomNavigation);
             case 2:
-                return new QRCodeFragment();
+                return new CommerceFragment();
             case 3:
+                return new QRCodeFragment();
+            case 4:
                 return new CameraPredictFragment();
             default:
                 return new HomeFragment();
@@ -40,6 +43,6 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 5;
     }
 }
