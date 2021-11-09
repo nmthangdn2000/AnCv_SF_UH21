@@ -2,13 +2,14 @@ const Product = require('../models/product.model');
 const { ERROR } = require('../common/constants');
 const fs = require('fs');
 const QRCode = require('qrcode');
-
+const categoryService = require('../service/category.service');
 class ProductService {
-  async getProduct(query, page, limit) {
+  async getProduct(query, page = 1, limit = 12) {
     const product = Product.find(query)
-      //   .populate('idShop', 'name')
-      //   .populate('idCategory', 'name')
-      .select('name price saleOff media type')
+      .populate('idShop', 'name')
+      .populate('idCategory', 'name')
+      // .select('idCategory name price saleOff media type')
+      .select('-ingredient -effect -userManual -note')
       .skip(page * limit - limit)
       .limit(Number(limit))
       .lean();
@@ -20,6 +21,36 @@ class ProductService {
       page,
       totalPage,
     };
+  }
+
+  async getFullByCategory(page = 1, limit = 12) {
+    const category = await categoryService.getAll();
+    const arr = [];
+    category.forEach((c) => {
+      arr.push(
+        Product.find({ idCategory: c._id })
+          .populate('idShop', 'name')
+          .populate('idCategory', 'name')
+          // .select('idCategory name price saleOff media type')
+          .select('-ingredient -effect -userManual -note')
+          .skip(page * limit - limit)
+          .limit(Number(limit))
+          .lean()
+      );
+    });
+    const products = await Promise.all(arr);
+    if (!products) throw Error(ERROR.CanNotGetProduct);
+    const data = products.map((p) => {
+      console.log(p.length);
+      const data = {};
+      if (p.length < 1) return p.pop();
+      data.title = p[0].idCategory.name;
+      data.products = p;
+      return data;
+    });
+    return data.filter(function (el) {
+      return el != null;
+    });
   }
 
   async getById(id) {

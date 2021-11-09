@@ -3,7 +3,7 @@ const { ERROR } = require('../common/constants');
 
 class CategoryService {
   async getAll() {
-    const data = await Category.find();
+    const data = await Category.find().lean();
     if (!data) throw Error(ERROR.CanNotGetCategory);
     return data;
   }

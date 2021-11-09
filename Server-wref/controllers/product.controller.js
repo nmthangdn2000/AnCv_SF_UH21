@@ -15,7 +15,16 @@ class ProductController {
     }
   }
 
-  //   async getByIdShop(req, res) {}
+  async getFull(req, res) {
+    try {
+      const data = await productService.getFullByCategory();
+      if (!data) return responseError(res, ERROR.NoData, data);
+      return responseSuccessWithData(res, data);
+    } catch (error) {
+      console.log(error);
+      return responseError(res, error.message);
+    }
+  }
 
   async getById(req, res) {
     try {
