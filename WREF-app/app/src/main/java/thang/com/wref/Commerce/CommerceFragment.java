@@ -1,11 +1,8 @@
 package thang.com.wref.Commerce;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -16,7 +13,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -27,18 +23,12 @@ import com.denzcoskun.imageslider.models.SlideModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import eightbitlab.com.blurview.BlurView;
-import eightbitlab.com.blurview.RenderScriptBlur;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import thang.com.wref.Components.Retrofits.ProductRetrofit;
 import thang.com.wref.LoginScreen.SharedPreferencesManagement;
-import thang.com.wref.MainScreen.Adapters.AllHavestHelperAdapter;
-import thang.com.wref.MainScreen.Havest.AllHavestHelperActivity;
-import thang.com.wref.MainScreen.Models.HarvesthelperModel;
-import thang.com.wref.MainScreen.Models.ProductModel;
 import thang.com.wref.MainScreen.Models.ResponseModel;
 import thang.com.wref.R;
 import thang.com.wref.util.NetworkUtil;
@@ -85,15 +75,15 @@ public class CommerceFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) {
-            Log.d(TAG, "bật");
-        } else if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_YES) {
-            Log.d(TAG, "tắt");
-        }
-    }
+//    @Override
+//    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+//        super.onConfigurationChanged(newConfig);
+//        if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) {
+//            Log.d(TAG, "bật");
+//        } else if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_YES) {
+//            Log.d(TAG, "tắt");
+//        }
+//    }
 
     private void setupSlide() {
         ArrayList<SlideModel> slideModels = new ArrayList<>();
@@ -106,9 +96,7 @@ public class CommerceFragment extends Fragment {
     }
 
     private void searchView() {
-//        EditText searchEditText = etSearchView.findViewById(androidx.appcompat.R.id.search_src_text);
-//        searchEditText.setTextColor(getResources().getColor(R.color.white));
-//        searchEditText.setHintTextColor(getResources().getColor(R.color.white));
+
     }
 
     @Override
@@ -136,6 +124,7 @@ public class CommerceFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(
                 getContext(), LinearLayoutManager.VERTICAL, false);
         rcvLayoutItem.setLayoutManager(linearLayoutManager);
+        rcvLayoutItem.setNestedScrollingEnabled(false);
     }
 
     private void getData(){

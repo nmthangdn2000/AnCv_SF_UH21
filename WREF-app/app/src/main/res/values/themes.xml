@@ -19,10 +19,11 @@
         <item name="android:editTextStyle">@style/RobotoTextViewStyle</item>
     </style>
 
-    <style name="text">
+    <style name="text" parent="Widget.AppCompat.SearchView">
         <item name="android:textColorHint">@color/white</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:editTextColor">@color/white</item>
     </style>
 
     <style name="textHint">

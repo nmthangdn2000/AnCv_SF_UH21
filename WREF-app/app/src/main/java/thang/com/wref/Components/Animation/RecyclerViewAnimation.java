@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import thang.com.wref.Commerce.ItemProductApdater;
 import thang.com.wref.MainScreen.Adapters.AgriAdapter;
 import thang.com.wref.MainScreen.Adapters.ItemThemeAgriAdapter;
 import thang.com.wref.StoriesScreen.Adapters.StoriesAdapter;
@@ -16,6 +17,10 @@ public class RecyclerViewAnimation {
     /** The magnitude of translation distance when the list reaches the edge on fling. */
     private static final float FLING_TRANSLATION_MAGNITUDE = 0.5f;
     private NestedScrollView nestedScrollView;
+
+    public RecyclerViewAnimation() {
+
+    }
 
     // bouncing animtion in recyclerview
     public void setAnimationRecyclerviewVertical(RecyclerView rcvItemThemeAgri, String adaper){
@@ -113,7 +118,7 @@ public class RecyclerViewAnimation {
                         float translationYDelta =
                                 sign * view.getWidth() * deltaDistance * OVERSCROLL_TRANSLATION_MAGNITUDE;
                         for (int childCount = view.getChildCount(), i = 0; i < childCount; ++i) {
-                            final StoriesAdapter.ViewHolder holder = (StoriesAdapter.ViewHolder) view.getChildViewHolder(view.getChildAt(i));
+                            final ItemProductApdater.ViewHolder holder = (ItemProductApdater.ViewHolder) view.getChildViewHolder(view.getChildAt(i));
                             holder.translationX.cancel();
                             holder.itemView.setTranslationX(holder.itemView.getTranslationX() + translationYDelta);
                         }
@@ -122,7 +127,7 @@ public class RecyclerViewAnimation {
                     public void onRelease() {
                         super.onRelease();
                         for (int childCount = view.getChildCount(), i = 0; i < childCount; ++i) {
-                            final StoriesAdapter.ViewHolder holder = (StoriesAdapter.ViewHolder) view.getChildViewHolder(view.getChildAt(i));
+                            final ItemProductApdater.ViewHolder holder = (ItemProductApdater.ViewHolder) view.getChildViewHolder(view.getChildAt(i));
                             holder.translationX.start();
                         }
                     }
@@ -133,7 +138,7 @@ public class RecyclerViewAnimation {
                         float sign = direction == DIRECTION_BOTTOM ? -1 : 1;
                         float translationVelocity = sign * velocity * FLING_TRANSLATION_MAGNITUDE;
                         for (int childCount = view.getChildCount(), i = 0; i < childCount; ++i) {
-                            final StoriesAdapter.ViewHolder holder = (StoriesAdapter.ViewHolder) view.getChildViewHolder(view.getChildAt(i));
+                            final ItemProductApdater.ViewHolder holder = (ItemProductApdater.ViewHolder) view.getChildViewHolder(view.getChildAt(i));
                             holder.translationX.setStartVelocity(translationVelocity)
                                     .start();
                         }

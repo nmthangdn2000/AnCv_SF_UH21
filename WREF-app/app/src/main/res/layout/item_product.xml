@@ -1,37 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="130dp"
-    android:layout_height="160dp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="145dp"
+    android:layout_height="235dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="0dp"
-    app:cardBackgroundColor="#E3FFF0"
     android:layout_marginRight="10dp">
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/img"
-            android:layout_width="match_parent"
+    <androidx.cardview.widget.CardView
+        android:layout_centerInParent="true"
+        android:layout_width="135dp"
+        android:layout_height="232dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#E3FFF0">
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_ca_chua"/>
-        <androidx.cardview.widget.CardView
-            app:cardElevation="0dp"
-            android:id="@+id/rootBlurView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            app:cardCornerRadius="16dp"
-            app:cardBackgroundColor="#63303030">
-            <TextView
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="15dp"
-                android:id="@+id/txtPrice"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="40.000 ₫"
-                android:textColor="@color/white"/>
-        </androidx.cardview.widget.CardView>
-    </RelativeLayout>
-</androidx.cardview.widget.CardView>
+                app:cardElevation="0dp"
+                app:cardCornerRadius="16dp">
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="135dp"
+                    android:layout_height="170dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_ca_chua"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp">
+                <TextView
+                    android:id="@+id/txtname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thuốc trừ sâu Thuốc trừ sâu Thuốc trừ sâu Thuốc trừ sâu"
+                    android:fontFamily="@font/lato_medium"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="40.000 ₫"
+                    android:fontFamily="@font/lato_bold"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

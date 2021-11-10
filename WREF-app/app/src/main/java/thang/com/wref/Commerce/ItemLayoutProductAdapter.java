@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import thang.com.wref.Components.Animation.RecyclerViewAnimation;
 import thang.com.wref.R;
 
 public class ItemLayoutProductAdapter extends RecyclerView.Adapter<ItemLayoutProductAdapter.ViewHolder>{
@@ -20,6 +21,7 @@ public class ItemLayoutProductAdapter extends RecyclerView.Adapter<ItemLayoutPro
     private ArrayList<ItemLayoutModel> list;
     private Context context;
     private ItemProductApdater itemProductApdater;
+    private RecyclerViewAnimation recyclerViewAnimation = new RecyclerViewAnimation();
 
     public ItemLayoutProductAdapter(ArrayList<ItemLayoutModel> list, Context context) {
         this.list = list;
@@ -41,6 +43,8 @@ public class ItemLayoutProductAdapter extends RecyclerView.Adapter<ItemLayoutPro
         holder.txtTitle.setText("" + list.get(position).getTitle());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         holder.rcvItemProduct.setLayoutManager(linearLayoutManager);
+        holder.rcvItemProduct.setNestedScrollingEnabled(false);
+        recyclerViewAnimation.setAnimationRecyclerviewHorizontal(holder.rcvItemProduct);
         itemProductApdater = new ItemProductApdater(list.get(position).getProductModel(), context);
         holder.rcvItemProduct.setAdapter(itemProductApdater);
     }
