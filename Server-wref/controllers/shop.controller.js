@@ -3,6 +3,16 @@ const { RESPONSE, ERROR } = require('../common/constants');
 const { responseError, responseSuccess, responseSuccessWithData } = require('./base.controller');
 
 class ShopController {
+  async getAll(req, res) {
+    try {
+      const data = await shopService.getAll();
+      if (!data) return responseError(res, ERROR.NoData, data);
+      return responseSuccessWithData(res, data);
+    } catch (error) {
+      return responseError(res, error.message);
+    }
+  }
+
   async getByUserId(req, res) {
     try {
       const data = await shopService.getByUserId(req.params.id);

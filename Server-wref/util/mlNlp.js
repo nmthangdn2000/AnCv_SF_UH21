@@ -108,12 +108,16 @@ module.exports = new MlNlp();
 async function withScript(intent) {}
 
 function getEntities(message, entity, dataEntity) {
+  const mess = new MlNlp().stringToSlug(message);
   let key = '';
-  dataEntity[entity].forEach((e) => {
-    key += `${e}|`;
+  dataEntity[entity].forEach((e, index) => {
+    if (index === dataEntity[entity].length - 1) key += `${e}`;
+    else key += `${e}|`;
   });
+  key = new MlNlp().stringToSlug(key);
   const regex = new RegExp(`(${key})`, 'g');
-  return message.match(regex);
+  const params = mess.match(regex);
+  return dataEntity[entity].filter((e) => new MlNlp().stringToSlug(e) == params);
 }
 
 async function resultMessageData(getIntent, oldIntent) {
@@ -155,4 +159,8 @@ function defaultMess() {
     type: 'text',
     message: 'Xin lỗi, tôi không thể hiểu ý của bạn!',
   };
+}
+
+function getKeyByValue(object, value) {
+  return Object.keys(object).find((key) => object[key] === value);
 }

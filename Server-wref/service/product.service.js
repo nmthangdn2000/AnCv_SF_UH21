@@ -41,7 +41,6 @@ class ProductService {
     const products = await Promise.all(arr);
     if (!products) throw Error(ERROR.CanNotGetProduct);
     const data = products.map((p) => {
-      console.log(p.length);
       const data = {};
       if (p.length < 1) return p.pop();
       data.title = p[0].idCategory.name;

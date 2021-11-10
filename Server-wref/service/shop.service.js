@@ -3,6 +3,12 @@ const { ERROR } = require('../common/constants');
 const fs = require('fs');
 
 class ShopService {
+  async getAll() {
+    const data = await Shop.find();
+    if (!data) throw Error(ERROR.CanNotGetShop);
+    return data;
+  }
+
   async getByUserId(id) {
     const data = await Shop.find({ idUser: id });
     if (!data) throw Error(ERROR.CanNotGetShop);

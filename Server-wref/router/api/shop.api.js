@@ -17,6 +17,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
+router.get('/shops', controller.getAll);
 // id user
 router.get('/:id/shop', controller.getByUserId);
 
