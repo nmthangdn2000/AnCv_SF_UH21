@@ -7,6 +7,7 @@ public class ProductModel {
     private String id;
     private String name;
     private ShopModel idShop;
+    private CategoryModel idCategory;
     private int price;
     private String media;
     private String company;
@@ -17,10 +18,11 @@ public class ProductModel {
     private String userManual;
     private String note;
 
-    public ProductModel(String id, String name, ShopModel idShop, int price, String media, String company, String saleOff, boolean type, String ingredient, String effect, String userManual, String note) {
+    public ProductModel(String id, String name, ShopModel idShop, CategoryModel idCategory, int price, String media, String company, String saleOff, boolean type, String ingredient, String effect, String userManual, String note) {
         this.id = id;
         this.name = name;
         this.idShop = idShop;
+        this.idCategory = idCategory;
         this.price = price;
         this.media = media;
         this.company = company;
@@ -38,6 +40,7 @@ public class ProductModel {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", idShop=" + idShop +
+                ", idCategory=" + idCategory +
                 ", price=" + price +
                 ", media='" + media + '\'' +
                 ", company='" + company + '\'' +
@@ -72,6 +75,14 @@ public class ProductModel {
 
     public void setIdShop(ShopModel idShop) {
         this.idShop = idShop;
+    }
+
+    public CategoryModel getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(CategoryModel idCategory) {
+        this.idCategory = idCategory;
     }
 
     public int getPrice() {

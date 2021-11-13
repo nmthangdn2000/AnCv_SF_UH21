@@ -9,6 +9,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import thang.com.wref.Commerce.ItemLayoutModel;
+import thang.com.wref.MainScreen.Models.DataPaging;
 import thang.com.wref.MainScreen.Models.PlantProtection;
 import thang.com.wref.MainScreen.Models.ProductModel;
 import thang.com.wref.MainScreen.Models.ResponseModel;
@@ -17,6 +18,12 @@ public interface ProductRetrofit {
     @GET("api/product/home")
     Call<ResponseModel<List<ItemLayoutModel>>> getFullProduct (
             @Header("Authorization") String auth
+    );
+
+    @GET("api/product?limit=10")
+    Call<ResponseModel<DataPaging<List<ProductModel>>>> getProductByCategory (
+            @Header("Authorization") String auth,
+            @Query("idCategory") String id
     );
 
     @GET("api/product/{id}")

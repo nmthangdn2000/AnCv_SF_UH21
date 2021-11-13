@@ -23,6 +23,7 @@ import com.makeramen.roundedimageview.RoundedImageView;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,9 +33,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import thang.com.wref.CameraPredictionScreen.Adapters.PesticideAdapter;
+import thang.com.wref.Commerce.ItemProductApdater;
+import thang.com.wref.Components.Animation.RecyclerViewAnimation;
 import thang.com.wref.Components.Retrofits.OrderRetrofit;
 import thang.com.wref.Components.Retrofits.ProductRetrofit;
 import thang.com.wref.LoginScreen.SharedPreferencesManagement;
+import thang.com.wref.MainScreen.Models.DataPaging;
 import thang.com.wref.MainScreen.Models.PlantProtection;
 import thang.com.wref.MainScreen.Models.ProductModel;
 import thang.com.wref.MainScreen.Models.ResponseModel;
@@ -47,7 +51,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
     private TextView name, price, amount, ingredient, effect, userManual, note, txtLocation, txtDetail;
     private RecyclerView suggestedPesticidesView;
     private AppCompatButton btnSignUp, reduced, increase;
-    private String idProduct = "", idPlant = "";
+    private String idProduct = "", idPlant = "", idCategory = "";
     private RelativeLayout rltBack, rl_backdrop;
     private NetworkUtil networkUtil;
     private Retrofit retrofit;
@@ -55,9 +59,10 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
     private OrderRetrofit orderRetrofit;
     private RoundedImageView qr_code, qr_code_big;
     private SharedPreferencesManagement sharedPreferencesManagement;
-    private PesticideAdapter suggestedPesticidesAdapter;
-    private ArrayList<HashMap<String, String>> suggestedPesticides= new ArrayList<>();
+    private ArrayList<ProductModel> productModels = new ArrayList<>();
+    private ItemProductApdater itemProductApdater;
     private String QRCodeImg = null;
+    private RecyclerViewAnimation recyclerViewAnimation = new RecyclerViewAnimation();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,35 +85,39 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
             mappingViewPlant();
             getPlantProtectionById();
         }
-
-        setupSuggestedPesticidesRecyclerView();
-        addPesticide("614a02ad57b54f3358b5b160", "Daconil 75WP", "Rất tốt", "50.000 VNĐ", "15g", "https://www.phandoiso1.com/wp-content/uploads/2020/12/Daconil-75WP-15g.jpg");
-        addPesticide("614a02ad57b54f3358b5b161","Overamis 300SC", "Hiệu quả cao", "80.000 VNĐ", "100ml", "https://vietnamnongnghiepsach.com.vn/wp-content/uploads/2017/08/thu%E1%BB%91c-overamis-300sc.jpg");
-        addPesticide("614a02ad57b54f3358b5b162","Revus Opti 440SC", "Hiệu quả cao", "285.000 VNĐ", "100ml", "https://product.hstatic.net/1000220686/product/rovus_opti_100ml_fix_master.jpg");
-        addPesticide("614a02ad57b54f3358b5b163", "AMISTAR 250SC", "Hiệu quả cao", "185.000 VNĐ", "100ml", "https://product.hstatic.net/1000220686/product/amistar-250sc_daa8583d2a524151a57f64fa57c819fb_master.jpg");
     }
 
     private void setupSuggestedPesticidesRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        suggestedPesticidesAdapter = new PesticideAdapter(suggestedPesticides, this);
-
+        itemProductApdater = new ItemProductApdater(productModels, ProductDetailActivity.this);
+        recyclerViewAnimation.setAnimationRecyclerviewHorizontal(suggestedPesticidesView);
         suggestedPesticidesView.setLayoutManager(layoutManager);
-        suggestedPesticidesView.setAdapter(suggestedPesticidesAdapter);
+        suggestedPesticidesView.setAdapter(itemProductApdater);
     }
 
-    private void addPesticide(String id, String name, String quality, String price, String weight, String image) {
-        HashMap<String, String> pesticide = new HashMap<>();
+    private void addPesticide() {
+        productRetrofit = retrofit.create(ProductRetrofit.class);
+        Log.d(TAG, "addPesticide:aaaaa " + idCategory);
+        Call<ResponseModel<DataPaging<List<ProductModel>>>> call = productRetrofit.getProductByCategory(sharedPreferencesManagement.getTOKEN(), idCategory);
+        call.enqueue(new Callback<ResponseModel<DataPaging<List<ProductModel>>>>() {
+            @Override
+            public void onResponse(Call<ResponseModel<DataPaging<List<ProductModel>>>> call, Response<ResponseModel<DataPaging<List<ProductModel>>>> response) {
+                ResponseModel<DataPaging<List<ProductModel>>> data = response.body();
+                DataPaging<List<ProductModel>> dataPaging = data.getData();
+                List<ProductModel> products = dataPaging.getData();
+                for (ProductModel productModel : products) {
+                    productModels.add(productModel);
+                }
+                itemProductApdater.notifyDataSetChanged();
+            }
 
-        pesticide.put("id", id);
-        pesticide.put("name", name);
-        pesticide.put("quality", quality);
-        pesticide.put("price", price);
-        pesticide.put("weight", weight);
-        pesticide.put("image", image);
+            @Override
+            public void onFailure(Call<ResponseModel<DataPaging<List<ProductModel>>>> call, Throwable t) {
 
-        suggestedPesticides.add(pesticide);
-        suggestedPesticidesAdapter.notifyDataSetChanged();
+            }
+        });
+
     }
 
     private void mapingView(){
@@ -175,6 +184,10 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                          effect.setText(productModel.getEffect());
                          userManual.setText(productModel.getUserManual());
                          note.setText(productModel.getNote());
+                         idCategory = productModel.getIdCategory().getId();
+                         setupSuggestedPesticidesRecyclerView();
+                         addPesticide();
+                         Log.d(TAG, "onResponse: " + idCategory);
 
                          Glide.with(ProductDetailActivity.this).load(BASE_URL+"qrCode/61580efedbcbfe2ce8e93bfb.png").into(qr_code);
                          Glide.with(ProductDetailActivity.this).load(BASE_URL+"qrCode/61580efedbcbfe2ce8e93bfb.png").into(qr_code_big);
@@ -325,5 +338,4 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                     }
                 }).show();
     }
-
 }

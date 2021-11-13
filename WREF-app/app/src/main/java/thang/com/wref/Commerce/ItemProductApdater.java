@@ -4,6 +4,7 @@ import static thang.com.wref.util.Constants.BASE_URL;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import thang.com.wref.MainScreen.Models.ProductModel;
+import thang.com.wref.MainScreen.Orders.ProductDetailActivity;
 import thang.com.wref.R;
 
 public class ItemProductApdater extends RecyclerView.Adapter<ItemProductApdater.ViewHolder>{
@@ -54,6 +56,16 @@ public class ItemProductApdater extends RecyclerView.Adapter<ItemProductApdater.
         String price = formatter.format(list.get(position).getPrice());
         holder.txtPrice.setText(price + " ₫");
         holder.txtname.setText("" + list.get(position).getName());
+        String id = list.get(position).getId();
+        holder.cardItemProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProductDetailActivity.class);
+                intent.putExtra("idProduct", id);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.getApplicationContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -65,11 +77,13 @@ public class ItemProductApdater extends RecyclerView.Adapter<ItemProductApdater.
         private ImageView img;
         private TextView txtPrice, txtname;
         public SpringAnimation translationX;
+        private CardView cardItemProduct;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             img = (ImageView) itemView.findViewById(R.id.img);
             txtPrice = (TextView) itemView.findViewById(R.id.txtPrice);
             txtname = (TextView) itemView.findViewById(R.id.txtname);
+            cardItemProduct = (CardView) itemView.findViewById(R.id.cardItemProduct);
             translationX = new SpringAnimation(itemView, SpringAnimation.TRANSLATION_X).setSpring(
                     new SpringForce().setFinalPosition(0f)
                             .setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY)

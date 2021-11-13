@@ -116,7 +116,7 @@ public class RecyclerViewAnimation {
                     private void handlePull(float deltaDistance) {
                         float sign = direction == DIRECTION_BOTTOM ? -1 : 1;
                         float translationYDelta =
-                                sign * view.getWidth() * deltaDistance * OVERSCROLL_TRANSLATION_MAGNITUDE;
+                                sign * view.getHeight() * deltaDistance * OVERSCROLL_TRANSLATION_MAGNITUDE;
                         for (int childCount = view.getChildCount(), i = 0; i < childCount; ++i) {
                             final ItemProductApdater.ViewHolder holder = (ItemProductApdater.ViewHolder) view.getChildViewHolder(view.getChildAt(i));
                             holder.translationX.cancel();
