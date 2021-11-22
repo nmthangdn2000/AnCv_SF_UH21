@@ -58,7 +58,8 @@
                 <label for="reply-intent" style="cursor: pointer;"class="col-form-label slide">Phản hồi: <i class="fas fa-angle-down" style="margin-left: 20px;"></i></label>
                 <div  style="display: none;">
                   <div style="display: flex;">
-                    <input type="text" name="feedback" class="form-control" id="reply-intent" style="margin: 2px 0; width: 100%;"></input>
+                    <textarea name="feedback" cols="40" rows="5" id="reply-intent" style="margin: 2px 0; width: 100%;"></textarea>
+                    <!-- <input type="text" name="feedback" class="form-control" id="reply-intent" style="margin: 2px 0; width: 100%;"></input> -->
                     <select class="form-select" aria-label="Default select example" name="type" style="margin-left: 20px; width: 150px;">
                       <option selected value="">Chọn kiểu phản hồi </option>
                       <option value="text">text</option>
@@ -71,10 +72,10 @@
               <div class="mb-3">
                 <label for="reply-intent" style="cursor: pointer;"class="col-form-label slide">Tham số <i class="fas fa-angle-down" style="margin-left: 20px;"></i></label>
                 <div style="display: none;" id="input-params">
-                  <select class="form-select" aria-label="Default select example" name="script_intent" style="margin-top: 10px;">
-                    <option selected value="">Chọn ý định </option>
-                    <% data.forEach((d, index) => { %>
-                    <option value="<%= d._id %>"><%= d.intent %></option>
+                  <select class="form-select" aria-label="Default select example" name="script_entity" style="margin-top: 10px;">
+                    <option selected value="">Chọn tham số </option>
+                    <% entity.forEach((d, index) => { %>
+                    <option value="<%= d._id %>"><%= d.name %></option>
                     <% }) %>
                   </select>
                   <input type="number" name="script_repeat" class="form-control" style="margin: 2px 0;" placeholder="Nhập số lần nhắc"></input>
@@ -185,10 +186,10 @@
       })
 
       $('#new-params').on('click', () => {
-        const html = '<select class="form-select" aria-label="Default select example" name="script_intent" style="margin-top: 10px;">'+
+        const html = '<select class="form-select" aria-label="Default select example" name="script_entity" style="margin-top: 10px;">'+
                    '<option selected>Chọn ý định </option>'+
-                   '<% data.forEach((d, index) => { %>'+
-                    '<option value="<%= d._id %>"><%= d.intent %></option>'+
+                   '<% entity.forEach((d, index) => { %>'+
+                    '<option value="<%= d._id %>"><%= d.name %></option>'+
                     '<% }) %>'+
                   '</select>'+
                   '<input type="number" name="script_repeat" class="form-control" style="margin: 2px 0;" placeholder="Nhập số lần nhắc"></input>'+

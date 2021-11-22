@@ -20,7 +20,10 @@ class BotController {
       return responseSuccessWithData(res, data);
     } catch (error) {
       console.log(error);
-      return responseError(res, error.message);
+      return responseSuccessWithData(res, {
+        type: 'text',
+        message: 'Xin lỗi, tôi không thể hiểu ý của bạn!',
+      });
     }
   }
 }

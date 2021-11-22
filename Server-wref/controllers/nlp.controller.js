@@ -8,8 +8,9 @@ const { responseError, responseSuccess, responseSuccessWithData } = require('./b
 class NlpController {
   async intent(req, res) {
     try {
+      const entity = await entityService.getEntity();
       const data = await intentService.getIntent();
-      return res.render('nlp/main.ejs', { data, page: 'intent' });
+      return res.render('nlp/main.ejs', { data, entity, page: 'intent' });
     } catch (error) {
       return responseError(res, error.message);
     }
@@ -17,13 +18,13 @@ class NlpController {
 
   async createIntent(req, res) {
     try {
-      const { intent, sample, feedback, type, script_intent, script_repeat, script_feedback } = req.body;
+      const { intent, sample, feedback, type, script_entity, script_repeat, script_feedback } = req.body;
       console.log(req.body);
       const idIntent = await intentService.createIntent(
         intent,
         feedback,
         type,
-        script_intent,
+        script_entity,
         script_repeat,
         script_feedback
       );

@@ -3,7 +3,7 @@ const tokenizer = vntk.wordTokenizer();
 const { stopWords } = require('../util/nlp');
 const Intent = require('../models/intent.model');
 const weatherService = require('../service/getDataWeather');
-
+const { TYPE_INTENT } = require('../common/constants');
 const params = {};
 class MlNlp {
   pretreatment(text) {
@@ -86,13 +86,13 @@ class MlNlp {
     const param = getEntities(message, getIntent.script[index].entity.name, entityData);
 
     // đúng
-    if (param[0]) {
+    if (param && param[0]) {
       params[getIntent.script[index].entity.name] = param[0];
       index++;
       if (index < getIntent.script.length) {
-        return resultMess('text', getIntent.script[index].feedback, getIntent.script[index].entity, oldIntent, 0);
+        return resultMess('text', getIntent.script[index].feedback, getIntent.script[index].entity._id, oldIntent, 0);
       }
-      return resultMessageData(getIntent, oldIntent);
+      if (getIntent.type === TYPE_INTENT.DATA) return resultMessageData(getIntent, oldIntent);
     }
     //sai thì lặp lại câu hỏi
     repeat = Number(repeat) + 1;
@@ -108,8 +108,11 @@ module.exports = new MlNlp();
 async function withScript(intent) {}
 
 function getEntities(message, entity, dataEntity) {
+  if (entity === 'email') return message.match('[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-\\.]+');
+  if (entity === 'phone') return message.match(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/);
   const mess = new MlNlp().stringToSlug(message);
   let key = '';
+  dataEntity[entity] = dataEntity[entity].sort((a, b) => b.length - a.length);
   dataEntity[entity].forEach((e, index) => {
     if (index === dataEntity[entity].length - 1) key += `${e}`;
     else key += `${e}|`;

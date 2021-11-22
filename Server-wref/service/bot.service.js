@@ -29,6 +29,7 @@ class BotService {
       labelList.push(intent);
       return { sample, intent };
     });
+    console.log(data);
     labelList = [...new Set(labelList)];
     // Bayes Classifier
     try {
@@ -82,7 +83,7 @@ class BotService {
       shuffle: true,
     };
 
-    model.fit(xs, ys, options).then((data) => {
+    await model.fit(xs, ys, options).then((data) => {
       console.log(data.history.loss);
     });
   }
