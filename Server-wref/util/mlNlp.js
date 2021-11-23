@@ -93,6 +93,7 @@ class MlNlp {
         return resultMess('text', getIntent.script[index].feedback, getIntent.script[index].entity._id, oldIntent, 0);
       }
       if (getIntent.type === TYPE_INTENT.DATA) return resultMessageData(getIntent, oldIntent);
+      if (getIntent.type === TYPE_INTENT.TEXT) return resultMessageText(getIntent, oldIntent);
     }
     //sai thì lặp lại câu hỏi
     repeat = Number(repeat) + 1;
@@ -124,6 +125,18 @@ function getEntities(message, entity, dataEntity) {
 }
 
 async function resultMessageData(getIntent, oldIntent) {
+  let feedback = getIntent.feedback;
+
+  const keys = feedback.match(/{\w+}/g);
+  const keyClear = keys.map((k) => k.match(/\w+/));
+  keys.forEach((k, index) => {
+    const regex = new RegExp(k, 'g');
+    feedback = feedback.replace(regex, params[keyClear[index]]);
+  });
+  return resultMessWithData(getIntent.type, feedback, data, oldIntent, 0);
+}
+
+async function resultMessageText(getIntent, oldIntent) {
   let data;
   if (getIntent.intent === 'weather') data = await weatherService.getWeatherCity(new MlNlp().stringToSlug(params.city));
   let feedback = getIntent.feedback;
@@ -134,7 +147,7 @@ async function resultMessageData(getIntent, oldIntent) {
     const regex = new RegExp(k, 'g');
     feedback = feedback.replace(regex, params[keyClear[index]]);
   });
-  return resultMessWithData(getIntent.type, feedback, data, oldIntent, 0);
+  return resultMess(getIntent.type, feedback, null, oldIntent, 0);
 }
 
 function resultMessWithData(type, message, data, oldIntent, repeat) {

@@ -83,7 +83,9 @@
               $('#typing').remove();
               switch (data.type) {
                 case 'text':
-                  divDontent.prepend('<div class="mess-bot"><div><span>' + data.message + '</span></div></div>');
+                  divDontent.prepend(
+                    '<div class="mess-bot"><div><span>' + showText(data.message) + '</span></div></div>'
+                  );
                   break;
                 case 'data':
                   divDontent.prepend(
@@ -110,6 +112,13 @@
           html = html + `<div>${name}: ${value}</div>`;
         }
         return html;
+      }
+
+      function showText(text) {
+        let a;
+        a = text.replaceAll('\n', '<br>');
+        a = text.replaceAll('\\n', '<br>');
+        return a;
       }
     </script>
   </body>
