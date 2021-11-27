@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/chatbot.css" />
+    <link rel="stylesheet" href="../../css/voicebot.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link
       rel="stylesheet"
@@ -17,15 +17,14 @@
   <body class="p-3">
     <%- include('./header.ejs') %>
     <h2 class="text-center">Voice Bot</h2>
-    <div style="padding: 30px 100px" class="d-flex justify-content-center">
-      <div class="rounded border border-primary position-relative" style="width: 400px; height: 600px">
-        <div id="content" class="d-flex flex-column-reverse p-2" style="height: 540px; width: 100%; overflow-y: auto">
-          <!-- content -->
-        </div>
-        <div class="position-absolute border-top p-2 d-flex justify-content-between" style="bottom: 0; width: 100%">
-          <input id="mess" type="text" placeholder="Nhập tin nhắn ..." style="width: 100%; margin-right: 10px" />
-          <button id="send-message"><i class="fas fa-paper-plane"></i></button>
-        </div>
+    <div class="container-voicebot">
+      <button id="speech" class="btn-voicebot m-left type2">
+      <div class="pulse-ring "></div>
+      <i class="fa fa-microphone" aria-hidden="true"></i>
+    </div>
+    <div class="container-voicebot" style="width: 100%;">
+      <div id="content-message" style="width: 500px;">
+       
       </div>
     </div>
     <script
@@ -34,82 +33,49 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=FKR8sFsn"></script>
     <script>
       let entity;
       let oldIntent;
       let repeat;
-      $(document).ready(function () {
-        const html =
-          '<div class="chat-bubble" id="typing">' +
-          '<div class="typing">' +
-          '<div class="dot"></div>' +
-          '<div class="dot"></div>' +
-          '<div class="dot"></div>' +
-          '</div>' +
-          '</div>';
-        const btnSendMess = $('#send-message');
-        const divDontent = $('#content');
-        const mess = $('#mess');
-        divDontent.prepend('<div class="mess-bot"><div><span>Xin chào bạn</span></div></div>');
-        btnSendMess.on('click', () => {
-          hanldeMessage();
-        });
-        mess.keypress(function (e) {
-          const key = e.which;
-          if (key == 13) {
-            hanldeMessage();
+      function hanldeMessage(messClient) {
+        // socket.emit('client-send', mess.val());
+        $.ajax({
+          method: 'POST',
+          url: '/api/bot/message',
+          data: {
+            message: messClient,
+            entity,
+            oldIntent,
+            repeat: repeat,
+          },
+        }).done(function (res) {
+          const data = res.data;
+          console.log(data);
+          console.log(data.repeat);
+          entity = data.entity ? data.entity : null;
+          oldIntent = data.oldIntent ? data.oldIntent : null;
+          repeat = Number.isInteger(data.repeat) ? data.repeat : null;
+          console.log(repeat);
+          switch (data.type) {
+            case 'text':
+              textToSpeed(data.message, showText(data.message));
+              break;
+            case 'data':
+              textToSpeed(`${data.message}. ${dataToMess(data.data)}`, `${data.message}<br>${dataToMess(data.data)}`);
+              break;
+            default:
+              break;
           }
         });
-        function hanldeMessage() {
-          // socket.emit('client-send', mess.val());
-          $.ajax({
-            method: 'POST',
-            url: '/api/bot/message',
-            data: {
-              message: mess.val(),
-              entity,
-              oldIntent,
-              repeat: repeat,
-            },
-          }).done(function (res) {
-            const data = res.data;
-            console.log(data);
-            console.log(data.repeat);
-            entity = data.entity ? data.entity : null;
-            oldIntent = data.oldIntent ? data.oldIntent : null;
-            repeat = Number.isInteger(data.repeat) ? data.repeat : null;
-            console.log(repeat);
-            setTimeout(() => {
-              $('#typing').remove();
-              switch (data.type) {
-                case 'text':
-                  divDontent.prepend(
-                    '<div class="mess-bot"><div><span>' + showText(data.message) + '</span></div></div>'
-                  );
-                  break;
-                case 'data':
-                  divDontent.prepend(
-                    `<div class="mess-bot"><div><b>${data.message}</b><br>${dataToMess(data.data)}</div></div>`
-                  );
-                  break;
-
-                default:
-                  break;
-              }
-            }, 2000);
-          });
-          divDontent.prepend('<div class="mess-client"><div><span>' + mess.val() + '</span></div></div>');
-          mess.val('');
-          divDontent.prepend(html);
-        }
-      });
+      }
 
       function dataToMess(data) {
         let html = '';
         for (var property in data) {
           name = property;
           value = data[property];
-          html = html + `<div>${name}: ${value}</div>`;
+          html = html + ` ${name}: ${value}. `;
         }
         return html;
       }
@@ -119,6 +85,77 @@
         a = text.replaceAll('\n', '<br>');
         a = text.replaceAll('\\n', '<br>');
         return a;
+      }
+      // <!-- voice bot -->
+      class SpeechRecognitionApi {
+        constructor(options) {
+          const SpeechToText = window.speechRecognition || window.webkitSpeechRecognition;
+          this.speechApi = new SpeechToText();
+          this.speechApi.lang = 'vi-VN';
+          this.speechApi.continuous = true;
+          this.speechApi.interimResults = false;
+          this.output = options.output ? options.output : document.createElement('div');
+          console.log(this.output);
+          this.speechApi.onresult = (event) => {
+            console.log(event);
+            var resultIndex = event.resultIndex;
+            var transcript = event.results[resultIndex][0].transcript;
+
+            console.log('transcript>>', transcript);
+            console.log('this.output>> ', this.output);
+            this.output.textContent = transcript;
+            
+            this.stop();
+            hanldeMessage(transcript);
+            appendMessage(transcript, 'Tôi')
+          };
+
+          this.speechApi.onvoiceschanged = (event) => {
+            console.log(event);
+          }
+        }
+        init() {
+          this.speechApi.start();
+        }
+        stop() {
+          $('.pulse-ring').removeClass('active');
+          this.speechApi.stop();
+        }
+      }
+
+      function textToSpeed(text, textShow) {
+        // const lang = 'vi-VN';
+        // const speech = new SpeechSynthesisUtterance();
+        // const voices = window.speechSynthesis.getVoices();
+        // console.log(voices);
+        // speech.voice = voices.filter((voice) => voice.lang == lang)[0];
+        // console.log(speech);
+        // console.log(speech.voice);
+        // speech.lang = lang;
+        // speech.text = text;
+        // window.speechSynthesis.speak(speech);
+        responsiveVoice.setDefaultVoice('Vietnamese Female');
+        setTimeout(()=>{
+          responsiveVoice.speak(text);
+        appendMessage(textShow, 'Bot');
+        }, 1500)
+      }
+
+      window.onload = function () {
+        var speech = new SpeechRecognitionApi({
+          output: document.querySelector('.output'),
+        });
+
+        $('#speech').on('click', () => {
+          const classA = $('.pulse-ring').attr('class').split(' ');
+          if(classA[1] && classA[1] === 'active') return speech.stop();
+          speech.init();
+          $('.pulse-ring').addClass('active');
+        });
+      };
+
+      function appendMessage(message, who) {
+        $('#content-message').append(`<div><b>${who}</b>: ${message}</div>`)
       }
     </script>
   </body>
