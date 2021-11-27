@@ -124,6 +124,10 @@ class NlpController {
   async chatbot(req, res) {
     res.render('nlp/chatbot.ejs', { page: 'chatbot' });
   }
+
+  async chatbot(req, res) {
+    res.render('nlp/voicebot.ejs', { page: 'voicebot' });
+  }
 }
 
 module.exports = new NlpController();

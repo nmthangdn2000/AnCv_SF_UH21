@@ -125,6 +125,8 @@ function getEntities(message, entity, dataEntity) {
 }
 
 async function resultMessageData(getIntent, oldIntent) {
+  let data;
+  if (getIntent.intent === 'weather') data = await weatherService.getWeatherCity(new MlNlp().stringToSlug(params.city));
   let feedback = getIntent.feedback;
 
   const keys = feedback.match(/{\w+}/g);
@@ -137,10 +139,7 @@ async function resultMessageData(getIntent, oldIntent) {
 }
 
 async function resultMessageText(getIntent, oldIntent) {
-  let data;
-  if (getIntent.intent === 'weather') data = await weatherService.getWeatherCity(new MlNlp().stringToSlug(params.city));
   let feedback = getIntent.feedback;
-
   const keys = feedback.match(/{\w+}/g);
   const keyClear = keys.map((k) => k.match(/\w+/));
   keys.forEach((k, index) => {

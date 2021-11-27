@@ -49,10 +49,11 @@ class BotService {
     data.forEach((d) => {
       const sentenceClean = mlNlp.pretreatment(d.sample);
       const words = sentenceClean.split(' ');
-      vocabulary = mlNlp.arrayUnique(vocabulary.concat(words));
+      vocabulary = vocabulary.concat(words);
       labels.push(labelList.indexOf(d.intent));
     });
-    console.log(vocabulary.length);
+    vocabulary = mlNlp.arrayUnique(vocabulary);
+    console.log(vocabulary);
     let vector = [];
     data.forEach((d) => {
       const sentenceClean = mlNlp.pretreatment(d.sample);
@@ -60,7 +61,7 @@ class BotService {
       const bagOfWord = mlNlp.bagOfWords(vocabulary, words);
       vector.push(bagOfWord);
     });
-    console.log(vector.length);
+    console.log(vector[vector.length - 1]);
 
     model = tf.sequential();
 
@@ -70,6 +71,7 @@ class BotService {
     model.compile({
       optimizer: tf.train.adam(),
       loss: 'categoricalCrossentropy',
+      metrics: ['accuracy'],
     });
 
     const xs = tf.tensor2d(vector);
@@ -78,13 +80,14 @@ class BotService {
     labelTensor.dispose();
 
     const options = {
-      epochs: 500,
+      epochs: 400,
       validationSplit: 0.1,
       shuffle: true,
     };
 
     await model.fit(xs, ys, options).then((data) => {
-      console.log(data.history.loss);
+      console.log(data.history.loss[data.history.loss.length - 1]);
+      console.log(data.history.acc[data.history.acc.length - 1]);
     });
   }
 

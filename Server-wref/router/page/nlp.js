@@ -24,5 +24,7 @@ router.put('/nlp/entity', controller.intent);
 router.get('/nlp/entity/delete/:id', controller.deleteEntity);
 // chatbot
 router.get('/nlp/chatbot', controller.chatbot);
+// voicebot
+router.get('/nlp/voicebot', controller.chatbot);
 
 module.exports = router;
