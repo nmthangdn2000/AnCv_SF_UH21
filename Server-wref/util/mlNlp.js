@@ -5,6 +5,7 @@ const Intent = require('../models/intent.model');
 const weatherService = require('../service/getDataWeather');
 const { TYPE_INTENT } = require('../common/constants');
 const params = {};
+const rp = require('request-promise');
 class MlNlp {
   pretreatment(text) {
     const textStopWord = this.stopWord(text);
@@ -22,12 +23,13 @@ class MlNlp {
     });
     removeStopWords = removeStopWords.map((w) => w.replace(' ', '_'));
     // nối lại thành câu
-    return removeStopWords.join(' ').toLowerCase();
+    return removeStopWords.join(' ').toLowerCase().trim();
   }
 
   cleanText(text) {
     const textClean = text.replace(/[&\/\\#,+()$~%.'":*?!<>{}]/g, '');
-    return this.stringToSlug(textClean);
+    // return this.stringToSlug(textClean);
+    return textClean;
   }
 
   arrayUnique(array) {
@@ -111,6 +113,9 @@ async function withScript(intent) {}
 function getEntities(message, entity, dataEntity) {
   if (entity === 'email') return message.match('[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-\\.]+');
   if (entity === 'phone') return message.match(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/);
+  if (entity === 'number') return message.match(/\d+/);
+  if (entity === 'url')
+    return message.match(/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi);
   const mess = new MlNlp().stringToSlug(message);
   let key = '';
   dataEntity[entity] = dataEntity[entity].sort((a, b) => b.length - a.length);
@@ -127,6 +132,7 @@ function getEntities(message, entity, dataEntity) {
 async function resultMessageData(getIntent, oldIntent) {
   let data;
   if (getIntent.intent === 'weather') data = await weatherService.getWeatherCity(new MlNlp().stringToSlug(params.city));
+  if (getIntent.scriptCode && getIntent.scriptCode.api) data = await runScriptCode(getIntent);
   let feedback = getIntent.feedback;
 
   const keys = feedback.match(/{\w+}/g);
@@ -146,6 +152,7 @@ async function resultMessageText(getIntent, oldIntent) {
     const regex = new RegExp(k, 'g');
     feedback = feedback.replace(regex, params[keyClear[index]]);
   });
+  params = {};
   return resultMess(getIntent.type, feedback, null, oldIntent, 0);
 }
 
@@ -178,4 +185,27 @@ function defaultMess() {
 
 function getKeyByValue(object, value) {
   return Object.keys(object).find((key) => object[key] === value);
+}
+
+function runScriptCode(getIntent) {
+  let URL = getIntent.scriptCode.api;
+  const myFucntion = getIntent.scriptCode.code;
+
+  const keys = URL.match(/{\w+}/g);
+  const keyClear = keys.map((k) => k.match(/\w+/));
+  keys.forEach((k, index) => {
+    const regex = new RegExp(k, 'g');
+    URL = URL.replace(regex, params[keyClear[index]]);
+  });
+
+  return rp(URL)
+    .then((response) => {
+      const data = JSON.parse(response);
+      const formatData = eval('(' + myFucntion + ')');
+      return formatData(data);
+    })
+    .catch((err) => {
+      console.log('lỗi', err);
+      return err;
+    });
 }

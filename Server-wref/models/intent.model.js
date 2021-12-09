@@ -15,6 +15,10 @@ const intentShema = new mongoose.Schema({
       feedback: String,
     },
   ],
+  scriptCode: {
+    api: String,
+    code: String,
+  },
   create_at: { type: Number },
   update_at: { type: Number },
 });

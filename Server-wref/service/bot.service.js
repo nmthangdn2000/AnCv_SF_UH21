@@ -31,6 +31,7 @@ class BotService {
     });
     console.log(data);
     labelList = [...new Set(labelList)];
+    console.log(labelList);
     // Bayes Classifier
     try {
       data.forEach((d) => {
@@ -53,6 +54,10 @@ class BotService {
       labels.push(labelList.indexOf(d.intent));
     });
     vocabulary = mlNlp.arrayUnique(vocabulary);
+    const index = vocabulary.indexOf('');
+    if (index > -1) {
+      vocabulary.splice(index, 1);
+    }
     console.log(vocabulary);
     let vector = [];
     data.forEach((d) => {
@@ -86,8 +91,8 @@ class BotService {
     };
 
     await model.fit(xs, ys, options).then((data) => {
-      console.log(data.history.loss[data.history.loss.length - 1]);
-      console.log(data.history.acc[data.history.acc.length - 1]);
+      console.log('loss: ', data.history.loss[data.history.loss.length - 1]);
+      console.log('accuracy: ', data.history.acc[data.history.acc.length - 1]);
     });
   }
 
