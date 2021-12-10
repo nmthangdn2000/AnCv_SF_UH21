@@ -4,7 +4,7 @@ const { stopWords } = require('../util/nlp');
 const Intent = require('../models/intent.model');
 const weatherService = require('../service/getDataWeather');
 const { TYPE_INTENT } = require('../common/constants');
-const params = {};
+let params = {};
 const rp = require('request-promise');
 class MlNlp {
   pretreatment(text) {
@@ -53,6 +53,10 @@ class MlNlp {
     if (message.script.length > 0) {
       return resultMess('text', message.script[0].feedback, message.script[0].entity, intent, 0);
     }
+    if (message.scriptCode && message.scriptCode.api) {
+      return resultMessageData(message);
+    }
+
     return resultMess('text', message.feedback);
     // return {
     //   type: 'text',
@@ -136,11 +140,15 @@ async function resultMessageData(getIntent, oldIntent) {
   let feedback = getIntent.feedback;
 
   const keys = feedback.match(/{\w+}/g);
-  const keyClear = keys.map((k) => k.match(/\w+/));
-  keys.forEach((k, index) => {
-    const regex = new RegExp(k, 'g');
-    feedback = feedback.replace(regex, params[keyClear[index]]);
-  });
+  if (keys) {
+    const keyClear = keys.map((k) => k.match(/\w+/));
+    keys.forEach((k, index) => {
+      const regex = new RegExp(k, 'g');
+      feedback = feedback.replace(regex, params[keyClear[index]]);
+    });
+    params = {};
+  }
+
   return resultMessWithData(getIntent.type, feedback, data, oldIntent, 0);
 }
 
@@ -190,15 +198,17 @@ function getKeyByValue(object, value) {
 function runScriptCode(getIntent) {
   let URL = getIntent.scriptCode.api;
   const myFucntion = getIntent.scriptCode.code;
-
+  const option = JSON.parse(getIntent.scriptCode.option);
   const keys = URL.match(/{\w+}/g);
-  const keyClear = keys.map((k) => k.match(/\w+/));
-  keys.forEach((k, index) => {
-    const regex = new RegExp(k, 'g');
-    URL = URL.replace(regex, params[keyClear[index]]);
-  });
+  if (keys) {
+    const keyClear = keys.map((k) => k.match(/\w+/));
+    keys.forEach((k, index) => {
+      const regex = new RegExp(k, 'g');
+      URL = URL.replace(regex, params[keyClear[index]]);
+    });
+  }
 
-  return rp(URL)
+  return rp(URL, option)
     .then((response) => {
       const data = JSON.parse(response);
       const formatData = eval('(' + myFucntion + ')');

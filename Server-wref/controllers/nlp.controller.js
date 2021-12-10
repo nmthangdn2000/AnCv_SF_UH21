@@ -18,7 +18,8 @@ class NlpController {
 
   async createIntent(req, res) {
     try {
-      const { intent, sample, feedback, type, script_entity, script_repeat, script_feedback, api, code } = req.body;
+      const { intent, sample, feedback, type, script_entity, script_repeat, script_feedback, api, code, option } =
+        req.body;
       console.log(req.body);
       const idIntent = await intentService.createIntent(
         intent,
@@ -28,7 +29,8 @@ class NlpController {
         script_repeat,
         script_feedback,
         api,
-        code
+        code,
+        option
       );
       if (Array.isArray(sample)) await sampleService.createMultipleSample(idIntent, sample);
       else sampleService.createSample(idIntent, sample);

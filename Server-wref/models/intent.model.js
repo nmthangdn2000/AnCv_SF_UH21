@@ -18,6 +18,7 @@ const intentShema = new mongoose.Schema({
   scriptCode: {
     api: String,
     code: String,
+    option: String,
   },
   create_at: { type: Number },
   update_at: { type: Number },

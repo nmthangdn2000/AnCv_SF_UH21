@@ -8,12 +8,13 @@ class IntentService {
     return intent;
   }
 
-  async createIntent(data, feedback, type, script_entity, script_repeat, script_feedback, api, code) {
+  async createIntent(data, feedback, type, script_entity, script_repeat, script_feedback, api, code, option) {
     const script = createScript(script_entity, script_repeat, script_feedback);
     let scriptCode = {};
     if (api && code) {
       scriptCode.api = api;
       scriptCode.code = code;
+      scriptCode.option = option;
     }
     const newIntent = await new Intent({
       intent: data,
