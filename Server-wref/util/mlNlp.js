@@ -198,7 +198,7 @@ function getKeyByValue(object, value) {
 function runScriptCode(getIntent) {
   let URL = getIntent.scriptCode.api;
   const myFucntion = getIntent.scriptCode.code;
-  const option = JSON.parse(getIntent.scriptCode.option);
+  const option = getIntent.scriptCode.option ? JSON.parse(getIntent.scriptCode.option) : {};
   const keys = URL.match(/{\w+}/g);
   if (keys) {
     const keyClear = keys.map((k) => k.match(/\w+/));
