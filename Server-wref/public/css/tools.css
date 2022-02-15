@@ -1,0 +1,27 @@
+#header {
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+  background-image: url("../images/leaf.png");
+  background-size: cover;
+  background-position-y: calc();
+}
+
+#droughtPrediction {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-image: url("../images/droughtBg.jpg");
+  background-size: cover;
+}
+
+.VietNamMap > path.active {
+  fill: var(--bs-primary);
+}
+
+.VietNamMap > path {
+  fill: var(--bs-secondary);
+  cursor: help;
+}
+
+.VietNamMap > path:hover {
+  opacity: 0.8;
+}
