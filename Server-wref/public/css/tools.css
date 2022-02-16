@@ -1,9 +1,11 @@
 #header {
   padding-top: 10rem;
   padding-bottom: 8rem;
-  background-image: url("../images/leaf.png");
-  background-size: cover;
   background-position-y: calc();
+  background-image: url("/images/green frame.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #droughtPrediction {

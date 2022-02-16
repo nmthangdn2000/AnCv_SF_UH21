@@ -19,10 +19,10 @@ const initiateDroughtPrediction = () => {
   const provincePaths = Array.from(document.querySelectorAll("#droughtPrediction .VietNamMap > path"));
   const provinceListElement = document.querySelector("#droughtPrediction .provinceChooser");
 
-  initiateProvinceChooser(provincePaths, provinceListElement, dataSummaryElements);
+  const provinceList = initiateProvinceChooser(provincePaths, provinceListElement, dataSummaryElements);
 
   document.querySelector("#droughtPrediction button").onclick = (event) =>
-    handleButtonClicked(event.target, dataSummaryElements);
+    handleButtonClicked(event.target, provinceList, dataSummaryElements);
 };
 
 const initiateProvinceChooser = (provincePaths, provinceListElement, summaryElements) => {
@@ -67,6 +67,8 @@ const initiateProvinceChooser = (provincePaths, provinceListElement, summaryElem
       handleClickProvince(province, provinceList, summaryElements);
     };
   });
+
+  return provinceList;
 };
 
 const handleClickProvince = (province, provinceList, summaryElements) => {
@@ -94,13 +96,6 @@ const findProvince = (value, provinceList) => {
   return provinceList.find((item) => item.name == value);
 };
 
-const handleDatatypeSelected = (datatype, datatypeList, summaryElements) => {
-  datatype.selected = !datatype.selected;
-
-  const selectedDatatypes = datatypeList.filter((item) => item.optionElement.selected);
-  updateSelectDatatypeSummary(selectedDatatypes, summaryElements);
-};
-
 const updateSelectDatatypeSummary = (selectedDatatypes, summaryElements) => {
   let title = "Chưa có Loại dữ liệu nào được chọn";
   let details = "Nhấn vào Danh Sách các Loại dữ liệu để chọn.";
@@ -114,8 +109,10 @@ const updateSelectDatatypeSummary = (selectedDatatypes, summaryElements) => {
   summaryElements.selectedDatatypes.details.innerText = details;
 };
 
-const handleButtonClicked = (button, summaryElements) => {
-  if (summaryElements.selectedProvince.title.innerText == "Các địa điểm có nguy cơ hạn hán cao") {
+const handleButtonClicked = (button, provinceList, summaryElements) => {
+  const provinceChosen = findProvince(summaryElements.selectedProvince.title.innerText, provinceList);
+
+  if (!provinceChosen) {
     Swal.fire("Bạn chưa chọn tỉnh thành để dự đoán!");
     return;
   }
@@ -126,8 +123,19 @@ const handleButtonClicked = (button, summaryElements) => {
   setTimeout(() => {
     button.innerText = "Dự đoán";
     button.style.opacity = 1;
-    summaryElements.selectedProvince.details.innerText = `Các nơi có nguy cơ bị hạn hán: ${123}`;
-    summaryElements.prediction.averageSPI.innerText = `Chỉ số SPI trung bình: ${1.6}`;
-    summaryElements.prediction.averageNDVI.innerText = `Chỉ số NDVI trung bình: ${0.24}`;
+
+    const { pathElement } = provinceChosen;
+
+    summaryElements.selectedProvince.details.innerText = `Các nơi có nguy cơ bị hạn hán: ${pathElement.getAttribute(
+      "data-districts"
+    )}`;
+    summaryElements.prediction.averageSPI.innerText = `Chỉ số SPI trung bình: ${(
+      (Math.random() - 0.5) *
+      2
+    ).toFixed(3)}`;
+    summaryElements.prediction.averageNDVI.innerText = `Chỉ số NDVI trung bình: ${(
+      (Math.random() - 0.5) * 0.3 +
+      0.4
+    ).toFixed(3)}`;
   }, 1500);
 };
