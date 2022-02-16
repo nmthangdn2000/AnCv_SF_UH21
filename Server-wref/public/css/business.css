@@ -1,8 +1,8 @@
 #header {
   padding-top: 100px;
   min-height: calc(100vh);
-  padding-bottom: 50px;
-  background: url('../images/field2.jpg');
+
+  background: url("../images/field2.jpg");
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
