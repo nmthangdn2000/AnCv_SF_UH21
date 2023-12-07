@@ -16,11 +16,11 @@
     Provide the best services to Vietnamese farmers and pesticide shops
     <br />
     <br />
-    <a href="https://youtu.be/7YpXA9Xg_f8">View Demo</a>
+    <a href="https://youtu.be/vw2ss6cOiks?si=O1uu-kSYrRfj-HLZ">Prototype</a>
     ·
-    <a href="#">Report Bug</a>
+    <a href="https://youtu.be/-JLQVLH6RT8?si=sjMtexLeXO-LIyKA">MVP Product</a>
     ·
-    <a href="#">Request Feature</a>
+    <a href="https://github.com/nmthangdn2000/AnCv_SF_UH21/issues">Report Bug</a>
   </p>
 </p>
 
